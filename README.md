@@ -1,7 +1,7 @@
 
 In April 2010 I obtained my PhD at [PUC-Rio](http://www.puc-rio.br).
 My advisor was [Edward Hermann
-Haeusler](http://www.tecmf.inf.puc-rio.br/~hermann/). My research
+Haeusler](http://www.inf.puc-rio.br/~hermann/). My research
 areas are [Description Logics](http://dl.kr.org/) and [Proof
 Theory](http://en.wikipedia.org/wiki/Proof_theory). Currently, I am a
 professor at [Applied Math School at Getulio Vargas Foundation](http://emap.fgv.br).
