@@ -8,6 +8,34 @@
 <h1>Alexandre Rademaker</h1>
 
 
+<h2><a href="/2011/09/13/checking-issn-lisp.html">Verifying check digit of ISSN</a></h2>
+<p>The code below is my first approach to create a lisp function that test the ISSN <a href='http://en.wikipedia.org/wiki/Check_digit'>check digit</a>. Unfortunately, the code runs ony in Allegro Graph due the requirement of regexp2 library. Since the regexp2 library is easly replaced by an opensource regexp library, this is not a real constraint.</p>
+<div class='highlight'><pre><code class='cl'><span class='lineno'> 1</span> <span class='p'>(</span><span class='nb'>require</span> <span class='ss'>:regexp2</span><span class='p'>)</span>
+<span class='lineno'> 2</span> 
+<span class='lineno'> 3</span> <span class='p'>(</span><span class='nb'>defpackage</span> <span class='ss'>:utils</span> 
+<span class='lineno'> 4</span>   <span class='p'>(</span><span class='ss'>:use</span> <span class='ss'>:common-lisp</span> <span class='ss'>:vas-string-metrics</span><span class='p'>))</span>
+<span class='lineno'> 5</span> 
+<span class='lineno'> 6</span> <span class='p'>(</span><span class='nb'>in-package</span> <span class='ss'>:utils</span><span class='p'>)</span>
+<span class='lineno'> 7</span> 
+<span class='lineno'> 8</span> <span class='p'>(</span><span class='nb'>defun</span> <span class='nv'>check-issn</span> <span class='p'>(</span><span class='nv'>s</span><span class='p'>)</span>
+<span class='lineno'> 9</span>   <span class='p'>(</span><span class='k'>let*</span> <span class='p'>((</span><span class='nv'>sclean</span> <span class='p'>(</span><span class='nv'>regexp:replace-re</span> <span class='p'>(</span><span class='nb'>string-upcase</span> <span class='nv'>s</span><span class='p'>)</span> <span class='s'>&quot;[^0-9X]&quot;</span> <span class='s'>&quot;&quot;</span><span class='p'>))</span>
+<span class='lineno'>10</span> 	 <span class='p'>(</span><span class='nv'>digits</span> <span class='p'>(</span><span class='nb'>loop</span> <span class='nv'>for</span> <span class='nb'>char</span> <span class='nv'>across</span> <span class='nv'>sclean</span>
+<span class='lineno'>11</span> 		       <span class='nv'>collect</span> <span class='p'>(</span><span class='k'>if</span> <span class='p'>(</span><span class='nb'>equal</span> <span class='p'>(</span><span class='nb'>string</span> <span class='nb'>char</span><span class='p'>)</span> <span class='s'>&quot;X&quot;</span><span class='p'>)</span> <span class='mi'>10</span> <span class='p'>(</span><span class='nb'>parse-integer</span> <span class='p'>(</span><span class='nb'>string</span> <span class='nb'>char</span><span class='p'>)))))</span>
+<span class='lineno'>12</span> 	 <span class='p'>(</span><span class='nv'>pos10</span> <span class='p'>(</span><span class='nb'>position</span> <span class='mi'>10</span> <span class='nv'>digits</span><span class='p'>)))</span>
+<span class='lineno'>13</span>     <span class='p'>(</span><span class='k'>if</span> <span class='p'>(</span><span class='nb'>or</span> <span class='p'>(</span><span class='nb'>not</span> <span class='p'>(</span><span class='nb'>equal</span> <span class='p'>(</span><span class='nb'>length</span> <span class='nv'>digits</span><span class='p'>)</span> <span class='mi'>8</span><span class='p'>))</span> <span class='p'>(</span><span class='nb'>and</span> <span class='p'>(</span><span class='nb'>not</span> <span class='p'>(</span><span class='nb'>null</span> <span class='nv'>pos10</span><span class='p'>))</span> <span class='p'>(</span><span class='nb'>&lt;</span> <span class='nv'>pos10</span> <span class='mi'>7</span><span class='p'>)))</span>
+<span class='lineno'>14</span> 	<span class='no'>nil</span>
+<span class='lineno'>15</span> 	<span class='p'>(</span><span class='k'>let</span> <span class='p'>((</span><span class='nv'>dv</span> <span class='p'>(</span><span class='nb'>-</span> <span class='mi'>11</span> <span class='p'>(</span><span class='nb'>mod</span> <span class='p'>(</span><span class='nb'>apply</span> <span class='nf'>#&#39;</span><span class='nb'>+</span> 
+<span class='lineno'>16</span> 				    <span class='p'>(</span><span class='nb'>loop</span> <span class='nv'>for</span> <span class='nv'>i</span> <span class='nv'>from</span> <span class='mi'>8</span> <span class='nv'>downto</span> <span class='mi'>2</span> 
+<span class='lineno'>17</span> 					  <span class='nv'>for</span> <span class='nv'>j</span> <span class='nv'>in</span> <span class='nv'>digits</span> 
+<span class='lineno'>18</span> 					  <span class='nv'>collect</span> <span class='p'>(</span><span class='nb'>*</span> <span class='nv'>j</span> <span class='nv'>i</span><span class='p'>)))</span> <span class='mi'>11</span><span class='p'>))))</span>
+<span class='lineno'>19</span> 	  <span class='p'>(</span><span class='nb'>equal</span> <span class='nv'>dv</span> <span class='p'>(</span><span class='nb'>nth</span> <span class='mi'>7</span> <span class='nv'>digits</span><span class='p'>))))))</span>
+</code></pre>
+</div>
+<p>That is it! Comments are wellcome!</p>
+
+<hl/>
+<em>Posted on 13 September 2011.</em>
+
 <h2><a href="/2011/09/11/about-me.html">About Me</a></h2>
 <p>In April 2010 I obtained my PhD at <a href='http://www.puc-rio.br'>PUC-Rio</a>. My advisor was <a href='http://www.inf.puc-rio.br/~hermann/'>Edward Hermann Haeusler</a>. My research areas are <a href='http://dl.kr.org/'>Description Logics</a> and <a href='http://en.wikipedia.org/wiki/Proof_theory'>Proof Theory</a>. Currently, I am a professor at <a href='http://emap.fgv.br'>Applied Math School at Getulio Vargas Foundation</a>.</p>
 
