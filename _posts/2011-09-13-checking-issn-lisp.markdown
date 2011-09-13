@@ -32,5 +32,5 @@ regexp library, this is not a real constraint.
 	  (equal dv (nth 7 digits))))))
 {% endhighlight %}
 
-That is it! Comments are wellcome!
+That is it! Comments are welcome!
 
