@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Barras e Linhas no R</title>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<LINK href="/highlight.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.gist{
+  margin: 15px 0 !important;
+  font-size: 12px;
+}
+
+.gist-file{
+  border: none !important;
+}
+
+.gist-meta{
+  border: 1px solid #D2d2d2 !important;
+  padding: 12px !important;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+
+}
+
+.gist-data{
+  padding: 15px !important;
+  border: 1px solid #D2d2d2 !important;
+  border-bottom: none !important;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;
+  -moz-border-radius-topright: 10px;
+  -webkit-border-top-right-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+<h1>Barras e Linhas no R</h1>
+
+<p>Ontem um aluno me perguntou como produzir um gr&#225;fico de barras com linhas. Minha primeira id&#233;ia foi recorrer a pacotes como <a href='http://cran.r-project.org/web/packages/lattice/'>Lattice</a> ou <a href='http://had.co.nz/ggplot2/'>ggplot2</a>, imaginando tratar-se de um gr&#225;fico pouco usual. Depois de um pouco de pesquisa, acabei descobrindo que o gr&#225;fico em quest&#227;o n&#227;o &#233; t&#227;o usual assim e pode ser facilmente produzido com os comandos b&#225;sicos de gr&#225;ficos do R. Vamos l&#225;.</p>
+
+<p>Digamos que seus dados sejam uma data.frame composto por duas vari&#225;veis.</p>
+<div class='highlight'><pre><code class='r'>dados <span class='o'>&lt;-</span> data.frame<span class='p'>(</span>a <span class='o'>=</span> sample<span class='p'>(</span><span class='m'>1</span>:<span class='m'>100</span><span class='p'>,</span><span class='m'>10</span><span class='p'>),</span> b <span class='o'>=</span> sample<span class='p'>(</span><span class='m'>1</span>:<span class='m'>100</span><span class='p'>,</span><span class='m'>10</span><span class='p'>))</span>
+</code></pre>
+</div>
+<p>O que desejamos &#233; representar no gr&#225;fico os valores da vari&#225;vel &#8220;a&#8221; como barras e os valores da vari&#225;vel &#8220;b&#8221; como pontos conectados por linhas. O comando abaixo produzir o gr&#225;fico de barras e retorna um vetor com as coordenadas &#8220;x&#8221; dos meios das barras produzidas.</p>
+<div class='highlight'><pre><code class='r'>a <span class='o'>&lt;-</span> barplot<span class='p'>(</span>dados<span class='p'>$</span>a<span class='p'>,</span> ylim <span class='o'>=</span> c<span class='p'>(</span><span class='m'>0</span><span class='p'>,</span><span class='m'>100</span><span class='p'>))</span>
+</code></pre>
+</div>
+<p>Agora &#233; f&#225;cil criar os pontos e linhas:</p>
+<div class='highlight'><pre><code class='r'>points<span class='p'>(</span>a<span class='p'>,</span> dados<span class='p'>$</span>b<span class='p'>,</span> ylim<span class='o'>=</span> c<span class='p'>(</span><span class='m'>0</span><span class='p'>,</span><span class='m'>100</span><span class='p'>))</span>
+lines<span class='p'>(</span>a<span class='p'>,</span> dados<span class='p'>$</span>b<span class='p'>,</span> ylim<span class='o'>=</span> c<span class='p'>(</span><span class='m'>0</span><span class='p'>,</span><span class='m'>100</span><span class='p'>))</span>
+</code></pre>
+</div>
+<p>Image que seus dados s&#227;o temporais, onde cada observa&#231;&#227;o est&#225; relacionada a uma ano. Pode-se incluir os anos como r&#243;tulos do eixo &#8220;x&#8221; com o comando:</p>
+<div class='highlight'><pre><code class='r'>axis<span class='p'>(</span><span class='m'>1</span><span class='p'>,</span> at <span class='o'>=</span> a<span class='p'>,</span> labels <span class='o'>=</span> <span class='m'>2000</span>:<span class='m'>2009</span><span class='p'>)</span>
+</code></pre>
+</div>
+<p><img src='/images/2010-11-18-fig.png' alt='bar-and-line' /></p>
+</body>
+</html>

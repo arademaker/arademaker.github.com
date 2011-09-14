@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Alexandre Rademaker</title>
+<title>Construindo tabelas verdade no R</title>
 <script type="text/javascript"
   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
@@ -39,40 +39,8 @@
 </head>
 
 <body>
-<h1>Alexandre Rademaker</h1>
+<h1>Construindo tabelas verdade no R</h1>
 
-
-<h2><a href="/2011/09/13/checking-issn-lisp.html">Verifying check digit of ISSN</a></h2>
-<p>The code below is my first approach to create a lisp function that test the ISSN <a href='http://en.wikipedia.org/wiki/Check_digit'>check digit</a>. Unfortunately, the code runs only in Allegro CL due the requirement of regexp2 library. Since the regexp2 library is easly replaced by an opensource regexp library, this is not a real constraint.</p>
-<script src='https://gist.github.com/1215526.js'> </script>
-<p>That is it! Comments are welcome!</p>
-
-<hl/>
-<em>Posted on 13 September 2011.</em>
-
-<h2><a href="/2011/09/11/about-me.html">About Me</a></h2>
-<p>In April 2010 I obtained my PhD at <a href='http://www.puc-rio.br'>PUC-Rio</a>. My advisor was <a href='http://www.inf.puc-rio.br/~hermann/'>Edward Hermann Haeusler</a>. My research areas are <a href='http://dl.kr.org/'>Description Logics</a> and <a href='http://en.wikipedia.org/wiki/Proof_theory'>Proof Theory</a>. Currently, I am a professor at <a href='http://emap.fgv.br'>Applied Math School at Getulio Vargas Foundation</a>.</p>
-
-<p>During my PhD I had two outstanding experiences as International fellow at <a href='http://research.microsoft.com/en-us/um/redmond/projects/z3/people.html'>MS Research</a>, between April and July of 2008 and at <a href='http://www.sri.com/'>SRI International</a>, between February and July of 2009.</p>
-
-<p>This page currently has only links to other sites and social networks here I have accounts like:</p>
-
-<ul>
-<li><a href='http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/r/Rademaker:Alexandre.html'>Publications at DBLP</a></li>
-
-<li><a href='http://lattes.cnpq.br/0675365413696898'>Curriculum Lattes (Portuguese)</a></li>
-
-<li><a href='http://github.com/arademaker'>http://github.com/arademaker</a></li>
-
-<li><a href='http://arademaker.posterous.com/'>http://arademaker.posterous.com/</a></li>
-</ul>
-
-<p>I do like to take pictures! It is my hobby. I will post some of them soon.</p>
-
-<hl/>
-<em>Posted on 11 September 2011.</em>
-
-<h2><a href="/2011/03/02/tabela-verdade-no-R.html">Construindo tabelas verdade no R</a></h2>
 <p>Durante a prepara&#231;&#227;o de alguns exerc&#237;cios de l&#243;gica, me deparei com a necessidade de construir tabelas verdade. Lembrando do pacote xtable do R, pensei como seria construir uma tabela verdade usando o R. Minha solu&#231;&#227;o em R est&#225; no github, gist abaixo, com o exemplo de como seria a tabela da express&#227;o</p>
 
 <p>$$\neg (a \lor b) \lor c$$</p>
@@ -121,35 +89,5 @@ FALSE <span class='nb'>&amp;</span> FALSE <span class='nb'>&amp;</span> FALSE <s
 <span class='k'>\end</span><span class='nb'>{</span>table<span class='nb'>}</span>
 </code></pre>
 </div>
-
-<hl/>
-<em>Posted on 02 March 2011.</em>
-
-<h2><a href="/2010/11/18/barras-e-linhas.html">Barras e Linhas no R</a></h2>
-<p>Ontem um aluno me perguntou como produzir um gr&#225;fico de barras com linhas. Minha primeira id&#233;ia foi recorrer a pacotes como <a href='http://cran.r-project.org/web/packages/lattice/'>Lattice</a> ou <a href='http://had.co.nz/ggplot2/'>ggplot2</a>, imaginando tratar-se de um gr&#225;fico pouco usual. Depois de um pouco de pesquisa, acabei descobrindo que o gr&#225;fico em quest&#227;o n&#227;o &#233; t&#227;o usual assim e pode ser facilmente produzido com os comandos b&#225;sicos de gr&#225;ficos do R. Vamos l&#225;.</p>
-
-<p>Digamos que seus dados sejam uma data.frame composto por duas vari&#225;veis.</p>
-<div class='highlight'><pre><code class='r'>dados <span class='o'>&lt;-</span> data.frame<span class='p'>(</span>a <span class='o'>=</span> sample<span class='p'>(</span><span class='m'>1</span>:<span class='m'>100</span><span class='p'>,</span><span class='m'>10</span><span class='p'>),</span> b <span class='o'>=</span> sample<span class='p'>(</span><span class='m'>1</span>:<span class='m'>100</span><span class='p'>,</span><span class='m'>10</span><span class='p'>))</span>
-</code></pre>
-</div>
-<p>O que desejamos &#233; representar no gr&#225;fico os valores da vari&#225;vel &#8220;a&#8221; como barras e os valores da vari&#225;vel &#8220;b&#8221; como pontos conectados por linhas. O comando abaixo produzir o gr&#225;fico de barras e retorna um vetor com as coordenadas &#8220;x&#8221; dos meios das barras produzidas.</p>
-<div class='highlight'><pre><code class='r'>a <span class='o'>&lt;-</span> barplot<span class='p'>(</span>dados<span class='p'>$</span>a<span class='p'>,</span> ylim <span class='o'>=</span> c<span class='p'>(</span><span class='m'>0</span><span class='p'>,</span><span class='m'>100</span><span class='p'>))</span>
-</code></pre>
-</div>
-<p>Agora &#233; f&#225;cil criar os pontos e linhas:</p>
-<div class='highlight'><pre><code class='r'>points<span class='p'>(</span>a<span class='p'>,</span> dados<span class='p'>$</span>b<span class='p'>,</span> ylim<span class='o'>=</span> c<span class='p'>(</span><span class='m'>0</span><span class='p'>,</span><span class='m'>100</span><span class='p'>))</span>
-lines<span class='p'>(</span>a<span class='p'>,</span> dados<span class='p'>$</span>b<span class='p'>,</span> ylim<span class='o'>=</span> c<span class='p'>(</span><span class='m'>0</span><span class='p'>,</span><span class='m'>100</span><span class='p'>))</span>
-</code></pre>
-</div>
-<p>Image que seus dados s&#227;o temporais, onde cada observa&#231;&#227;o est&#225; relacionada a uma ano. Pode-se incluir os anos como r&#243;tulos do eixo &#8220;x&#8221; com o comando:</p>
-<div class='highlight'><pre><code class='r'>axis<span class='p'>(</span><span class='m'>1</span><span class='p'>,</span> at <span class='o'>=</span> a<span class='p'>,</span> labels <span class='o'>=</span> <span class='m'>2000</span>:<span class='m'>2009</span><span class='p'>)</span>
-</code></pre>
-</div>
-<p><img src='/images/2010-11-18-fig.png' alt='bar-and-line' /></p>
-
-<hl/>
-<em>Posted on 18 November 2010.</em>
-
-
 </body>
 </html>
