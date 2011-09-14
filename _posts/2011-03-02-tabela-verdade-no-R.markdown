@@ -19,7 +19,7 @@ bastante bizarra, certamente um bug do pacote xtable. Editei a
 sa&iacute;da mantendo apenas o in&iacute;cio da tabela gerada e
 inclu&iacute;ndo "..." no final.
 
-{% highlight R %}
+{% highlight r %}
 xtable(tt)
 {% endhighlight %}
 
