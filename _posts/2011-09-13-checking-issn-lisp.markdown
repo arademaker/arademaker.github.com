@@ -12,6 +12,5 @@ regexp library, this is not a real constraint.
 
 <script src="https://gist.github.com/1215526.js"> </script>
 
-
 That is it! Comments are welcome!
 
