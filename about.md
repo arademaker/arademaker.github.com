@@ -1,3 +1,10 @@
+---
+layout: default
+title: About Me
+---
+
+{{ page.title }}
+================
 
 In April 2010 I obtained my PhD at [PUC-Rio](http://www.puc-rio.br).
 My advisor was [Edward Hermann
@@ -18,11 +25,7 @@ here I have accounts like:
 
  - [Publications at DBLP](http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/r/Rademaker:Alexandre.html)
  - [Curriculum Lattes (Portuguese)](http://lattes.cnpq.br/0675365413696898)
- - [http://github.com/arademaker](http://github.com/arademaker)
- - [http://arademaker.posterous.com/](http://arademaker.posterous.com/)
 
 I do like to take pictures! It is my hobby. I will post some of them
 soon. 
-
-
 
