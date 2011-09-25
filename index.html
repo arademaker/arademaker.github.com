@@ -3,10 +3,20 @@ layout: default
 title: Alexandre Rademaker
 ---
 
-{% for post in site.posts limit:5 %}
-<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-{{ post.content }}
+<div id="home">
+  <h1>Blog Posts</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
 
-<hl/>
-<em>Posted on {{ post.date | date_to_long_string }}.</em>
-{% endfor %}
+
+  <h1>Open Source Projects</h1>
+  <ul class="posts">
+    <li><a href="http://github.com/arademaker/SLattes/">SLattes</a>: Brazilian Lattes XML format to RDF</li>
+    <li><a href="http://github.com/arademaker/qualis/">QUALIS</a>: Qualis DATABASE in RDF.</li>
+    <li><a href="http://github.com/arademaker/dicionariosIBGE/">dicionariosIBGE</a>: R package with IBGE surveys metadata.</li>
+  </ul>
+</div>
+
