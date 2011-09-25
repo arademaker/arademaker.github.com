@@ -1,7 +1,10 @@
 ---
-layout: default
+layout: post
 title: Construindo tabelas verdade no R
 ---
+
+{{ page.title }}
+================
 
 Durante a prepara&ccedil;&atilde;o de alguns exerc&iacute;cios de
 l&oacute;gica, me deparei com a necessidade de construir tabelas

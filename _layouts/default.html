@@ -1,46 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
 <head>
-<title>{{ page.title }}</title>
-<script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<LINK href="/highlight.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-.gist{
-  margin: 15px 0 !important;
-  font-size: 12px;
-}
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ <title>{{ page.title }}</title>
+ <meta name="author" content="Alexandre Rademaker" />
+ <link href="http://feeds.feedburner.com/tom-preston-werner" rel="alternate" title="Tom Preston-Werner" type="application/atom+xml" />
+ 
+ <!-- syntax highlighting CSS -->
+ <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
 
-.gist-file{
-  border: none !important;
-}
+ <!-- <link href="/css/highlight.css" rel="stylesheet"
+ type="text/css"> -->
+ <link href="/css/gists.css" rel="stylesheet" type="text/css"/>
 
-.gist-meta{
-  border: 1px solid #D2d2d2 !important;
-  padding: 12px !important;
-  -moz-border-radius-bottomleft: 10px;
-  -webkit-border-bottom-left-radius: 10px;
-  -moz-border-radius-bottomright: 10px;
-  -webkit-border-bottom-right-radius: 10px;
+ <!-- Homepage CSS -->
+ <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
 
-}
-
-.gist-data{
-  padding: 15px !important;
-  border: 1px solid #D2d2d2 !important;
-  border-bottom: none !important;
-  -moz-border-radius-topleft: 10px;
-  -webkit-border-top-left-radius: 10px;
-  -moz-border-radius-topright: 10px;
-  -webkit-border-top-right-radius: 10px;
-}
-</style>
+ <!-- Typekit -->
+ <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+ <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+ <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 
 <body>
-<h1>{{ page.title }}</h1>
 
-{{ content }}
+<!-- ClickTale Top part -->
+<script type="text/javascript">
+var WRInitTime=(new Date()).getTime();
+</script>
+<!-- ClickTale end of Top part -->
+
+<div class="site">
+  <div class="title">
+    <a href="/">Alexandre Rademaker</a>
+    <a class="extra" href="/">home</a>
+    <a class="extra" href="/about.html">about me</a>
+  </div>
+
+  {{ content }}
+
+  <div class="footer">
+    <div class="contact">
+      <p>
+        Alexandre Rademaker<br />
+        Professor at <a href="http://emap.fgv.br/">EMAp/FGV</a><br />
+        arademaker AT gmail DOT com
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="http://github.com/arademaker/">github.com/arademaker</a><br />
+        <a href="http://twitter.com/arademaker/">twitter.com/arademaker</a><br />
+        <a href="http://facebook.com/alexandre.rademaker">Facebook</a>
+      </p>
+    </div>
+    <div class="rss">
+      <a href="http://feeds.feedburner.com/arademaker">
+        <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<a href="http://github.com/arademaker"><img style="position: absolute;
+						   top: 0; right: 0;
+						   border: 0;"
+					    src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"
+					    alt="Fork me on GitHub"
+					    /></a>
+
+<!-- ClickTale Bottom part -->
+<div id="ClickTaleDiv" style="display: none;"></div>
+<script type="text/javascript">
+if(document.location.protocol!='https:')
+  document.write(unescape("%3Cscript%20src='http://s.clicktale.net/WRb.js'%20type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+if(typeof ClickTale=='function') ClickTale(206,0.3,"www03");
+</script>
+<!-- ClickTale end of Bottom part -->
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6016902-1");
+pageTracker._trackPageview();
+</script>
+<!-- Google Analytics end -->
+
 </body>
 </html>
+
+
+

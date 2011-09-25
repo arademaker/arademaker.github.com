@@ -1,7 +1,10 @@
 ---
-layout: default
+layout: post
 title: Barras e Linhas no R
 ---
+
+{{ page.title }}
+================
 
 Ontem um aluno me perguntou como produzir um gr&aacute;fico de barras
 com linhas. Minha primeira id&eacute;ia foi recorrer a pacotes como
