@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Verifying check digit of ISSN
+category: lisp
 ---
 
 The code below is my first approach to create a lisp function that
