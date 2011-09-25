@@ -1,12 +1,7 @@
 ---
-<<<<<<< HEAD
-layout: default
-title: Verifying check digit of ISSN
-category: lisp
-=======
 layout: post
 title: Verifying the ISSN's check digit in Common Lisp
->>>>>>> test
+category: lisp
 ---
 
 {{ page.title }}
