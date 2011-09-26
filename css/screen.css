@@ -1,7 +1,5 @@
 /*****************************************************************************/
-/*
 /* Common
-/*
 /*****************************************************************************/
 
 /* Global Reset */
@@ -17,8 +15,9 @@ html, body {
 
 body {
   background-color: white;
-  font: 13.34px helvetica, arial, clean, sans-serif;
-  *font-size: small;
+  font-family: 'Inconsolata', sans-serif;
+  /*font: 13.34px helvetica, arial, clean, sans-serif; */
+  /*font-size: small; */
   text-align: center;
 }
 
@@ -52,30 +51,27 @@ table {
 }
 
 /*****************************************************************************/
-/*
 /* Home
-/*
 /*****************************************************************************/
 
 ul.posts {
-  list-style-type: none;
-  margin-bottom: 2em;
+    list-style-type: none;
+    margin-bottom: 2em;
 }
 
-  ul.posts li {
+ul.posts li {
     line-height: 1.75em;
-  }
+}
 
-  ul.posts span {
+ul.posts span {
     color: #aaa;
-    font-family: Monaco, "Courier New", monospace;
+    font-family: 'Inconsolata', sans-serif;
+    /* font-family: Monaco, "Courier New", monospace; */
     font-size: 80%;
-  }
+}
 
 /*****************************************************************************/
-/*
 /* Site
-/*
 /*****************************************************************************/
 
 .site {
