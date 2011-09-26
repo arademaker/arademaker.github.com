@@ -1,9 +1,7 @@
 
 h1. This is the data for my blog
 
-It is automatically transformed by
-"Jekyll":http://github.com/mojombo/jekyll into a static site whenever
-I push this repository to GitHub.
+It is automatically transformed by "Jekyll":http://github.com/mojombo/jekyll into a static site whenever I push this repository to GitHub.
 
 My site is inspired by Tom Preston-Werner's website. Actually, I have
 forked his site and insert my content. My options to move my website
