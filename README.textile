@@ -24,4 +24,7 @@ The following content and widgets are still waiting to be added in my website.
 * Delicious 
 * Amazon whish list
 * Mendeley profile
+* Publications
+
+
 
