@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Barras e Linhas no R
+tag: R
 ---
 
 {{ page.title }}

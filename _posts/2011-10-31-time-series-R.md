@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Gráficos de séries temporais no R
+tag: R
 ---
 
 # {{ page.title }}
@@ -31,7 +32,14 @@ ou uma série temporal multivariável.
 Se usarmos o comando padrão de plot do pacote basic do R, temos o
 seguinte plot.
 
+    > plot(ts)
+
 ![plot-basic](/images/2011-10-31-plot-basic.png "plot basic")
+
+Obviamente, neste e nos próximos exemplos, estou mostrando o uso mais
+básico das funções, sem me preocupar com nenhum ajuste de formatação,
+legenda, rótulos, cores etc.
+
 
 ## No pacote lattice
 
@@ -59,7 +67,7 @@ bastante a encontrar referências via google. As mais relevantes que
 encontrei foram:
 
 - [scale_date](http://had.co.nz/ggplot2/scale_date.html)
-- [ggplot2: Two Time Series With ](http://learnr.wordpress.com/2009/05/05/ggplot2-two-time-series-with-different-dates/)
+- [ggplot2: two time series with different dates](http://learnr.wordpress.com/2009/05/05/ggplot2-two-time-series-with-different-dates/)
 - [Using ggplot, how to have the x-axis of time series plots set up automatically?](http://goo.gl/Kr5wP)
   
 O último link é a dica de como transformar um objeto `ts` em um
