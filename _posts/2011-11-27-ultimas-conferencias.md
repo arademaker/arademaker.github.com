@@ -47,7 +47,7 @@ minuto foi bem divertida embora apenas alguns apresentadores tenham
 entendido o espírito da coisa! Das apresentações dos convidados, o que
 mais fez sucesso foi Frank van Harmelen com o título
 [10 Years of Semantic Web: does it work in theory?](http://www.cs.vu.nl/~frankh/spool/ISWC2011Keynote/).
-Para mim, sendo minha área de pesquisa é exatamente lógicas e em
+Para mim, sendo minha área de pesquisa exatamente lógicas e, em
 particular, nos últimos anos, lógicas de descritivas, ter uma
 apresentação sugerindo que a comunidade de web semântica deve voltar a
 atenção para os fundamentos teóricos da área, é bastante motivador.
