@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Verifying the ISSN's check digit in Common Lisp
-tag: lisp
+tags: 
+ - lisp
+ - blog
 ---
 
 {{ page.title }}

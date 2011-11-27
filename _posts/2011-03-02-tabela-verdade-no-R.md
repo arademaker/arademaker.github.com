@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Construindo tabelas verdade no R
-tag: R
+tags: 
+ - R
+ - blog
 ---
 
 {{ page.title }}

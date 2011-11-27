@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Gráficos de séries temporais no R
-tag: R
+tags: 
+ - R
+ - blog
 ---
 
 # {{ page.title }}

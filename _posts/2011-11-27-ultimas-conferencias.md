@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Comentários sobre ECLM 2011 e ISWC 2011 (1/2)
-tag: report
+tags: 
+ - report
+ - blog
 ---
 
 {{ page.title }}
