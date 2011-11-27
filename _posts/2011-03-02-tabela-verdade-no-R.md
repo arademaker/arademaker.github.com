@@ -7,21 +7,19 @@ tag: R
 {{ page.title }}
 ================
 
-Durante a prepara&ccedil;&atilde;o de alguns exerc&iacute;cios de
-l&oacute;gica, me deparei com a necessidade de construir tabelas
-verdade. Lembrando do pacote xtable do R, pensei como seria construir
-uma tabela verdade usando o R. Minha solu&ccedil;&atilde;o em R
-est&aacute; no github, gist abaixo, com o exemplo de como seria a
-tabela da express&atilde;o
+Durante a preparação de alguns exercícios de lógica, me deparei com a
+necessidade de construir tabelas verdade. Lembrando do pacote xtable
+do R, pensei como seria construir uma tabela verdade usando o R. Minha
+solução em R está no github, gist abaixo, com o exemplo de como seria
+a tabela da expressão
 
 $$\neg (a \lor b) \lor c$$
 
 <script src="https://gist.github.com/852194.js"> </script>
 
-Observem que a sa&iacute;da do primeiro comando xtable &eacute;
-bastante bizarra, certamente um bug do pacote xtable. Editei a
-sa&iacute;da mantendo apenas o in&iacute;cio da tabela gerada e
-inclu&iacute;ndo "..." no final.
+Observem que a saída do primeiro comando xtable é bastante bizarra,
+certamente um bug do pacote xtable. Editei a saída mantendo apenas o
+início da tabela gerada e incluíndo "..." no final.
 
 {% highlight r %}
 xtable(tt)
@@ -48,11 +46,10 @@ xtable(tt)
 \end{table}
 {% endhighlight %}
 
-Para fazer com que cada c&eacute;lula da tabela tivesse apenas o valor
-l&oacute;gico correspondente, n&atilde;o um vetor, converti o
-data.frame em caracteres antes de usar o xtable. Minha
-solu&ccedil;&atilde;o original convertia em n&uacute;meros, Bruno
-Lopes me lembrou de converter em caracteres diretamente.
+Para fazer com que cada célula da tabela tivesse apenas o valor lógico
+correspondente, não um vetor, converti o data.frame em caracteres
+antes de usar o xtable. Minha solução original convertia em números,
+Bruno Lopes me lembrou de converter em caracteres diretamente.
 
 {% highlight latex %}
 \begin{table}[ht]
