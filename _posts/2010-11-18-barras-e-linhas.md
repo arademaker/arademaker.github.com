@@ -24,10 +24,10 @@ variáveis.
 dados <- data.frame(a = sample(1:100,10), b = sample(1:100,10))
 {% endhighlight %}
 
-O que desejamos é representar no gráfico os valores da variável "a"
-como barras e os valores da variável "b" como pontos conectados por
+O que desejamos é representar no gráfico os valores da variável `a`
+como barras e os valores da variável `b` como pontos conectados por
 linhas. O comando abaixo produzir o gráfico de barras e retorna um
-vetor com as coordenadas "x" dos meios das barras produzidas.
+vetor com as coordenadas `x` dos meios das barras produzidas.
 
 {% highlight r %}
 a <- barplot(dados$a, ylim = c(0,100))
