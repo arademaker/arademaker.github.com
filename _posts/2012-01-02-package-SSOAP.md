@@ -65,16 +65,16 @@ using the Omegahat repository version with the command:
 After that, I was prepared to actually test the package running the
 code that I created during the
 [course](https://github.com/arademaker/IR-2011/) (lesson 7 directory
-aula-07). But some changes in RCurl package requires a replacement of
-the argument `ssl.verifypeer = FALSE` by `.opts = list(ssl.verifypeer
-= FALSE)` in the call of the function
-`ff@functions$getValoresSeriesXML`. The last version of this script is now available as a gist here:
+aula-07). But some changes in RCurl package requires a change in how
+we ask for not verify the ssl certificate. That is, I had to replace
+the `ssl.verifypeer = FALSE` argument by a list of options in the call
+of the function `ff@functions$getValoresSeriesXML`. The last version
+of this script is now available as a gist here:
 
 <script src="https://gist.github.com/1550651.js"> </script>
 
+Note that the `ssl.verifypeer` argument is necessary because the
+certificate used in BCB website is invalid! What a shame!
 
-
-
-
-
+![BCB certificate](/images/2012-01-02-bcb-certificate.png)
 
