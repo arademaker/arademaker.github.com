@@ -19,9 +19,10 @@ Disponibilizei hoje online no github uma transformação do [Lattes](http://latt
 Eu acabei fazendo esta transformação por dois motivos. O primeiro para
 meu uso pessoal, eu já estava querendo faz muito tempo conseguir gerar
 um BibTex com minhas produções. O segundo foi como parte do projeto
-Lattes@FGV. A idéia é que uma transformação dos dados do Lattes para
-algum padrão de referências como o [XML/MODS da Biblioteca do Congresso](http://www.loc.gov/standards/mods/)
-Americano, me ajuda a validar os dados do Lattes.
+Semantic Lattes. A idéia é que uma transformação dos dados do Lattes
+para algum padrão de referências como o
+[XML/MODS da Library of Congress](http://www.loc.gov/standards/mods/),
+ajuda a validar os dados do Lattes.
 
 Intruções de como usar o transformador estão no README do repositório,
 mas como o texto lá está em inglês, segue a idéia geral. O que fiz foi
