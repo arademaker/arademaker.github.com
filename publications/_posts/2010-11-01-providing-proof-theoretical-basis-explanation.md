@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: publication
 title: Providing a Proof-Theoretical Basis for Explanation. A Case Study on UML and ALCQI Reasoning
 author:
  - Alexandre Rademaker

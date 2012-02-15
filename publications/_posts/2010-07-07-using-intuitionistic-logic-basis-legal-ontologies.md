@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: publication
 title: Using Intuitionistic Logic as a basis for Legal Ontologies
 author:
  - Alexandre Rademaker

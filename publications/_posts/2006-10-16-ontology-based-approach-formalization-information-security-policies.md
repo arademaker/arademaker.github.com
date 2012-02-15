@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: publication
 title: An Ontology-based Approach to the Formalization of Information Security Policies 
 author:
  - Alexandre Rademaker

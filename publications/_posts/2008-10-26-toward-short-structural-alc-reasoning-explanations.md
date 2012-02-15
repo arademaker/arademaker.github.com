@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: publication
 title: Toward Short and Structural ALC-Reasoning Explanations, A Sequent Calculus Approach
 author:
  - Alexandre Rademaker

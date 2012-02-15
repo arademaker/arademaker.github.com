@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: publication
 title: A Rewriting Semantics for a Software Architecture Description Language 
 author:
  - Alexandre Rademaker

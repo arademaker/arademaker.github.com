@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: publication
 title: Is it important to explain a theorem? A case study on UML and ALCQI
 author:
  - Alexandre Rademaker

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: publication
 title: A Formal Framework for Modeling Context-Aware Behavior in Ubiquitous Computing
 author:
  - Alexandre Rademaker

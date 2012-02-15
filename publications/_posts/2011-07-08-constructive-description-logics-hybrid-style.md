@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: publication
 title: Constructive Description Logics Hybrid-Style
 author:
  - Alexandre Rademaker

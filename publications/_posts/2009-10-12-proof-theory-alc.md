@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: publication
 title: On the Proof Theory of ALC
 author:
  - Alexandre Rademaker

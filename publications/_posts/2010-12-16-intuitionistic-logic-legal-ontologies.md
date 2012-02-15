@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: publication
 title: Intuitionistic Logic and Legal Ontologies
 author:
  - Alexandre Rademaker

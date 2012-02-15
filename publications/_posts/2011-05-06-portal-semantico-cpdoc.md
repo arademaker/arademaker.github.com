@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: publication
 title: Portal Semântico do CPDOC
 author:
  - Alexandre Rademaker

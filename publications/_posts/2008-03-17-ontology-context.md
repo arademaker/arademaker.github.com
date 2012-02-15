@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: publication
 title: Ontology and Context
 author:
  - Alexandre Rademaker

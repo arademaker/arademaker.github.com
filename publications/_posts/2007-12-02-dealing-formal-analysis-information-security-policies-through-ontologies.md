@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: publication
 title: Dealing with the Formal Analysis of Information Security Policies through Ontologies. A Case Study 
 author:
  - Alexandre Rademaker

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: publication
 title: Designing ubiquitous applications, proposal of a specification environment
 author:
  - Alexandre Rademaker
