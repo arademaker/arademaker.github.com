@@ -1,0 +1,16 @@
+---
+layout: default
+title: Alexandre Rademaker
+---
+
+<div id="home">
+
+  <h1>Publications</h1>
+  <ul class="posts">
+    {% for post in site.categories.publications %}
+      <li><span>{{ post.date | date: "%Y" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+
+</div>
+
