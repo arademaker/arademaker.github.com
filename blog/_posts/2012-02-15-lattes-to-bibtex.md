@@ -8,8 +8,7 @@ tags:
  - opensource
 ---
 
-{{ page.title }}
-================
+# {{ page.title }}
 
 Disponibilizei hoje online no github uma transformação do [Lattes](http://lattes.cnpq.br/) para
 [BibTeX](http://en.wikipedia.org/wiki/BibTeX), vejam o repositório:

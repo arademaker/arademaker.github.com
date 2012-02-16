@@ -73,6 +73,23 @@ ul.posts span {
 /* Site
 /*****************************************************************************/
 
+dl {
+    width:100%;
+    overflow:hidden;
+}
+
+dt {
+    float: left;
+    width: 8%; /* adjust the width; make sure the total of both is 100% */
+}
+
+dd {
+    float:left;
+    width: 92%; /* adjust the width; make sure the total of both is 100% */
+    margin: 0 0 1em 0;
+}
+
+
 .site {
     font-size: 110%;
     text-align: justify;
@@ -147,6 +164,11 @@ ul.posts span {
 }
 
 /* standard */
+
+div.bibsource pre {
+   font-size: 90%;
+   white-space: pre-wrap;
+}
 
 #post pre {
     border: 1px solid #ddd;
