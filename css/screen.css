@@ -93,7 +93,8 @@ dd {
 .site {
     font-size: 110%;
     text-align: justify;
-    width: 40em;
+    width: 50%;
+    float: left;
     margin: 3em auto 2em auto;
     line-height: 1.5em;
 }
@@ -132,6 +133,7 @@ dd {
     color: #666;
     border-top: 4px solid #eee;
     margin-top: 2em;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -210,3 +212,27 @@ div.bibsource pre {
 #related h2 {
     margin-bottom: 1em;
 }
+
+div#outer {
+    float: left;
+    width: 100%;
+}
+
+div#left {
+    width: 25%;
+    margin: 3em auto 2em auto;
+    float: left;
+}
+
+div#right {
+    width: 25%;
+    float: left;
+}
+
+div#top {
+  height: 20px;
+  float: left;
+  width: 100%;
+}
+
+
