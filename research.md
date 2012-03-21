@@ -20,8 +20,8 @@ Em todas as propostas abaixo, estou interessado tanto nos aspectos
 teóricos quanto práticos. Tenho especial interesse na implementação
 das soluções na forma de bibliotecas ou sistemas opensource. Dentre as
 linguagens de programação que conheço, tenho especial interesse em
-Lisp e seus dialetos. As razões para escolha de Lisp são várias,
-dentre elas:
+Lisp e seus dialetos e [R](http://www.r-project.org/). As razões para
+escolha de Lisp são várias, dentre elas:
 
 - Uma linguagem madura e bastante poderosa. Sugiro a leitura de
   [Beating the Averages](http://www.paulgraham.com/avg.html) e
@@ -198,6 +198,14 @@ Constituem possíveis temas de pesquisa:
 
 - Integrar o provador a um editor de ontologias como, por exemplo, o
   Protégé.
+
+
+## Outros Projetos 
+
+Outros possíveis projetos estão relacionados a diversas idéias de
+implementação de bibliotecas e pacotes para Lisp e R direta ou
+indiretamente relacionados aos temas acima. Na medida do possivel,
+tentarei futuramente enumerar cada uma das idéias que tenho.
 
   
 ## Comentários  
