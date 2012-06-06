@@ -144,17 +144,17 @@ caminho, isto é, as reescritas executadas.
 
     Maude> show path 16 .
     state 0, System: < 0,10 > < 4,4 > < 7,7 >
-    ===[ crl ... [label transfer1] . ]===>
+    ===[ crl ... [label transfer-1] . ]===>
     state 1, System: < 0,4 > < 4,10 > < 7,7 >
-    ===[ crl ... [label transfer2] . ]===>
+    ===[ crl ... [label transfer-2] . ]===>
     state 4, System: < 0,4 > < 1,7 > < 10,10 >
-    ===[ crl ... [label transfer2] . ]===>
+    ===[ crl ... [label transfer-2] . ]===>
     state 8, System: < 1,7 > < 4,4 > < 6,10 >
-    ===[ crl ... [label transfer1] . ]===>
+    ===[ crl ... [label transfer-1] . ]===>
     state 12, System: < 0,4 > < 5,7 > < 6,10 >
-    ===[ crl ... [label transfer2] . ]===>
+    ===[ crl ... [label transfer-2] . ]===>
     state 14, System: < 2,10 > < 4,4 > < 5,7 >
-    ===[ crl ... [label transfer2] . ]===>
+    ===[ crl ... [label transfer-2] . ]===>
     state 16, System: < 2,4 > < 2,10 > < 7,7 >
 
 O estado encontrado é onde o galão de 4 litros está com 2 litros, o
