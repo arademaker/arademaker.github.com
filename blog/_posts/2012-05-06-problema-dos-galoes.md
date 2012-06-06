@@ -18,9 +18,7 @@ realizar um tipo de operação com os galões: derramar todo o conteúdo
 de um galão em outro, parando apenas quando o galão sendo derramado
 ficar vazio ou o destino ficar cheio. Queremos saber se existe uma
 sequência de operações que termine com 2 litros no galão de 7 ou 4
-litros.
-
-E pedia:
+litros. Pede-se:
 
 - Modele o problema como um problema de grafo, descrevendo
   precisamente a definição do grafo envolvido e descrevendo a solução
@@ -110,10 +108,11 @@ aplicação). Para encontrarmos a solução, usamos:
 
     search initial =>* < 2 , X:Int > S:System such that X:Int < 10 .
 	
-Este comando acima efetua uma busca, a partir do estado inicial, por
-algum estado atingido com zero ou mais transições (aplicações de
-alguma das duas regras que definimos), por um estado onde exista algum
-galão com dois litros e cuja capacidade seja menor que 10.
+Este comando acima efetua uma busca (BFS, busca em largura), a partir
+do estado inicial, por algum estado atingido com zero ou mais
+transições (aplicações de alguma das duas regras que definimos), por
+um estado onde exista algum galão com dois litros e cuja capacidade
+seja menor que 10.
 
 A resposta do sistema são 4 possíveis soluções:
 
