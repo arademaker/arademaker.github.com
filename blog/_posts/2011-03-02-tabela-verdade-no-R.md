@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Construindo tabelas verdade no R
+latex: true
 tags: 
  - R
  - blog
