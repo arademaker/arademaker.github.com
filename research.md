@@ -10,6 +10,14 @@ automatic theorem provers etc), knowledge representation and
 reasoning, Semantic Web, programming languages (specially funcional
 programming) etc.
 
+More specifically I can enumerate the following areas that I would
+like to work with:
+
+- Ontology Alignment and Instance Matching: I would like to look again
+  to previous work with Edward Hermann and Isabel Cafezeiro maybe
+  applying to the WordNet-PT construction.
+    
+
 Below I present (in Portuguese) some proposal of thesis research that
 I would be interested in supervise.
 
