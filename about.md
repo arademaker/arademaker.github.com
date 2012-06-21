@@ -24,6 +24,7 @@ You can find more about me at:
  - [BibSonomy](http://www.bibsonomy.org/user/arademaker)
  - [Research Gate](http://www.researchgate.net/profile/Alexandre_Rademaker/)
  - [iamResearcher](http://www.iamresearcher.com/profiles/alexandre.rademaker/)
+ - [Academia](http://fgv.academia.edu/AlexandreRademaker)
  - [Curriculum Lattes (Portuguese)](http://lattes.cnpq.br/0675365413696898)
  - [Facebook](http://facebook.com/alexandre.rademaker)
  - [Twitter](http://twitter.com/arademaker)
