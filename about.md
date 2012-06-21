@@ -19,8 +19,12 @@ between April and July of 2008 and at [SRI International](http://www.sri.com/), 
 You can find more about me at:
 
  - [Publications at DBLP](http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/r/Rademaker:Alexandre.html)
+ - [Google Profile](http://scholar.google.com/citations?user=SWz6BjIAAAAJ)
+ - [Microsoft Academic](http://academic.research.microsoft.com/Author/2751793)
+ - [BibSonomy](http://www.bibsonomy.org/user/arademaker)
+ - [Research Gate](http://www.researchgate.net/profile/Alexandre_Rademaker/)
+ - [iamResearcher](http://www.iamresearcher.com/profiles/alexandre.rademaker/)
  - [Curriculum Lattes (Portuguese)](http://lattes.cnpq.br/0675365413696898)
  - [Facebook](http://facebook.com/alexandre.rademaker)
  - [Twitter](http://twitter.com/arademaker)
   
-
