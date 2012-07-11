@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ <title>Barras e Linhas no R</title>
+ <meta name="author" content="Alexandre Rademaker" />
+ <link href="http://feeds.feedburner.com/arademaker" rel="alternate" title="Alexandre Rademaker" type="application/atom+xml" />
+ 
+ <!-- syntax highlighting CSS -->
+ <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+ <!-- <link href="/css/highlight.css" rel="stylesheet" type="text/css"> -->
+ <link href="/css/gists.css" rel="stylesheet" type="text/css"/>
+
+ <!-- Homepage CSS -->
+ <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+ <!-- Typekit 
+ <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+ <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+ -->
+
+ <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-97240-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+  <div id="outer">
+
+    <div id="top"></div>
+
+    <div id="left">
+      <img src="/images/eu-sf.jpg"/>
+    </div>  
+
+    <div class="site">
+      <div class="title">
+	<a href="/">Alexandre Rademaker</a>
+	<a class="extra" href="/">home</a>
+	<a class="extra" href="/about.html">about me</a>
+	<a class="extra" href="/publications/index.html">publications</a>
+        <a class="extra" href="/research.html">research</a>
+      </div>
+      
+      <div id="post">
+<h1>Barras e Linhas no R</h1>
+
+<p>Ontem um aluno me perguntou como produzir um gráfico de barras com
+linhas. Minha primeira idéia foi recorrer a pacotes como
+<a href="http://cran.r-project.org/web/packages/lattice/">Lattice</a> ou
+<a href="http://had.co.nz/ggplot2/">ggplot2</a>, imaginando tratar-se de um
+gráfico pouco usual. Depois de um pouco de pesquisa, acabei
+descobrindo que o gráfico em questão não é tão usual assim e pode ser
+facilmente produzido com os comandos básicos de gráficos do R.</p>
+
+<p>Digamos que seus dados sejam uma data.frame composto por duas
+variáveis.</p>
+
+<div class="highlight"><pre><code class="r">dados <span class="o">&lt;-</span> data.frame<span class="p">(</span>a <span class="o">=</span> sample<span class="p">(</span><span class="m">1</span>:<span class="m">100</span><span class="p">,</span><span class="m">10</span><span class="p">),</span> b <span class="o">=</span> sample<span class="p">(</span><span class="m">1</span>:<span class="m">100</span><span class="p">,</span><span class="m">10</span><span class="p">))</span>
+</code></pre>
+</div>
+
+
+<p>O que desejamos é representar no gráfico os valores da variável <code>a</code>
+como barras e os valores da variável <code>b</code> como pontos conectados por
+linhas. O comando abaixo produzir o gráfico de barras e retorna um
+vetor com as coordenadas <code>x</code> dos meios das barras produzidas.</p>
+
+<div class="highlight"><pre><code class="r">a <span class="o">&lt;-</span> barplot<span class="p">(</span>dados<span class="p">$</span>a<span class="p">,</span> ylim <span class="o">=</span> c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">))</span>
+</code></pre>
+</div>
+
+
+<p>Agora é fácil criar os pontos e linhas:</p>
+
+<div class="highlight"><pre><code class="r">points<span class="p">(</span>a<span class="p">,</span> dados<span class="p">$</span>b<span class="p">,</span> ylim<span class="o">=</span> c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">))</span>
+lines<span class="p">(</span>a<span class="p">,</span> dados<span class="p">$</span>b<span class="p">,</span> ylim<span class="o">=</span> c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">))</span>
+</code></pre>
+</div>
+
+
+<p>Image que seus dados são temporais, onde cada observação está
+relacionada a uma ano. Pode-se incluir os anos como rótulos do eixo
+"x" com o comando:</p>
+
+<div class="highlight"><pre><code class="r">axis<span class="p">(</span><span class="m">1</span><span class="p">,</span> at <span class="o">=</span> a<span class="p">,</span> labels <span class="o">=</span> <span class="m">2000</span>:<span class="m">2009</span><span class="p">)</span>
+</code></pre>
+</div>
+
+
+<p><img src="/images/2010-11-18-fig.png" title="bar and line" alt="bar-and-line" /></p>
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>06 May 2012</span> &raquo; <a href="/blog/2012/05/06/problema-dos-galoes.html">O problema dos galões</a></li>
+    
+      <li><span>15 Feb 2012</span> &raquo; <a href="/blog/2012/02/15/lattes-to-bibtex.html">Lattes to BibTeX</a></li>
+    
+      <li><span>02 Jan 2012</span> &raquo; <a href="/blog/2012/01/02/package-SSOAP.html">R Package SSOAP</a></li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'arademaker'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+      <div class="footer">
+	<div class="contact">
+	  <p>
+            Alexandre Rademaker<br />
+            Professor at <a href="http://emap.fgv.br/">EMAp/FGV</a><br />
+            arademaker AT gmail DOT com
+	  </p>
+	</div>
+	<div class="contact">
+	  <p>
+        <a href="http://github.com/arademaker/">github.com/arademaker</a><br />
+        <a href="http://twitter.com/arademaker/">twitter.com/arademaker</a><br />
+        <a href="http://facebook.com/alexandre.rademaker">Facebook</a>
+	  </p>
+	</div>
+	<div class="rss">
+	  <a href="http://feeds.feedburner.com/arademaker">
+            <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
+	  </a>
+	</div>
+      </div>
+    </div>
+
+    <div id="right">
+    </div>
+  </div>
+</body>
+</html>
+

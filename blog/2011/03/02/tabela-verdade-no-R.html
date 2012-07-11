@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ <title>Construindo tabelas verdade no R</title>
+ <meta name="author" content="Alexandre Rademaker" />
+ <link href="http://feeds.feedburner.com/arademaker" rel="alternate" title="Alexandre Rademaker" type="application/atom+xml" />
+ 
+ <!-- syntax highlighting CSS -->
+ <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+ <!-- <link href="/css/highlight.css" rel="stylesheet" type="text/css"> -->
+ <link href="/css/gists.css" rel="stylesheet" type="text/css"/>
+
+ <!-- Homepage CSS -->
+ <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+ <!-- Typekit 
+ <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+ <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+ -->
+
+ <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+ 
+ <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-97240-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+  <div id="outer">
+
+    <div id="top"></div>
+
+    <div id="left">
+      <img src="/images/eu-sf.jpg"/>
+    </div>  
+
+    <div class="site">
+      <div class="title">
+	<a href="/">Alexandre Rademaker</a>
+	<a class="extra" href="/">home</a>
+	<a class="extra" href="/about.html">about me</a>
+	<a class="extra" href="/publications/index.html">publications</a>
+        <a class="extra" href="/research.html">research</a>
+      </div>
+      
+      <div id="post">
+<h1>Construindo tabelas verdade no R</h1>
+
+<p>Durante a preparação de alguns exercícios de lógica, me deparei com a
+necessidade de construir tabelas verdade. Lembrando do pacote xtable
+do R, pensei como seria construir uma tabela verdade usando o R. Minha
+solução em R está no github, gist abaixo, com o exemplo de como seria
+a tabela da expressão</p>
+
+<p>$$\neg (a \lor b) \lor c$$</p>
+
+<script src="https://gist.github.com/852194.js"> </script>
+
+
+<p>Observem que a saída do primeiro comando xtable é bastante bizarra,
+certamente um bug do pacote xtable. Editei a saída mantendo apenas o
+início da tabela gerada e incluíndo "..." no final.</p>
+
+<div class="highlight"><pre><code class="r">xtable<span class="p">(</span>tt<span class="p">)</span>
+</code></pre>
+</div>
+
+
+
+
+<div class="highlight"><pre><code class="latex"><span class="c">% latex table generated in R 2.11.1 by xtable 1.5-6 package</span>
+<span class="c">% Wed Mar  2 23:18:40 2011</span>
+<span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[ht]
+<span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>rllll<span class="nb">}</span>
+  <span class="k">\hline</span>
+ <span class="nb">&amp;</span> a <span class="nb">&amp;</span> b <span class="nb">&amp;</span> c <span class="nb">&amp;</span> ! (a <span class="s">$</span><span class="nb">|</span><span class="s">$</span> b) <span class="s">$</span><span class="nb">|</span><span class="s">$</span> c <span class="k">\\</span> 
+  <span class="k">\hline</span>
+1 <span class="nb">&amp;</span> c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="nb">&amp;</span> 
+    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="nb">&amp;</span> 
+    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="nb">&amp;</span> 
+    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="k">\\</span> 
+2 <span class="nb">&amp;</span> c(FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE) <span class="nb">&amp;</span> 
+...
+  <span class="k">\hline</span>
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+</code></pre>
+</div>
+
+
+<p>Para fazer com que cada célula da tabela tivesse apenas o valor lógico
+correspondente, não um vetor, converti o data.frame em caracteres
+antes de usar o xtable. Minha solução original convertia em números,
+Bruno Lopes me lembrou de converter em caracteres diretamente.</p>
+
+<div class="highlight"><pre><code class="latex"><span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[ht]
+<span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>llll<span class="nb">}</span>
+  <span class="k">\hline</span>
+a <span class="nb">&amp;</span> b <span class="nb">&amp;</span> c <span class="nb">&amp;</span> <span class="k">\~</span><span class="nb">{}</span> (a OR b) OR c <span class="k">\\</span> 
+  <span class="k">\hline</span>
+FALSE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
+  FALSE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
+  FALSE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="k">\\</span> 
+  FALSE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
+  TRUE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="k">\\</span> 
+  TRUE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
+  TRUE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="k">\\</span> 
+  TRUE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
+   <span class="k">\hline</span>
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+</code></pre>
+</div>
+
+
+
+
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>06 May 2012</span> &raquo; <a href="/blog/2012/05/06/problema-dos-galoes.html">O problema dos galões</a></li>
+    
+      <li><span>15 Feb 2012</span> &raquo; <a href="/blog/2012/02/15/lattes-to-bibtex.html">Lattes to BibTeX</a></li>
+    
+      <li><span>02 Jan 2012</span> &raquo; <a href="/blog/2012/01/02/package-SSOAP.html">R Package SSOAP</a></li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'arademaker'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+      <div class="footer">
+	<div class="contact">
+	  <p>
+            Alexandre Rademaker<br />
+            Professor at <a href="http://emap.fgv.br/">EMAp/FGV</a><br />
+            arademaker AT gmail DOT com
+	  </p>
+	</div>
+	<div class="contact">
+	  <p>
+        <a href="http://github.com/arademaker/">github.com/arademaker</a><br />
+        <a href="http://twitter.com/arademaker/">twitter.com/arademaker</a><br />
+        <a href="http://facebook.com/alexandre.rademaker">Facebook</a>
+	  </p>
+	</div>
+	<div class="rss">
+	  <a href="http://feeds.feedburner.com/arademaker">
+            <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
+	  </a>
+	</div>
+      </div>
+    </div>
+
+    <div id="right">
+    </div>
+  </div>
+</body>
+</html>
+
