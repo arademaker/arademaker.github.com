@@ -167,12 +167,8 @@ dd {
 
 /* standard */
 
-div.bibsource pre {
-   font-size: 90%;
-   white-space: pre-wrap;
-}
-
 #post pre {
+    white-space: pre-wrap;
     border: 1px solid #ddd;
     background-color: #eef;
     padding: 0 .4em;
