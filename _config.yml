@@ -1,6 +1,7 @@
 
 pygments: true
 markdown: rdiscount
+url: http://arademaker.github.com/
 
 scholar:
   style: mla
