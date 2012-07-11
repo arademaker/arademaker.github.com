@@ -1,14 +1,36 @@
 ---
 layout: default
 ---
+
 <div id="post">
-{{ content }}
+  <h1> {{ page.entry.title }} </h1>
+
+  <p> {{ page.entry.citeproc }} </p>
+
+  {% if page.entry.abstract == empty or page.entry.abstract == nil %}
+  {% else %}
+   <br/>
+   <h3>Abstract:</h3>
+   <p> {{ page.entry.abstract }} </p>
+  {% endif %}
+
+  {% if page.entry.pdflink1 == empty or page.entry.pdflink1 == nil %}
+  {% else %}
+   <br/>
+   <h3>Downloads:</h3>
+   <a href="{{ page.entry.pdflink1 }}">PDF</a>
+  {% endif %}
+
+  <br/>
+  <h3>BibTeX:</h3>
+  {% highlight bash tabsize=2 %}
+  {{ page.entry.bibtex }} 
+  {% endhighlight %}
 </div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'arademaker'; 
-
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

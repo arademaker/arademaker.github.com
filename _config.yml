@@ -1,3 +1,19 @@
 
 pygments: true
 markdown: rdiscount
+
+scholar:
+  style: mla
+  locale: en
+
+  sort_by: none
+  order: reverse
+
+  source: ./_bibliography
+  bibliography: rademaker.bib
+
+  details_dir:    bibliography
+  details_layout: bibtex.html
+  details_link: more details
+
+  query: "@*"  
