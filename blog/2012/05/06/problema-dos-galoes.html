@@ -58,10 +58,170 @@
       </div>
       
       <div id="post">
+ 
+ <h1>O problema dos galões</h1>
 
-  <h2></h2>
-  <h2></h2>
-  <p></p>
+<p>Na primeira prova do curso de <a href="/CA-2012-1/">estrutura de dados</a> que
+dei este ano, coloquei a seguinte questão para os alunos.</p>
+
+<p>Nós temos 3 galões de tamanho 10, 7 e 4 litros. Os galões de 7 e 4
+litros começam cheios e o galão de 10 litros vazio. Só podemos
+realizar um tipo de operação com os galões: derramar todo o conteúdo
+de um galão em outro, parando apenas quando o galão sendo derramado
+ficar vazio ou o destino ficar cheio. Queremos saber se existe uma
+sequência de operações que termine com 2 litros no galão de 7 ou 4
+litros. Pede-se:</p>
+
+<ul>
+<li><p>Modele o problema como um problema de grafo, descrevendo
+precisamente a definição do grafo envolvido e descrevendo a solução
+em função do grafo.</p></li>
+<li><p>Qual algorítmo de grafo deverá ser usado?</p></li>
+</ul>
+
+
+<p>Este é um problema clássico que pode ser encontrado em vários livros
+de estrutura de dados e algorítmos (Ex 3.8 do Algorithms by Dasgupta,
+Papadimitriou e Vazirani
+<a href="http://www.amazon.com/Algorithms-Sanjoy-Dasgupta/dp/0073523402">Amazon</a>,
+<a href="http://www.cs.berkeley.edu/~vazirani/algorithms.html">site do livro</a>,
+<a href="http://demonstrations.wolfram.com/WaterPouringProblem/">Wolfram</a>). Trata-se
+de ver os estados do sistema (a quantidaade de líquido em cada galão)
+como um nó de um grafo. As arestas representam as possíveis transições
+de estado após transferência de líquido entre dois galões.</p>
+
+<p>Um formalismo bem interessante para implementar a solução deste
+problema é lógica de reescrita. Em particular, resolvi usar
+<a href="http://maude.cs.uiuc.edu/">Maude</a>. Maude é uma implementação bastante
+eficiente e conhecida de lógica de reescrita, o nome refere-se a
+linguagem e ao sistema ao mesmo tempo.</p>
+
+<p>A implementação em Maude é muito simples:</p>
+
+<pre><code>mod GAL is
+  inc INT .
+
+  sorts Galon System .
+  subsort Galon &lt; System .
+
+  op &lt;_,_&gt; : Int Int -&gt; Galon .
+  op __ : System System -&gt; System [assoc comm id: null] . 
+  op null : -&gt; System .
+
+  vars N1 N2 M1 M2 : Int .
+
+  crl [transfer-1] :
+     &lt; N1 , M1 &gt; &lt; N2 , M2 &gt; =&gt; 
+     &lt; 0 , M1 &gt; &lt; (N1 + N2) , M2 &gt; 
+   if N1 &lt; (M2 - N2) .
+
+  crl [transfer-2] :
+     &lt; N1 , M1 &gt; &lt; N2 , M2 &gt; =&gt; 
+     &lt; (N1 - (M2 - N2)) , M1 &gt; &lt; M2 , M2 &gt; 
+   if N1 &gt; (M2 - N2) .
+
+  op initial : -&gt; System .
+  eq initial = &lt; 0 , 10 &gt; &lt; 7 , 7 &gt; &lt; 4 , 4 &gt; .
+endm
+</code></pre>
+
+<p>Trata-se de uma especificação algébrica do estado do sistema como um
+multiset de galões onde cada galão é uma dupla de números inteiros:
+primeiro componente é a quantidade de líquido e segundo a
+capacidade. A operação <code>initial</code> serve apenas para criar uma constante
+que representa o estado inicial do sistema.</p>
+
+<p>As duas regras de reescrita fazem deste módulo um módulo de sistema
+ou, mais formalmente, uma etoria de reescrita. Estas regras
+implementam as duas possibilidades de transferência de líquido entre
+um galão e outro. Na primeira regra, todo o líquido é transferido de
+um galão para outro esvaziando o galão origem. Na segunda, a
+transferência é interrompida quando o galão destino torna-se
+cheio. Isto poderia ainda ser simplificado para uso de apenas uma
+regra, certo?!</p>
+
+<p>O interessante de implementar em Maude é que as regras de reescrita
+podem ser entendidas, computacionalmente, como transições de estado de
+um sistema. Logicamente, as regras podem ser entendidas como regras de
+inferência de um sistema de reescrita.</p>
+
+<p>Na prática, podemos aplicar as reescritas de estado usando o comando
+<code>rew</code> e realizar uma busca por estados a partir de um estado inicial
+usando o comando <code>search</code>.</p>
+
+<p>Para testarmos a implementação, podemos aplicar algumas regras a
+partir do estado initial. Por exemplo, para aplicarmos 4 regras de
+reescrita a partir do estado inicial usamos:</p>
+
+<pre><code>Maude&gt; rew [4] initial .
+rewrite [4] in GAL : initial .
+rewrites: 33 in 0ms cpu (0ms real) (131474 rewrites/second)
+result System: &lt; 0,4 &gt; &lt; 4,10 &gt; &lt; 7,7 &gt;
+</code></pre>
+
+<p>Note-se que não controlamos que regras são aplicadas (estratégia de
+aplicação). Para encontrarmos a solução, usamos:</p>
+
+<pre><code>search initial =&gt;* &lt; 2 , X:Int &gt; S:System such that X:Int &lt; 10 .
+</code></pre>
+
+<p>Este comando acima efetua uma busca (BFS, busca em largura), a partir
+do estado inicial, por algum estado atingido com zero ou mais
+transições (aplicações de alguma das duas regras que definimos), por
+um estado onde exista algum galão com dois litros e cuja capacidade
+seja menor que 10.</p>
+
+<p>A resposta do sistema são 4 possíveis soluções:</p>
+
+<pre><code>Solution 1 (state 16)
+states: 17  rewrites: 501 in 3ms cpu (3ms real) (139244 rewrites/second)
+S:System --&gt; &lt; 2,10 &gt; &lt; 7,7 &gt;
+X:Int --&gt; 4
+
+Solution 2 (state 18)
+states: 19  rewrites: 559 in 4ms cpu (4ms real) (127334 rewrites/second)
+S:System --&gt; &lt; 0,7 &gt; &lt; 9,10 &gt;
+X:Int --&gt; 4
+
+Solution 3 (state 19)
+states: 20  rewrites: 610 in 5ms cpu (5ms real) (119210 rewrites/second)
+S:System --&gt; &lt; 4,4 &gt; &lt; 5,10 &gt;
+X:Int --&gt; 7
+
+Solution 4 (state 20)
+states: 21  rewrites: 627 in 5ms cpu (5ms real) (112164 rewrites/second)
+S:System --&gt; &lt; 0,4 &gt; &lt; 9,10 &gt;
+X:Int --&gt; 7
+
+No more solutions.
+states: 21  rewrites: 721 in 6ms cpu (6ms real) (109824 rewrites/second)
+</code></pre>
+
+<p>Para examinarmos a primeira solução, pedimos para o sistema mostrar o
+caminho, isto é, as reescritas executadas.</p>
+
+<pre><code>Maude&gt; show path 16 .
+state 0, System: &lt; 0,10 &gt; &lt; 4,4 &gt; &lt; 7,7 &gt;
+===[ crl ... [label transfer-1] . ]===&gt;
+state 1, System: &lt; 0,4 &gt; &lt; 4,10 &gt; &lt; 7,7 &gt;
+===[ crl ... [label transfer-2] . ]===&gt;
+state 4, System: &lt; 0,4 &gt; &lt; 1,7 &gt; &lt; 10,10 &gt;
+===[ crl ... [label transfer-2] . ]===&gt;
+state 8, System: &lt; 1,7 &gt; &lt; 4,4 &gt; &lt; 6,10 &gt;
+===[ crl ... [label transfer-1] . ]===&gt;
+state 12, System: &lt; 0,4 &gt; &lt; 5,7 &gt; &lt; 6,10 &gt;
+===[ crl ... [label transfer-2] . ]===&gt;
+state 14, System: &lt; 2,10 &gt; &lt; 4,4 &gt; &lt; 5,7 &gt;
+===[ crl ... [label transfer-2] . ]===&gt;
+state 16, System: &lt; 2,4 &gt; &lt; 2,10 &gt; &lt; 7,7 &gt;
+</code></pre>
+
+<p>O estado encontrado é onde o galão de 4 litros está com 2 litros, o
+galão de 7 litros está completo e o galão de 10 litros está com 2
+litros.</p>
+
+<p>Bem legal, não acham!?</p>
+
 
 </div>
 

@@ -58,10 +58,86 @@
       </div>
       
       <div id="post">
+ 
+ <h1>Lattes to BibTeX</h1>
 
-  <h2></h2>
-  <h2></h2>
-  <p></p>
+<p>Disponibilizei hoje online no github uma transformação do <a href="http://lattes.cnpq.br/">Lattes</a> para
+<a href="http://en.wikipedia.org/wiki/BibTeX">BibTeX</a>, vejam o repositório:</p>
+
+<p><a href="http://github.com/arademaker/SLattes">http://github.com/arademaker/SLattes</a></p>
+
+<p>Eu acabei fazendo esta transformação por dois motivos. O primeiro para
+meu uso pessoal, eu já estava querendo faz muito tempo conseguir gerar
+um BibTex com minhas produções. O segundo foi como parte do projeto
+Semantic Lattes. A idéia é que uma transformação dos dados do Lattes
+para algum padrão de referências como o
+<a href="http://www.loc.gov/standards/mods/">XML/MODS da Library of Congress</a>,
+ajuda a validar os dados do Lattes.</p>
+
+<p>Intruções de como usar o transformador estão no README do repositório,
+mas como o texto lá está em inglês, segue a idéia geral. O que fiz foi
+uma transformação XSLT do XML/Lattes para o XML/MODS. Este último pode
+ser então facilmente convertido para BibTex usando o xml2bib, programa
+do pacote <a href="http://sourceforge.net/p/bibutils/">Bibutils</a> disponivel no
+Linux e no MacOS (MacPorts). Para executar a transformação e validar
+um XML em relação ao seu DTD/Schema, ainda são necessários os
+programas xsltproc e xmllint.</p>
+
+<h2>Instalação dos programas necessários</h2>
+
+<p>Para quem usa o MacPorts no MacOS:</p>
+
+<pre><code>sudo port -v install bibtool bibutils
+</code></pre>
+
+<p>O xmllint e xsltproc já estão instalados no MacOS (acho que no XCode).</p>
+
+<p>Para quem usa Linux/Ubuntu:</p>
+
+<pre><code>sudo apt-get install bibtool bibutils xsltproc libxml2-utils
+</code></pre>
+
+<p>Para quem usa Windows, consultar o site destas ferramentas, não
+trivial! Esquece o Windows e instala o Ubuntu! ;-)</p>
+
+<h2>Usando a transformação</h2>
+
+<p>Com as ferramentas instaladas, o primeiro passo é acesssar o sistema
+<a href="http://lattes.cnpq.br">Lattes do CNPq</a>, link <strong>atualizar</strong>, logar-se
+no sistema e escolher a opção de exportar para XML. Será iniciado o
+download de um arquivo ZIP. Abra ZIP e extraia o arquivo XML dentro
+dele que tem mesmo nome, seu lattes ID. Imagine então que vc renomeou
+este arquivo XML para <code>LATTES.xml</code> e o moveu para o mesmo diretório
+onde está o arquivo com <code>lattes2mods.xsl</code> que você pegou do
+repositório no github.</p>
+
+<p>Agora basta rodar:</p>
+
+<pre><code>xsltproc lattes2mods.xsl LATTES.xml &gt; LATTES.mods
+</code></pre>
+
+<p>E em seguida:</p>
+
+<pre><code>xml2bib -b -w LATTES.mods &gt; LATTES.bib
+</code></pre>
+
+<p>Mas o interessante é antes de rodar o xml2bib, validar o arquivo mods
+gerado contra o
+<a href="http://www.loc.gov/standards/mods/mods-schemas.html">XML Schema do MODS</a>,
+disponibilizado no site da Biblioteca do Congresso Americano, baixe a
+versão 3.4:</p>
+
+<pre><code>xmllint --schema mods.xsd LATTTES.mods
+</code></pre>
+
+<p>Esta validação serve para verificar não apenas erros na estrutura do
+arquivo, que seriam bugs no meu código, mas também erros nos dados, em
+função de informações erradas (faltantes, em lugar errado etc) no
+Lattes.</p>
+
+<p>Comentários são sempre bem vindos. Problemas podem ser reportados
+diretamente no <a href="https://github.com/arademaker/SLattes/issues">github</a>.</p>
+
 
 </div>
 
