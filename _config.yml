@@ -7,7 +7,7 @@ scholar:
   style: mla
   locale: en
 
-  sort_by: none
+  sort_by: year
   order: reverse
 
   source: ./_bibliography
