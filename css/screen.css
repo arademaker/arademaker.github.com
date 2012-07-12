@@ -33,6 +33,10 @@ p {
   margin: 1em 0;
 }
 
+ol li a {
+ margin: 0 0 0 5px;
+}
+
 a {
   color: #00a;
 }

@@ -1,7 +1,6 @@
 
 pygments: true
 markdown: rdiscount
-url: http://arademaker.github.com/
 
 scholar:
   style: mla
@@ -15,6 +14,6 @@ scholar:
 
   details_dir:    bibliography
   details_layout: bibtex.html
-  details_link: more details
+  details_link: more
 
   query: "@*"  
