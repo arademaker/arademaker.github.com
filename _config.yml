@@ -3,7 +3,7 @@ pygments: true
 markdown: rdiscount
 
 scholar:
-  style: mla
+  style: apa
   locale: en
 
   sort_by: year
