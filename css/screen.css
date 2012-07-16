@@ -33,7 +33,7 @@ p {
   margin: 1em 0;
 }
 
-ol li a {
+ol.bibliography li a.details {
  margin: 0 0 0 5px;
 }
 
