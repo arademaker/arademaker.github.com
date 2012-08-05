@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2012-07-26T21:08:06-03:00</updated>
+ <updated>2012-08-05T17:26:23-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -618,63 +618,10 @@ a tabela da expressão&lt;/p&gt;
 certamente um bug do pacote xtable. Editei a saída mantendo apenas o
 início da tabela gerada e incluíndo &quot;...&quot; no final.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;xtable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;tt&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-
-
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;&lt;span class=&quot;c&quot;&gt;% latex table generated in R 2.11.1 by xtable 1.5-6 package&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;% Wed Mar  2 23:18:40 2011&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[ht]
-&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;center&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;rllll&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
- &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; a &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; b &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; c &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; ! (a &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; b) &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; c &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
-1 &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; 
-    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; 
-    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; 
-    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-2 &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; c(FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE) &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; 
-...
-  &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;center&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-
 &lt;p&gt;Para fazer com que cada célula da tabela tivesse apenas o valor lógico
 correspondente, não um vetor, converti o data.frame em caracteres
 antes de usar o xtable. Minha solução original convertia em números,
 Bruno Lopes me lembrou de converter em caracteres diretamente.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[ht]
-&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;center&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;llll&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
-a &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; b &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; c &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\~&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{}&lt;/span&gt; (a OR b) OR c &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
-FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-   &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;center&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-
-
 </content>
  </entry>
  
@@ -750,37 +697,16 @@ facilmente produzido com os comandos básicos de gráficos do R.&lt;/p&gt;
 &lt;p&gt;Digamos que seus dados sejam uma data.frame composto por duas
 variáveis.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;dados &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; data.frame&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;a &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; sample&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; b &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; sample&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-
 &lt;p&gt;O que desejamos é representar no gráfico os valores da variável &lt;code&gt;a&lt;/code&gt;
 como barras e os valores da variável &lt;code&gt;b&lt;/code&gt; como pontos conectados por
 linhas. O comando abaixo produzir o gráfico de barras e retorna um
 vetor com as coordenadas &lt;code&gt;x&lt;/code&gt; dos meios das barras produzidas.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;a &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; barplot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;dados&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;a&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ylim &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-
 &lt;p&gt;Agora é fácil criar os pontos e linhas:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;points&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;a&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; dados&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;b&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ylim&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-lines&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;a&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; dados&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;b&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ylim&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
 
 &lt;p&gt;Image que seus dados são temporais, onde cada observação está
 relacionada a uma ano. Pode-se incluir os anos como rótulos do eixo
 &quot;x&quot; com o comando:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;axis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; at &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; a&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; labels &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2000&lt;/span&gt;:&lt;span class=&quot;m&quot;&gt;2009&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
 
 &lt;p&gt;&lt;img src=&quot;/images/2010-11-18-fig.png&quot; title=&quot;bar and line&quot; alt=&quot;bar-and-line&quot; /&gt;&lt;/p&gt;
 </content>

@@ -80,63 +80,10 @@ a tabela da expressão</p>
 certamente um bug do pacote xtable. Editei a saída mantendo apenas o
 início da tabela gerada e incluíndo "..." no final.</p>
 
-<div class="highlight"><pre><code class="r">xtable<span class="p">(</span>tt<span class="p">)</span>
-</code></pre>
-</div>
-
-
-
-
-<div class="highlight"><pre><code class="latex"><span class="c">% latex table generated in R 2.11.1 by xtable 1.5-6 package</span>
-<span class="c">% Wed Mar  2 23:18:40 2011</span>
-<span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[ht]
-<span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>rllll<span class="nb">}</span>
-  <span class="k">\hline</span>
- <span class="nb">&amp;</span> a <span class="nb">&amp;</span> b <span class="nb">&amp;</span> c <span class="nb">&amp;</span> ! (a <span class="s">$</span><span class="nb">|</span><span class="s">$</span> b) <span class="s">$</span><span class="nb">|</span><span class="s">$</span> c <span class="k">\\</span> 
-  <span class="k">\hline</span>
-1 <span class="nb">&amp;</span> c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="nb">&amp;</span> 
-    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="nb">&amp;</span> 
-    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="nb">&amp;</span> 
-    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="k">\\</span> 
-2 <span class="nb">&amp;</span> c(FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE) <span class="nb">&amp;</span> 
-...
-  <span class="k">\hline</span>
-<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
-</code></pre>
-</div>
-
-
 <p>Para fazer com que cada célula da tabela tivesse apenas o valor lógico
 correspondente, não um vetor, converti o data.frame em caracteres
 antes de usar o xtable. Minha solução original convertia em números,
 Bruno Lopes me lembrou de converter em caracteres diretamente.</p>
-
-<div class="highlight"><pre><code class="latex"><span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[ht]
-<span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>llll<span class="nb">}</span>
-  <span class="k">\hline</span>
-a <span class="nb">&amp;</span> b <span class="nb">&amp;</span> c <span class="nb">&amp;</span> <span class="k">\~</span><span class="nb">{}</span> (a OR b) OR c <span class="k">\\</span> 
-  <span class="k">\hline</span>
-FALSE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
-  FALSE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
-  FALSE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="k">\\</span> 
-  FALSE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
-  TRUE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="k">\\</span> 
-  TRUE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
-  TRUE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="k">\\</span> 
-  TRUE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
-   <span class="k">\hline</span>
-<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
-</code></pre>
-</div>
-
-
-
 
 
 </div>
