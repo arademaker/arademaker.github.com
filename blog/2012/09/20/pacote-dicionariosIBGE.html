@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ 
+   <title>Pacote R dicionariosIBGE</title>
+ 
+ <meta name="author" content="Alexandre Rademaker" />
+ <link href="http://feeds.feedburner.com/arademaker" rel="alternate" title="Alexandre Rademaker" type="application/atom+xml" />
+ 
+ <!-- syntax highlighting CSS -->
+ <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+ <!-- <link href="/css/highlight.css" rel="stylesheet" type="text/css"> -->
+ <link href="/css/gists.css" rel="stylesheet" type="text/css"/>
+
+ <!-- Homepage CSS -->
+ <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+ <!-- Typekit 
+ <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+ <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+ -->
+
+ <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-97240-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+  <div id="outer">
+    <div id="top"></div>
+
+    <div id="left">
+      <img src="/images/eu-sf.jpg"/>
+    </div>  
+
+    <div class="site">
+      <div class="title">
+	<a href="/">Alexandre Rademaker</a>
+	<a class="extra" href="/">home</a>
+	<a class="extra" href="/about.html">about me</a>
+	<a class="extra" href="/publications/index.html">publications</a>
+        <a class="extra" href="/research.html">research</a>
+      </div>
+      
+      <div id="post">
+ 
+ <h1>Pacote R dicionariosIBGE</h1>
+
+<p>Disponibilizei hoje no github e submeti para o CRAN a versão 1.5 do
+pacote <a href="https://github.com/arademaker/dicionariosIBGE/">dicionariosIBGE</a>.
+Este pacote contém os dicionários das principais pesquisas do
+<a href="http://www.ibge.gov.br/">IBGE</a>: PNAD (1983-2009), POF (1987-1996) e
+PME. Também incluimos nesta versão variáveis adicionais com rótulos
+para as variáveis categóricas de cada pesquisa.</p>
+
+<p>Nesta nova versão, incorporamos a função <code>le.pesquisa</code> original do
+pacote <code>IBGEPesq</code> que foi desenvolvido no IBGE mas nunca submetido ao
+CRAN. O pacote <code>IBGEPesq</code> é distribuído pelo IBGE nos CDs e DVDs
+vendidos na <a href="http://loja.ibge.gov.br">loja virtual do IBGE</a> e
+disponibilizo no site do IBGE. Vide link "Leitura em R" na
+<a href="http://www.ibge.gov.br/home/estatistica/populacao/trabalhoerendimento/pnad2009/microdados.shtm">página da última PNAD</a>.</p>
+
+<p>Fizemos várias otimizações na função <code>le.pesquisa</code> original e
+incluímos ainda um argumento extra para leitura dos rótulos das
+variáveis categóricas. A partir desta versão do dicionariosIBGE, o
+pacote <code>IBGEPesq</code> torna-se desnecessário para leitura dos microdados
+das pesquisas do IBGE contempladas pelo dicionariosIBGE.</p>
+
+<p>Observo, no entanto, que a novidade de disponibilizarmos os rótulos
+para as variáveis categóricas e adaptarmos a função <code>le.pesquisa</code> para
+usar os rótulos para construir factors ainda é
+experimental. Pessoalmente, questiono sua utilidade em geral. Existem
+variáveis categóricas cujos rótulos são realmente úteis. Por exemplo,
+variáveis como a <code>UF</code> da tabela de PESSOA da PNAD de 2009. Certamente
+trabalharmos com um factor com rótulo "Rio de Janeiro" ao invés de
+apenas o valor 33 torna o manuseio dos dados mais fácil. No entanto,
+existem variáveis categóricas como a <code>V2927</code> cujos rótulos são tão
+grandes e verbosos que provavelmente não facilitam em nada o trabalho
+com os dados. Vide:</p>
+
+<pre><code>&gt; rotpes2009[rotpes2009$cod == "V2927",]
+       cod valor                                  rotulo
+1070 V2927     1                     Custaria muito caro
+1071 V2927     2                         Era muito longe
+1072 V2927     3                     Por falta de provas
+1073 V2927     4                         Demoraria muito
+1074 V2927     5 Cabia as outras partes iniciarem a acao
+1075 V2927     6    Por medo de outras partes envolvidas
+1076 V2927     7     por meio de mediacao ou conciliacao
+1077 V2927     8                 Nao acredita na justica
+1078 V2927     9  Nao sabia que podia utilizar a Justica
+1079 V2927    10                                  Outros
+</code></pre>
+
+<p>De qualquer modo, ao invés de usar os rótulos que distribuímos no
+pacote, nada impede que os usuários do pacote de: (1) passarem para a
+função <code>le.pesquisa</code> seus próprios data.frames com rótulos, bastando
+fornecer um data.frame com os rótulos no formato esperado (três
+colunas: cod, valor, rotulo); ou (2) passar o valor <code>NULL</code> para os
+rótulos (default da função) retornando os dados como numéricos e/ou
+string e não factors.</p>
+
+<p>O pacote foi desenvolvido e testado no MacOS mas deve funcionar sem
+problemas no Linux e Windows.</p>
+
+<p>Finalmente, cabe destacar que desenvolvemos o pacote usando os
+dicionários que encontramos nos CDs e DVDs disponíveis na FGV. Já
+tivemos casos de diferentes CDs da mesma pesquisa, adquiridos em
+diferentes momentos do IBGE, terem conteúdos diferentes (diferenças
+nos dicionários e diferenças nos arquivos de dados). O IBGE parece
+produzir os CDs e DVDs das pesquisas por demanda, o que pode explicar
+as diferenças entre CDs da mesma pesquisa.</p>
+
+<p>A falta de padrão do IBGE na distribuição dos arquivos das pesquisas é
+um grande problema para os pesquisadores e atrabalha bastante nossa
+iniciativa de facilitar a leitura dos dados do IBGE em R. Para
+contornar os problemas, poderíamos tentar distribuir os dados do IBGE
+já em formato RData, para carga no R diretamente. No entanto, além das
+possíveis questões legais (não está claro no site do IBGE qual a
+licença de uso adotada pelo IBGE), certamente a credibilidade dos
+dados é maior se os dados são obtidos diretamente do site ou mídia do
+IBGE.</p>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'arademaker'; 
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+      <div class="footer">
+	<div class="contact">
+	  <p>
+            Alexandre Rademaker<br />
+            Professor at <a href="http://emap.fgv.br/">EMAp/FGV</a><br />
+            arademaker AT gmail DOT com
+	  </p>
+	</div>
+	<div class="contact">
+	  <p>
+        <a href="http://github.com/arademaker/">github.com/arademaker</a><br />
+        <a href="http://twitter.com/arademaker/">twitter.com/arademaker</a><br />
+        <a href="http://facebook.com/alexandre.rademaker">Facebook</a>
+	  </p>
+	</div>
+	<div class="rss">
+	  <a href="http://feeds.feedburner.com/arademaker">
+            <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
+	  </a>
+	</div>
+      </div>
+    </div>
+
+    <div id="right">
+    </div>
+  </div>
+</body>
+</html>

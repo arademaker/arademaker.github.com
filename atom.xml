@@ -4,13 +4,97 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2012-08-16T23:49:25-03:00</updated>
+ <updated>2012-09-20T21:05:55-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Pacote R dicionariosIBGE</title>
+   <link href="http://arademaker.github.com/blog/2012/09/20/pacote-dicionariosIBGE.html"/>
+   <updated>2012-09-20T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2012/09/20/pacote-dicionariosIBGE</id>
+   <content type="html">&lt;h1&gt;Pacote R dicionariosIBGE&lt;/h1&gt;
+
+&lt;p&gt;Disponibilizei hoje no github e submeti para o CRAN a versão 1.5 do
+pacote &lt;a href=&quot;https://github.com/arademaker/dicionariosIBGE/&quot;&gt;dicionariosIBGE&lt;/a&gt;.
+Este pacote contém os dicionários das principais pesquisas do
+&lt;a href=&quot;http://www.ibge.gov.br/&quot;&gt;IBGE&lt;/a&gt;: PNAD (1983-2009), POF (1987-1996) e
+PME. Também incluimos nesta versão variáveis adicionais com rótulos
+para as variáveis categóricas de cada pesquisa.&lt;/p&gt;
+
+&lt;p&gt;Nesta nova versão, incorporamos a função &lt;code&gt;le.pesquisa&lt;/code&gt; original do
+pacote &lt;code&gt;IBGEPesq&lt;/code&gt; que foi desenvolvido no IBGE mas nunca submetido ao
+CRAN. O pacote &lt;code&gt;IBGEPesq&lt;/code&gt; é distribuído pelo IBGE nos CDs e DVDs
+vendidos na &lt;a href=&quot;http://loja.ibge.gov.br&quot;&gt;loja virtual do IBGE&lt;/a&gt; e
+disponibilizo no site do IBGE. Vide link &quot;Leitura em R&quot; na
+&lt;a href=&quot;http://www.ibge.gov.br/home/estatistica/populacao/trabalhoerendimento/pnad2009/microdados.shtm&quot;&gt;página da última PNAD&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Fizemos várias otimizações na função &lt;code&gt;le.pesquisa&lt;/code&gt; original e
+incluímos ainda um argumento extra para leitura dos rótulos das
+variáveis categóricas. A partir desta versão do dicionariosIBGE, o
+pacote &lt;code&gt;IBGEPesq&lt;/code&gt; torna-se desnecessário para leitura dos microdados
+das pesquisas do IBGE contempladas pelo dicionariosIBGE.&lt;/p&gt;
+
+&lt;p&gt;Observo, no entanto, que a novidade de disponibilizarmos os rótulos
+para as variáveis categóricas e adaptarmos a função &lt;code&gt;le.pesquisa&lt;/code&gt; para
+usar os rótulos para construir factors ainda é
+experimental. Pessoalmente, questiono sua utilidade em geral. Existem
+variáveis categóricas cujos rótulos são realmente úteis. Por exemplo,
+variáveis como a &lt;code&gt;UF&lt;/code&gt; da tabela de PESSOA da PNAD de 2009. Certamente
+trabalharmos com um factor com rótulo &quot;Rio de Janeiro&quot; ao invés de
+apenas o valor 33 torna o manuseio dos dados mais fácil. No entanto,
+existem variáveis categóricas como a &lt;code&gt;V2927&lt;/code&gt; cujos rótulos são tão
+grandes e verbosos que provavelmente não facilitam em nada o trabalho
+com os dados. Vide:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; rotpes2009[rotpes2009$cod == &quot;V2927&quot;,]
+       cod valor                                  rotulo
+1070 V2927     1                     Custaria muito caro
+1071 V2927     2                         Era muito longe
+1072 V2927     3                     Por falta de provas
+1073 V2927     4                         Demoraria muito
+1074 V2927     5 Cabia as outras partes iniciarem a acao
+1075 V2927     6    Por medo de outras partes envolvidas
+1076 V2927     7     por meio de mediacao ou conciliacao
+1077 V2927     8                 Nao acredita na justica
+1078 V2927     9  Nao sabia que podia utilizar a Justica
+1079 V2927    10                                  Outros
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;De qualquer modo, ao invés de usar os rótulos que distribuímos no
+pacote, nada impede que os usuários do pacote de: (1) passarem para a
+função &lt;code&gt;le.pesquisa&lt;/code&gt; seus próprios data.frames com rótulos, bastando
+fornecer um data.frame com os rótulos no formato esperado (três
+colunas: cod, valor, rotulo); ou (2) passar o valor &lt;code&gt;NULL&lt;/code&gt; para os
+rótulos (default da função) retornando os dados como numéricos e/ou
+string e não factors.&lt;/p&gt;
+
+&lt;p&gt;O pacote foi desenvolvido e testado no MacOS mas deve funcionar sem
+problemas no Linux e Windows.&lt;/p&gt;
+
+&lt;p&gt;Finalmente, cabe destacar que desenvolvemos o pacote usando os
+dicionários que encontramos nos CDs e DVDs disponíveis na FGV. Já
+tivemos casos de diferentes CDs da mesma pesquisa, adquiridos em
+diferentes momentos do IBGE, terem conteúdos diferentes (diferenças
+nos dicionários e diferenças nos arquivos de dados). O IBGE parece
+produzir os CDs e DVDs das pesquisas por demanda, o que pode explicar
+as diferenças entre CDs da mesma pesquisa.&lt;/p&gt;
+
+&lt;p&gt;A falta de padrão do IBGE na distribuição dos arquivos das pesquisas é
+um grande problema para os pesquisadores e atrabalha bastante nossa
+iniciativa de facilitar a leitura dos dados do IBGE em R. Para
+contornar os problemas, poderíamos tentar distribuir os dados do IBGE
+já em formato RData, para carga no R diretamente. No entanto, além das
+possíveis questões legais (não está claro no site do IBGE qual a
+licença de uso adotada pelo IBGE), certamente a credibilidade dos
+dados é maior se os dados são obtidos diretamente do site ou mídia do
+IBGE.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>O problema dos galões</title>
