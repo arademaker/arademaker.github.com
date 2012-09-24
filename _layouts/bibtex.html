@@ -14,14 +14,20 @@ layout: default
    <p> {{ page.entry.abstract }} </p>
   {% endif %}
 
-  {% if page.entry.pdflink1 == empty or page.entry.pdflink1 == nil %}
-  {% else %}
-   <br/>
    <h3>Downloads:</h3>
-   <a href="{{ page.entry.pdflink1 }}">PDF</a>
-  {% endif %}
+   <p><ul>
+     {% if page.entry.pdflink1 != null and page.entry.pdflink1 != empty %}
+      <li> <a href="{{ page.entry.pdflink1 }}">full text</a></li>
+     {% else %}
+      <li>No text available</li>
+     {% endif %}
+     {% if page.entry.slides != null and page.entry.slides != empty %}
+      <li> <a href="{{ page.entry.slides }}">slides</a></li>
+     {% else %}
+      <li>No slides available</li>
+     {% endif %}
+   </ul></p>
 
-  <br/>
   <h3>BibTeX:</h3>
   {% highlight bash tabsize=2 %}
   {{ page.entry.bibtex }} 
