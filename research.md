@@ -5,24 +5,32 @@ title: Research
 
 # {{ page.title }}
 
-My areas of interesting include logics (proof theory, model theory,
-automatic theorem provers etc), knowledge representation and
-reasoning, Semantic Web, programming languages (specially funcional
-programming) etc.
+## Presentations
 
-More specifically I can enumerate the following areas that I would
-like to work with:
+Processamento de Linguagem Natural em textos da História
+Comptemporânea do Brasil: o projeto OpenWordnet-PT, FGV,
+2012. ([PDF](/files/cpdoc-2012-slides.pdf),
+[SlideShare](http://goo.gl/VelVo),
+[url](http://cpdoc.fgv.br/noticias/eventos/03102012) )
+
+
+## Research Areas
+
+I am interested in the following research areas: 
+
+- Logics (proof theory, model theory, automatic theorem provers etc)
+- knowledge representation and reasoning
+- Semantic Web
+- Programming languages (specially funcional programming)
+
+Some ideas of projects that I would like to work on:
 
 - Ontology Alignment and Instance Matching: I would like to look again
-  to previous work with Edward Hermann and Isabel Cafezeiro maybe
-  applying to the WordNet-PT construction.
+  to previous work with Edward Hermann and Isabel Cafezeiro. Vide
+  publications.
     
-
 Below I present (in Portuguese) some proposal of thesis research that
 I would be interested in supervise.
-
-
-## Em geral...
 
 Em todas as propostas abaixo, estou interessado tanto nos aspectos
 teóricos quanto práticos. Tenho especial interesse na implementação
