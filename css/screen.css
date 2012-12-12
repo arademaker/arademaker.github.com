@@ -16,16 +16,23 @@ html, body {
 body {
   background-color: white;
   /* font-family: 'Inconsolata', sans-serif; */
-  font: 13.34px Inconsolata helvetica, arial, clean, sans-serif; 
+  font: 13px Inconsolata helvetica, arial, clean, sans-serif; 
   *font-size: small; 
   text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h3, h4, h5, h6 {
   font-size: 100%;
 }
 
+h2 {
+  font-size: 120%;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
 h1 {
+  font-size: 150%;
   margin-bottom: 1em;
 }
 
@@ -33,8 +40,16 @@ p {
   margin: 1em 0;
 }
 
+li p {
+ margin: 0 0 0 0;
+}
+
 ol.bibliography li a.details {
  margin: 0 0 0 5px;
+}
+
+ol.bibliography li {
+ margin-bottom: 1em;
 }
 
 a {
