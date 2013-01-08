@@ -18,6 +18,7 @@ between April and July of 2008 and at [SRI International](http://www.sri.com/), 
 
 You can find more about me at:
 
+ - [Homepage at IBM](http://researcher.ibm.com/person/br-alexrad)
  - [Publications at DBLP](http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/r/Rademaker:Alexandre.html)
  - [Google Profile](http://scholar.google.com/citations?user=SWz6BjIAAAAJ)
  - [Microsoft Academic](http://academic.research.microsoft.com/Author/2751793)
