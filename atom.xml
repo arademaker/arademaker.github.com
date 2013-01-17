@@ -4,13 +4,29 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2013-01-17T10:41:03-02:00</updated>
+ <updated>2013-01-17T18:58:10-02:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>The GeTFun Research Project</title>
+   <link href="http://arademaker.github.com/blog/2013/01/17/GeTFun.html"/>
+   <updated>2013-01-17T00:00:00-02:00</updated>
+   <id>http://arademaker.github.com/blog/2013/01/17/GeTFun</id>
+   <content type="html">&lt;h1&gt;The GeTFun Research Project&lt;/h1&gt;
+
+&lt;p&gt;January, 1 2013 marked the official beginning of the
+&lt;a href=&quot;http://sqig.math.ist.utl.pt/GeTFun/&quot;&gt;GeTFun&lt;/a&gt; project. I am very
+excited about this project and willing to contributed and share ideas
+with all collaborators. The first workshop of the project will happen
+during the &lt;a href=&quot;http://www.uni-log.org/&quot;&gt;4th UNILOG 2013&lt;/a&gt; in Rio de
+Janeiro.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Pacote R dicionariosIBGE</title>
