@@ -147,31 +147,36 @@ dd {
     color: #aaa;
 }
 
-.site .footer {
+div.footer {
     font-size: 80%;
     color: #666;
     border-top: 4px solid #eee;
     margin-top: 2em;
+    margin: 0 auto;
     width: 100%;
     overflow: hidden;
 }
 
-.site .footer .contact {
+div.footer .contact {
     float: left;
-    margin-right: 3em;
+    width: 80%;
 }
 
-.site .footer .contact a {
+div.contact a {
     color: #8085C1;
 }
 
-.site .footer .rss {
+div.footer div.rss {
     margin-top: 1.1em;
-    margin-right: -.2em;
+    width: 20%;
     float: right;
 }
 
-.site .footer .rss img {
+div.footer div.rss p {
+    text-align: right;
+}
+
+div.footer div.rss img {
     border: 0;
 }
 
