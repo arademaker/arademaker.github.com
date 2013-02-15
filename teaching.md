@@ -8,7 +8,7 @@ title: Teaching
 ## 2012.2
 
 - Introdução à Teoria das Categorias e Lógica, Mestrado EMAp, FGV.
-- [Linguagens de programação](http://github.com/arademaker/LP-2012-2/), Graduação Matemática da EMAp, FGV.
+- [Linguagens de programação](http://arademaker.github.com/LP-2012-2/), Graduação Matemática da EMAp, FGV.
 - [Linguagens formais e autômatos](http://arademaker.github.com/LFA-2012-2/), Graduação em Computação, PUC-Rio.
 
 ## 2012.1 
