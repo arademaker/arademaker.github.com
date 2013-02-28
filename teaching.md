@@ -5,6 +5,10 @@ title: Teaching
 
 # {{ page.title }}
 
+## 2013.1
+
+- [Estruturas de dados e algorítmos](https://github.com/arademaker/ED-2013-1/), Mestrado EMAp, FGV.
+
 ## 2012.2
 
 - Introdução à Teoria das Categorias e Lógica, Mestrado EMAp, FGV.
