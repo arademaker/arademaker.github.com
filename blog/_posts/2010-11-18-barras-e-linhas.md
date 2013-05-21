@@ -26,7 +26,7 @@ dados <- data.frame(a = sample(1:100,10), b = sample(1:100,10))
 
 O que desejamos é representar no gráfico os valores da variável `a`
 como barras e os valores da variável `b` como pontos conectados por
-linhas. O comando abaixo produzir o gráfico de barras e retorna um
+linhas. O comando abaixo produz o gráfico de barras e retorna um
 vetor com as coordenadas `x` dos meios das barras produzidas.
 
 {% highlight r %}
