@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2013-02-28T07:47:20-03:00</updated>
+ <updated>2013-05-20T23:16:55-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -390,7 +390,7 @@ package whish makes my
 
 &lt;p&gt;It took my a couple of minutes to test the new version of this
 package. Since I am running the last version of R, 2.14, the general
-procedure for install packages didn't work.&lt;/p&gt;
+procedure for install packages didn&#39;t work.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;gt; install.packages(&quot;SSOAP&quot;)
 Warning message:
@@ -404,8 +404,8 @@ using the Omegahat repository version with the command:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;gt; install.packages(&quot;SSOAP&quot;, repos = &quot;http://www.omegahat.org/R&quot;, 
                    dependencies = TRUE, 
                    type = &quot;source&quot;)
-trying URL 'http://www.omegahat.org/R/src/contrib/SSOAP_0.8-1.tar.gz'
-Content type 'application/x-gzip' length 195424 bytes (190 Kb)
+trying URL &#39;http://www.omegahat.org/R/src/contrib/SSOAP_0.8-1.tar.gz&#39;
+Content type &#39;application/x-gzip&#39; length 195424 bytes (190 Kb)
 opened URL
 ==================================================
 downloaded 190 Kb
@@ -417,7 +417,7 @@ downloaded 190 Kb
 Creating a new generic function for ‘help’ in package ‘SSOAP’
 Warning in .NonstandardGenericTest(body(fdef), name, stdGenericBody) :
   the supplied generic function definition for toSOAP does not
-  seem to call 'standardGeneric'; no methods will be dispatched!
+  seem to call &#39;standardGeneric&#39;; no methods will be dispatched!
 ** help
 *** installing help indices
 ** building package indices ...
@@ -459,7 +459,7 @@ certificate used in BCB website is invalid! What a shame!&lt;/p&gt;
 
 &lt;p&gt;The solution is trivial, one has to run Jekyll locally and post the produzed files into a master branch of a git repo, following the conventions described at &lt;a href=&quot;http://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt; por person and organization pages. The problem that I faced was to choose the best way to organize and keep tracking of the source and produzed files.&lt;/p&gt;
 
-&lt;p&gt;I read a couple of posts with possible solutions. The solution by &lt;a href=&quot;http://charliepark.org/jekyll-with-plugins/&quot;&gt;Charlie Park&lt;/a&gt; force us to have two distinct git repositories. I don't like this approach because of that. Our website will be maintained by more than one person, having two distinct repositories since that I will not using all git features. The solution by &lt;a href=&quot;http://tech.hugr.fr/blog/2011/08/07/how-to-host-a-jekyll-app-on-github-pages-with-plugins/&quot;&gt;Jean Denis&lt;/a&gt; is a little bit better but keeps me thinking about why he need to keep the produced files under version control in the two branches, gh-pages and the master.&lt;/p&gt;
+&lt;p&gt;I read a couple of posts with possible solutions. The solution by &lt;a href=&quot;http://charliepark.org/jekyll-with-plugins/&quot;&gt;Charlie Park&lt;/a&gt; force us to have two distinct git repositories. I don&#39;t like this approach because of that. Our website will be maintained by more than one person, having two distinct repositories since that I will not using all git features. The solution by &lt;a href=&quot;http://tech.hugr.fr/blog/2011/08/07/how-to-host-a-jekyll-app-on-github-pages-with-plugins/&quot;&gt;Jean Denis&lt;/a&gt; is a little bit better but keeps me thinking about why he need to keep the produced files under version control in the two branches, gh-pages and the master.&lt;/p&gt;
 
 &lt;p&gt;My final solution is to keep the directory produced by jekyll out of git control. This simple thing allows me to switch the branches, from source to master, and still have access to the produced files, directory &lt;code&gt;_site&lt;/code&gt;. Once in the master branch, I only have to move the files under &lt;code&gt;_site/&lt;/code&gt; to the root directory in the master branch and update the master branch before push it to GitHub.&lt;/p&gt;
 
@@ -664,7 +664,7 @@ objetos &lt;code&gt;ts&lt;/code&gt;.&lt;/p&gt;
    <link href="http://arademaker.github.com/blog/2011/09/13/checking-issn-lisp.html"/>
    <updated>2011-09-13T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2011/09/13/checking-issn-lisp</id>
-   <content type="html">&lt;h1&gt;Verifying the ISSN's check digit in Common Lisp&lt;/h1&gt;
+   <content type="html">&lt;h1&gt;Verifying the ISSN&#39;s check digit in Common Lisp&lt;/h1&gt;
 
 &lt;p&gt;The code below is my first approach to create a lisp function that
 test the ISSN &lt;a href=&quot;http://en.wikipedia.org/wiki/Check_digit&quot;&gt;check
@@ -853,7 +853,7 @@ variáveis.&lt;/p&gt;
 
 &lt;p&gt;O que desejamos é representar no gráfico os valores da variável &lt;code&gt;a&lt;/code&gt;
 como barras e os valores da variável &lt;code&gt;b&lt;/code&gt; como pontos conectados por
-linhas. O comando abaixo produzir o gráfico de barras e retorna um
+linhas. O comando abaixo produz o gráfico de barras e retorna um
 vetor com as coordenadas &lt;code&gt;x&lt;/code&gt; dos meios das barras produzidas.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;a &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; barplot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;dados&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;a&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ylim &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
@@ -1071,12 +1071,12 @@ of cut elimination for SALC .&lt;/p&gt;
 &lt;p&gt;In ubiquitous applications, where the meaning of an entity, such as a
 user or service, depends on environment-specific constraints and
 dynamic changes in the environment have to be considered in all stages
-of development, the separation between the system's behaviour and its
+of development, the separation between the system&#39;s behaviour and its
 context representation (a.k.a. context model) is essential for
 facilitating the development of such inherently complex systems. At
 the same time, because of its well-known benefits, a formal
 specifications should be considered not only for describing the
-system's behaviour, but also the corresponding context
+system&#39;s behaviour, but also the corresponding context
 model. Considering this, we propose in this paper an environment to
 support context modelling through formal specification. For this sake,
 we adopt the algebra of contextualized entities proposed and define
@@ -1262,7 +1262,7 @@ some of the authors, which now includes a revision of the previous
 semantics and the addition of new features covering all the
 language. The CBabel tool is also presented. The CBabel tool is a
 prototype executable environment for CBabel, that implements the given
-CBabel's rewriting logic semantics and allows the execution and
+CBabel&#39;s rewriting logic semantics and allows the execution and
 verification of CBabel descriptions in the Maude system, an
 implementation of rewriting logic. In this way, software architectures
 describing complex applications can be formally verified regarding
