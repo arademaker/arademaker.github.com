@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ 
+   <title>We found a bug in the split command of Mac OS</title>
+ 
+ <meta name="author" content="Alexandre Rademaker" />
+ <link href="http://feeds.feedburner.com/arademaker" rel="alternate" title="Alexandre Rademaker" type="application/atom+xml" />
+ 
+ <!-- syntax highlighting CSS -->
+ <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+ <!-- <link href="/css/highlight.css" rel="stylesheet" type="text/css"> -->
+ <link href="/css/gists.css" rel="stylesheet" type="text/css"/>
+
+ <!-- CSS -->
+ <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+ <!-- Typekit 
+ <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+ <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+ -->
+
+ <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-97240-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+  <div id="outer">
+    <div id="top"></div>
+
+    <div id="left">
+      <img src="/images/eu-sf.jpg"/>
+    </div>  
+
+    <div class="site">
+      <div class="title">
+	<a href="/">Alexandre Rademaker</a>
+	<a class="extra" href="/about.html">about me</a>
+	<a class="extra" href="/publications/index.html">publications</a>
+        <a class="extra" href="/research.html">research</a>
+	<a class="extra" href="/teaching.html">teaching</a>
+      </div>
+      
+      <div id="post">
+ 
+ <h1>We found a bug in the split command of Mac OS</h1>
+
+<p>Yesterday my friend
+<a href="http://researcher.ibm.com/researcher/view.php?person=br-mnerys">Marcelo Nery</a>
+and I found a bug in the <code>split</code> command of Mac OS. At first, I was
+surprised (we don't expect to find bugs in core tools like grep, ls,
+split, wc..., right?) and almost expected to find the same bug in the
+Linux version of split. At least in the split of Ubuntu distribution,
+that was not the case. The bug is presented only in the Mac OS
+version.</p>
+
+<h2>The bug</h2>
+
+<p>Consider the file <code>zero.log</code> created with the following Common Lisp code
+(actually for the rest of the post you don't need to understand the
+code):</p>
+
+<div class="highlight"><pre><code class="common-lisp"><span class="p">(</span><span class="nb">with-open-file</span> <span class="p">(</span><span class="nv">out</span> <span class="s">&quot;zero.log&quot;</span> <span class="ss">:element-type</span> <span class="o">&#39;</span><span class="p">(</span><span class="kt">unsigned-byte</span> <span class="mi">8</span><span class="p">)</span>
+                  <span class="ss">:direction</span> <span class="ss">:output</span>
+                  <span class="ss">:if-exists</span> <span class="ss">:supersede</span>
+                  <span class="ss">:external-format</span> <span class="ss">:utf-8</span><span class="p">)</span>
+       <span class="p">(</span><span class="nb">loop</span> <span class="nv">for</span> <span class="nb">char</span> <span class="nv">across</span> <span class="p">(</span><span class="nb">format</span> <span class="no">nil</span> <span class="s">&quot;AB_CDE~%F~%G~%&quot;</span><span class="p">)</span>
+             <span class="nb">do</span> <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">equal</span> <span class="nb">char</span> <span class="sc">#\_</span><span class="p">)</span>
+                  <span class="p">(</span><span class="nb">loop</span> <span class="nv">for</span> <span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">to</span> <span class="mi">3</span> <span class="nb">do</span>
+                     <span class="p">(</span><span class="nb">write-byte</span> <span class="mi">0</span> <span class="nv">out</span><span class="p">))</span>
+                  <span class="p">(</span><span class="nb">write-byte</span> <span class="p">(</span><span class="nb">char-code</span> <span class="nb">char</span><span class="p">)</span> <span class="nv">out</span><span class="p">))))</span>
+</code></pre></div>
+
+
+<p>This file content could be inspected with hexdump command:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>hexdump -C zero.log
+00000000  41 42 00 00 00 43 44 45  0a 46 0a 47 0a     |AB...CDE.F.G.|
+0000000d
+</code></pre></div>
+
+
+<p>That is, the file has three 0 bytes in the first line right after the
+<code>B</code> letter and before the <code>C</code> letter. Now we want to split this file
+one line per file.</p>
+
+<p>The Linux version of split works as expected, it splits the file
+keeping the zero bytes unchanged.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>split -1 zero.log
+<span class="nv">$ </span><span class="k">for </span>f in x??; <span class="k">do </span><span class="nb">echo</span> <span class="s2">&quot;---Begin: $f&quot;</span>; cat <span class="nv">$f</span>; <span class="nb">echo</span> <span class="s2">&quot;---End: $f&quot;</span>; <span class="k">done</span>
+---Begin: xaa
+ABCDE
+---End: xaa
+---Begin: xab
+F
+---End: xab
+---Begin: xac
+G
+---End: xac
+</code></pre></div>
+
+
+<p>Moreover, the sum of bytes of the <code>x??</code> files is equal the number of
+bytes in the <code>zero.log</code> file, 13 bytes.</p>
+
+<p>Nevertheless, the Mac OS version of split produces an unexpected
+output. The letter <code>F</code> is merged with the begining of the first line
+althouth it is in the second line of the <code>zero.log</code> file. Besides
+that, the zero bytes causes the Mac OS split to ignore the rest of the
+first line of <code>zero.log</code> causing a lost of data. The sum of the bytes
+of the <code>x??</code> files in Mac OS is only 6 bytes.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>split -1 zero.log
+<span class="nv">$ </span><span class="k">for </span>f in x??; <span class="k">do </span><span class="nb">echo</span> <span class="s2">&quot;---Begin: $f&quot;</span>; cat <span class="nv">$f</span>; <span class="nb">echo</span> <span class="s2">&quot;---End: $f&quot;</span>; <span class="k">done</span>
+---Begin: xaa
+ABF
+---End: xaa
+---Begin: xab
+G
+---End: xab
+</code></pre></div>
+
+
+<h2>Reporting the bug</h2>
+
+<p>In the man file of Ubuntu split we have a section named <code>Reporting
+bugs</code>. The Mac OS version doesn't have this information. I am now
+trying to find how to report a bug to Apple. One more time I realize
+how open source model embracing and encourage a collaborative work.</p>
+
+
+ <hr/>
+
+ <div id="disqus_thread"></div>
+ <script type="text/javascript">
+   var disqus_shortname = 'arademaker'; 
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+      <div class="footer">
+	<div class="contact">
+	  <p>
+            Professor at <a href="http://emap.fgv.br/">EMAp/FGV</a>, Researcher at <a href="http://research.ibm.com">IBM</a><br/>
+            arademaker AT gmail DOT com
+	  </p>
+	  <p>
+            <a href="http://github.com/arademaker/">github.com/arademaker</a> - 
+            <a href="http://twitter.com/arademaker/">twitter.com/arademaker</a> - 
+            <a href="http://facebook.com/alexandre.rademaker">Facebook</a>
+	  </p>
+	  <p>The postings and pages on this site are my own and don't
+	    necessarily represent IBM's or FGV's positions, strategies
+	    or opinions.</p>
+	</div>	
+	<div class="rss">
+	  <p><a href="http://feeds.feedburner.com/arademaker"><img src="/images/rss.png" alt="Subscribe to RSS Feed" /></a></p>
+	</div>
+      </div>
+    </div>
+
+    <div id="right">
+    </div>
+  </div>
+</body>
+</html>

@@ -4,13 +4,106 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2013-06-17T14:26:25-03:00</updated>
+ <updated>2013-07-18T11:11:10-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>We found a bug in the split command of Mac OS</title>
+   <link href="http://arademaker.github.com/blog/2013/07/18/we-found-a-bug-in-macos-split.html"/>
+   <updated>2013-07-18T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2013/07/18/we-found-a-bug-in-macos-split</id>
+   <content type="html">&lt;h1&gt;We found a bug in the split command of Mac OS&lt;/h1&gt;
+
+&lt;p&gt;Yesterday my friend
+&lt;a href=&quot;http://researcher.ibm.com/researcher/view.php?person=br-mnerys&quot;&gt;Marcelo Nery&lt;/a&gt;
+and I found a bug in the &lt;code&gt;split&lt;/code&gt; command of Mac OS. At first, I was
+surprised (we don&#39;t expect to find bugs in core tools like grep, ls,
+split, wc..., right?) and almost expected to find the same bug in the
+Linux version of split. At least in the split of Ubuntu distribution,
+that was not the case. The bug is presented only in the Mac OS
+version.&lt;/p&gt;
+
+&lt;h2&gt;The bug&lt;/h2&gt;
+
+&lt;p&gt;Consider the file &lt;code&gt;zero.log&lt;/code&gt; created with the following Common Lisp code
+(actually for the rest of the post you don&#39;t need to understand the
+code):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;common-lisp&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;with-open-file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;zero.log&amp;quot;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:element-type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned-byte&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                  &lt;span class=&quot;ss&quot;&gt;:direction&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:output&lt;/span&gt;
+                  &lt;span class=&quot;ss&quot;&gt;:if-exists&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:supersede&lt;/span&gt;
+                  &lt;span class=&quot;ss&quot;&gt;:external-format&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:utf-8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;loop&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;across&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;AB_CDE~%F~%G~%&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+             &lt;span class=&quot;nb&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;equal&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;#\_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;loop&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;do&lt;/span&gt;
+                     &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;write-byte&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+                  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;write-byte&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;char-code&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This file content could be inspected with hexdump command:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;hexdump -C zero.log
+00000000  41 42 00 00 00 43 44 45  0a 46 0a 47 0a     |AB...CDE.F.G.|
+0000000d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That is, the file has three 0 bytes in the first line right after the
+&lt;code&gt;B&lt;/code&gt; letter and before the &lt;code&gt;C&lt;/code&gt; letter. Now we want to split this file
+one line per file.&lt;/p&gt;
+
+&lt;p&gt;The Linux version of split works as expected, it splits the file
+keeping the zero bytes unchanged.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;split -1 zero.log
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;f in x??; &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;---Begin: $f&amp;quot;&lt;/span&gt;; cat &lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;---End: $f&amp;quot;&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+---Begin: xaa
+ABCDE
+---End: xaa
+---Begin: xab
+F
+---End: xab
+---Begin: xac
+G
+---End: xac
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Moreover, the sum of bytes of the &lt;code&gt;x??&lt;/code&gt; files is equal the number of
+bytes in the &lt;code&gt;zero.log&lt;/code&gt; file, 13 bytes.&lt;/p&gt;
+
+&lt;p&gt;Nevertheless, the Mac OS version of split produces an unexpected
+output. The letter &lt;code&gt;F&lt;/code&gt; is merged with the begining of the first line
+althouth it is in the second line of the &lt;code&gt;zero.log&lt;/code&gt; file. Besides
+that, the zero bytes causes the Mac OS split to ignore the rest of the
+first line of &lt;code&gt;zero.log&lt;/code&gt; causing a lost of data. The sum of the bytes
+of the &lt;code&gt;x??&lt;/code&gt; files in Mac OS is only 6 bytes.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;split -1 zero.log
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;f in x??; &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;---Begin: $f&amp;quot;&lt;/span&gt;; cat &lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;---End: $f&amp;quot;&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+---Begin: xaa
+ABF
+---End: xaa
+---Begin: xab
+G
+---End: xab
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Reporting the bug&lt;/h2&gt;
+
+&lt;p&gt;In the man file of Ubuntu split we have a section named &lt;code&gt;Reporting
+bugs&lt;/code&gt;. The Mac OS version doesn&#39;t have this information. I am now
+trying to find how to report a bug to Apple. One more time I realize
+how open source model embracing and encourage a collaborative work.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>The GeTFun Research Project</title>
