@@ -87,8 +87,7 @@ G
 
 ## Reporting the bug
 
-In the man file of Ubuntu split we have a section named `Reporting
-bugs`. The Mac OS version doesn't have this information. I am now
-trying to find how to report a bug to Apple. One more time I realize
-how open source model embracing and encourage a collaborative work.
+I reported the bug to Apple using the
+[Mac OS Feedback form](http://www.apple.com/feedback/macosx.html).
+
 
