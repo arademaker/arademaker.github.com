@@ -9,9 +9,9 @@ title: About Me
 Alexandre is a Research Staff Member in the Natural Resources group at
 IBM Research – Brazil. He joined IBM in December 2012.
 
-Prior that, Alexandre was adjunct professor at the
+Alexandre is also  adjunct professor at the
 [Applied Mathematics School of Getulio Vargas Foundation](http://emap.fgv.br)
-(EMAp/FGV) and he was also lecturer at
+(EMAp/FGV). Prior that, he was also lecturer at
 [PUC-Rio](http://www.inf.puc-rio.br). Alexandre has taught many
 graduate and undergraduate courses: logics, data structures,
 programming, formal languages and automata theory. During his Ph.D.,
@@ -33,7 +33,7 @@ language processing and description logics for Knowledge modeling),
 ANUBIS (database consistency check) and Ontology and Context
 (investigating the problem of ontology alignment).
 
-Alexandre is the author/co-author of 28 papers published in
+Alexandre is the author/co-author of more than 28 papers published in
 peer-reviewed journals and international conferences. His areas of
 expertise are logics, proof theory, knowledge representation and
 reasoning. He has also worked with natural language processing and
