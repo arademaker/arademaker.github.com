@@ -9,7 +9,7 @@ title: About Me
 Alexandre is a Research Staff Member in the Natural Resources group at
 IBM Research – Brazil. He joined IBM in December 2012.
 
-Alexandre is also  adjunct professor at the
+Alexandre is also adjunct professor at the
 [Applied Mathematics School of Getulio Vargas Foundation](http://emap.fgv.br)
 (EMAp/FGV). Prior that, he was also lecturer at
 [PUC-Rio](http://www.inf.puc-rio.br). Alexandre has taught many
@@ -66,3 +66,6 @@ You can find more information at:
  - [Facebook](http://facebook.com/alexandre.rademaker)
  - [Twitter](http://twitter.com/arademaker)
   
+## Organizational activities
+
+- Board member of the [Global WordNet Association](http://www.globalwordnet.org}
