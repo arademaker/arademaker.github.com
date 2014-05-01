@@ -6,9 +6,6 @@ tags:
  - blog
 ---
 
-{{ page.title }}
-================
-
 Desde que voltei da minha última viagem para participar da
 [ECLM 2011](http://weitz.de/eclm2011/) e
 [ISWC 2011](http://iswc2011.semanticweb.org/), estou pensando em

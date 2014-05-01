@@ -7,9 +7,6 @@ tags:
  - blog
 ---
 
-{{ page.title }}
-================
-
 Durante a preparação de alguns exercícios de lógica, me deparei com a
 necessidade de construir tabelas verdade. Lembrando do pacote xtable
 do R, pensei como seria construir uma tabela verdade usando o R. Minha

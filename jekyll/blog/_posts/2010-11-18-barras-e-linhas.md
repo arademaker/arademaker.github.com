@@ -6,9 +6,6 @@ tags:
  - blog
 ---
 
-{{ page.title }}
-================
-
 Ontem um aluno me perguntou como produzir um gráfico de barras com
 linhas. Minha primeira idéia foi recorrer a pacotes como
 [Lattice](http://cran.r-project.org/web/packages/lattice/) ou

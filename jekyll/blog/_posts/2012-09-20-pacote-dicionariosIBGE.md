@@ -6,8 +6,6 @@ tags:
  - datasets
 ---
 
-# {{ page.title }}
-
 Disponibilizei hoje no github e submeti para o CRAN a versão 1.5 do
 pacote [dicionariosIBGE](https://github.com/arademaker/dicionariosIBGE/).
 Este pacote contém os dicionários das principais pesquisas do

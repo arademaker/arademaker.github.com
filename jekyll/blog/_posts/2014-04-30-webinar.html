@@ -36,33 +36,26 @@ interesting to others.
 </p>
 
 <ul class="org-ul">
-<li>Git
-</li>
-<li>Common Lisp compilers and interpreters
-<ul class="org-ul">
-<li><a href="http://franz.com/products/allegro-common-lisp/">Allegro CL</a>
-</li>
-<li><a href="http://www.sbcl.org">SBCL</a> 
-</li>
-<li><a href="http://abcl.org">ABCL</a> (Lisp on JVM, so I can use Java RDF libraries)
-</li>
-</ul>
-</li>
-<li><a href="http://www.r-project.org">R</a>
-</li>
-<li>Python
+<li><a href="http://www.gnu.org/software/emacs/">Emacs</a>
 </li>
 <li><a href="http://orgmode.org">Org-Mode</a>
 </li>
-<li><a href="http://www.gnu.org/software/emacs/">Emacs</a>
-</li>
 <li><a href="http://common-lisp.net/project/slime/">Slime</a>
+</li>
+<li>Common Lisp compilers and interpreters: <a href="http://franz.com/products/allegro-common-lisp/">Allegro CL</a>, <a href="http://www.sbcl.org">SBCL</a> and <a href="http://abcl.org">ABCL</a>
+  (Lisp on JVM, so I can use Java RDF libraries).
 </li>
 <li><a href="http://www.w3.org/2000/10/swap/doc/cwm.html">CWM</a>
 </li>
 <li><a href="http://franz.com/agraph/allegrograph/">Allegro Graph Triplestore</a>
 </li>
 <li><a href="http://franz.com/agraph/gruff/">Gruff</a>
+</li>
+<li>Git
+</li>
+<li><a href="http://www.r-project.org">R</a>
+</li>
+<li>Python
 </li>
 <li><a href="http://xmlsoft.org">xsltproc and xmllint</a>
 </li>
@@ -83,10 +76,9 @@ vitae from <a href="http://lattes.cnpq.br">Lattes Platform</a> and; (2) the FGV 
 <p>
 During the webinar I shared my screen and presented the web interface
 that <a href="http://cnpq.br">CNPq</a> provides for researchers update their resumes. I also shown
-my own curriculum vitae at <a href="http://lattes.cnpq.br/0675365413696898">http://lattes.cnpq.br/0675365413696898</a> and
-discussed why I do not consider Brazilian Researchers curricula vitae
-open data given the captcha that blocks crawlers to get XML files from
-the Lattes website in a batch mode. 
+<a href="http://lattes.cnpq.br/0675365413696898">my curriculum vitae</a> and discussed why I do not consider Brazilian
+Researchers curricula vitae open data given the captcha that blocks
+crawlers to get XML files from the Lattes website in a batch mode.
 </p>
 
 <p>
@@ -152,7 +144,7 @@ produce the RDF files is outlined in the code below:
 <pre class="src src-sh"><span style="color: #a020f0;">for</span> f<span style="color: #a020f0;"> in</span> $<span style="color: #a0522d;">ROOT</span>/ontos/xml/*.xml; <span style="color: #a020f0;">do</span>
     <span style="color: #a0522d;">ID</span>=$(<span style="color: #ff00ff;">basename</span> $<span style="color: #a0522d;">f</span> .xml)
     <span style="color: #483d8b;">echo</span> Processing $<span style="color: #a0522d;">ID</span>
-    xmllint --noout --dtdvalid $<span style="color: #a0522d;">REPO</span>/LMPLCurriculo.DTD $<span style="color: #a0522d;">f</span> 2&gt;&gt; validation.log
+    xmllint --noout --dtdvalid $<span style="color: #a0522d;">REPO</span>/LMPLCurriculo.DTD $<span style="color: #a0522d;">f</span> 2&gt;&gt; error.log
     xsltproc --stringparam ID $<span style="color: #a0522d;">ID</span> $<span style="color: #a0522d;">REPO</span>/lattes.xsl $<span style="color: #a0522d;">f</span> &gt; $<span style="color: #a0522d;">ID</span>.rdf  
 <span style="color: #a020f0;">done</span>
 </pre>
@@ -165,14 +157,11 @@ each triple. The importation is done using the <a href="http://franz.com/agraph/
 load process takes aprox. 2 minutes:
 </p>
 
-<ul class="org-ul">
-<li>Load finished 487 sources in 00:02:03 (123.02 seconds).  
-</li>
-<li>Triples added: 1,690,538 
-</li>
-<li>Average Rate: 13742.00 tps
-</li>
-</ul>
+<pre class="example">
+Load finished 487 sources in 00:02:03 (123.02 seconds).  
+Triples added: 1,690,538 
+Average Rate: 13742.00 tps
+</pre>
 </div>
 </div>
 
@@ -191,10 +180,9 @@ from the FGV Digital Library.
 </p>
 
 <p>
-The current code that I used to identify duplicated resources is
-available at <a href="http://github.com/arademaker/vivo-code">http://github.com/arademaker/vivo-code</a>. This is a Common
-Lisp library that is easily used if placed inside the local-projects
-directory of a <a href="http://www.quicklisp.org/">Quicklisp</a> instalation. 
+The <a href="http://github.com/arademaker/vivo-code">current code</a> that I use to identify duplicated resources is a
+Common Lisp library that is easily used if placed inside the
+local-projects directory of a <a href="http://www.quicklisp.org/">Quicklisp</a> instalation.
 </p>
 
 <p>

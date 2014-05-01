@@ -6,8 +6,6 @@ tags:
  - blog
 ---
 
-# {{ page.title }}
-
 Pergunta de dois alunos: como postar duas séries temporáis usando o
 ggplot? Resolvi responder usando este post. Vou aproveitar então para
 mostrar como postar séries temporáis usando o ggplot, lattice e o plot

@@ -195,6 +195,8 @@ div.footer div.rss img {
     white-space: pre-wrap;
     border: 1px solid #ddd;
     background-color: #eef;
+    margin-top: 1em;
+    margin-bottom: 1em;
     padding: 0 .4em;
 }
 

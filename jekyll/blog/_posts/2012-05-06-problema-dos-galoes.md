@@ -7,8 +7,6 @@ tags:
  - Problema
 ---
 
-# {{ page.title }}
-
 Na primeira prova do curso de [estrutura de dados](/CA-2012-1/) que
 dei este ano, coloquei a seguinte questão para os alunos.
 

@@ -7,9 +7,6 @@ tags:
  - blog
 ---
 
-{{ page.title }}
-================
-
 Everyone that use [Jekyll](http://jekyllrb.com/) and wants to host the site at GitHub should know that GitHub Pages does not allow custom plugins, right? Using Jekyll for a little more than a blog site, like [EMAp/FGV](http://emap.fgv.br) will require plugins. In my case, avoid the use of custom plugins is not an option.
 
 The solution is trivial, one has to run Jekyll locally and post the produzed files into a master branch of a git repo, following the conventions described at [GitHub Pages](http://pages.github.com/) por person and organization pages. The problem that I faced was to choose the best way to organize and keep tracking of the source and produzed files.

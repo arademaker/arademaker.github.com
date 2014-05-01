@@ -6,9 +6,6 @@ tags:
  - blog
 ---
 
-{{ page.title }}
-================
-
 The code below is my first approach to create a lisp function that
 test the ISSN [check
 digit](http://en.wikipedia.org/wiki/Check_digit). Unfortunately, the

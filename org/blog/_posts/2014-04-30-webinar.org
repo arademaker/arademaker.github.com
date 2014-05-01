@@ -34,19 +34,17 @@ This is the non comprehensive list of tools that I use. I am listing
 here the main tools that come up into my mind that should be
 interesting to others.
 
-- Git
-- Common Lisp compilers and interpreters
-  - [[http://franz.com/products/allegro-common-lisp/][Allegro CL]]
-  - [[http://www.sbcl.org][SBCL]] 
-  - [[http://abcl.org][ABCL]] (Lisp on JVM, so I can use Java RDF libraries)
-- [[http://www.r-project.org][R]]
-- Python
-- [[http://orgmode.org][Org-Mode]]
 - [[http://www.gnu.org/software/emacs/][Emacs]]
+- [[http://orgmode.org][Org-Mode]]
 - [[http://common-lisp.net/project/slime/][Slime]]
+- Common Lisp compilers and interpreters: [[http://franz.com/products/allegro-common-lisp/][Allegro CL]], [[http://www.sbcl.org][SBCL]] and [[http://abcl.org][ABCL]]
+  (Lisp on JVM, so I can use Java RDF libraries).
 - [[http://www.w3.org/2000/10/swap/doc/cwm.html][CWM]]
 - [[http://franz.com/agraph/allegrograph/][Allegro Graph Triplestore]]
 - [[http://franz.com/agraph/gruff/][Gruff]]
+- Git
+- [[http://www.r-project.org][R]]
+- Python
 - [[http://xmlsoft.org][xsltproc and xmllint]]
 - [[http://tidy.sourceforge.net][tidy]]
 
@@ -57,10 +55,9 @@ vitae from [[http://lattes.cnpq.br][Lattes Platform]] and; (2) the FGV digital l
 
 During the webinar I shared my screen and presented the web interface
 that [[http://cnpq.br][CNPq]] provides for researchers update their resumes. I also shown
-my own curriculum vitae at http://lattes.cnpq.br/0675365413696898 and
-discussed why I do not consider Brazilian Researchers curricula vitae
-open data given the captcha that blocks crawlers to get XML files from
-the Lattes website in a batch mode. 
+[[http://lattes.cnpq.br/0675365413696898][my curriculum vitae]] and discussed why I do not consider Brazilian
+Researchers curricula vitae open data given the captcha that blocks
+crawlers to get XML files from the Lattes website in a batch mode.
 
 I forgot to mention during the webinar but one of my old dreams is to
 convice CNPq to add [[http://www.w3.org/TR/xhtml-rdfa-primer/][RDFa]] or https://schema.org microformats into the
@@ -109,7 +106,7 @@ produce the RDF files is outlined in the code below:
 for f in $ROOT/ontos/xml/*.xml; do
     ID=$(basename $f .xml)
     echo Processing $ID
-    xmllint --noout --dtdvalid $REPO/LMPLCurriculo.DTD $f 2>> validation.log
+    xmllint --noout --dtdvalid $REPO/LMPLCurriculo.DTD $f 2>> error.log
     xsltproc --stringparam ID $ID $REPO/lattes.xsl $f > $ID.rdf  
 done
 #+END_SRC
@@ -119,9 +116,11 @@ curriculum a separated graph so I can easly identify the provenance of
 each triple. The importation is done using the [[http://franz.com/agraph/support/documentation/current/agload.html][agload]] utility. The
 load process takes aprox. 2 minutes:
 
-- Load finished 487 sources in 00:02:03 (123.02 seconds).  
-- Triples added: 1,690,538 
-- Average Rate: 13742.00 tps
+#+BEGIN_EXAMPLE
+Load finished 487 sources in 00:02:03 (123.02 seconds).  
+Triples added: 1,690,538 
+Average Rate: 13742.00 tps
+#+END_EXAMPLE
 
 * Deduplication of instances
 
@@ -134,10 +133,9 @@ produced from the advisor's curriculum lattes XML; (2) the RDF produce
 from the student's curriculum lattes XML; and (3) the RDF obtained
 from the FGV Digital Library. 
 
-The current code that I used to identify duplicated resources is
-available at http://github.com/arademaker/vivo-code. This is a Common
-Lisp library that is easily used if placed inside the local-projects
-directory of a [[http://www.quicklisp.org/][Quicklisp]] instalation. 
+The [[http://github.com/arademaker/vivo-code][current code]] that I use to identify duplicated resources is a
+Common Lisp library that is easily used if placed inside the
+local-projects directory of a [[http://www.quicklisp.org/][Quicklisp]] instalation.
 
 I can write an entire article only about deduplication in RDF. I am
 still thinking hard about this problem and really would like to find

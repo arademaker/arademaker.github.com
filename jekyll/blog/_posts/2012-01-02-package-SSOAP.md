@@ -7,9 +7,6 @@ tags:
  - blog
 ---
 
-{{ page.title }}
-================
-
 Last year, during a summer course that I gave at FGV, I taught the
 students how to use SOAP protocol do retrive data from
 [Banco Central do Brasil](http://bcb.gov.br/) using R. BCB has a

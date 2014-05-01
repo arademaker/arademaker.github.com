@@ -5,8 +5,6 @@ tags:
  - research
 ---
 
-# {{ page.title }}
-
 Yesterday my friend
 [Marcelo Nery](http://researcher.ibm.com/researcher/view.php?person=br-mnerys)
 and I found a bug in the `split` command of Mac OS. At first, I was
