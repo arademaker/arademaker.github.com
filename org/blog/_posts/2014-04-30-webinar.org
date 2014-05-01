@@ -1,0 +1,499 @@
+#+startup: showall 
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+PROPERTY: session *R*
+#+PROPERTY: cache yes
+#+OPTIONS: toc:nil
+#+PROPERTY: exports code
+#+BEGIN_HTML
+---
+layout: post
+title: VIVO Apps and Tools Webinar
+tags:
+ - vivo
+ - lattes
+---
+#+END_HTML
+
+* Introduction
+
+Yerterday I presented for the Apps and Tools working group my workflow
+to prepared data to be inserted into FGV VIVO instance. Since some
+people asked be to share the links and the file that I used to guide
+my presentation, I made this post. 
+
+This page is generated from a [[http://orgmode.org][org file]] that I export to HTML and
+further processed with [[http://jekyllrb.com][Jekyll]]. The process of use org files with
+jekyll is outlined [[http://orgmode.org/worg/org-tutorials/org-jekyll.html][here]]. I am stil not very confortable with this
+workflow but I am using it for my personal website and for the
+websites of the courses that I teach at FGV.
+
+* My Toolset 
+
+This is the non comprehensive list of tools that I use. I am listing
+here the main tools that come up into my mind that should be
+interesting to others.
+
+- Git
+- Common Lisp compilers and interpreters
+  - [[http://franz.com/products/allegro-common-lisp/][Allegro CL]]
+  - [[http://www.sbcl.org][SBCL]] 
+  - [[http://abcl.org][ABCL]] (Lisp on JVM, so I can use Java RDF libraries)
+- [[http://www.r-project.org][R]]
+- Python
+- [[http://orgmode.org][Org-Mode]]
+- [[http://www.gnu.org/software/emacs/][Emacs]]
+- [[http://common-lisp.net/project/slime/][Slime]]
+- [[http://www.w3.org/2000/10/swap/doc/cwm.html][CWM]]
+- [[http://franz.com/agraph/allegrograph/][Allegro Graph Triplestore]]
+- [[http://franz.com/agraph/gruff/][Gruff]]
+- [[http://xmlsoft.org][xsltproc and xmllint]]
+- [[http://tidy.sourceforge.net][tidy]]
+
+* Datasources
+
+We have to main sources of data: (1) the FGV researchers' curricula
+vitae from [[http://lattes.cnpq.br][Lattes Platform]] and; (2) the FGV digital library.
+
+During the webinar I shared my screen and presented the web interface
+that [[http://cnpq.br][CNPq]] provides for researchers update their resumes. I also shown
+my own curriculum vitae at http://lattes.cnpq.br/0675365413696898 and
+discussed why I do not consider Brazilian Researchers curricula vitae
+open data given the captcha that blocks crawlers to get XML files from
+the Lattes website in a batch mode. 
+
+I forgot to mention during the webinar but one of my old dreams is to
+convice CNPq to add [[http://www.w3.org/TR/xhtml-rdfa-primer/][RDFa]] or https://schema.org microformats into the
+HTML pages of the curricula vitae. This would not only allow crawlers
+to easier process the data but could also facilitate the maintainance
+of the system. My current XSLT transformation of Lattes XML to RDF
+cloud provide the starting point to RDFa embeeding.
+
+The [[http://bibliotecadigital.fgv.br/dspace][FGV Digital Library]] runs Dspace. The publications and collections
+metadata are easly collected from Dspace using the [[http://www.openarchives.org/][OAI-PMH protocol]].
+
+* Lattes XML Files
+
+As I said in the previous section, the curricula vitae of Brazilian
+Researchers are not open data, that is, they are not public available
+in structured format. They are only public available as HTML pages in
+the Lattes website, with limited search interface. The only way to
+universities and research institutions get the curricula vitae of
+their researchers in a structured format is to sign an [[http://www.cnpq.br/web/portal-lattes/acordos-institucionais][aggrement]] with
+CNPq. FGV has signed this aggrement and we have one server authorized
+to access CNPq web server to retrive the XML files of all curriculae
+that have informed any professional activity with FGV.
+
+To transform the Lattes files to RDF, I use a XSLT transformation that
+I developed few years ago. The XSLT is freely available at github in
+the repository [[https://github.com/arademaker/SLattes][Semantic Lattes]]. 
+
+In this repo, I made also available the DTD that I try hard to keep
+up-to-date. Unfortunately, until recently, CNPq did not make public
+annoucement of chances in the structure of the XML files that they
+produce, so I had to adapt the DTD whenever I identify changes. I have
+just found in the end of [[http://www.cnpq.br/web/portal-lattes/extracoes-de-dados][this page]] that CNPq finally realized the
+importance of making available the updated DTD. Nevertheless, the DTD
+in the link of this page is outdated. At least, using this DTD to
+validate the 489 FGV's curriculae I got more than 100 erros but using
+my DTD to validate the same files I got only 2 errors. Considering
+that those 489 files were produced my CNPq, we have two options: (1)
+the DTD is outdated; or (2) the code that produces the XML files has
+bugs. The two erros that I find using my DTD occur only with two
+curriculae that were not updated in the last 2 years.
+
+After download the XML files, the general idea to process them and
+produce the RDF files is outlined in the code below:
+
+#+BEGIN_SRC sh
+for f in $ROOT/ontos/xml/*.xml; do
+    ID=$(basename $f .xml)
+    echo Processing $ID
+    xmllint --noout --dtdvalid $REPO/LMPLCurriculo.DTD $f 2>> validation.log
+    xsltproc --stringparam ID $ID $REPO/lattes.xsl $f > $ID.rdf  
+done
+#+END_SRC
+
+After that, I import the RDF files to Allegro Graph making each
+curriculum a separated graph so I can easly identify the provenance of
+each triple. The importation is done using the [[http://franz.com/agraph/support/documentation/current/agload.html][agload]] utility. The
+load process takes aprox. 2 minutes:
+
+- Load finished 487 sources in 00:02:03 (123.02 seconds).  
+- Triples added: 1,690,538 
+- Average Rate: 13742.00 tps
+
+* Deduplication of instances
+
+I briefly commented about the deduplication of records during the
+webinar. I do have to take care of removing duplicated resources about
+the same entity. Considering a thesis defended by and student at FGV
+whom have as advisor a professor at FGV. I will have metadata
+(triples) about this thesis from three different sources: (1) the RDF
+produced from the advisor's curriculum lattes XML; (2) the RDF produce
+from the student's curriculum lattes XML; and (3) the RDF obtained
+from the FGV Digital Library. 
+
+The current code that I used to identify duplicated resources is
+available at http://github.com/arademaker/vivo-code. This is a Common
+Lisp library that is easily used if placed inside the local-projects
+directory of a [[http://www.quicklisp.org/][Quicklisp]] instalation. 
+
+I can write an entire article only about deduplication in RDF. I am
+still thinking hard about this problem and really would like to find
+better alternatives.  One can note that deduplication of nodes in a
+RDF graph should not be done type by type as I am doing now. The rules
+to identify resources as being refering the same entity could
+dependent each other. That is, the deduplication of instances of
+=foaf:Person= can activate the rule to deduplicate instances of
+=bibo:Article= and vice-versa. It would be better to have a kind of
+fixed point transformation in the RDF graph that could keep clustering
+nodes until nothing more can be done. As a logician, I am very
+interested in approach this problem in a more declarative and
+deductive way.
+
+I also have to note that =owl:sameAs= semantics doesn't help here. I
+do use =owl:sameAs= to mark the nodes that should be merged but I have
+to merge the nodes after all =owl:sameAs= triples are produced. I do
+this with two SPARQL construct queries:
+
+#+BEGIN_EXAMPLE
+delete { ?s1 ?p ?o . }
+insert { ?s2 ?p ?o . }
+where {
+  ?s1 owl:sameAs ?s2 .
+  ?s1 ?p ?o .
+  filter( !sameTerm(?p, owl:sameAs) )
+}
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+delete { ?x ?p ?o1 . }
+insert { ?x ?p ?o2 . }
+where {
+  ?o1 owl:sameAs ?o2 .
+  ?x ?p ?o1 .
+  filter( !sameTerm(?p, owl:sameAs) )
+}
+#+END_EXAMPLE
+
+Note that the filters block the propagation of the =owl:sameAs=
+triples. Anyway, my current code is available for suggestions.
+
+* Mapping Lattes RDF to VIVO RDF
+
+To map the Lattes RDF model produced by my XSLT to the expected VIVO
+RDF model, I have to look carefully to each instance of data. This
+mapping is not completed but at this point I have already mapped most
+of the data about people, publication, research areas and
+departaments.
+
+To work on the rules and queries to transform the data, I used to
+excellent query and data browsers tools developed by Franz: Gruff and
+AllegroGraph WebView. During the webinar I presented both systems.
+
+- CWM and file rules.n3 (performance issues, used for prototype)
+- CL + SPARQL (show saved queries in Allegro Graph WebView)
+ - Problems:
+   - blank nodes
+   - can't repeate a query without duplicate triples
+- Next steps: 
+ - validation (OWL Reasoner?)
+ - Better rule approach (like cwm) but with better performance?
+
+* Working with OAI-PMH
+
+- http://www.openarchives.org
+- http://re.cs.uct.ac.za
+- http://cran.r-project.org/web/packages/OAIHarvester/index.html
+- https://pypi.python.org/pypi/pyoai/2.4.4
+
+** Repository Exploring
+
+#+BEGIN_SRC R :results table :cache yes
+library(OAIHarvester)
+baseurl <- "http://bibliotecadigital.fgv.br/oai/request"
+oaih_list_metadata_formats(baseurl)
+#+END_SRC
+
+#+RESULTS[dd4722f705f05eb68c2467507e4b544b27d4a687]:
+| oai_dc | http://www.openarchives.org/OAI/2.0/oai_dc.xsd              | http://www.openarchives.org/OAI/2.0/oai_dc/ |
+| rdf    | http://www.openarchives.org/OAI/2.0/rdf.xsd                 | http://www.openarchives.org/OAI/2.0/rdf/    |
+| ore    | http://tweety.lanl.gov/public/schemas/2008-06/atom-tron.sch | http://www.w3.org/2005/Atom                 |
+| mets   | http://www.loc.gov/standards/mets/mets.xsd                  | http://www.loc.gov/METS/                    |
+
+#+name: sets
+#+BEGIN_SRC R :cache yes
+sets <- oaih_list_sets(baseurl)
+head(sets)
+#+END_SRC
+
+#+RESULTS[88f5fc9bb6b8b770ab93863c18bf4730121309ad]: sets
+| hdl_10438_6904 | Cadernos FGV Projetos                                                            | list() |
+| hdl_10438_4132 | CPDOC - Artigos, Livros, Papers                                                  | list() |
+| hdl_10438_2692 | CPDOC - Dissertações, Mestrado em História, Política e Bens Culturais            | list() |
+| hdl_10438_1758 | CPDOC - Dissertações, Mestrado Profissional em Bens Culturais e Projetos Sociais | list() |
+| hdl_10438_4164 | CPDOC Relações Internacionais - Artigos e papers                                 | list() |
+| hdl_10438_4168 | CPDOC Relações Internacionais -Teses e Dissertações                              | list() |
+
+#+BEGIN_SRC R :var series=sets :results output
+records <- oaih_list_records(baseurl, set = series[3,1])
+dim(records)
+colnames(records)
+#+END_SRC
+
+#+RESULTS[3587dddb293079161648e2c7e98cd2fa565669ab]:
+: [1] 31  5
+: [1] "identifier" "datestamp"  "setSpec"    "metadata"   "about"
+
+#+BEGIN_SRC R :results output
+records[1,"metadata"]
+#+END_SRC
+
+#+RESULTS[7bb006f3d1b1a99e16a30bc162146090c066c046]:
+#+begin_example
+$metadata
+<oai_dc:dc schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <dc:title>Por que é cidadão o jornalista-cidadão? História das mídias e jornalismo cidadão de base comunitária na Maré</dc:title>
+ <dc:creator>Chagas, Viktor Henrique Carneiro de Souza</dc:creator>
+ <dc:description>Afinal, por que é cidadão o jornalista cidadão? Foi esta a pergunta que desencadeou
+todo um esforço de pesquisa no sentido de identificar práticas comuns nas diferentes
+experiências de jornalismo cidadão. Para desenvolver e tentar ampliar o conceito
+trabalhado, a opção foi de analisar o espectro da comunicação comunitária, sobretudo
+em veículos que tiveram origem na área da Maré, no Rio de Janeiro, nas últimas três
+décadas. Assim, mapeando algumas dessas experiências e selecionando casos entre os
+que chamaram mais atenção pela propriedade com que trabalham os aspectos
+relacionados ao jornalismo cidadão, esta dissertação se detém sobre o significado da
+cidadania para o cidadão-jornalista e a contribuição à identidade local prestada pela
+comunicação comunitária. Minha idéia é demonstrar como experiências deste gênero
+são capazes de não apenas de pautar meios tradicionais de mídia, mas sobretudo de
+ajudar a estabelecer dentro da própria comunidade uma cultura de mídia e uma esfera
+pública local, desenvolvendo uma reapropriação da identidade da favela e de seus
+moradores e contribuindo para a busca e/ou exercício da cidadania.</dc:description>
+ <dc:contributor>Hollanda, Bernardo Borges Buarque de</dc:contributor>
+ <dc:contributor>Albuquerque, Afonso de</dc:contributor>
+ <dc:contributor>Aldé, Alessandra</dc:contributor>
+ <dc:contributor>Miguel, Luis Felipe</dc:contributor>
+ <dc:contributor>Lattman-Weltman, Fernando</dc:contributor>
+ <dc:date>2009-06-17T19:02:36Z</dc:date>
+ <dc:date>2009-06-17T19:02:36Z</dc:date>
+ <dc:date>2009-03-06</dc:date>
+ <dc:type>Dissertation</dc:type>
+ <dc:identifier>http://hdl.handle.net/10438/2676</dc:identifier>
+ <dc:language>pt_BR</dc:language>
+</oai_dc:dc>
+#+end_example
+
+** Current Workflow
+
+- shell script 
+ - python script getdata.py
+ - XSLT transformation over dc metadata records
+- show files
+ 
+** Future directions
+
+- CL package for OAI-PMH (forget Python!)
+- retrieve using mets instead of dc
+- see http://bibliotecadigital.fgv.br/dspace/handle/10438/11552?show=full
+
+#+BEGIN_SRC R :results output
+r1 <- oaih_list_records(baseurl, prefix = "mets", set = series[3,1])
+r1[1,"metadata"]
+#+END_SRC
+
+#+RESULTS[2b0c923b80d32bd434a90e31c0580bec9cd4e367]:
+#+begin_example
+$metadata
+<mets OBJID="hdl:10438/2676" LABEL="DSpace Item" schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd" xmlns="http://www.loc.gov/METS/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mods="http://www.loc.gov/mods/v3">
+ <metsHdr CREATEDATE="2014-04-29T08:02:23">
+  <agent ROLE="CUSTODIAN" TYPE="ORGANIZATION">
+   <name>DSpace@FGV</name>
+  </agent>
+ </metsHdr>
+ <dmdSec ID="DMD_hdl_10438/2676">
+  <mdWrap MDTYPE="MODS">
+   <xmlData>
+    <mods:name>
+     <mods:role>
+      <mods:roleTerm type="text">advisor</mods:roleTerm>
+     </mods:role>
+     <mods:namePart>Lattman-Weltman, Fernando</mods:namePart>
+    </mods:name>
+    <mods:name>
+     <mods:role>
+      <mods:roleTerm type="text">author</mods:roleTerm>
+     </mods:role>
+     <mods:namePart>Chagas, Viktor Henrique Carneiro de Souza</mods:namePart>
+    </mods:name>
+    <mods:name>
+     <mods:role>
+      <mods:roleTerm type="text">other</mods:roleTerm>
+     </mods:role>
+     <mods:namePart>Hollanda, Bernardo Borges Buarque de</mods:namePart>
+    </mods:name>
+    <mods:name>
+     <mods:role>
+      <mods:roleTerm type="text">other</mods:roleTerm>
+     </mods:role>
+     <mods:namePart>Albuquerque, Afonso de</mods:namePart>
+    </mods:name>
+    <mods:name>
+     <mods:role>
+      <mods:roleTerm type="text">other</mods:roleTerm>
+     </mods:role>
+     <mods:namePart>Aldé, Alessandra</mods:namePart>
+    </mods:name>
+    <mods:name>
+     <mods:role>
+      <mods:roleTerm type="text">other</mods:roleTerm>
+     </mods:role>
+     <mods:namePart>Miguel, Luis Felipe</mods:namePart>
+    </mods:name>
+    <mods:extension>
+     <mods:dateAccessioned encoding="iso8601">2009-06-17T19:02:36Z</mods:dateAccessioned>
+    </mods:extension>
+    <mods:extension>
+     <mods:dateAvailable encoding="iso8601">2009-06-17T19:02:36Z</mods:dateAvailable>
+    </mods:extension>
+    <mods:originInfo>
+     <mods:dateIssued encoding="iso8601">2009-03-06</mods:dateIssued>
+    </mods:originInfo>
+    <mods:identifier type="uri">http://hdl.handle.net/10438/2676</mods:identifier>
+    <mods:abstract>Afinal, por que é cidadão o jornalista cidadão? Foi esta a pergunta que desencadeou
+todo um esforço de pesquisa no sentido de identificar práticas comuns nas diferentes
+experiências de jornalismo cidadão. Para desenvolver e tentar ampliar o conceito
+trabalhado, a opção foi de analisar o espectro da comunicação comunitária, sobretudo
+em veículos que tiveram origem na área da Maré, no Rio de Janeiro, nas últimas três
+décadas. Assim, mapeando algumas dessas experiências e selecionando casos entre os
+que chamaram mais atenção pela propriedade com que trabalham os aspectos
+relacionados ao jornalismo cidadão, esta dissertação se detém sobre o significado da
+cidadania para o cidadão-jornalista e a contribuição à identidade local prestada pela
+comunicação comunitária. Minha idéia é demonstrar como experiências deste gênero
+são capazes de não apenas de pautar meios tradicionais de mídia, mas sobretudo de
+ajudar a estabelecer dentro da própria comunidade uma cultura de mídia e uma esfera
+pública local, desenvolvendo uma reapropriação da identidade da favela e de seus
+moradores e contribuindo para a busca e/ou exercício da cidadania.</mods:abstract>
+    <mods:language>
+     <mods:languageTerm authority="rfc3066">pt_BR</mods:languageTerm>
+    </mods:language>
+    <mods:titleInfo>Por que é cidadão o jornalista-cidadão? História das mídias e jornalismo cidadão de base comunitária na Maré</mods:titleInfo>
+    <mods:genre>Dissertation</mods:genre>
+   </xmlData>
+  </mdWrap>
+ </dmdSec>
+ <amdSec ID="TMD_hdl_10438/2676">
+  <rightsMD>
+   <mdWrap MIMETYPE="text/plain" MDTYPE="OTHER" OTHERMDTYPE="TEXT">
+    <binData>TGljZW5zZSBncmFudGVkIGJ5IFN1ZW1pIEhpZ3VjaGkgKHN1ZW1pLmhpZ3VjaGlAZmd2LmJy
+KSBvbiAyMDA5LTA2LTE3VDE4OjU4OjQ0WiAoR01UKToKDQpURVJNT1MgTElDRU5DSUFNRU5UTyBQ
+QVJBIEFSUVVJVkFNRU5UTywgUkVQUk9EVcOHw4NPIEUgRElWVUxHQcOHw4NPDQpQw5pCTElDQSBE
+RSBDT05URcOaRE8gw4AgQklCTElPVEVDQSBWSVJUVUFMIEZHViAodmVyc8OjbyAxLjIpDQoNCjEu
+IFZvY8OqLCB1c3XDoXJpby1kZXBvc2l0YW50ZSBkYSBCaWJsaW90ZWNhIFZpcnR1YWwgRkdWLCBh
+c3NlZ3VyYSwgbm8NCnByZXNlbnRlIGF0bywgcXVlIMOpIHRpdHVsYXIgZG9zIGRpcmVpdG9zIGF1
+dG9yYWlzIHBhdHJpbW9uaWFpcyBlL291DQpkaXJlaXRvcyBjb25leG9zIHJlZmVyZW50ZXMgw6Ag
+dG90YWxpZGFkZSBkYSBPYnJhIG9yYSBkZXBvc2l0YWRhIGVtDQpmb3JtYXRvIGRpZ2l0YWwsIGJl
+bSBjb21vIGRlIHNldXMgY29tcG9uZW50ZXMgbWVub3JlcywgZW0gc2UgdHJhdGFuZG8NCmRlIG9i
+cmEgY29sZXRpdmEsIGNvbmZvcm1lIG8gcHJlY2VpdHVhZG8gcGVsYSBMZWkgOS42MTAvOTggZS9v
+dSBMZWkNCjkuNjA5Lzk4LiBOw6NvIHNlbmRvIGVzdGUgbyBjYXNvLCB2b2PDqiBhc3NlZ3VyYSB0
+ZXIgb2J0aWRvLCBkaXJldGFtZW50ZQ0KZG9zIGRldmlkb3MgdGl0dWxhcmVzLCBhdXRvcml6YcOn
+w6NvIHByw6l2aWEgZSBleHByZXNzYSBwYXJhIG8gZGVww7NzaXRvIGUNCmRpdnVsZ2HDp8OjbyBk
+YSBPYnJhLCBhYnJhbmdlbmRvIHRvZG9zIG9zIGRpcmVpdG9zIGF1dG9yYWlzIGUgY29uZXhvcw0K
+YWZldGFkb3MgcGVsYSBhc3NpbmF0dXJhIGRvcyBwcmVzZW50ZXMgdGVybW9zIGRlIGxpY2VuY2lh
+bWVudG8sIGRlDQptb2RvIGEgZWZldGl2YW1lbnRlIGlzZW50YXIgYSBGdW5kw6fDo28gR2V0dWxp
+byBWYXJnYXMgZSBzZXVzDQpmdW5jaW9uw6FyaW9zIGRlIHF1YWxxdWVyIHJlc3BvbnNhYmlsaWRh
+ZGUgcGVsbyB1c28gbsOjby1hdXRvcml6YWRvIGRvDQptYXRlcmlhbCBkZXBvc2l0YWRvLCBzZWph
+IGVtIHZpbmN1bGHDp8OjbyDDoCBCaWJsaW90ZWNhIFZpcnR1YWwgRkdWLCBzZWphDQplbSB2aW5j
+dWxhw6fDo28gYSBxdWFpc3F1ZXIgc2VydmnDp29zIGRlIGJ1c2NhIGUgZGlzdHJpYnVpw6fDo28g
+ZGUgY29udGXDumRvDQpxdWUgZmHDp2FtIHVzbyBkYXMgaW50ZXJmYWNlcyBlIGVzcGHDp28gZGUg
+YXJtYXplbmFtZW50byBwcm92aWRlbmNpYWRvcw0KcGVsYSBGdW5kYcOnw6NvIEdldHVsaW8gVmFy
+Z2FzIHBvciBtZWlvIGRlIHNldXMgc2lzdGVtYXMgaW5mb3JtYXRpemFkb3MuDQoNCjIuIEEgYXNz
+aW5hdHVyYSBkZXN0YSBsaWNlbsOnYSB0ZW0gY29tbyBjb25zZXHDvMOqbmNpYSBhIHRyYW5zZmVy
+w6puY2lhLCBhDQp0w610dWxvIG7Do28tZXhjbHVzaXZvIGUgbsOjby1vbmVyb3NvLCBpc2VudGEg
+ZG8gcGFnYW1lbnRvIGRlIHJveWFsdGllcw0Kb3UgcXVhbHF1ZXIgb3V0cmEgY29udHJhcHJlc3Rh
+w6fDo28sIHBlY3VuacOhcmlhIG91IG7Do28sIMOgIEZ1bmRhw6fDo28NCkdldHVsaW8gVmFyZ2Fz
+LCBkb3MgZGlyZWl0b3MgZGUgYXJtYXplbmFyIGRpZ2l0YWxtZW50ZSwgcmVwcm9kdXppciBlDQpk
+aXN0cmlidWlyIG5hY2lvbmFsIGUgaW50ZXJuYWNpb25hbG1lbnRlIGEgT2JyYSwgaW5jbHVpbmRv
+LXNlIG8gc2V1DQpyZXN1bW8vYWJzdHJhY3QsIHBvciBtZWlvcyBlbGV0csO0bmljb3MsIG5vIHNp
+dGUgZGEgQmlibGlvdGVjYSBWaXJ0dWFsDQpGR1YsIGFvIHDDumJsaWNvIGVtIGdlcmFsLCBlbSBy
+ZWdpbWUgZGUgYWNlc3NvIGFiZXJ0by4NCg0KMy4gQSBwcmVzZW50ZSBsaWNlbsOnYSB0YW1iw6lt
+IGFicmFuZ2UsIG5vcyBtZXNtb3MgdGVybW9zIGVzdGFiZWxlY2lkb3MNCm5vIGl0ZW0gMiwgc3Vw
+cmEsIHF1YWxxdWVyIGRpcmVpdG8gZGUgY29tdW5pY2HDp8OjbyBhbyBww7pibGljbyBjYWLDrXZl
+bA0KZW0gcmVsYcOnw6NvIMOgIE9icmEgb3JhIGRlcG9zaXRhZGEsIGluY2x1aW5kby1zZSBvcyB1
+c29zIHJlZmVyZW50ZXMgw6ANCnJlcHJlc2VudGHDp8OjbyBww7pibGljYSBlL291IGV4ZWN1w6fD
+o28gcMO6YmxpY2EsIGJlbSBjb21vIHF1YWxxdWVyIG91dHJhDQptb2RhbGlkYWRlIGRlIGNvbXVu
+aWNhw6fDo28gYW8gcMO6YmxpY28gcXVlIGV4aXN0YSBvdSB2ZW5oYSBhIGV4aXN0aXIsDQpub3Mg
+dGVybW9zIGRvIGFydGlnbyA2OCBlIHNlZ3VpbnRlcyBkYSBMZWkgOS42MTAvOTgsIG5hIGV4dGVu
+c8OjbyBxdWUNCmZvciBhcGxpY8OhdmVsIGFvcyBzZXJ2acOnb3MgcHJlc3RhZG9zIGFvIHDDumJs
+aWNvIHBlbGEgQmlibGlvdGVjYQ0KVmlydHVhbCBGR1YuDQoNCjQuIEVzdGEgbGljZW7Dp2EgYWJy
+YW5nZSwgYWluZGEsIG5vcyBtZXNtb3MgdGVybW9zIGVzdGFiZWxlY2lkb3Mgbm8NCml0ZW0gMiwg
+c3VwcmEsIHRvZG9zIG9zIGRpcmVpdG9zIGNvbmV4b3MgZGUgYXJ0aXN0YXMgaW50w6lycHJldGVz
+IG91DQpleGVjdXRhbnRlcywgcHJvZHV0b3JlcyBmb25vZ3LDoWZpY29zIG91IGVtcHJlc2FzIGRl
+IHJhZGlvZGlmdXPDo28gcXVlDQpldmVudHVhbG1lbnRlIHNlamFtIGFwbGljw6F2ZWlzIGVtIHJl
+bGHDp8OjbyDDoCBvYnJhIGRlcG9zaXRhZGEsIGVtDQpjb25mb3JtaWRhZGUgY29tIG8gcmVnaW1l
+IGZpeGFkbyBubyBUw610dWxvIFYgZGEgTGVpIDkuNjEwLzk4Lg0KDQo1LiBTZSBhIE9icmEgZGVw
+b3NpdGFkYSBmb2kgb3Ugw6kgb2JqZXRvIGRlIGZpbmFuY2lhbWVudG8gcG9yDQppbnN0aXR1acOn
+w7VlcyBkZSBmb21lbnRvIMOgIHBlc3F1aXNhIG91IHF1YWxxdWVyIG91dHJhIHNlbWVsaGFudGUs
+IHZvY8OqDQpvdSBvIHRpdHVsYXIgYXNzZWd1cmEgcXVlIGN1bXByaXUgdG9kYXMgYXMgb2JyaWdh
+w6fDtWVzIHF1ZSBsaGUgZm9yYW0NCmltcG9zdGFzIHBlbGEgaW5zdGl0dWnDp8OjbyBmaW5hbmNp
+YWRvcmEgZW0gcmF6w6NvIGRvIGZpbmFuY2lhbWVudG8sIGUNCnF1ZSBuw6NvIGVzdMOhIGNvbnRy
+YXJpYW5kbyBxdWFscXVlciBkaXNwb3Npw6fDo28gY29udHJhdHVhbCByZWZlcmVudGUgw6ANCnB1
+YmxpY2HDp8OjbyBkbyBjb250ZcO6ZG8gb3JhIHN1Ym1ldGlkbyDDoCBCaWJsaW90ZWNhIFZpcnR1
+YWwgRkdWLg0KDQo2LiBDYXNvIGEgT2JyYSBvcmEgZGVwb3NpdGFkYSBlbmNvbnRyZS1zZSBsaWNl
+bmNpYWRhIHNvYiB1bWEgbGljZW7Dp2ENCkNyZWF0aXZlIENvbW1vbnMgKHF1YWxxdWVyIHZlcnPD
+o28pLCBzb2IgYSBsaWNlbsOnYSBHTlUgRnJlZQ0KRG9jdW1lbnRhdGlvbiBMaWNlbnNlIChxdWFs
+cXVlciB2ZXJzw6NvKSwgb3Ugb3V0cmEgbGljZW7Dp2EgcXVhbGlmaWNhZGENCmNvbW8gbGl2cmUg
+c2VndW5kbyBvcyBjcml0w6lyaW9zIGRhIERlZmluaXRpb24gb2YgRnJlZSBDdWx0dXJhbCBXb3Jr
+cw0KKGRpc3BvbsOtdmVsIGVtOiBodHRwOi8vZnJlZWRvbWRlZmluZWQub3JnL0RlZmluaXRpb24p
+IG91IEZyZWUgU29mdHdhcmUNCkRlZmluaXRpb24gKGRpc3BvbsOtdmVsIGVtOiBodHRwOi8vd3d3
+LmdudS5vcmcvcGhpbG9zb3BoeS9mcmVlLXN3Lmh0bWwpLCANCm8gYXJxdWl2byByZWZlcmVudGUg
+w6AgT2JyYSBkZXZlIGluZGljYXIgYSBsaWNlbsOnYSBhcGxpY8OhdmVsIGVtDQpjb250ZcO6ZG8g
+bGVnw612ZWwgcG9yIHNlcmVzIGh1bWFub3MgZSwgc2UgcG9zc8OtdmVsLCB0YW1iw6ltIGVtIG1l
+dGFkYWRvcw0KbGVnw612ZWlzIHBvciBtw6FxdWluYS4gQSBpbmRpY2HDp8OjbyBkYSBsaWNlbsOn
+YSBhcGxpY8OhdmVsIGRldmUgc2VyDQphY29tcGFuaGFkYSBkZSB1bSBsaW5rIHBhcmEgb3MgdGVy
+bW9zIGRlIGxpY2VuY2lhbWVudG8gb3Ugc3VhIGPDs3BpYQ0KaW50ZWdyYWwuDQoNCg0KQW8gY29u
+Y2x1aXIgYSBwcmVzZW50ZSBldGFwYSBlIGFzIGV0YXBhcyBzdWJzZXHDvGVudGVzIGRvIHByb2Nl
+c3NvIGRlDQpzdWJtaXNzw6NvIGRlIGFycXVpdm9zIMOgIEJpYmxpb3RlY2EgVmlydHVhbCBGR1Ys
+IHZvY8OqIGF0ZXN0YSBxdWUgbGV1IGUNCmNvbmNvcmRhIGludGVncmFsbWVudGUgY29tIG9zIHRl
+cm1vcyBhY2ltYSBkZWxpbWl0YWRvcywgYXNzaW5hbmRvLW9zDQpzZW0gZmF6ZXIgcXVhbHF1ZXIg
+cmVzZXJ2YSBlIG5vdmFtZW50ZSBjb25maXJtYW5kbyBxdWUgY3VtcHJlIG9zDQpyZXF1aXNpdG9z
+IGluZGljYWRvcyBubyBpdGVtIDEsIHN1cHJhLg0KDQpIYXZlbmRvIHF1YWxxdWVyIGRpc2NvcmTD
+om5jaWEgZW0gcmVsYcOnw6NvIGFvcyBwcmVzZW50ZXMgdGVybW9zIG91IG7Do28NCnNlIHZlcmlm
+aWNhbmRvIG8gZXhpZ2lkbyBubyBpdGVtIDEsIHN1cHJhLCB2b2PDqiBkZXZlIGludGVycm9tcGVy
+DQppbWVkaWF0YW1lbnRlIG8gcHJvY2Vzc28gZGUgc3VibWlzc8Ojby4gQSBjb250aW51aWRhZGUg
+ZG8gcHJvY2Vzc28NCmVxdWl2YWxlIMOgIGFzc2luYXR1cmEgZGVzdGUgZG9jdW1lbnRvLCBjb20g
+dG9kYXMgYXMgY29uc2Vxw7zDqm5jaWFzIG5lbGUNCnByZXZpc3Rhcywgc3VqZWl0YW5kby1zZSBv
+IHNpZ25hdMOhcmlvIGEgc2Fuw6fDtWVzIGNpdmlzIGUgY3JpbWluYWlzIGNhc28NCm7Do28gc2Vq
+YSB0aXR1bGFyIGRvcyBkaXJlaXRvcyBhdXRvcmFpcyBwYXRyaW1vbmlhaXMgZS9vdSBjb25leG9z
+DQphcGxpY8OhdmVpcyDDoCBPYnJhIGRlcG9zaXRhZGEgZHVyYW50ZSBlc3RlIHByb2Nlc3NvLCBv
+dSBjYXNvIG7Do28gdGVuaGENCm9idGlkbyBwcsOpdmlhIGUgZXhwcmVzc2EgYXV0b3JpemHDp8Oj
+byBkbyB0aXR1bGFyIHBhcmEgbyBkZXDDs3NpdG8gZQ0KdG9kb3Mgb3MgdXNvcyBkYSBPYnJhIGVu
+dm9sdmlkb3MuDQoNCg0KUGFyYSBhIHNvbHXDp8OjbyBkZSBxdWFscXVlciBkw7p2aWRhIHF1YW50
+byBhb3MgdGVybW9zIGRlIGxpY2VuY2lhbWVudG8gZQ0KbyBwcm9jZXNzbyBkZSBzdWJtaXNzw6Nv
+LCBlbnRyZSBlbSBjb250YXRvIGNvbSBbbmNlcGdlQGZndi5icl0NCg==</binData>
+   </mdWrap>
+  </rightsMD>
+ </amdSec>
+ <fileSec>
+  <fileGrp USE="ORIGINAL">
+   <file ID="10438_2676_1" MIMETYPE="application/pdf" SIZE="2326531" CHECKSUM="6b19a1b5f0a14e36ccd4e92a04f821c7" CHECKSUMTYPE="MD5" OWNERID="http://bibliotecadigital.fgv.br/dspace/bitstream/10438/2676/1/CPDOC2009ViktorHenriqueCarneirodeSouzaChagas.pdf" GROUPID="GROUP_10438_2676_1">
+    <FLocat LOCTYPE="URL" type="simple" href="http://bibliotecadigital.fgv.br/dspace/bitstream/10438/2676/1/CPDOC2009ViktorHenriqueCarneirodeSouzaChagas.pdf"/>
+   </file>
+  </fileGrp>
+  <fileGrp USE="TEXT">
+   <file ID="10438_2676_3" MIMETYPE="text/plain" SIZE="594220" CHECKSUM="4fd22d612ed02fcc711dd31e554d72d8" CHECKSUMTYPE="MD5" OWNERID="http://bibliotecadigital.fgv.br/dspace/bitstream/10438/2676/3/CPDOC2009ViktorHenriqueCarneirodeSouzaChagas.pdf.txt" GROUPID="GROUP_10438_2676_1">
+    <FLocat LOCTYPE="URL" type="simple" href="http://bibliotecadigital.fgv.br/dspace/bitstream/10438/2676/3/CPDOC2009ViktorHenriqueCarneirodeSouzaChagas.pdf.txt"/>
+   </file>
+  </fileGrp>
+  <fileGrp USE="THUMBNAIL">
+   <file ID="10438_2676_4" MIMETYPE="image/jpeg" SIZE="14717" CHECKSUM="a04473733661de3408752512dc6f5743" CHECKSUMTYPE="MD5" OWNERID="http://bibliotecadigital.fgv.br/dspace/bitstream/10438/2676/4/CPDOC2009ViktorHenriqueCarneirodeSouzaChagas.pdf.jpg" GROUPID="GROUP_10438_2676_1">
+    <FLocat LOCTYPE="URL" type="simple" href="http://bibliotecadigital.fgv.br/dspace/bitstream/10438/2676/4/CPDOC2009ViktorHenriqueCarneirodeSouzaChagas.pdf.jpg"/>
+   </file>
+  </fileGrp>
+ </fileSec>
+ <structMap>
+  <div/>
+ </structMap>
+</mets>
+#+end_example
+
