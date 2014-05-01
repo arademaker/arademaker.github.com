@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2014-03-23T12:47:40-03:00</updated>
+ <updated>2014-04-30T23:40:38-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -13,13 +13,329 @@
 
  
  <entry>
+   <title>VIVO Apps and Tools Webinar</title>
+   <link href="http://arademaker.github.com/blog/2014/04/30/webinar.html"/>
+   <updated>2014-04-30T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2014/04/30/webinar</id>
+   <content type="html">&lt;div id=&quot;outline-container-sec-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Introduction&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+&lt;p&gt;
+Yerterday I presented for the Apps and Tools working group my workflow
+to prepared data to be inserted into FGV VIVO instance. Since some
+people asked be to share the links and the file that I used to guide
+my presentation, I made this post. 
+&lt;/p&gt;
+
+&lt;p&gt;
+This page is generated from a &lt;a href=&quot;http://orgmode.org&quot;&gt;org file&lt;/a&gt; that I export to HTML and
+further processed with &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;. The process of use org files with
+jekyll is outlined &lt;a href=&quot;http://orgmode.org/worg/org-tutorials/org-jekyll.html&quot;&gt;here&lt;/a&gt;. I am stil not very confortable with this
+workflow but I am using it for my personal website and for the
+websites of the courses that I teach at FGV.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-sec-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; The Toolset&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+&lt;p&gt;
+This is the non comprehensive list of tools that I use. I am listing
+here the main tools that come up into my mind that should be
+interesting to others.
+&lt;/p&gt;
+
+&lt;ul class=&quot;org-ul&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.gnu.org/software/emacs/&quot;&gt;Emacs&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://orgmode.org&quot;&gt;Org-Mode&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://common-lisp.net/project/slime/&quot;&gt;Slime&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Common Lisp compilers and interpreters: &lt;a href=&quot;http://franz.com/products/allegro-common-lisp/&quot;&gt;Allegro CL&lt;/a&gt;, &lt;a href=&quot;http://www.sbcl.org&quot;&gt;SBCL&lt;/a&gt; and &lt;a href=&quot;http://abcl.org&quot;&gt;ABCL&lt;/a&gt;
+  (Lisp on JVM, so I can use Java RDF libraries).
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.w3.org/2000/10/swap/doc/cwm.html&quot;&gt;CWM&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://franz.com/agraph/allegrograph/&quot;&gt;Allegro Graph Triplestore&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://franz.com/agraph/gruff/&quot;&gt;Gruff&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Git
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.r-project.org&quot;&gt;R&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Python
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://xmlsoft.org&quot;&gt;xsltproc and xmllint&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://tidy.sourceforge.net&quot;&gt;tidy&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-sec-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Data Sources&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+&lt;p&gt;
+We have to main sources of data: (1) the FGV researchers&#39; curricula
+vitae from &lt;a href=&quot;http://lattes.cnpq.br&quot;&gt;Lattes Platform&lt;/a&gt; and; (2) the FGV digital library.
+&lt;/p&gt;
+
+&lt;p&gt;
+During the webinar I shared my screen and presented the web interface
+that &lt;a href=&quot;http://cnpq.br&quot;&gt;CNPq&lt;/a&gt; provides for researchers update their resumes. I also shown
+&lt;a href=&quot;http://lattes.cnpq.br/0675365413696898&quot;&gt;my curriculum vitae&lt;/a&gt; and discussed why I do not consider Brazilian
+Researchers curricula vitae open data given the captcha that blocks
+crawlers to get XML files from the Lattes website in a batch mode.
+&lt;/p&gt;
+
+&lt;p&gt;
+I forgot to mention during the webinar but one of my old dreams is to
+convice CNPq to add &lt;a href=&quot;http://www.w3.org/TR/xhtml-rdfa-primer/&quot;&gt;RDFa&lt;/a&gt; or &lt;a href=&quot;https://schema.org&quot;&gt;https://schema.org&lt;/a&gt; microformats into the
+HTML pages of the curricula vitae. This would not only allow crawlers
+to easier process the data but could also facilitate the maintainance
+of the system. My current XSLT transformation of Lattes XML to RDF
+cloud provide the starting point to RDFa embeeding.
+&lt;/p&gt;
+
+&lt;p&gt;
+The &lt;a href=&quot;http://bibliotecadigital.fgv.br/dspace&quot;&gt;FGV Digital Library&lt;/a&gt; runs Dspace. The publications and collections
+metadata are easly collected from Dspace using the &lt;a href=&quot;http://www.openarchives.org/&quot;&gt;OAI-PMH protocol&lt;/a&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-sec-4&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-4&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; Lattes XML Files&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+&lt;p&gt;
+As I said in the previous section, the curricula vitae of Brazilian
+Researchers are not open data, that is, they are not public available
+in structured format. They are only public available as HTML pages in
+the Lattes website, with limited search interface. The only way to
+universities and research institutions get the curricula vitae of
+their researchers in a structured format is to sign an &lt;a href=&quot;http://www.cnpq.br/web/portal-lattes/acordos-institucionais&quot;&gt;aggrement&lt;/a&gt; with
+CNPq. FGV has signed this aggrement and we have one server authorized
+to access CNPq web server to retrive the XML files of all curriculae
+that have informed any professional activity with FGV.
+&lt;/p&gt;
+
+&lt;p&gt;
+To transform the Lattes files to RDF, I use a XSLT transformation that
+I developed few years ago. The XSLT is freely available at github in
+the repository &lt;a href=&quot;https://github.com/arademaker/SLattes&quot;&gt;Semantic Lattes&lt;/a&gt;. 
+&lt;/p&gt;
+
+&lt;p&gt;
+In this repo, I made also available the DTD that I try hard to keep
+up-to-date. Unfortunately, until recently, CNPq did not make public
+annoucement of chances in the structure of the XML files that they
+produce, so I had to adapt the DTD whenever I identify changes. I have
+just found in the end of &lt;a href=&quot;http://www.cnpq.br/web/portal-lattes/extracoes-de-dados&quot;&gt;this page&lt;/a&gt; that CNPq finally realized the
+importance of making available the updated DTD. Nevertheless, the DTD
+in the link of this page is outdated. At least, using this DTD to
+validate the 489 FGV&#39;s curriculae I got more than 100 erros but using
+my DTD to validate the same files I got only 2 errors. Considering
+that those 489 files were produced my CNPq, we have two options: (1)
+the DTD is outdated; or (2) the code that produces the XML files has
+bugs. The two erros that I find using my DTD occur only with two
+curriculae that were not updated in the last 2 years.
+&lt;/p&gt;
+
+&lt;p&gt;
+After download the XML files, the general idea to process them and
+produce the RDF files is outlined in the code below:
+&lt;/p&gt;
+
+&lt;div class=&quot;org-src-container&quot;&gt;
+
+&lt;pre class=&quot;src src-sh&quot;&gt;&lt;span style=&quot;color: #a020f0;&quot;&gt;for&lt;/span&gt; f&lt;span style=&quot;color: #a020f0;&quot;&gt; in&lt;/span&gt; $&lt;span style=&quot;color: #a0522d;&quot;&gt;ROOT&lt;/span&gt;/ontos/xml/*.xml; &lt;span style=&quot;color: #a020f0;&quot;&gt;do&lt;/span&gt;
+    &lt;span style=&quot;color: #a0522d;&quot;&gt;ID&lt;/span&gt;=$(&lt;span style=&quot;color: #ff00ff;&quot;&gt;basename&lt;/span&gt; $&lt;span style=&quot;color: #a0522d;&quot;&gt;f&lt;/span&gt; .xml)
+    &lt;span style=&quot;color: #483d8b;&quot;&gt;echo&lt;/span&gt; Processing $&lt;span style=&quot;color: #a0522d;&quot;&gt;ID&lt;/span&gt;
+    xmllint --noout --dtdvalid $&lt;span style=&quot;color: #a0522d;&quot;&gt;REPO&lt;/span&gt;/LMPLCurriculo.DTD $&lt;span style=&quot;color: #a0522d;&quot;&gt;f&lt;/span&gt; 2&amp;gt;&amp;gt; error.log
+    xsltproc --stringparam ID $&lt;span style=&quot;color: #a0522d;&quot;&gt;ID&lt;/span&gt; $&lt;span style=&quot;color: #a0522d;&quot;&gt;REPO&lt;/span&gt;/lattes.xsl $&lt;span style=&quot;color: #a0522d;&quot;&gt;f&lt;/span&gt; &amp;gt; $&lt;span style=&quot;color: #a0522d;&quot;&gt;ID&lt;/span&gt;.rdf  
+&lt;span style=&quot;color: #a020f0;&quot;&gt;done&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+After that, I import the RDF files to Allegro Graph making each
+curriculum a separated graph so I can easly identify the provenance of
+each triple. The importation is done using the &lt;a href=&quot;http://franz.com/agraph/support/documentation/current/agload.html&quot;&gt;agload&lt;/a&gt; utility. The
+load process takes aprox. 2 minutes:
+&lt;/p&gt;
+
+&lt;pre class=&quot;example&quot;&gt;
+Load finished 487 sources in 00:02:03 (123.02 seconds).  
+Triples added: 1,690,538 
+Average Rate: 13742.00 tps
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-sec-5&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-5&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;5&lt;/span&gt; Data Deduplication&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
+&lt;p&gt;
+I briefly commented about the deduplication of records during the
+webinar. I do have to take care of removing duplicated resources about
+the same entity. Considering a thesis defended by and student at FGV
+whom have as advisor a professor at FGV. I will have metadata
+(triples) about this thesis from three different sources: (1) the RDF
+produced from the advisor&#39;s curriculum lattes XML; (2) the RDF produce
+from the student&#39;s curriculum lattes XML; and (3) the RDF obtained
+from the FGV Digital Library. 
+&lt;/p&gt;
+
+&lt;p&gt;
+The &lt;a href=&quot;http://github.com/arademaker/vivo-code&quot;&gt;current code&lt;/a&gt; that I use to identify duplicated resources is a
+Common Lisp library that is easily used if placed inside the
+local-projects directory of a &lt;a href=&quot;http://www.quicklisp.org/&quot;&gt;Quicklisp&lt;/a&gt; instalation.
+&lt;/p&gt;
+
+&lt;p&gt;
+I can write an entire article only about deduplication in RDF. I am
+still thinking hard about this problem and really would like to find
+better alternatives.  One can note that deduplication of nodes in a
+RDF graph should not be done type by type as I am doing now. The rules
+to identify resources as being refering the same entity could
+dependent each other. That is, the deduplication of instances of
+&lt;code&gt;foaf:Person&lt;/code&gt; can activate the rule to deduplicate instances of
+&lt;code&gt;bibo:Article&lt;/code&gt; and vice-versa. It would be better to have a kind of
+fixed point transformation in the RDF graph that could keep clustering
+nodes until nothing more can be done. As a logician, I am very
+interested in approach this problem in a more declarative and
+deductive way.
+&lt;/p&gt;
+
+&lt;p&gt;
+I also have to note that &lt;code&gt;owl:sameAs&lt;/code&gt; semantics doesn&#39;t help here. I
+do use &lt;code&gt;owl:sameAs&lt;/code&gt; to mark the nodes that should be merged but I have
+to merge the nodes after all &lt;code&gt;owl:sameAs&lt;/code&gt; triples are produced. I do
+this with two SPARQL construct queries:
+&lt;/p&gt;
+
+&lt;pre class=&quot;example&quot;&gt;
+delete { ?s1 ?p ?o . }
+insert { ?s2 ?p ?o . }
+where {
+  ?s1 owl:sameAs ?s2 .
+  ?s1 ?p ?o .
+  filter( !sameTerm(?p, owl:sameAs) )
+}
+&lt;/pre&gt;
+
+&lt;pre class=&quot;example&quot;&gt;
+delete { ?x ?p ?o1 . }
+insert { ?x ?p ?o2 . }
+where {
+  ?o1 owl:sameAs ?o2 .
+  ?x ?p ?o1 .
+  filter( !sameTerm(?p, owl:sameAs) )
+}
+&lt;/pre&gt;
+
+&lt;p&gt;
+Note that the filters block the propagation of the &lt;code&gt;owl:sameAs&lt;/code&gt;
+triples. 
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-sec-6&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-6&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;6&lt;/span&gt; Mapping Lattes RDF to VIVO RDF&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-6&quot;&gt;
+&lt;p&gt;
+To map the Lattes RDF model produced by my XSLT to the expected VIVO
+RDF model, I have to look carefully to each instance of data. This
+mapping is not completed but at this point I have already mapped most
+of the data about people, publication, research areas and
+departaments.
+&lt;/p&gt;
+
+&lt;p&gt;
+To work on the rules and queries to transform the data, I used the
+query and data browsing tools developed by Franz: Gruff and
+AllegroGraph WebView. During the webinar I presented both systems.
+&lt;/p&gt;
+
+&lt;p&gt;
+The mapping is developed as rules that were easly tested with CWM. One
+example of rules is
+&lt;/p&gt;
+
+&lt;pre class=&quot;example&quot;&gt;
+{ ?dept foaf:member ?person ;
+        rdf:type foaf:Group . } =&amp;gt; 
+{ [ vivo:relates ?dept ;
+    vivo:relates ?person ;
+    a vivo:FacultyPosition ;
+    rdfs:label &quot;Professor Adjunto&quot;@pt ] . } .
+&lt;/pre&gt;
+
+&lt;p&gt;
+Rules like the one above are placed in an n3 file and executed by CWM
+that receives the rule file and the data file and produces the data
+output file. Unfortunately, CWM does not have good performance and I
+haven&#39;t even tried to use it with all the data. I develop the rules
+and test them with only one curriculum vitae file.
+&lt;/p&gt;
+
+&lt;p&gt;
+Once I finish to test the rules, I rewrite them as SPARQL queries. The
+one above becomes:
+&lt;/p&gt;
+
+&lt;pre class=&quot;example&quot;&gt;
+insert 
+{ graph &amp;lt;http://www.fgv.br/vivo/import/&amp;gt; 
+  {            
+   [ vivo:relates ?dept ;
+     vivo:relates ?person ;
+      a vivo:FacultyPosition ;
+     rdfs:label &quot;Professor Adjunto&quot;@pt ] . 
+  }
+}
+where
+{ ?dept foaf:member ?person ;
+        rdf:type foaf:Group . 
+}
+&lt;/pre&gt;
+
+&lt;p&gt;
+Note that: (1) the query produces blank nodes that need to be
+transformed into normal nodes before loaded into VIVO; (2) All created
+triples are placed in a separated graph; and (3) if this query is
+executed twice it will generate duplicated and dispensable
+triples. This is the most important limitation of using SPARQL for
+me. CWM will only execute a rule whenever necessary and the rules do
+not have to explicit declare any condition to avoid unnecessary
+creation of triples.
+&lt;/p&gt;
+
+&lt;p&gt;
+It is still not clear to me if all SPARQL queries can be rewrited to
+prevent non necessary creation of triples. Moreover, I don&#39;t want to
+have too complicated SPARQL queries to maintain.
+&lt;/p&gt;
+
+&lt;p&gt;
+More on the next post.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>We found a bug in the split command of Mac OS</title>
    <link href="http://arademaker.github.com/blog/2013/07/18/we-found-a-bug-in-macos-split.html"/>
    <updated>2013-07-18T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2013/07/18/we-found-a-bug-in-macos-split</id>
-   <content type="html">&lt;h1&gt;We found a bug in the split command of Mac OS&lt;/h1&gt;
-
-&lt;p&gt;Yesterday my friend
+   <content type="html">&lt;p&gt;Yesterday my friend
 &lt;a href=&quot;http://researcher.ibm.com/researcher/view.php?person=br-mnerys&quot;&gt;Marcelo Nery&lt;/a&gt;
 and I found a bug in the &lt;code&gt;split&lt;/code&gt; command of Mac OS. At first, I was
 surprised (we don&#39;t expect to find bugs in core tools like grep, ls,
@@ -108,9 +424,7 @@ G
    <link href="http://arademaker.github.com/blog/2013/01/17/GeTFun.html"/>
    <updated>2013-01-17T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2013/01/17/GeTFun</id>
-   <content type="html">&lt;h1&gt;The GeTFun Research Project&lt;/h1&gt;
-
-&lt;p&gt;January, 1 2013 marked the official beginning of the
+   <content type="html">&lt;p&gt;January, 1 2013 marked the official beginning of the
 &lt;a href=&quot;http://sqig.math.ist.utl.pt/GeTFun/&quot;&gt;GeTFun&lt;/a&gt; project. I am very
 excited about this project and willing to contributed and share ideas
 with all collaborators. The first workshop of the project will happen
@@ -124,9 +438,7 @@ Janeiro.&lt;/p&gt;
    <link href="http://arademaker.github.com/blog/2012/09/20/pacote-dicionariosIBGE.html"/>
    <updated>2012-09-20T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2012/09/20/pacote-dicionariosIBGE</id>
-   <content type="html">&lt;h1&gt;Pacote R dicionariosIBGE&lt;/h1&gt;
-
-&lt;p&gt;Disponibilizei hoje no github e submeti para o CRAN a versão 1.5 do
+   <content type="html">&lt;p&gt;Disponibilizei hoje no github e submeti para o CRAN a versão 1.5 do
 pacote &lt;a href=&quot;https://github.com/arademaker/dicionariosIBGE/&quot;&gt;dicionariosIBGE&lt;/a&gt;.
 Este pacote contém os dicionários das principais pesquisas do
 &lt;a href=&quot;http://www.ibge.gov.br/&quot;&gt;IBGE&lt;/a&gt;: PNAD (1983-2009), POF (1987-1996) e
@@ -208,9 +520,7 @@ IBGE.&lt;/p&gt;
    <link href="http://arademaker.github.com/blog/2012/05/06/problema-dos-galoes.html"/>
    <updated>2012-05-06T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2012/05/06/problema-dos-galoes</id>
-   <content type="html">&lt;h1&gt;O problema dos galões&lt;/h1&gt;
-
-&lt;p&gt;Na primeira prova do curso de &lt;a href=&quot;/CA-2012-1/&quot;&gt;estrutura de dados&lt;/a&gt; que
+   <content type="html">&lt;p&gt;Na primeira prova do curso de &lt;a href=&quot;/CA-2012-1/&quot;&gt;estrutura de dados&lt;/a&gt; que
 dei este ano, coloquei a seguinte questão para os alunos.&lt;/p&gt;
 
 &lt;p&gt;Nós temos 3 galões de tamanho 10, 7 e 4 litros. Os galões de 7 e 4
@@ -378,9 +688,7 @@ litros.&lt;/p&gt;
    <link href="http://arademaker.github.com/blog/2012/02/15/lattes-to-bibtex.html"/>
    <updated>2012-02-15T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2012/02/15/lattes-to-bibtex</id>
-   <content type="html">&lt;h1&gt;Lattes to BibTeX&lt;/h1&gt;
-
-&lt;p&gt;Disponibilizei hoje online no github uma transformação do &lt;a href=&quot;http://lattes.cnpq.br/&quot;&gt;Lattes&lt;/a&gt; para
+   <content type="html">&lt;p&gt;Disponibilizei hoje online no github uma transformação do &lt;a href=&quot;http://lattes.cnpq.br/&quot;&gt;Lattes&lt;/a&gt; para
 &lt;a href=&quot;http://en.wikipedia.org/wiki/BibTeX&quot;&gt;BibTeX&lt;/a&gt;, vejam o repositório:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://github.com/arademaker/SLattes&quot;&gt;http://github.com/arademaker/SLattes&lt;/a&gt;&lt;/p&gt;
@@ -464,9 +772,7 @@ diretamente no &lt;a href=&quot;https://github.com/arademaker/SLattes/issues&quo
    <link href="http://arademaker.github.com/blog/2012/01/02/package-SSOAP.html"/>
    <updated>2012-01-02T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2012/01/02/package-SSOAP</id>
-   <content type="html">&lt;h1&gt;R Package SSOAP&lt;/h1&gt;
-
-&lt;p&gt;Last year, during a summer course that I gave at FGV, I taught the
+   <content type="html">&lt;p&gt;Last year, during a summer course that I gave at FGV, I taught the
 students how to use SOAP protocol do retrive data from
 &lt;a href=&quot;http://bcb.gov.br/&quot;&gt;Banco Central do Brasil&lt;/a&gt; using R. BCB has a
 system called SGS (Sistema Gerenciador de Séries Temporais) that has a
@@ -544,9 +850,7 @@ certificate used in BCB website is invalid! What a shame!&lt;/p&gt;
    <link href="http://arademaker.github.com/blog/2011/12/01/github-pages-jekyll-plugins.html"/>
    <updated>2011-12-01T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2011/12/01/github-pages-jekyll-plugins</id>
-   <content type="html">&lt;h1&gt;GitHub Pages and Jekyll plugins&lt;/h1&gt;
-
-&lt;p&gt;Everyone that use &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; and wants to host the site at GitHub should know that GitHub Pages does not allow custom plugins, right? Using Jekyll for a little more than a blog site, like &lt;a href=&quot;http://emap.fgv.br&quot;&gt;EMAp/FGV&lt;/a&gt; will require plugins. In my case, avoid the use of custom plugins is not an option.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Everyone that use &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; and wants to host the site at GitHub should know that GitHub Pages does not allow custom plugins, right? Using Jekyll for a little more than a blog site, like &lt;a href=&quot;http://emap.fgv.br&quot;&gt;EMAp/FGV&lt;/a&gt; will require plugins. In my case, avoid the use of custom plugins is not an option.&lt;/p&gt;
 
 &lt;p&gt;The solution is trivial, one has to run Jekyll locally and post the produzed files into a master branch of a git repo, following the conventions described at &lt;a href=&quot;http://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt; por person and organization pages. The problem that I faced was to choose the best way to organize and keep tracking of the source and produzed files.&lt;/p&gt;
 
@@ -571,9 +875,7 @@ git push -all origin
    <link href="http://arademaker.github.com/blog/2011/11/27/ultimas-conferencias.html"/>
    <updated>2011-11-27T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2011/11/27/ultimas-conferencias</id>
-   <content type="html">&lt;h1&gt;Comentários sobre ECLM 2011 e ISWC 2011 (1/2)&lt;/h1&gt;
-
-&lt;p&gt;Desde que voltei da minha última viagem para participar da
+   <content type="html">&lt;p&gt;Desde que voltei da minha última viagem para participar da
 &lt;a href=&quot;http://weitz.de/eclm2011/&quot;&gt;ECLM 2011&lt;/a&gt; e
 &lt;a href=&quot;http://iswc2011.semanticweb.org/&quot;&gt;ISWC 2011&lt;/a&gt;, estou pensando em
 escrever sobre o assunto. Por estar escrevendo em português, acho que
@@ -640,9 +942,7 @@ trabalhos na seção.&lt;/p&gt;
    <link href="http://arademaker.github.com/blog/2011/10/31/time-series-R.html"/>
    <updated>2011-10-31T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2011/10/31/time-series-R</id>
-   <content type="html">&lt;h1&gt;Gráficos de séries temporais no R&lt;/h1&gt;
-
-&lt;p&gt;Pergunta de dois alunos: como postar duas séries temporáis usando o
+   <content type="html">&lt;p&gt;Pergunta de dois alunos: como postar duas séries temporáis usando o
 ggplot? Resolvi responder usando este post. Vou aproveitar então para
 mostrar como postar séries temporáis usando o ggplot, lattice e o plot
 padrão do R.&lt;/p&gt;
@@ -755,9 +1055,7 @@ objetos &lt;code&gt;ts&lt;/code&gt;.&lt;/p&gt;
    <link href="http://arademaker.github.com/blog/2011/09/13/checking-issn-lisp.html"/>
    <updated>2011-09-13T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2011/09/13/checking-issn-lisp</id>
-   <content type="html">&lt;h1&gt;Verifying the ISSN&#39;s check digit in Common Lisp&lt;/h1&gt;
-
-&lt;p&gt;The code below is my first approach to create a lisp function that
+   <content type="html">&lt;p&gt;The code below is my first approach to create a lisp function that
 test the ISSN &lt;a href=&quot;http://en.wikipedia.org/wiki/Check_digit&quot;&gt;check
 digit&lt;/a&gt;. Unfortunately, the
 code runs only in Allegro CL due the requirement of regexp2
@@ -792,9 +1090,7 @@ documentos pertencentes aos acervos em questão.&lt;/p&gt;
    <link href="http://arademaker.github.com/blog/2011/03/02/tabela-verdade-no-R.html"/>
    <updated>2011-03-02T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2011/03/02/tabela-verdade-no-R</id>
-   <content type="html">&lt;h1&gt;Construindo tabelas verdade no R&lt;/h1&gt;
-
-&lt;p&gt;Durante a preparação de alguns exercícios de lógica, me deparei com a
+   <content type="html">&lt;p&gt;Durante a preparação de alguns exercícios de lógica, me deparei com a
 necessidade de construir tabelas verdade. Lembrando do pacote xtable
 do R, pensei como seria construir uma tabela verdade usando o R. Minha
 solução em R está no github, gist abaixo, com o exemplo de como seria
@@ -925,9 +1221,7 @@ statements as the inhabitants of our legal ontology.&lt;/p&gt;
    <link href="http://arademaker.github.com/blog/2010/11/18/barras-e-linhas.html"/>
    <updated>2010-11-18T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2010/11/18/barras-e-linhas</id>
-   <content type="html">&lt;h1&gt;Barras e Linhas no R&lt;/h1&gt;
-
-&lt;p&gt;Ontem um aluno me perguntou como produzir um gráfico de barras com
+   <content type="html">&lt;p&gt;Ontem um aluno me perguntou como produzir um gráfico de barras com
 linhas. Minha primeira idéia foi recorrer a pacotes como
 &lt;a href=&quot;http://cran.r-project.org/web/packages/lattice/&quot;&gt;Lattice&lt;/a&gt; ou
 &lt;a href=&quot;http://had.co.nz/ggplot2/&quot;&gt;ggplot2&lt;/a&gt;, imaginando tratar-se de um
@@ -1052,9 +1346,7 @@ legal ontologies and reasoning in AI.&lt;/p&gt;
    <link href="http://arademaker.github.com/blog/2010/01/30/datasets.html"/>
    <updated>2010-01-30T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2010/01/30/datasets</id>
-   <content type="html">&lt;h1&gt;Datasets no Brasil&lt;/h1&gt;
-
-&lt;p&gt;Est&amp;atilde;o come&amp;ccedil;ando a surgir no Brasil iniciativas para real
+   <content type="html">&lt;p&gt;Est&amp;atilde;o come&amp;ccedil;ando a surgir no Brasil iniciativas para real
 transpar&amp;ecirc;ncia no acesso aos dados do governo. A
 estrutura&amp;ccedil;&amp;atilde;o dos dados em formatos abertos (RDF, CSV
 etc), acompanhados de metadados e indexados em interfaces de busca e
