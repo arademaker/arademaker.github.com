@@ -20,13 +20,13 @@ tags:
 Yerterday I presented for the Apps and Tools working group my workflow
 to prepared data to be inserted into FGV VIVO instance. Since some
 people asked be to share the links and the file that I used to guide
-my presentation, I made this post. 
+the presentation, I made this post.
 
 This page is generated from a [[http://orgmode.org][org file]] that I export to HTML and
 further processed with [[http://jekyllrb.com][Jekyll]]. The process of use org files with
-jekyll is outlined [[http://orgmode.org/worg/org-tutorials/org-jekyll.html][here]]. I am stil not very confortable with this
-workflow but I am using it for my personal website and for the
-websites of the courses that I teach at FGV.
+jekyll is outlined [[http://orgmode.org/worg/org-tutorials/org-jekyll.html][here]]. I plan to improve this workflow, but it is
+working for my personal website and for the websites of the courses
+that I teach at FGV.
 
 * The Toolset 
 
