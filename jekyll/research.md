@@ -5,6 +5,13 @@ title: Research
 
 # {{ page.title }}
 
+## Program Committee
+
+### 2014
+
+- http://www.coling-2014.org
+- http://fois2014.inf.ufes.br
+
 ## Presentations
 
 Processamento de Linguagem Natural em textos da História

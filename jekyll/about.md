@@ -6,8 +6,9 @@ title: About Me
 {{ page.title }}
 ================
 
-Alexandre is a Research Staff Member in the Natural Resources group at
-IBM Research – Brazil. He joined IBM in December 2012.
+Alexandre is a Research Staff Member in the
+[Natural Resources Solutions group](https://ibm.biz/brl-nrs) at IBM
+Research – Brazil. He joined IBM in December 2012.
 
 Alexandre is also adjunct professor at the
 [Applied Mathematics School of Getulio Vargas Foundation](http://emap.fgv.br)
