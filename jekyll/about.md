@@ -69,4 +69,7 @@ You can find more information at:
   
 ## Organizational activities
 
-- Board member of the [Global WordNet Association](http://www.globalwordnet.org}
+- Board member of the
+  [Global WordNet Association](http://www.globalwordnet.org).
+
+
