@@ -6,7 +6,7 @@ scholar:
   style: chicago-author-date
   locale: en
 
-  sort_by: year
+  sort_by: none
   order: reverse
 
   source: ./_bibliography
