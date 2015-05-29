@@ -7,6 +7,11 @@ title: Research
 
 ## Program Committee
 
+## 2015
+
+- [WoMO 2015](http://www.iaoa.org/jowo/womo2015/#pc)
+- [VIVO 2015](http://vivoconference.org)
+
 ### 2014
 
 - http://www.coling-2014.org
