@@ -5,22 +5,30 @@ title: Research
 
 # {{ page.title }}
 
-## Program Committee
+## Program Committee 
 
+- [GWC 2016](http://gwc2016.racai.ro)
 - [WoMO 2015](http://www.iaoa.org/jowo/womo2015/#pc)
 - [VIVO 2015](http://vivoconference.org)
 - [Ontobras 2015](http://www.ime.usp.br/~ontobras/)
 - [Coling 2014](http://www.coling-2014.org)
 - [FOIS 2014](http://fois2014.inf.ufes.br)
+  - [6th Workshop on Formal Ontologies meet Industry](http://emap.fgv.br/fomi-2014/) - Organizer
+  - [Workshop on Logics and Ontologies for Natural Language](http://emap.fgv.br/logonto-2014/) - Organizer
+- [Workshop ToRPorEsp @ Propor 2014](https://sites.google.com/site/torporesp/) - Organizer
+- [Ontobras 2013](http://ontobras.eci.ufmg.br/en)
+- [Logics and Ontologies for Portuguese 2011](http://emap.fgv.br/logonto-2011/) - Organizer
 
-## Presentations
+## Invited talks
 
-Processamento de Linguagem Natural em textos da História
-Comptemporânea do Brasil: o projeto OpenWordnet-PT, FGV,
-2012. ([PDF](/files/cpdoc-2012-slides.pdf),
-[SlideShare](http://goo.gl/VelVo),
-[url](http://cpdoc.fgv.br/noticias/eventos/03102012) )
+- Processamento de Linguagem Natural em textos da História
+  Comptemporânea do Brasil: o projeto OpenWordnet-PT,
+  FGV, 2012. ([PDF](/files/cpdoc-2012-slides.pdf),
+  [SlideShare](http://goo.gl/VelVo),
+  [url](http://cpdoc.fgv.br/noticias/eventos/03102012) )
 
+- [Primeiro Encontro em Computação Semântica](http://compsem.github.io) -
+  Semantic Traffic Diagnosis with STAR-CITY, 2015.
 
 ## Research Areas
 
