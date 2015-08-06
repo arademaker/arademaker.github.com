@@ -9,7 +9,7 @@ title: Teaching
 
 - Estruturas de dados e algorítmos, Graduação EMAp, FGV.
 - Estruturas de dados e algorítmos, Mestrado EMAp, FGV.
-- Linguagens de Programação, Graduação EMAp, FGV.
+- [Linguagens de Programação](https://github.com/arademaker/LP-2015.2), Graduação EMAp, FGV.
 
 ## 2014
 
