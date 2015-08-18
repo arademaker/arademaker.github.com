@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2015-08-06T09:56:42-03:00</updated>
+ <updated>2015-08-18T15:59:44-04:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -13,9 +13,123 @@
 
  
  <entry>
+   <title>Merging RDF files</title>
+   <link href="http://arademaker.github.com/blog/2015/08/18/combine-rdf.html"/>
+   <updated>2015-08-18T00:00:00-04:00</updated>
+   <id>http://arademaker.github.com/blog/2015/08/18/combine-rdf</id>
+   <content type="html">&lt;p&gt;
+How to merge multiple RDF files into a single RDF file? The first idea
+would be to convert each RDF file in &lt;a href=&quot;http://www.w3.org/2001/sw/RDFCore/ntriples/&quot;&gt;ntriples&lt;/a&gt; and just concatenate
+them using unix &lt;code&gt;cat&lt;/code&gt; utility, right? No, it doesn&#39;t work with blank
+nodes! Blank nodes names from different files would be merged as a
+single resource and this is not the expected semantics, blank nodes
+from different files are different resources, even if they have the
+same id.
+&lt;/p&gt;
+
+&lt;p&gt;
+The files that I want to merge are presented below, &lt;code&gt;rapper&lt;/code&gt; is a
+utility from the package &lt;a href=&quot;http://librdf.org&quot;&gt;Redland&lt;/a&gt;. Below I am presented the files and
+the number of triples on each one.
+&lt;/p&gt;
+
+&lt;pre class=&quot;example&quot;&gt;
+$ rapper -c -i ntriples wordnet-en-fixed.nt
+rapper: Parsing returned 3517504 triples
+
+$ rapper -c -i ntriples own-pt-fixed.nt
+rapper: Parsing returned  824916 triples
+&lt;/pre&gt;
+
+&lt;p&gt;
+The oldest tool to support merging of RDF files is &lt;a href=&quot;http://www.w3.org/2000/10/swap/doc/cwm.html&quot;&gt;CWM&lt;/a&gt;. CWM is written
+in python and its performance is really bad. The command below didn&#39;t
+finish after 5 minutes when I gave up and aborted it.
+&lt;/p&gt;
+
+&lt;pre class=&quot;example&quot;&gt;
+/usr/local/cwm-1.2.1/cwm --ntriples own-pt-fixed.nt wordnet-en-fixed.nt &amp;gt; tudo-cwm.nt
+&lt;/pre&gt;
+
+&lt;p&gt;
+Next tool that I tried was &lt;a href=&quot;http://rdfpro.fbk.eu&quot;&gt;\(RDF_{pro}\)&lt;/a&gt;. The performance is excellent,
+only 11 seconds! But we must add a parameter &lt;code&gt;-w&lt;/code&gt; to force BNodes in
+input files to be renamed to avoid possible clashes. It doesn&#39;t make
+sense to me why this is not the default behaviour.
+&lt;/p&gt;
+
+&lt;pre class=&quot;example&quot;&gt;
+$ rdfpro @r -w own-pt-fixed.nt wordnet-en-fixed.nt @w tudo-pro.nt
+14:45:53(I) 4342420 triples read (377077 tr/s avg)
+14:45:53(I) 4342420 triples written (377077 tr/s avg)
+14:45:53(I) Done in 11 s
+&lt;/pre&gt;
+
+&lt;p&gt;
+Next one, &lt;code&gt;riot&lt;/code&gt; from the &lt;a href=&quot;https://jena.apache.org&quot;&gt;Jena&lt;/a&gt; library. The performance is not bad, it
+took the double of the of \(RDF_{pro}\) but it did the job, right? Problem
+is that is complained about some IRI that no other tool complained
+about it.
+&lt;/p&gt;
+
+&lt;pre class=&quot;example&quot;&gt;
+$ time riot own-pt-fixed.nt wordnet-en-fixed.nt &amp;gt; tudo-riot.nt
+14:51:14 WARN riot :: [line: 282756, col: 1 ] Bad IRI: &amp;lt;https://w3id.org/own-pt/wn30-pt/instances/word-Ĳsselmeer&amp;gt; Code: 47/NOT_NFKC in PATH: The IRI is not in Unicode Normal Form KC.
+14:51:14 WARN riot :: [line: 282756, col: 1 ] Bad IRI: &amp;lt;https://w3id.org/own-pt/wn30-pt/instances/word-Ĳsselmeer&amp;gt; Code: 56/COMPATIBILITY_CHARACTER in PATH: Bad character
+...
+
+real	0m27.398s
+user	0m29.905s
+sys	0m1.751s
+&lt;/pre&gt;
+
+&lt;p&gt;
+I don&#39;t like warnnings so I tried the save path. I converted the
+ntriple file with these strange IRIs to RDF/XML and called &lt;code&gt;riot&lt;/code&gt;
+again. No warnnings this time, good!
+&lt;/p&gt;
+
+&lt;pre class=&quot;example&quot;&gt;
+$ rapper -i ntriples -o rdfxml own-pt-fixed.nt  &amp;gt; own-pt-fixed.rdf
+rapper: Serializing with serializer rdfxml
+rapper: Parsing returned 824916 triples
+
+$ riot --time own-pt-fixed.rdf wordnet-en-fixed.nt &amp;gt; tudo-riot.nt
+own-pt-fixed.rdf : 14.84 sec  824,916 triples  55,602.32 TPS
+wordnet-en-fixed.nt : 21.82 sec  3,517,504 triples  161,175.95 TPS
+Total : 36.66 sec  4,342,420 triples  118,451.17 TPS
+&lt;/pre&gt;
+
+&lt;p&gt;
+But the output produced does have some errors! The IRIs are not
+encoded as the way the ntriples specification requires.
+&lt;/p&gt;
+
+&lt;pre class=&quot;example&quot;&gt;
+$ rapper -c -i ntriples tudo-riot.nt
+
+rapper: Parsing URI tudo-riot.nt with parser ntriples
+rapper: Error - URI tudo-riot.nt:117668 column 55 - Non-printable ASCII character 195 (0xC3) found.
+rapper: Error - URI tudo-riot.nt:117668 column 56 - Non-printable ASCII character 162 (0xA2) found.
+&lt;/pre&gt;
+
+&lt;p&gt;
+OK, after one hour playing with these tools and writing this post, I
+finnaly have my two RDF files merged and I can now go back to what I
+was doing in first place&amp;#x2026; The problem is now to remember what
+I was doing.
+&lt;/p&gt;
+
+&lt;p&gt;
+By the way, for the future, I will use \(RDF_pro\).
+&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>VIVO Apps and Tools Webinar</title>
    <link href="http://arademaker.github.com/blog/2014/04/30/webinar.html"/>
-   <updated>2014-04-30T00:00:00-03:00</updated>
+   <updated>2014-04-30T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/blog/2014/04/30/webinar</id>
    <content type="html">&lt;div id=&quot;outline-container-sec-1&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;sec-1&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Introduction&lt;/h2&gt;
@@ -333,7 +447,7 @@ More on the next post.
  <entry>
    <title>We found a bug in the split command of Mac OS</title>
    <link href="http://arademaker.github.com/blog/2013/07/18/we-found-a-bug-in-macos-split.html"/>
-   <updated>2013-07-18T00:00:00-03:00</updated>
+   <updated>2013-07-18T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/blog/2013/07/18/we-found-a-bug-in-macos-split</id>
    <content type="html">&lt;p&gt;Yesterday my friend
 &lt;a href=&quot;http://researcher.ibm.com/researcher/view.php?person=br-mnerys&quot;&gt;Marcelo Nery&lt;/a&gt;
@@ -422,7 +536,7 @@ G
  <entry>
    <title>The GeTFun Research Project</title>
    <link href="http://arademaker.github.com/blog/2013/01/17/GeTFun.html"/>
-   <updated>2013-01-17T00:00:00-02:00</updated>
+   <updated>2013-01-17T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/blog/2013/01/17/GeTFun</id>
    <content type="html">&lt;p&gt;January, 1 2013 marked the official beginning of the
 &lt;a href=&quot;http://sqig.math.ist.utl.pt/GeTFun/&quot;&gt;GeTFun&lt;/a&gt; project. I am very
@@ -436,7 +550,7 @@ Janeiro.&lt;/p&gt;
  <entry>
    <title>Pacote R dicionariosIBGE</title>
    <link href="http://arademaker.github.com/blog/2012/09/20/pacote-dicionariosIBGE.html"/>
-   <updated>2012-09-20T00:00:00-03:00</updated>
+   <updated>2012-09-20T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/blog/2012/09/20/pacote-dicionariosIBGE</id>
    <content type="html">&lt;p&gt;Disponibilizei hoje no github e submeti para o CRAN a versão 1.5 do
 pacote &lt;a href=&quot;https://github.com/arademaker/dicionariosIBGE/&quot;&gt;dicionariosIBGE&lt;/a&gt;.
@@ -518,7 +632,7 @@ IBGE.&lt;/p&gt;
  <entry>
    <title>O problema dos galões</title>
    <link href="http://arademaker.github.com/blog/2012/05/06/problema-dos-galoes.html"/>
-   <updated>2012-05-06T00:00:00-03:00</updated>
+   <updated>2012-05-06T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/blog/2012/05/06/problema-dos-galoes</id>
    <content type="html">&lt;p&gt;Na primeira prova do curso de &lt;a href=&quot;/CA-2012-1/&quot;&gt;estrutura de dados&lt;/a&gt; que
 dei este ano, coloquei a seguinte questão para os alunos.&lt;/p&gt;
@@ -686,7 +800,7 @@ litros.&lt;/p&gt;
  <entry>
    <title>Lattes to BibTeX</title>
    <link href="http://arademaker.github.com/blog/2012/02/15/lattes-to-bibtex.html"/>
-   <updated>2012-02-15T00:00:00-02:00</updated>
+   <updated>2012-02-15T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/blog/2012/02/15/lattes-to-bibtex</id>
    <content type="html">&lt;p&gt;Disponibilizei hoje online no github uma transformação do &lt;a href=&quot;http://lattes.cnpq.br/&quot;&gt;Lattes&lt;/a&gt; para
 &lt;a href=&quot;http://en.wikipedia.org/wiki/BibTeX&quot;&gt;BibTeX&lt;/a&gt;, vejam o repositório:&lt;/p&gt;
@@ -770,7 +884,7 @@ diretamente no &lt;a href=&quot;https://github.com/arademaker/SLattes/issues&quo
  <entry>
    <title>R Package SSOAP</title>
    <link href="http://arademaker.github.com/blog/2012/01/02/package-SSOAP.html"/>
-   <updated>2012-01-02T00:00:00-02:00</updated>
+   <updated>2012-01-02T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/blog/2012/01/02/package-SSOAP</id>
    <content type="html">&lt;p&gt;Last year, during a summer course that I gave at FGV, I taught the
 students how to use SOAP protocol do retrive data from
@@ -848,7 +962,7 @@ certificate used in BCB website is invalid! What a shame!&lt;/p&gt;
  <entry>
    <title>GitHub Pages and Jekyll plugins</title>
    <link href="http://arademaker.github.com/blog/2011/12/01/github-pages-jekyll-plugins.html"/>
-   <updated>2011-12-01T00:00:00-02:00</updated>
+   <updated>2011-12-01T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/blog/2011/12/01/github-pages-jekyll-plugins</id>
    <content type="html">&lt;p&gt;Everyone that use &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; and wants to host the site at GitHub should know that GitHub Pages does not allow custom plugins, right? Using Jekyll for a little more than a blog site, like &lt;a href=&quot;http://emap.fgv.br&quot;&gt;EMAp/FGV&lt;/a&gt; will require plugins. In my case, avoid the use of custom plugins is not an option.&lt;/p&gt;
 
@@ -873,7 +987,7 @@ git push -all origin
  <entry>
    <title>Comentários sobre ECLM 2011 e ISWC 2011 (1/2)</title>
    <link href="http://arademaker.github.com/blog/2011/11/27/ultimas-conferencias.html"/>
-   <updated>2011-11-27T00:00:00-02:00</updated>
+   <updated>2011-11-27T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/blog/2011/11/27/ultimas-conferencias</id>
    <content type="html">&lt;p&gt;Desde que voltei da minha última viagem para participar da
 &lt;a href=&quot;http://weitz.de/eclm2011/&quot;&gt;ECLM 2011&lt;/a&gt; e
@@ -940,7 +1054,7 @@ trabalhos na seção.&lt;/p&gt;
  <entry>
    <title>Gráficos de séries temporais no R</title>
    <link href="http://arademaker.github.com/blog/2011/10/31/time-series-R.html"/>
-   <updated>2011-10-31T00:00:00-02:00</updated>
+   <updated>2011-10-31T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/blog/2011/10/31/time-series-R</id>
    <content type="html">&lt;p&gt;Pergunta de dois alunos: como postar duas séries temporáis usando o
 ggplot? Resolvi responder usando este post. Vou aproveitar então para
@@ -1053,7 +1167,7 @@ objetos &lt;code&gt;ts&lt;/code&gt;.&lt;/p&gt;
  <entry>
    <title>Verifying the ISSN's check digit in Common Lisp</title>
    <link href="http://arademaker.github.com/blog/2011/09/13/checking-issn-lisp.html"/>
-   <updated>2011-09-13T00:00:00-03:00</updated>
+   <updated>2011-09-13T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/blog/2011/09/13/checking-issn-lisp</id>
    <content type="html">&lt;p&gt;The code below is my first approach to create a lisp function that
 test the ISSN &lt;a href=&quot;http://en.wikipedia.org/wiki/Check_digit&quot;&gt;check
@@ -1072,7 +1186,7 @@ regexp library, which makes this not a real constraint.&lt;/p&gt;
  <entry>
    <title>Portal Semântico do CPDOC</title>
    <link href="http://arademaker.github.com/publications/2011/05/06/portal-semantico-cpdoc.html"/>
-   <updated>2011-05-06T00:00:00-03:00</updated>
+   <updated>2011-05-06T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/publications/2011/05/06/portal-semantico-cpdoc</id>
    <content type="html">&lt;h1&gt;Portal Semântico do CPDOC&lt;/h1&gt;
 
@@ -1088,7 +1202,7 @@ documentos pertencentes aos acervos em questão.&lt;/p&gt;
  <entry>
    <title>Construindo tabelas verdade no R</title>
    <link href="http://arademaker.github.com/blog/2011/03/02/tabela-verdade-no-R.html"/>
-   <updated>2011-03-02T00:00:00-03:00</updated>
+   <updated>2011-03-02T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/blog/2011/03/02/tabela-verdade-no-R</id>
    <content type="html">&lt;p&gt;Durante a preparação de alguns exercícios de lógica, me deparei com a
 necessidade de construir tabelas verdade. Lembrando do pacote xtable
@@ -1165,7 +1279,7 @@ FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span cla
  <entry>
    <title>Using Intuitionistic Logic as a Basis for Legal Ontologies</title>
    <link href="http://arademaker.github.com/publications/2011/01/01/using-intuitionistic-logic-basis-legal-ontologies.html"/>
-   <updated>2011-01-01T00:00:00-02:00</updated>
+   <updated>2011-01-01T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/publications/2011/01/01/using-intuitionistic-logic-basis-legal-ontologies</id>
    <content type="html">&lt;h1&gt;Using Intuitionistic Logic as a Basis for Legal Ontologies&lt;/h1&gt;
 
@@ -1197,7 +1311,7 @@ legal ontologies and reasoning in AI.&lt;/p&gt;
  <entry>
    <title>Intuitionistic Logic and Legal Ontologies</title>
    <link href="http://arademaker.github.com/publications/2010/12/16/intuitionistic-logic-legal-ontologies.html"/>
-   <updated>2010-12-16T00:00:00-02:00</updated>
+   <updated>2010-12-16T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/publications/2010/12/16/intuitionistic-logic-legal-ontologies</id>
    <content type="html">&lt;h1&gt;Intuitionistic Logic and Legal Ontologies&lt;/h1&gt;
 
@@ -1219,7 +1333,7 @@ statements as the inhabitants of our legal ontology.&lt;/p&gt;
  <entry>
    <title>Barras e Linhas no R</title>
    <link href="http://arademaker.github.com/blog/2010/11/18/barras-e-linhas.html"/>
-   <updated>2010-11-18T00:00:00-02:00</updated>
+   <updated>2010-11-18T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/blog/2010/11/18/barras-e-linhas</id>
    <content type="html">&lt;p&gt;Ontem um aluno me perguntou como produzir um gráfico de barras com
 linhas. Minha primeira idéia foi recorrer a pacotes como
@@ -1267,7 +1381,7 @@ relacionada a uma ano. Pode-se incluir os anos como rótulos do eixo
  <entry>
    <title>Providing a Proof-Theoretical Basis for Explanation. A Case Study on UML and ALCQI Reasoning</title>
    <link href="http://arademaker.github.com/publications/2010/11/01/providing-proof-theoretical-basis-explanation.html"/>
-   <updated>2010-11-01T00:00:00-02:00</updated>
+   <updated>2010-11-01T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/publications/2010/11/01/providing-proof-theoretical-basis-explanation</id>
    <content type="html">&lt;h1&gt;Providing a Proof-Theoretical Basis for Explanation. A Case Study on UML and ALCQI Reasoning&lt;/h1&gt;
 
@@ -1284,7 +1398,7 @@ Calcu- lus, Natural Deduction&lt;/p&gt;
  <entry>
    <title>Constructive Description Logics Hybrid-Style</title>
    <link href="http://arademaker.github.com/publications/2010/07/10/constructive-description-logics-hybrid-style.html"/>
-   <updated>2010-07-10T00:00:00-03:00</updated>
+   <updated>2010-07-10T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/publications/2010/07/10/constructive-description-logics-hybrid-style</id>
    <content type="html">&lt;h1&gt;Constructive Description Logics Hybrid-Style&lt;/h1&gt;
 
@@ -1312,7 +1426,7 @@ Artificial Intelligence (AI) systems and we describe briefly how.&lt;/p&gt;
  <entry>
    <title>Using Intuitionistic Logic as a basis for Legal Ontologies</title>
    <link href="http://arademaker.github.com/publications/2010/07/07/using-intuitionistic-logic-basis-legal-ontologies.html"/>
-   <updated>2010-07-07T00:00:00-03:00</updated>
+   <updated>2010-07-07T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/publications/2010/07/07/using-intuitionistic-logic-basis-legal-ontologies</id>
    <content type="html">&lt;h1&gt;Using Intuitionistic Logic as a basis for Legal Ontologies&lt;/h1&gt;
 
@@ -1344,7 +1458,7 @@ legal ontologies and reasoning in AI.&lt;/p&gt;
  <entry>
    <title>Datasets no Brasil</title>
    <link href="http://arademaker.github.com/blog/2010/01/30/datasets.html"/>
-   <updated>2010-01-30T00:00:00-02:00</updated>
+   <updated>2010-01-30T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/blog/2010/01/30/datasets</id>
    <content type="html">&lt;p&gt;Est&amp;atilde;o come&amp;ccedil;ando a surgir no Brasil iniciativas para real
 transpar&amp;ecirc;ncia no acesso aos dados do governo. A
@@ -1376,7 +1490,7 @@ fazem sentido, n&amp;atilde;o?&lt;/p&gt;
  <entry>
    <title>Using Intuitionistic Logic as a Basis for Legal Ontologies</title>
    <link href="http://arademaker.github.com/publications/2010/01/01/using-intuitionistic-logic-basis-legal-ontologies.html"/>
-   <updated>2010-01-01T00:00:00-02:00</updated>
+   <updated>2010-01-01T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/publications/2010/01/01/using-intuitionistic-logic-basis-legal-ontologies</id>
    <content type="html">&lt;h1&gt;Using Intuitionistic Logic as a Basis for Legal Ontologies&lt;/h1&gt;
 
@@ -1408,7 +1522,7 @@ legal ontologies and reasoning in AI.&lt;/p&gt;
  <entry>
    <title>Is it important to explain a theorem? A case study on UML and ALCQI</title>
    <link href="http://arademaker.github.com/publications/2009/11/09/important-explain-theorem-case-study-uml-alcqi.html"/>
-   <updated>2009-11-09T00:00:00-02:00</updated>
+   <updated>2009-11-09T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/publications/2009/11/09/important-explain-theorem-case-study-uml-alcqi</id>
    <content type="html">&lt;h1&gt;Is it important to explain a theorem? A case study on UML and ALCQI&lt;/h1&gt;
 
@@ -1425,7 +1539,7 @@ might be more verbose.&lt;/p&gt;
  <entry>
    <title>On the Proof Theory of ALC</title>
    <link href="http://arademaker.github.com/publications/2009/10/12/proof-theory-alc.html"/>
-   <updated>2009-10-12T00:00:00-03:00</updated>
+   <updated>2009-10-12T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/publications/2009/10/12/proof-theory-alc</id>
    <content type="html">&lt;h1&gt;On the Proof Theory of ALC&lt;/h1&gt;
 
@@ -1447,7 +1561,7 @@ of cut elimination for SALC .&lt;/p&gt;
  <entry>
    <title>Designing ubiquitous applications, proposal of a specification environment</title>
    <link href="http://arademaker.github.com/publications/2009/06/15/designing-ubiquitous-applications.html"/>
-   <updated>2009-06-15T00:00:00-03:00</updated>
+   <updated>2009-06-15T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/publications/2009/06/15/designing-ubiquitous-applications</id>
    <content type="html">&lt;h1&gt;Designing ubiquitous applications, proposal of a specification environment&lt;/h1&gt;
 
@@ -1473,7 +1587,7 @@ and its implementation.&lt;/p&gt;
  <entry>
    <title>Is it important to explain a theorem? A case study on UML and ALCQI</title>
    <link href="http://arademaker.github.com/publications/2009/01/01/important-explain-theorem-case-study-uml-alcqi.html"/>
-   <updated>2009-01-01T00:00:00-02:00</updated>
+   <updated>2009-01-01T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/publications/2009/01/01/important-explain-theorem-case-study-uml-alcqi</id>
    <content type="html">&lt;h1&gt;Is it important to explain a theorem? A case study on UML and ALCQI&lt;/h1&gt;
 
@@ -1490,7 +1604,7 @@ might be more verbose.&lt;/p&gt;
  <entry>
    <title>Toward Short and Structural ALC-Reasoning Explanations, A Sequent Calculus Approach</title>
    <link href="http://arademaker.github.com/publications/2008/10/26/toward-short-structural-alc-reasoning-explanations.html"/>
-   <updated>2008-10-26T00:00:00-02:00</updated>
+   <updated>2008-10-26T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/publications/2008/10/26/toward-short-structural-alc-reasoning-explanations</id>
    <content type="html">&lt;h1&gt;Toward Short and Structural ALC-Reasoning Explanations, A Sequent Calculus Approach&lt;/h1&gt;
 
@@ -1507,7 +1621,7 @@ might be more verbose.&lt;/p&gt;
  <entry>
    <title>A Formal Framework for Modeling Context-Aware Behavior in Ubiquitous Computing</title>
    <link href="http://arademaker.github.com/publications/2008/10/13/formal-framework-modeling-context-aware-behavior-ubiquitous-computing.html"/>
-   <updated>2008-10-13T00:00:00-03:00</updated>
+   <updated>2008-10-13T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/publications/2008/10/13/formal-framework-modeling-context-aware-behavior-ubiquitous-computing</id>
    <content type="html">&lt;h1&gt;A Formal Framework for Modeling Context-Aware Behavior in Ubiquitous Computing&lt;/h1&gt;
 
@@ -1530,7 +1644,7 @@ scenario.&lt;/p&gt;
  <entry>
    <title>On The Proof Theory of ALC</title>
    <link href="http://arademaker.github.com/publications/2008/05/11/proof-theory-alc.html"/>
-   <updated>2008-05-11T00:00:00-03:00</updated>
+   <updated>2008-05-11T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/publications/2008/05/11/proof-theory-alc</id>
    <content type="html">&lt;h1&gt;On The Proof Theory of ALC&lt;/h1&gt;
 
@@ -1552,7 +1666,7 @@ of cut elimination for SALC .&lt;/p&gt;
  <entry>
    <title>Ontology and Context</title>
    <link href="http://arademaker.github.com/publications/2008/03/17/ontology-context.html"/>
-   <updated>2008-03-17T00:00:00-03:00</updated>
+   <updated>2008-03-17T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/publications/2008/03/17/ontology-context</id>
    <content type="html">&lt;h1&gt;Ontology and Context&lt;/h1&gt;
 
@@ -1568,7 +1682,7 @@ dynamic changes in the environment must be considered.&lt;/p&gt;
  <entry>
    <title>On The Proof Theory of ALC</title>
    <link href="http://arademaker.github.com/publications/2008/01/15/proof-theory-alc.html"/>
-   <updated>2008-01-15T00:00:00-02:00</updated>
+   <updated>2008-01-15T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/publications/2008/01/15/proof-theory-alc</id>
    <content type="html">&lt;h1&gt;On The Proof Theory of ALC&lt;/h1&gt;
 
@@ -1590,7 +1704,7 @@ of cut elimination for SALC .&lt;/p&gt;
  <entry>
    <title>Dealing with the Formal Analysis of Information Security Policies through Ontologies. A Case Study</title>
    <link href="http://arademaker.github.com/publications/2007/12/02/dealing-formal-analysis-information-security-policies-through-ontologies.html"/>
-   <updated>2007-12-02T00:00:00-02:00</updated>
+   <updated>2007-12-02T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/publications/2007/12/02/dealing-formal-analysis-information-security-policies-through-ontologies</id>
    <content type="html">&lt;h1&gt;Dealing with the Formal Analysis of Information Security Policies through Ontologies. A Case Study&lt;/h1&gt;
 
@@ -1610,7 +1724,7 @@ and the efficiency of the reasoner.&lt;/p&gt;
  <entry>
    <title>An Ontology-based Approach to the Formalization of Information Security Policies</title>
    <link href="http://arademaker.github.com/publications/2006/10/16/ontology-based-approach-formalization-information-security-policies.html"/>
-   <updated>2006-10-16T00:00:00-03:00</updated>
+   <updated>2006-10-16T00:00:00-04:00</updated>
    <id>http://arademaker.github.com/publications/2006/10/16/ontology-based-approach-formalization-information-security-policies</id>
    <content type="html">&lt;h1&gt;An Ontology-based Approach to the Formalization of Information Security Policies&lt;/h1&gt;
 
@@ -1628,7 +1742,7 @@ to provide automatic support for the formalization process.&lt;/p&gt;
  <entry>
    <title>A Rewriting Semantics for a Software Architecture Description Language</title>
    <link href="http://arademaker.github.com/publications/2004/11/23/rewriting-semantics-software-architecture-description-language.html"/>
-   <updated>2004-11-23T00:00:00-02:00</updated>
+   <updated>2004-11-23T00:00:00-05:00</updated>
    <id>http://arademaker.github.com/publications/2004/11/23/rewriting-semantics-software-architecture-description-language</id>
    <content type="html">&lt;h1&gt;A Rewriting Semantics for a Software Architecture Description Language&lt;/h1&gt;
 
