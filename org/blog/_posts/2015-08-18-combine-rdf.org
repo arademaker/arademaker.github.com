@@ -17,14 +17,13 @@ tags:
 How to merge multiple RDF files into a single RDF file? The first idea
 would be to convert each RDF file in [[http://www.w3.org/2001/sw/RDFCore/ntriples/][ntriples]] and just concatenate
 them using unix =cat= utility, right? No, it doesn't work with blank
-nodes! Blank nodes names from different files would be merged as a
-single resource and this is not the expected semantics, blank nodes
-from different files are different resources, even if they have the
-same id.
+nodes (or BNodes)! BNodes from different files with the same ID would
+be merged as a single resource and this is not the expected semantics,
+BNodes from different files are different resources, even if they have
+the same id.
 
-The files that I want to merge are presented below, =rapper= is a
-utility from the package [[http://librdf.org][Redland]]. Below I am presented the files and
-the number of triples on each one.
+The =rapper= is a utility from the package [[http://librdf.org][Redland]]. Below I am
+presented the files and the number of triples on each one.
 
 #+BEGIN_EXAMPLE
 $ rapper -c -i ntriples wordnet-en-fixed.nt
@@ -35,17 +34,17 @@ rapper: Parsing returned  824916 triples
 #+END_EXAMPLE
 
 The oldest tool to support merging of RDF files is [[http://www.w3.org/2000/10/swap/doc/cwm.html][CWM]]. CWM is written
-in python and its performance is really bad. The command below didn't
-finish after 5 minutes when I gave up and aborted it.
+in python and its performance is really bad. The command below hasn't
+finish after 5 minutes. 
 
 #+BEGIN_EXAMPLE
 /usr/local/cwm-1.2.1/cwm --ntriples own-pt-fixed.nt wordnet-en-fixed.nt > tudo-cwm.nt
 #+END_EXAMPLE
 
-Next tool that I tried was [[http://rdfpro.fbk.eu][$RDF_{pro}$]]. The performance is excellent,
+Next tool that I tried was [[http://rdfpro.fbk.eu][$RDF_{pro}$]]. The performance was excellent,
 only 11 seconds! But we must add a parameter =-w= to force BNodes in
-input files to be renamed to avoid possible clashes. It doesn't make
-sense to me why this is not the default behaviour.
+input files to be renamed to avoid possible clashes. Actually, it
+doesn't make sense to me why this is not the default behaviour.
 
 #+BEGIN_EXAMPLE
 $ rdfpro @r -w own-pt-fixed.nt wordnet-en-fixed.nt @w tudo-pro.nt
@@ -54,10 +53,10 @@ $ rdfpro @r -w own-pt-fixed.nt wordnet-en-fixed.nt @w tudo-pro.nt
 14:45:53(I) Done in 11 s
 #+END_EXAMPLE
 
-Next one, =riot= from the [[https://jena.apache.org][Jena]] library. The performance is not bad, it
-took the double of the of $RDF_{pro}$ but it did the job, right? Problem
-is that is complained about some IRI that no other tool complained
-about it.
+Next tool, =riot= from the [[https://jena.apache.org][Jena]] library. The performance was not bad,
+it took twice the time of $RDF_{pro}$ but it finished. The only
+problem is that it complained about some IRI that no other tool
+complained.
 
 #+BEGIN_EXAMPLE
 $ time riot own-pt-fixed.nt wordnet-en-fixed.nt > tudo-riot.nt
@@ -70,7 +69,7 @@ user	0m29.905s
 sys	0m1.751s
 #+END_EXAMPLE
 
-I don't like warnnings so I tried the save path. I converted the
+I don't like warnnings so I tried the safe path. I converted the
 ntriple file with these strange IRIs to RDF/XML and called =riot=
 again. No warnnings this time, good!
 
@@ -95,10 +94,5 @@ rapper: Parsing URI tudo-riot.nt with parser ntriples
 rapper: Error - URI tudo-riot.nt:117668 column 55 - Non-printable ASCII character 195 (0xC3) found.
 rapper: Error - URI tudo-riot.nt:117668 column 56 - Non-printable ASCII character 162 (0xA2) found.
 #+END_EXAMPLE
-
-OK, after one hour playing with these tools and writing this post, I
-finnaly have my two RDF files merged and I can now go back to what I
-was doing in first place... The problem is now to remember what
-I was doing.
 
 By the way, for the future, I will use $RDF_pro$.

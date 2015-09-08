@@ -10,16 +10,15 @@ tags:
 How to merge multiple RDF files into a single RDF file? The first idea
 would be to convert each RDF file in <a href="http://www.w3.org/2001/sw/RDFCore/ntriples/">ntriples</a> and just concatenate
 them using unix <code>cat</code> utility, right? No, it doesn't work with blank
-nodes! Blank nodes names from different files would be merged as a
-single resource and this is not the expected semantics, blank nodes
-from different files are different resources, even if they have the
-same id.
+nodes (or BNodes)! BNodes from different files with the same ID would
+be merged as a single resource and this is not the expected semantics,
+BNodes from different files are different resources, even if they have
+the same id.
 </p>
 
 <p>
-The files that I want to merge are presented below, <code>rapper</code> is a
-utility from the package <a href="http://librdf.org">Redland</a>. Below I am presented the files and
-the number of triples on each one.
+The <code>rapper</code> is a utility from the package <a href="http://librdf.org">Redland</a>. Below I am
+presented the files and the number of triples on each one.
 </p>
 
 <pre class="example">
@@ -32,8 +31,8 @@ rapper: Parsing returned  824916 triples
 
 <p>
 The oldest tool to support merging of RDF files is <a href="http://www.w3.org/2000/10/swap/doc/cwm.html">CWM</a>. CWM is written
-in python and its performance is really bad. The command below didn't
-finish after 5 minutes when I gave up and aborted it.
+in python and its performance is really bad. The command below hasn't
+finish after 5 minutes. 
 </p>
 
 <pre class="example">
@@ -41,10 +40,10 @@ finish after 5 minutes when I gave up and aborted it.
 </pre>
 
 <p>
-Next tool that I tried was <a href="http://rdfpro.fbk.eu">\(RDF_{pro}\)</a>. The performance is excellent,
+Next tool that I tried was <a href="http://rdfpro.fbk.eu">\(RDF_{pro}\)</a>. The performance was excellent,
 only 11 seconds! But we must add a parameter <code>-w</code> to force BNodes in
-input files to be renamed to avoid possible clashes. It doesn't make
-sense to me why this is not the default behaviour.
+input files to be renamed to avoid possible clashes. Actually, it
+doesn't make sense to me why this is not the default behaviour.
 </p>
 
 <pre class="example">
@@ -55,10 +54,10 @@ $ rdfpro @r -w own-pt-fixed.nt wordnet-en-fixed.nt @w tudo-pro.nt
 </pre>
 
 <p>
-Next one, <code>riot</code> from the <a href="https://jena.apache.org">Jena</a> library. The performance is not bad, it
-took the double of the of \(RDF_{pro}\) but it did the job, right? Problem
-is that is complained about some IRI that no other tool complained
-about it.
+Next tool, <code>riot</code> from the <a href="https://jena.apache.org">Jena</a> library. The performance was not bad,
+it took twice the time of \(RDF_{pro}\) but it finished. The only
+problem is that it complained about some IRI that no other tool
+complained.
 </p>
 
 <pre class="example">
@@ -73,7 +72,7 @@ sys	0m1.751s
 </pre>
 
 <p>
-I don't like warnnings so I tried the save path. I converted the
+I don't like warnnings so I tried the safe path. I converted the
 ntriple file with these strange IRIs to RDF/XML and called <code>riot</code>
 again. No warnnings this time, good!
 </p>
@@ -101,13 +100,6 @@ rapper: Parsing URI tudo-riot.nt with parser ntriples
 rapper: Error - URI tudo-riot.nt:117668 column 55 - Non-printable ASCII character 195 (0xC3) found.
 rapper: Error - URI tudo-riot.nt:117668 column 56 - Non-printable ASCII character 162 (0xA2) found.
 </pre>
-
-<p>
-OK, after one hour playing with these tools and writing this post, I
-finnaly have my two RDF files merged and I can now go back to what I
-was doing in first place&#x2026; The problem is now to remember what
-I was doing.
-</p>
 
 <p>
 By the way, for the future, I will use \(RDF_pro\).
