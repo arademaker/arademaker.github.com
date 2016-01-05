@@ -4,13 +4,71 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2015-12-09T08:44:36-02:00</updated>
+ <updated>2016-01-05T21:07:42-02:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Building a shared world: Mapping distributional to model-theoretic semantic spaces</title>
+   <link href="http://arademaker.github.com/blog/2016/01/03/building-shared-world.html"/>
+   <updated>2016-01-03T00:00:00-02:00</updated>
+   <id>http://arademaker.github.com/blog/2016/01/03/building-shared-world</id>
+   <content type="html">&lt;p&gt;
+The introduction of this papers is fascinating. The complementarity
+mentioned in the introduction has been in my mind for a while:
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+In recent years, the complementarity of distributional and formal
+semantics has become increasingly evident&amp;#x2026; A number of proposals
+have emerged from these considerations, suggesting that an overarching
+semantics integrating both distributional and formal aspects would be
+desirable&amp;#x2026;
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+Another interesting part of the paper is its section 4.2, when the
+authors introduce their definition of &#39;model-theoretic spaces&#39;:
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+Ontologies can be represented in various ways, but in this paper, we
+assume they are formalised in terms of sets of entities&amp;#x2026; In our
+account, we do not have an a priori model of the world: we wish to
+infer it from our observation of language data
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+In the next paragraphs, the authors precisely defined their
+&#39;model-theoretic spaces&#39;. The article is worth to reading.
+&lt;/p&gt;
+
+&lt;div class=&quot;org-src-container&quot;&gt;
+
+&lt;pre class=&quot;src src-bibtex&quot;&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;@InProceedings&lt;/span&gt;{&lt;span style=&quot;color: #008b8b;&quot;&gt;herbelot-vecchi:2015:EMNLP&lt;/span&gt;,
+  &lt;span style=&quot;color: #a0522d;&quot;&gt;author&lt;/span&gt;    = {Herbelot, Aur\&#39;{e}lie  and  Vecchi, Eva Maria},
+  &lt;span style=&quot;color: #a0522d;&quot;&gt;title&lt;/span&gt;     = {Building a shared world: mapping distributional to
+                  model-theoretic semantic spaces},
+  &lt;span style=&quot;color: #a0522d;&quot;&gt;booktitle&lt;/span&gt; = {Proceedings of the 2015 Conference on Empirical Methods
+                  in Natural Language Processing},
+  &lt;span style=&quot;color: #a0522d;&quot;&gt;month&lt;/span&gt;     = {September},
+  &lt;span style=&quot;color: #a0522d;&quot;&gt;year&lt;/span&gt;      = {2015},  address   = {Lisbon, Portugal},
+  &lt;span style=&quot;color: #a0522d;&quot;&gt;publisher&lt;/span&gt; = {Association for Computational Linguistics},
+  &lt;span style=&quot;color: #a0522d;&quot;&gt;pages&lt;/span&gt;     = {22--32},
+  &lt;span style=&quot;color: #a0522d;&quot;&gt;url&lt;/span&gt;       = {&lt;span style=&quot;color: #3a5fcd; text-decoration: underline;&quot;&gt;http://aclweb.org/anthology/D15-1003&lt;/span&gt;}
+}
+&lt;/pre&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Merging RDF files</title>
