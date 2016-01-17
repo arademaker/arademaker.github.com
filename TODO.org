@@ -1,8 +1,0 @@
-
-* Code
-  - org + jekyll integrated. Avoid org projects?! 
-
-* Testing new tools
-  - https://github.com/redline6561/coleslaw
-  - [[http://www.jameskeirstead.ca/blog/generating-an-academic-cv-with-r-and-yaml/][all-in-one: CV + site]]
-    
