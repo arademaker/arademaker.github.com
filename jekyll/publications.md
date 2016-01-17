@@ -5,7 +5,5 @@ title: Publications
 
 # {{ page.title }}
 
-{% bibliography rademaker %}
-
-
+{% bibliography %}
 

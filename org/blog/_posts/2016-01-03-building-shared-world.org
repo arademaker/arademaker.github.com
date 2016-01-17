@@ -38,18 +38,19 @@ infer it from our observation of language data
 In the next paragraphs, the authors precisely defined their
 'model-theoretic spaces'. The article is worth to reading.
 
+
 #+BEGIN_SRC bibtex
   @InProceedings{herbelot-vecchi:2015:EMNLP,
-    author    = {Herbelot, Aur\'{e}lie  and  Vecchi, Eva Maria},
-    title     = {Building a shared world: mapping distributional to
-                    model-theoretic semantic spaces},
-    booktitle = {Proceedings of the 2015 Conference on Empirical Methods
-                    in Natural Language Processing},
-    month     = {September},
-    year      = {2015},  address   = {Lisbon, Portugal},
-    publisher = {Association for Computational Linguistics},
-    pages     = {22--32},
-    url       = {http://aclweb.org/anthology/D15-1003}
+      author    = {Herbelot, Aur\'{e}lie  and  Vecchi, Eva Maria},
+      title     = {Building a shared world: mapping distributional to
+                      model-theoretic semantic spaces},
+      booktitle = {Proceedings of the 2015 Conference on Empirical Methods
+                      in Natural Language Processing},
+      month     = {September},
+      year      = {2015},  address   = {Lisbon, Portugal},
+      publisher = {Association for Computational Linguistics},
+      pages     = {22--32},
+      url       = {http://aclweb.org/anthology/D15-1003}
   }
 #+END_SRC
 

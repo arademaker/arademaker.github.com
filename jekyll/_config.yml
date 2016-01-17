@@ -1,6 +1,8 @@
 
-pygments: true
-markdown: rdiscount
+gems: ['jekyll/scholar','rdiscount']
+
+highlighter: rouge
+markdown: kramdown
 
 scholar:
   style: chicago-author-date
@@ -14,6 +16,6 @@ scholar:
 
   details_dir:    bibliography
   details_layout: bibtex.html
-  details_link: more
+  details_link: Details
 
   query: "@*"  
