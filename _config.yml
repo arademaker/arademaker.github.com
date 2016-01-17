@@ -4,6 +4,8 @@ gems: ['jekyll/scholar','rdiscount','jekyll-org-mode-converter']
 highlighter: rouge
 markdown: kramdown
 
+exclude: ['README.org']
+
 scholar:
   style: chicago-author-date
   locale: en
