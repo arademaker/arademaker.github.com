@@ -7,6 +7,8 @@ title: Research
 
 ## Program Committee 
 
+- [PROPOR 2016](http://propor2016.di.fc.ul.pt) - Program Committee
+ - [LexSem+Logics 2016](http://propor2016.di.fc.ul.pt/?page_id=385) -  Organizing Committee
 - [GWC 2016](http://gwc2016.racai.ro)
 - [STIL 2015](http://bracis2015.imd.ufrn.br) - Program Chair
 - [WoMO 2015](http://www.iaoa.org/jowo/womo2015/#pc)
@@ -19,6 +21,11 @@ title: Research
 - [Workshop ToRPorEsp @ Propor 2014](https://sites.google.com/site/torporesp/) - Organizer
 - [Ontobras 2013](http://ontobras.eci.ufmg.br/en)
 - [Logics and Ontologies for Portuguese 2011](http://emap.fgv.br/logonto-2011/) - Organizer
+
+## Reviews for Journals
+
+- Knowledge-Based Systems (2016)
+- Journal of Automated Reasoning (2013)
 
 ## Invited talks
 
