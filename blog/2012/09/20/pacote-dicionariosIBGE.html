@@ -54,7 +54,7 @@
       <div class="title">
 	<a href="/">Alexandre Rademaker</a>
 	<a class="extra" href="/about.html">about me</a>
-	<a class="extra" href="/publications/index.html">publications</a>
+	<a class="extra" href="/publications.html">publications</a>
         <a class="extra" href="/research.html">research</a>
 	<a class="extra" href="/teaching.html">teaching</a>
       </div>
@@ -69,32 +69,32 @@ Este pacote contém os dicionários das principais pesquisas do
 PME. Também incluimos nesta versão variáveis adicionais com rótulos
 para as variáveis categóricas de cada pesquisa.</p>
 
-<p>Nesta nova versão, incorporamos a função <code>le.pesquisa</code> original do
-pacote <code>IBGEPesq</code> que foi desenvolvido no IBGE mas nunca submetido ao
-CRAN. O pacote <code>IBGEPesq</code> é distribuído pelo IBGE nos CDs e DVDs
+<p>Nesta nova versão, incorporamos a função <code class="highlighter-rouge">le.pesquisa</code> original do
+pacote <code class="highlighter-rouge">IBGEPesq</code> que foi desenvolvido no IBGE mas nunca submetido ao
+CRAN. O pacote <code class="highlighter-rouge">IBGEPesq</code> é distribuído pelo IBGE nos CDs e DVDs
 vendidos na <a href="http://loja.ibge.gov.br">loja virtual do IBGE</a> e
-disponibilizo no site do IBGE. Vide link "Leitura em R" na
+disponibilizo no site do IBGE. Vide link “Leitura em R” na
 <a href="http://www.ibge.gov.br/home/estatistica/populacao/trabalhoerendimento/pnad2009/microdados.shtm">página da última PNAD</a>.</p>
 
-<p>Fizemos várias otimizações na função <code>le.pesquisa</code> original e
+<p>Fizemos várias otimizações na função <code class="highlighter-rouge">le.pesquisa</code> original e
 incluímos ainda um argumento extra para leitura dos rótulos das
 variáveis categóricas. A partir desta versão do dicionariosIBGE, o
-pacote <code>IBGEPesq</code> torna-se desnecessário para leitura dos microdados
+pacote <code class="highlighter-rouge">IBGEPesq</code> torna-se desnecessário para leitura dos microdados
 das pesquisas do IBGE contempladas pelo dicionariosIBGE.</p>
 
 <p>Observo, no entanto, que a novidade de disponibilizarmos os rótulos
-para as variáveis categóricas e adaptarmos a função <code>le.pesquisa</code> para
+para as variáveis categóricas e adaptarmos a função <code class="highlighter-rouge">le.pesquisa</code> para
 usar os rótulos para construir factors ainda é
 experimental. Pessoalmente, questiono sua utilidade em geral. Existem
 variáveis categóricas cujos rótulos são realmente úteis. Por exemplo,
-variáveis como a <code>UF</code> da tabela de PESSOA da PNAD de 2009. Certamente
-trabalharmos com um factor com rótulo "Rio de Janeiro" ao invés de
+variáveis como a <code class="highlighter-rouge">UF</code> da tabela de PESSOA da PNAD de 2009. Certamente
+trabalharmos com um factor com rótulo “Rio de Janeiro” ao invés de
 apenas o valor 33 torna o manuseio dos dados mais fácil. No entanto,
-existem variáveis categóricas como a <code>V2927</code> cujos rótulos são tão
+existem variáveis categóricas como a <code class="highlighter-rouge">V2927</code> cujos rótulos são tão
 grandes e verbosos que provavelmente não facilitam em nada o trabalho
 com os dados. Vide:</p>
 
-<pre><code>&gt; rotpes2009[rotpes2009$cod == "V2927",]
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; rotpes2009[rotpes2009$cod == "V2927",]
        cod valor                                  rotulo
 1070 V2927     1                     Custaria muito caro
 1071 V2927     2                         Era muito longe
@@ -107,12 +107,13 @@ com os dados. Vide:</p>
 1078 V2927     9  Nao sabia que podia utilizar a Justica
 1079 V2927    10                                  Outros
 </code></pre>
+</div>
 
 <p>De qualquer modo, ao invés de usar os rótulos que distribuímos no
 pacote, nada impede que os usuários do pacote de: (1) passarem para a
-função <code>le.pesquisa</code> seus próprios data.frames com rótulos, bastando
+função <code class="highlighter-rouge">le.pesquisa</code> seus próprios data.frames com rótulos, bastando
 fornecer um data.frame com os rótulos no formato esperado (três
-colunas: cod, valor, rotulo); ou (2) passar o valor <code>NULL</code> para os
+colunas: cod, valor, rotulo); ou (2) passar o valor <code class="highlighter-rouge">NULL</code> para os
 rótulos (default da função) retornando os dados como numéricos e/ou
 string e não factors.</p>
 
@@ -136,6 +137,7 @@ possíveis questões legais (não está claro no site do IBGE qual a
 licença de uso adotada pelo IBGE), certamente a credibilidade dos
 dados é maior se os dados são obtidos diretamente do site ou mídia do
 IBGE.</p>
+
 
 
  <hr/>

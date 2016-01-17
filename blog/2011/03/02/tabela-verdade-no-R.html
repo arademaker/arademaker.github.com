@@ -56,7 +56,7 @@
       <div class="title">
 	<a href="/">Alexandre Rademaker</a>
 	<a class="extra" href="/about.html">about me</a>
-	<a class="extra" href="/publications/index.html">publications</a>
+	<a class="extra" href="/publications.html">publications</a>
         <a class="extra" href="/research.html">research</a>
 	<a class="extra" href="/teaching.html">teaching</a>
       </div>
@@ -70,68 +70,58 @@ do R, pensei como seria construir uma tabela verdade usando o R. Minha
 solução em R está no github, gist abaixo, com o exemplo de como seria
 a tabela da expressão</p>
 
-<p>$$\neg (a \lor b) \lor c$$</p>
+<script type="math/tex; mode=display">\neg (a \lor b) \lor c</script>
 
 <script src="https://gist.github.com/852194.js"> </script>
 
-
 <p>Observem que a saída do primeiro comando xtable é bastante bizarra,
 certamente um bug do pacote xtable. Editei a saída mantendo apenas o
-início da tabela gerada e incluíndo "..." no final.</p>
+início da tabela gerada e incluíndo “…” no final.</p>
 
-<div class="highlight"><pre><code class="r">xtable<span class="p">(</span>tt<span class="p">)</span>
-</code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">xtable</span><span class="p">(</span><span class="n">tt</span><span class="p">)</span></code></pre></figure>
 
-
-
-
-<div class="highlight"><pre><code class="latex"><span class="c">% latex table generated in R 2.11.1 by xtable 1.5-6 package</span>
+<figure class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="c">% latex table generated in R 2.11.1 by xtable 1.5-6 package</span>
 <span class="c">% Wed Mar  2 23:18:40 2011</span>
-<span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[ht]
-<span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>rllll<span class="nb">}</span>
+<span class="nt">\begin{table}</span>[ht]
+<span class="nt">\begin{center}</span>
+<span class="nt">\begin{tabular}</span><span class="p">{</span>rllll<span class="p">}</span>
   <span class="k">\hline</span>
- <span class="nb">&amp;</span> a <span class="nb">&amp;</span> b <span class="nb">&amp;</span> c <span class="nb">&amp;</span> ! (a <span class="s">$</span><span class="nb">|</span><span class="s">$</span> b) <span class="s">$</span><span class="nb">|</span><span class="s">$</span> c <span class="k">\\</span> 
+ <span class="p">&amp;</span> a <span class="p">&amp;</span> b <span class="p">&amp;</span> c <span class="p">&amp;</span> ! (a <span class="p">$</span><span class="nb">|</span><span class="p">$</span> b) <span class="p">$</span><span class="nb">|</span><span class="p">$</span> c <span class="k">\\</span> 
   <span class="k">\hline</span>
-1 <span class="nb">&amp;</span> c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="nb">&amp;</span> 
-    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="nb">&amp;</span> 
-    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="nb">&amp;</span> 
+1 <span class="p">&amp;</span> c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="p">&amp;</span> 
+    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="p">&amp;</span> 
+    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="p">&amp;</span> 
     c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) <span class="k">\\</span> 
-2 <span class="nb">&amp;</span> c(FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE) <span class="nb">&amp;</span> 
+2 <span class="p">&amp;</span> c(FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE) <span class="p">&amp;</span> 
 ...
   <span class="k">\hline</span>
-<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
-</code></pre></div>
-
+<span class="nt">\end{tabular}</span>
+<span class="nt">\end{center}</span>
+<span class="nt">\end{table}</span></code></pre></figure>
 
 <p>Para fazer com que cada célula da tabela tivesse apenas o valor lógico
 correspondente, não um vetor, converti o data.frame em caracteres
 antes de usar o xtable. Minha solução original convertia em números,
 Bruno Lopes me lembrou de converter em caracteres diretamente.</p>
 
-<div class="highlight"><pre><code class="latex"><span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[ht]
-<span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
-<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>llll<span class="nb">}</span>
+<figure class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="nt">\begin{table}</span>[ht]
+<span class="nt">\begin{center}</span>
+<span class="nt">\begin{tabular}</span><span class="p">{</span>llll<span class="p">}</span>
   <span class="k">\hline</span>
-a <span class="nb">&amp;</span> b <span class="nb">&amp;</span> c <span class="nb">&amp;</span> <span class="k">\~</span><span class="nb">{}</span> (a OR b) OR c <span class="k">\\</span> 
+a <span class="p">&amp;</span> b <span class="p">&amp;</span> c <span class="p">&amp;</span> <span class="k">\~</span><span class="p">{}</span> (a OR b) OR c <span class="k">\\</span> 
   <span class="k">\hline</span>
-FALSE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
-  FALSE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
-  FALSE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="k">\\</span> 
-  FALSE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
-  TRUE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="k">\\</span> 
-  TRUE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
-  TRUE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> FALSE <span class="nb">&amp;</span> FALSE <span class="k">\\</span> 
-  TRUE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="nb">&amp;</span> TRUE <span class="k">\\</span> 
+FALSE <span class="p">&amp;</span> FALSE <span class="p">&amp;</span> FALSE <span class="p">&amp;</span> TRUE <span class="k">\\</span> 
+  FALSE <span class="p">&amp;</span> FALSE <span class="p">&amp;</span> TRUE <span class="p">&amp;</span> TRUE <span class="k">\\</span> 
+  FALSE <span class="p">&amp;</span> TRUE <span class="p">&amp;</span> FALSE <span class="p">&amp;</span> FALSE <span class="k">\\</span> 
+  FALSE <span class="p">&amp;</span> TRUE <span class="p">&amp;</span> TRUE <span class="p">&amp;</span> TRUE <span class="k">\\</span> 
+  TRUE <span class="p">&amp;</span> FALSE <span class="p">&amp;</span> FALSE <span class="p">&amp;</span> FALSE <span class="k">\\</span> 
+  TRUE <span class="p">&amp;</span> FALSE <span class="p">&amp;</span> TRUE <span class="p">&amp;</span> TRUE <span class="k">\\</span> 
+  TRUE <span class="p">&amp;</span> TRUE <span class="p">&amp;</span> FALSE <span class="p">&amp;</span> FALSE <span class="k">\\</span> 
+  TRUE <span class="p">&amp;</span> TRUE <span class="p">&amp;</span> TRUE <span class="p">&amp;</span> TRUE <span class="k">\\</span> 
    <span class="k">\hline</span>
-<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
-</code></pre></div>
-
-
+<span class="nt">\end{tabular}</span>
+<span class="nt">\end{center}</span>
+<span class="nt">\end{table}</span></code></pre></figure>
 
 
 

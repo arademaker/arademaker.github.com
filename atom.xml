@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2016-01-05T21:07:42-02:00</updated>
+ <updated>2016-01-17T13:11:51-02:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -51,19 +51,20 @@ In the next paragraphs, the authors precisely defined their
 &#39;model-theoretic spaces&#39;. The article is worth to reading.
 &lt;/p&gt;
 
+
 &lt;div class=&quot;org-src-container&quot;&gt;
 
 &lt;pre class=&quot;src src-bibtex&quot;&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;@InProceedings&lt;/span&gt;{&lt;span style=&quot;color: #008b8b;&quot;&gt;herbelot-vecchi:2015:EMNLP&lt;/span&gt;,
-  &lt;span style=&quot;color: #a0522d;&quot;&gt;author&lt;/span&gt;    = {Herbelot, Aur\&#39;{e}lie  and  Vecchi, Eva Maria},
-  &lt;span style=&quot;color: #a0522d;&quot;&gt;title&lt;/span&gt;     = {Building a shared world: mapping distributional to
-                  model-theoretic semantic spaces},
-  &lt;span style=&quot;color: #a0522d;&quot;&gt;booktitle&lt;/span&gt; = {Proceedings of the 2015 Conference on Empirical Methods
-                  in Natural Language Processing},
-  &lt;span style=&quot;color: #a0522d;&quot;&gt;month&lt;/span&gt;     = {September},
-  &lt;span style=&quot;color: #a0522d;&quot;&gt;year&lt;/span&gt;      = {2015},  address   = {Lisbon, Portugal},
-  &lt;span style=&quot;color: #a0522d;&quot;&gt;publisher&lt;/span&gt; = {Association for Computational Linguistics},
-  &lt;span style=&quot;color: #a0522d;&quot;&gt;pages&lt;/span&gt;     = {22--32},
-  &lt;span style=&quot;color: #a0522d;&quot;&gt;url&lt;/span&gt;       = {&lt;span style=&quot;color: #3a5fcd; text-decoration: underline;&quot;&gt;http://aclweb.org/anthology/D15-1003&lt;/span&gt;}
+    &lt;span style=&quot;color: #a0522d;&quot;&gt;author&lt;/span&gt;    = {Herbelot, Aur\&#39;{e}lie  and  Vecchi, Eva Maria},
+    &lt;span style=&quot;color: #a0522d;&quot;&gt;title&lt;/span&gt;     = {Building a shared world: mapping distributional to
+                    model-theoretic semantic spaces},
+    &lt;span style=&quot;color: #a0522d;&quot;&gt;booktitle&lt;/span&gt; = {Proceedings of the 2015 Conference on Empirical Methods
+                    in Natural Language Processing},
+    &lt;span style=&quot;color: #a0522d;&quot;&gt;month&lt;/span&gt;     = {September},
+    &lt;span style=&quot;color: #a0522d;&quot;&gt;year&lt;/span&gt;      = {2015},  address   = {Lisbon, Portugal},
+    &lt;span style=&quot;color: #a0522d;&quot;&gt;publisher&lt;/span&gt; = {Association for Computational Linguistics},
+    &lt;span style=&quot;color: #a0522d;&quot;&gt;pages&lt;/span&gt;     = {22--32},
+    &lt;span style=&quot;color: #a0522d;&quot;&gt;url&lt;/span&gt;       = {&lt;span style=&quot;color: #3a5fcd; text-decoration: underline;&quot;&gt;http://aclweb.org/anthology/D15-1003&lt;/span&gt;}
 }
 &lt;/pre&gt;
 &lt;/div&gt;
@@ -501,48 +502,44 @@ More on the next post.
    <id>http://arademaker.github.com/blog/2013/07/18/we-found-a-bug-in-macos-split</id>
    <content type="html">&lt;p&gt;Yesterday my friend
 &lt;a href=&quot;http://researcher.ibm.com/researcher/view.php?person=br-mnerys&quot;&gt;Marcelo Nery&lt;/a&gt;
-and I found a bug in the &lt;code&gt;split&lt;/code&gt; command of Mac OS. At first, I was
-surprised (we don&#39;t expect to find bugs in core tools like grep, ls,
-split, wc..., right?) and almost expected to find the same bug in the
+and I found a bug in the &lt;code class=&quot;highlighter-rouge&quot;&gt;split&lt;/code&gt; command of Mac OS. At first, I was
+surprised (we don’t expect to find bugs in core tools like grep, ls,
+split, wc…, right?) and almost expected to find the same bug in the
 Linux version of split. At least in the split of Ubuntu distribution,
 that was not the case. The bug is presented only in the Mac OS
 version.&lt;/p&gt;
 
-&lt;h2&gt;The bug&lt;/h2&gt;
+&lt;h2 id=&quot;the-bug&quot;&gt;The bug&lt;/h2&gt;
 
-&lt;p&gt;Consider the file &lt;code&gt;zero.log&lt;/code&gt; created with the following Common Lisp code
-(actually for the rest of the post you don&#39;t need to understand the
+&lt;p&gt;Consider the file &lt;code class=&quot;highlighter-rouge&quot;&gt;zero.log&lt;/code&gt; created with the following Common Lisp code
+(actually for the rest of the post you don’t need to understand the
 code):&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;common-lisp&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;with-open-file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;zero.log&amp;quot;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:element-type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned-byte&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                  &lt;span class=&quot;ss&quot;&gt;:direction&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:output&lt;/span&gt;
-                  &lt;span class=&quot;ss&quot;&gt;:if-exists&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:supersede&lt;/span&gt;
-                  &lt;span class=&quot;ss&quot;&gt;:external-format&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:utf-8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-       &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;loop&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;across&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;AB_CDE~%F~%G~%&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-             &lt;span class=&quot;nb&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;equal&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;#\_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-                  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;loop&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;do&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-common-lisp&quot; data-lang=&quot;common-lisp&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;with-open-file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;zero.log&quot;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:element-type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned-byte&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			      &lt;span class=&quot;ss&quot;&gt;:direction&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:output&lt;/span&gt;
+			      &lt;span class=&quot;ss&quot;&gt;:if-exists&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:supersede&lt;/span&gt;
+			      &lt;span class=&quot;ss&quot;&gt;:external-format&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:utf-8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;loop&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;across&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;AB_CDE~%F~%G~%&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		     &lt;span class=&quot;nb&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;equal&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;#\_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;loop&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;do&lt;/span&gt;
                      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;write-byte&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-                  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;write-byte&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;char-code&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+			      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;write-byte&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;char-code&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This file content could be inspected with hexdump command:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;hexdump -C zero.log
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;hexdump -C zero.log
 00000000  41 42 00 00 00 43 44 45  0a 46 0a 47 0a     |AB...CDE.F.G.|
-0000000d
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+0000000d&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;That is, the file has three 0 bytes in the first line right after the
-&lt;code&gt;B&lt;/code&gt; letter and before the &lt;code&gt;C&lt;/code&gt; letter. Now we want to split this file
+&lt;code class=&quot;highlighter-rouge&quot;&gt;B&lt;/code&gt; letter and before the &lt;code class=&quot;highlighter-rouge&quot;&gt;C&lt;/code&gt; letter. Now we want to split this file
 one line per file.&lt;/p&gt;
 
 &lt;p&gt;The Linux version of split works as expected, it splits the file
 keeping the zero bytes unchanged.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;split -1 zero.log
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;f in x??; &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;---Begin: $f&amp;quot;&lt;/span&gt;; cat &lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;---End: $f&amp;quot;&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;split -1 zero.log
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;f &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;x??; &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;---Begin: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;; cat &lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;---End: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
 ---Begin: xaa
 ABCDE
 ---End: xaa
@@ -551,35 +548,32 @@ F
 ---End: xab
 ---Begin: xac
 G
----End: xac
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+---End: xac&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-
-&lt;p&gt;Moreover, the sum of bytes of the &lt;code&gt;x??&lt;/code&gt; files is equal the number of
-bytes in the &lt;code&gt;zero.log&lt;/code&gt; file, 13 bytes.&lt;/p&gt;
+&lt;p&gt;Moreover, the sum of bytes of the &lt;code class=&quot;highlighter-rouge&quot;&gt;x??&lt;/code&gt; files is equal the number of
+bytes in the &lt;code class=&quot;highlighter-rouge&quot;&gt;zero.log&lt;/code&gt; file, 13 bytes.&lt;/p&gt;
 
 &lt;p&gt;Nevertheless, the Mac OS version of split produces an unexpected
-output. The letter &lt;code&gt;F&lt;/code&gt; is merged with the begining of the first line
-althouth it is in the second line of the &lt;code&gt;zero.log&lt;/code&gt; file. Besides
+output. The letter &lt;code class=&quot;highlighter-rouge&quot;&gt;F&lt;/code&gt; is merged with the begining of the first line
+althouth it is in the second line of the &lt;code class=&quot;highlighter-rouge&quot;&gt;zero.log&lt;/code&gt; file. Besides
 that, the zero bytes causes the Mac OS split to ignore the rest of the
-first line of &lt;code&gt;zero.log&lt;/code&gt; causing a lost of data. The sum of the bytes
-of the &lt;code&gt;x??&lt;/code&gt; files in Mac OS is only 6 bytes.&lt;/p&gt;
+first line of &lt;code class=&quot;highlighter-rouge&quot;&gt;zero.log&lt;/code&gt; causing a lost of data. The sum of the bytes
+of the &lt;code class=&quot;highlighter-rouge&quot;&gt;x??&lt;/code&gt; files in Mac OS is only 6 bytes.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;split -1 zero.log
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;f in x??; &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;---Begin: $f&amp;quot;&lt;/span&gt;; cat &lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;---End: $f&amp;quot;&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;split -1 zero.log
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;f &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;x??; &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;---Begin: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;; cat &lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;---End: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
 ---Begin: xaa
 ABF
 ---End: xaa
 ---Begin: xab
 G
----End: xab
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+---End: xab&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-
-&lt;h2&gt;Reporting the bug&lt;/h2&gt;
+&lt;h2 id=&quot;reporting-the-bug&quot;&gt;Reporting the bug&lt;/h2&gt;
 
 &lt;p&gt;I reported the bug to Apple using the
 &lt;a href=&quot;http://www.apple.com/feedback/macosx.html&quot;&gt;Mac OS Feedback form&lt;/a&gt;.&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -594,6 +588,7 @@ excited about this project and willing to contributed and share ideas
 with all collaborators. The first workshop of the project will happen
 during the &lt;a href=&quot;http://www.uni-log.org/&quot;&gt;4th UNILOG 2013&lt;/a&gt; in Rio de
 Janeiro.&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -609,32 +604,32 @@ Este pacote contém os dicionários das principais pesquisas do
 PME. Também incluimos nesta versão variáveis adicionais com rótulos
 para as variáveis categóricas de cada pesquisa.&lt;/p&gt;
 
-&lt;p&gt;Nesta nova versão, incorporamos a função &lt;code&gt;le.pesquisa&lt;/code&gt; original do
-pacote &lt;code&gt;IBGEPesq&lt;/code&gt; que foi desenvolvido no IBGE mas nunca submetido ao
-CRAN. O pacote &lt;code&gt;IBGEPesq&lt;/code&gt; é distribuído pelo IBGE nos CDs e DVDs
+&lt;p&gt;Nesta nova versão, incorporamos a função &lt;code class=&quot;highlighter-rouge&quot;&gt;le.pesquisa&lt;/code&gt; original do
+pacote &lt;code class=&quot;highlighter-rouge&quot;&gt;IBGEPesq&lt;/code&gt; que foi desenvolvido no IBGE mas nunca submetido ao
+CRAN. O pacote &lt;code class=&quot;highlighter-rouge&quot;&gt;IBGEPesq&lt;/code&gt; é distribuído pelo IBGE nos CDs e DVDs
 vendidos na &lt;a href=&quot;http://loja.ibge.gov.br&quot;&gt;loja virtual do IBGE&lt;/a&gt; e
-disponibilizo no site do IBGE. Vide link &quot;Leitura em R&quot; na
+disponibilizo no site do IBGE. Vide link “Leitura em R” na
 &lt;a href=&quot;http://www.ibge.gov.br/home/estatistica/populacao/trabalhoerendimento/pnad2009/microdados.shtm&quot;&gt;página da última PNAD&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Fizemos várias otimizações na função &lt;code&gt;le.pesquisa&lt;/code&gt; original e
+&lt;p&gt;Fizemos várias otimizações na função &lt;code class=&quot;highlighter-rouge&quot;&gt;le.pesquisa&lt;/code&gt; original e
 incluímos ainda um argumento extra para leitura dos rótulos das
 variáveis categóricas. A partir desta versão do dicionariosIBGE, o
-pacote &lt;code&gt;IBGEPesq&lt;/code&gt; torna-se desnecessário para leitura dos microdados
+pacote &lt;code class=&quot;highlighter-rouge&quot;&gt;IBGEPesq&lt;/code&gt; torna-se desnecessário para leitura dos microdados
 das pesquisas do IBGE contempladas pelo dicionariosIBGE.&lt;/p&gt;
 
 &lt;p&gt;Observo, no entanto, que a novidade de disponibilizarmos os rótulos
-para as variáveis categóricas e adaptarmos a função &lt;code&gt;le.pesquisa&lt;/code&gt; para
+para as variáveis categóricas e adaptarmos a função &lt;code class=&quot;highlighter-rouge&quot;&gt;le.pesquisa&lt;/code&gt; para
 usar os rótulos para construir factors ainda é
 experimental. Pessoalmente, questiono sua utilidade em geral. Existem
 variáveis categóricas cujos rótulos são realmente úteis. Por exemplo,
-variáveis como a &lt;code&gt;UF&lt;/code&gt; da tabela de PESSOA da PNAD de 2009. Certamente
-trabalharmos com um factor com rótulo &quot;Rio de Janeiro&quot; ao invés de
+variáveis como a &lt;code class=&quot;highlighter-rouge&quot;&gt;UF&lt;/code&gt; da tabela de PESSOA da PNAD de 2009. Certamente
+trabalharmos com um factor com rótulo “Rio de Janeiro” ao invés de
 apenas o valor 33 torna o manuseio dos dados mais fácil. No entanto,
-existem variáveis categóricas como a &lt;code&gt;V2927&lt;/code&gt; cujos rótulos são tão
+existem variáveis categóricas como a &lt;code class=&quot;highlighter-rouge&quot;&gt;V2927&lt;/code&gt; cujos rótulos são tão
 grandes e verbosos que provavelmente não facilitam em nada o trabalho
 com os dados. Vide:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;gt; rotpes2009[rotpes2009$cod == &quot;V2927&quot;,]
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; rotpes2009[rotpes2009$cod == &quot;V2927&quot;,]
        cod valor                                  rotulo
 1070 V2927     1                     Custaria muito caro
 1071 V2927     2                         Era muito longe
@@ -647,12 +642,13 @@ com os dados. Vide:&lt;/p&gt;
 1078 V2927     9  Nao sabia que podia utilizar a Justica
 1079 V2927    10                                  Outros
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;De qualquer modo, ao invés de usar os rótulos que distribuímos no
 pacote, nada impede que os usuários do pacote de: (1) passarem para a
-função &lt;code&gt;le.pesquisa&lt;/code&gt; seus próprios data.frames com rótulos, bastando
+função &lt;code class=&quot;highlighter-rouge&quot;&gt;le.pesquisa&lt;/code&gt; seus próprios data.frames com rótulos, bastando
 fornecer um data.frame com os rótulos no formato esperado (três
-colunas: cod, valor, rotulo); ou (2) passar o valor &lt;code&gt;NULL&lt;/code&gt; para os
+colunas: cod, valor, rotulo); ou (2) passar o valor &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt; para os
 rótulos (default da função) retornando os dados como numéricos e/ou
 string e não factors.&lt;/p&gt;
 
@@ -676,6 +672,7 @@ possíveis questões legais (não está claro no site do IBGE qual a
 licença de uso adotada pelo IBGE), certamente a credibilidade dos
 dados é maior se os dados são obtidos diretamente do site ou mídia do
 IBGE.&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -696,12 +693,15 @@ sequência de operações que termine com 2 litros no galão de 7 ou 4
 litros. Pede-se:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Modele o problema como um problema de grafo, descrevendo
+  &lt;li&gt;
+    &lt;p&gt;Modele o problema como um problema de grafo, descrevendo
 precisamente a definição do grafo envolvido e descrevendo a solução
-em função do grafo.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Qual algorítmo de grafo deverá ser usado?&lt;/p&gt;&lt;/li&gt;
+em função do grafo.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Qual algorítmo de grafo deverá ser usado?&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
-
 
 &lt;p&gt;Este é um problema clássico que pode ser encontrado em vários livros
 de estrutura de dados e algorítmos (Ex 3.8 do Algorithms by Dasgupta,
@@ -721,7 +721,7 @@ linguagem e ao sistema ao mesmo tempo.&lt;/p&gt;
 
 &lt;p&gt;A implementação em Maude é muito simples:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;mod GAL is
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mod GAL is
   inc INT .
 
   sorts Galon System .
@@ -747,11 +747,12 @@ linguagem e ao sistema ao mesmo tempo.&lt;/p&gt;
   eq initial = &amp;lt; 0 , 10 &amp;gt; &amp;lt; 7 , 7 &amp;gt; &amp;lt; 4 , 4 &amp;gt; .
 endm
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Trata-se de uma especificação algébrica do estado do sistema como um
 multiset de galões onde cada galão é uma dupla de números inteiros:
 primeiro componente é a quantidade de líquido e segundo a
-capacidade. A operação &lt;code&gt;initial&lt;/code&gt; serve apenas para criar uma constante
+capacidade. A operação &lt;code class=&quot;highlighter-rouge&quot;&gt;initial&lt;/code&gt; serve apenas para criar uma constante
 que representa o estado inicial do sistema.&lt;/p&gt;
 
 &lt;p&gt;As duas regras de reescrita fazem deste módulo um módulo de sistema
@@ -769,24 +770,26 @@ um sistema. Logicamente, as regras podem ser entendidas como regras de
 inferência de um sistema de reescrita.&lt;/p&gt;
 
 &lt;p&gt;Na prática, podemos aplicar as reescritas de estado usando o comando
-&lt;code&gt;rew&lt;/code&gt; e realizar uma busca por estados a partir de um estado inicial
-usando o comando &lt;code&gt;search&lt;/code&gt;.&lt;/p&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;rew&lt;/code&gt; e realizar uma busca por estados a partir de um estado inicial
+usando o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;search&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Para testarmos a implementação, podemos aplicar algumas regras a
 partir do estado initial. Por exemplo, para aplicarmos 4 regras de
 reescrita a partir do estado inicial usamos:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;Maude&amp;gt; rew [4] initial .
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Maude&amp;gt; rew [4] initial .
 rewrite [4] in GAL : initial .
 rewrites: 33 in 0ms cpu (0ms real) (131474 rewrites/second)
 result System: &amp;lt; 0,4 &amp;gt; &amp;lt; 4,10 &amp;gt; &amp;lt; 7,7 &amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Note-se que não controlamos que regras são aplicadas (estratégia de
 aplicação). Para encontrarmos a solução, usamos:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;search initial =&amp;gt;* &amp;lt; 2 , X:Int &amp;gt; S:System such that X:Int &amp;lt; 10 .
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;search initial =&amp;gt;* &amp;lt; 2 , X:Int &amp;gt; S:System such that X:Int &amp;lt; 10 .
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Este comando acima efetua uma busca (BFS, busca em largura), a partir
 do estado inicial, por algum estado atingido com zero ou mais
@@ -796,7 +799,7 @@ seja menor que 10.&lt;/p&gt;
 
 &lt;p&gt;A resposta do sistema são 4 possíveis soluções:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;Solution 1 (state 16)
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Solution 1 (state 16)
 states: 17  rewrites: 501 in 3ms cpu (3ms real) (139244 rewrites/second)
 S:System --&amp;gt; &amp;lt; 2,10 &amp;gt; &amp;lt; 7,7 &amp;gt;
 X:Int --&amp;gt; 4
@@ -819,11 +822,12 @@ X:Int --&amp;gt; 7
 No more solutions.
 states: 21  rewrites: 721 in 6ms cpu (6ms real) (109824 rewrites/second)
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Para examinarmos a primeira solução, pedimos para o sistema mostrar o
 caminho, isto é, as reescritas executadas.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;Maude&amp;gt; show path 16 .
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Maude&amp;gt; show path 16 .
 state 0, System: &amp;lt; 0,10 &amp;gt; &amp;lt; 4,4 &amp;gt; &amp;lt; 7,7 &amp;gt;
 ===[ crl ... [label transfer-1] . ]===&amp;gt;
 state 1, System: &amp;lt; 0,4 &amp;gt; &amp;lt; 4,10 &amp;gt; &amp;lt; 7,7 &amp;gt;
@@ -838,12 +842,14 @@ state 14, System: &amp;lt; 2,10 &amp;gt; &amp;lt; 4,4 &amp;gt; &amp;lt; 5,7 &amp
 ===[ crl ... [label transfer-2] . ]===&amp;gt;
 state 16, System: &amp;lt; 2,4 &amp;gt; &amp;lt; 2,10 &amp;gt; &amp;lt; 7,7 &amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;O estado encontrado é onde o galão de 4 litros está com 2 litros, o
 galão de 7 litros está completo e o galão de 10 litros está com 2
 litros.&lt;/p&gt;
 
 &lt;p&gt;Bem legal, não acham!?&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -874,43 +880,47 @@ Linux e no MacOS (MacPorts). Para executar a transformação e validar
 um XML em relação ao seu DTD/Schema, ainda são necessários os
 programas xsltproc e xmllint.&lt;/p&gt;
 
-&lt;h2&gt;Instalação dos programas necessários&lt;/h2&gt;
+&lt;h2 id=&quot;instalao-dos-programas-necessrios&quot;&gt;Instalação dos programas necessários&lt;/h2&gt;
 
 &lt;p&gt;Para quem usa o MacPorts no MacOS:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;sudo port -v install bibtool bibutils
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo port -v install bibtool bibutils
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;O xmllint e xsltproc já estão instalados no MacOS (acho que no XCode).&lt;/p&gt;
 
 &lt;p&gt;Para quem usa Linux/Ubuntu:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;sudo apt-get install bibtool bibutils xsltproc libxml2-utils
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install bibtool bibutils xsltproc libxml2-utils
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Para quem usa Windows, consultar o site destas ferramentas, não
 trivial! Esquece o Windows e instala o Ubuntu! ;-)&lt;/p&gt;
 
-&lt;h2&gt;Usando a transformação&lt;/h2&gt;
+&lt;h2 id=&quot;usando-a-transformao&quot;&gt;Usando a transformação&lt;/h2&gt;
 
 &lt;p&gt;Com as ferramentas instaladas, o primeiro passo é acesssar o sistema
 &lt;a href=&quot;http://lattes.cnpq.br&quot;&gt;Lattes do CNPq&lt;/a&gt;, link &lt;strong&gt;atualizar&lt;/strong&gt;, logar-se
 no sistema e escolher a opção de exportar para XML. Será iniciado o
 download de um arquivo ZIP. Abra ZIP e extraia o arquivo XML dentro
 dele que tem mesmo nome, seu lattes ID. Imagine então que vc renomeou
-este arquivo XML para &lt;code&gt;LATTES.xml&lt;/code&gt; e o moveu para o mesmo diretório
-onde está o arquivo com &lt;code&gt;lattes2mods.xsl&lt;/code&gt; que você pegou do
+este arquivo XML para &lt;code class=&quot;highlighter-rouge&quot;&gt;LATTES.xml&lt;/code&gt; e o moveu para o mesmo diretório
+onde está o arquivo com &lt;code class=&quot;highlighter-rouge&quot;&gt;lattes2mods.xsl&lt;/code&gt; que você pegou do
 repositório no github.&lt;/p&gt;
 
 &lt;p&gt;Agora basta rodar:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;xsltproc lattes2mods.xsl LATTES.xml &amp;gt; LATTES.mods
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xsltproc lattes2mods.xsl LATTES.xml &amp;gt; LATTES.mods
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;E em seguida:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;xml2bib -b -w LATTES.mods &amp;gt; LATTES.bib
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xml2bib -b -w LATTES.mods &amp;gt; LATTES.bib
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Mas o interessante é antes de rodar o xml2bib, validar o arquivo mods
 gerado contra o
@@ -918,8 +928,9 @@ gerado contra o
 disponibilizado no site da Biblioteca do Congresso Americano, baixe a
 versão 3.4:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;xmllint --schema mods.xsd LATTTES.mods
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xmllint --schema mods.xsd LATTTES.mods
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Esta validação serve para verificar não apenas erros na estrutura do
 arquivo, que seriam bugs no meu código, mas também erros nos dados, em
@@ -928,6 +939,7 @@ Lattes.&lt;/p&gt;
 
 &lt;p&gt;Comentários são sempre bem vindos. Problemas podem ser reportados
 diretamente no &lt;a href=&quot;https://github.com/arademaker/SLattes/issues&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -951,18 +963,19 @@ package whish makes my
 
 &lt;p&gt;It took my a couple of minutes to test the new version of this
 package. Since I am running the last version of R, 2.14, the general
-procedure for install packages didn&#39;t work.&lt;/p&gt;
+procedure for install packages didn’t work.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;gt; install.packages(&quot;SSOAP&quot;)
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; install.packages(&quot;SSOAP&quot;)
 Warning message:
 In getDependencies(pkgs, dependencies, available, lib) :
   package ‘SSOAP’ is not available (for R version 2.14.0)
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;I finnaly figured out how to install the last version from source
 using the Omegahat repository version with the command:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;gt; install.packages(&quot;SSOAP&quot;, repos = &quot;http://www.omegahat.org/R&quot;, 
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; install.packages(&quot;SSOAP&quot;, repos = &quot;http://www.omegahat.org/R&quot;, 
                    dependencies = TRUE, 
                    type = &quot;source&quot;)
 trying URL &#39;http://www.omegahat.org/R/src/contrib/SSOAP_0.8-1.tar.gz&#39;
@@ -987,25 +1000,26 @@ Warning in .NonstandardGenericTest(body(fdef), name, stdGenericBody) :
 * DONE (SSOAP)
 
 The downloaded packages are in
-    ‘/private/var/.../downloaded_packages’
+	‘/private/var/.../downloaded_packages’
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;After that, I was prepared to actually test the package running the
 code that I created during the
 &lt;a href=&quot;https://github.com/arademaker/IR-2011/&quot;&gt;course&lt;/a&gt; (lesson 7 directory
 aula-07). But some changes in RCurl package requires a change in how
 we ask for not verify the ssl certificate. That is, I had to replace
-the &lt;code&gt;ssl.verifypeer = FALSE&lt;/code&gt; argument by a list of options in the call
-of the function &lt;code&gt;ff@functions$getValoresSeriesXML&lt;/code&gt;. The last version
+the &lt;code class=&quot;highlighter-rouge&quot;&gt;ssl.verifypeer = FALSE&lt;/code&gt; argument by a list of options in the call
+of the function &lt;code class=&quot;highlighter-rouge&quot;&gt;ff@functions$getValoresSeriesXML&lt;/code&gt;. The last version
 of this script is now available as a gist here:&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/1550651.js&quot;&gt; &lt;/script&gt;
 
-
-&lt;p&gt;Note that the &lt;code&gt;ssl.verifypeer&lt;/code&gt; argument is necessary because the
+&lt;p&gt;Note that the &lt;code class=&quot;highlighter-rouge&quot;&gt;ssl.verifypeer&lt;/code&gt; argument is necessary because the
 certificate used in BCB website is invalid! What a shame!&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2012-01-02-bcb-certificate.png&quot; alt=&quot;BCB certificate&quot; /&gt;&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -1018,11 +1032,11 @@ certificate used in BCB website is invalid! What a shame!&lt;/p&gt;
 
 &lt;p&gt;The solution is trivial, one has to run Jekyll locally and post the produzed files into a master branch of a git repo, following the conventions described at &lt;a href=&quot;http://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt; por person and organization pages. The problem that I faced was to choose the best way to organize and keep tracking of the source and produzed files.&lt;/p&gt;
 
-&lt;p&gt;I read a couple of posts with possible solutions. The solution by &lt;a href=&quot;http://charliepark.org/jekyll-with-plugins/&quot;&gt;Charlie Park&lt;/a&gt; force us to have two distinct git repositories. I don&#39;t like this approach because of that. Our website will be maintained by more than one person, having two distinct repositories since that I will not using all git features. The solution by &lt;a href=&quot;http://tech.hugr.fr/blog/2011/08/07/how-to-host-a-jekyll-app-on-github-pages-with-plugins/&quot;&gt;Jean Denis&lt;/a&gt; is a little bit better but keeps me thinking about why he need to keep the produced files under version control in the two branches, gh-pages and the master.&lt;/p&gt;
+&lt;p&gt;I read a couple of posts with possible solutions. The solution by &lt;a href=&quot;http://charliepark.org/jekyll-with-plugins/&quot;&gt;Charlie Park&lt;/a&gt; force us to have two distinct git repositories. I don’t like this approach because of that. Our website will be maintained by more than one person, having two distinct repositories since that I will not using all git features. The solution by &lt;a href=&quot;http://tech.hugr.fr/blog/2011/08/07/how-to-host-a-jekyll-app-on-github-pages-with-plugins/&quot;&gt;Jean Denis&lt;/a&gt; is a little bit better but keeps me thinking about why he need to keep the produced files under version control in the two branches, gh-pages and the master.&lt;/p&gt;
 
-&lt;p&gt;My final solution is to keep the directory produced by jekyll out of git control. This simple thing allows me to switch the branches, from source to master, and still have access to the produced files, directory &lt;code&gt;_site&lt;/code&gt;. Once in the master branch, I only have to move the files under &lt;code&gt;_site/&lt;/code&gt; to the root directory in the master branch and update the master branch before push it to GitHub.&lt;/p&gt;
+&lt;p&gt;My final solution is to keep the directory produced by jekyll out of git control. This simple thing allows me to switch the branches, from source to master, and still have access to the produced files, directory &lt;code class=&quot;highlighter-rouge&quot;&gt;_site&lt;/code&gt;. Once in the master branch, I only have to move the files under &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; to the root directory in the master branch and update the master branch before push it to GitHub.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;git checkout source
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout source
 // do whatever you need
 git status / git add / git commit
 jekyll
@@ -1031,6 +1045,8 @@ cp -r _site/* . &amp;amp;&amp;amp; rm -rf _site/ &amp;amp;&amp;amp; touch .nojek
 git status &amp;gt; git add &amp;gt; git commit
 git push -all origin
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 </content>
  </entry>
  
@@ -1072,8 +1088,8 @@ publicados com Isabel Cafezeiro e Hermann. Assistir ao workshop me
 motivou a voltar a este assunto e tentar implementar efetivamente as
 idéias que formalizamos nos artigos.&lt;/p&gt;
 
-&lt;p&gt;Das seções da conferência, gostei bastante da &quot;Ontology Matching,
-Mapping&quot; e da &quot;KR - Semantics&quot;. No mais, vale dizer que os posters
+&lt;p&gt;Das seções da conferência, gostei bastante da “Ontology Matching,
+Mapping” e da “KR - Semantics”. No mais, vale dizer que os posters
 também estavam ótimos e a idéia de cada poster ser apresentado em 1
 minuto foi bem divertida embora apenas alguns apresentadores tenham
 entendido o espírito da coisa! Das apresentações dos convidados, o que
@@ -1083,21 +1099,22 @@ Para mim, sendo minha área de pesquisa exatamente lógicas e, em
 particular, nos últimos anos, lógicas de descritivas, ter uma
 apresentação sugerindo que a comunidade de web semântica deve voltar a
 atenção para os fundamentos teóricos da área, é bastante motivador.
-Infelizmente assisti apenas parte da apresentação. O painel &quot;Semantic
-Web Death Match&quot; foi meio sem graça, embora na sala, assistindo as
+Infelizmente assisti apenas parte da apresentação. O painel “Semantic
+Web Death Match” foi meio sem graça, embora na sala, assistindo as
 discussões, tenho que dizer que foi uma experiência única participar
 do painel pelo twitter. No twitter as discussões foram até mais
-interessantes. Finalmente, da seção &quot;MANCHustifications and
-Provenance&quot;, tive a idéia de revisar o texto da minha tese que será
+interessantes. Finalmente, da seção “MANCHustifications and
+Provenance”, tive a idéia de revisar o texto da minha tese que será
 publicado pela Springer. A idéia é que pode-se obter diretamente de
 uma prova formal, usando os sistemas dedutivos que apresento para
-algumas DL em minha tese, a tal &quot;justification of an entailment&quot;. O
+algumas DL em minha tese, a tal “justification of an entailment”. O
 termo refere-se ao conjunto mínimo de axiomas usados para justificar
 uma conclusão lógica (qual seria a melhor tradução para
-&quot;entailment&quot;?). Obrigado
+“entailment”?). Obrigado
 &lt;a href=&quot;http://manchester.academia.edu/SamanthaBail&quot;&gt;Samantha Bail&lt;/a&gt; por me
 ajudar a confirmar a impressão que tive durante a apresentação dos
 trabalhos na seção.&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -1111,13 +1128,13 @@ ggplot? Resolvi responder usando este post. Vou aproveitar então para
 mostrar como postar séries temporáis usando o ggplot, lattice e o plot
 padrão do R.&lt;/p&gt;
 
-&lt;h2&gt;Criando os dados&lt;/h2&gt;
+&lt;h2 id=&quot;criando-os-dados&quot;&gt;Criando os dados&lt;/h2&gt;
 
-&lt;p&gt;Para começar, criei um objeto série temporal conforme exemplo da função &lt;code&gt;ts&lt;/code&gt;
+&lt;p&gt;Para começar, criei um objeto série temporal conforme exemplo da função &lt;code class=&quot;highlighter-rouge&quot;&gt;ts&lt;/code&gt;
 do R. Este objeto na realidade é uma matriz, são três séries temporais
 ou uma série temporal multivariável.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;gt; dados &amp;lt;- ts(matrix(rnorm(300), 100, 3), start=c(1961, 1), 
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; dados &amp;lt;- ts(matrix(rnorm(300), 100, 3), start=c(1961, 1), 
               frequency=12)
 &amp;gt; dados[1:4,]
        Series 1   Series 2   Series 3
@@ -1126,91 +1143,99 @@ ou uma série temporal multivariável.&lt;/p&gt;
 [3,]  0.5120809 -0.4023986  1.9757084
 [4,]  0.1375277 -0.5043973 -0.7795633
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;h2&gt;Plot básico&lt;/h2&gt;
+&lt;h2 id=&quot;plot-bsico&quot;&gt;Plot básico&lt;/h2&gt;
 
 &lt;p&gt;Se usarmos o comando padrão de plot do pacote basic do R, temos o
 seguinte plot.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;gt; plot(ts)
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; plot(ts)
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-basic.png&quot; title=&quot;plot basic&quot; alt=&quot;plot-basic&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-basic.png&quot; alt=&quot;plot-basic&quot; title=&quot;plot basic&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Obviamente, neste e nos próximos exemplos, estou mostrando o uso mais
 básico das funções, sem me preocupar com nenhum ajuste de formatação,
 legenda, rótulos, cores etc.&lt;/p&gt;
 
-&lt;h2&gt;No pacote lattice&lt;/h2&gt;
+&lt;h2 id=&quot;no-pacote-lattice&quot;&gt;No pacote lattice&lt;/h2&gt;
 
 &lt;p&gt;No pacote Lattice, temos a função xyplot que contém vários
 parâmetros para geração do gráfico. Explorei apenas a forma de gerar
 uma série por painel e todas as séries em um painel.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;gt; xyplot(dados)
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; xyplot(dados)
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-lattice-1.png&quot; title=&quot;plot lattice&quot; alt=&quot;plot-lattice-1&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-lattice-1.png&quot; alt=&quot;plot-lattice-1&quot; title=&quot;plot lattice&quot; /&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;gt; xyplot(dados, superpose = TRUE) 
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; xyplot(dados, superpose = TRUE) 
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-lattice-2.png&quot; title=&quot;plot lattice&quot; alt=&quot;plot-lattice-2&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-lattice-2.png&quot; alt=&quot;plot-lattice-2&quot; title=&quot;plot lattice&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;A página de help da função &lt;code&gt;xyplot&lt;/code&gt; contém muito mais informação sobre
-os demais parâmetros da função. A função &lt;code&gt;xyplot&lt;/code&gt; também tem um método
+&lt;p&gt;A página de help da função &lt;code class=&quot;highlighter-rouge&quot;&gt;xyplot&lt;/code&gt; contém muito mais informação sobre
+os demais parâmetros da função. A função &lt;code class=&quot;highlighter-rouge&quot;&gt;xyplot&lt;/code&gt; também tem um método
 específico para lidar com objetos da classe Zoo do pacote
 &lt;a href=&quot;http://cran.r-project.org/web/packages/zoo/index.html&quot;&gt;zoo&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2&gt;No pacote ggplot&lt;/h2&gt;
+&lt;h2 id=&quot;no-pacote-ggplot&quot;&gt;No pacote ggplot&lt;/h2&gt;
 
 &lt;p&gt;Finalmente, como fazer no ggplot? Este foi o mais difícil. Demorei
 bastante a encontrar referências via google. As mais relevantes que
 encontrei foram:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://had.co.nz/ggplot2/scale_date.html&quot;&gt;scale_date&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://learnr.wordpress.com/2009/05/05/ggplot2-two-time-series-with-different-dates/&quot;&gt;ggplot2: two time series with different dates&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://goo.gl/Kr5wP&quot;&gt;Using ggplot, how to have the x-axis of time series plots set up automatically?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://had.co.nz/ggplot2/scale_date.html&quot;&gt;scale_date&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://learnr.wordpress.com/2009/05/05/ggplot2-two-time-series-with-different-dates/&quot;&gt;ggplot2: two time series with different dates&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://goo.gl/Kr5wP&quot;&gt;Using ggplot, how to have the x-axis of time series plots set up automatically?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;p&gt;O último link é a dica de como transformar um objeto &lt;code&gt;ts&lt;/code&gt; em um
+&lt;p&gt;O último link é a dica de como transformar um objeto &lt;code class=&quot;highlighter-rouge&quot;&gt;ts&lt;/code&gt; em um
 data.frame:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;datas &amp;lt;- seq(as.Date(paste(c(start(dados),1), collapse=&quot;/&quot;)), 
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;datas &amp;lt;- seq(as.Date(paste(c(start(dados),1), collapse=&quot;/&quot;)), 
              by = &quot;month&quot;, length.out = length(dados))
 dados.df &amp;lt;- data.frame(date = datas, value = dados)
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;E finalmente consegui plotar uma série das três com:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;gt; ggplot(data=dados.df) + geom_line(aes(date, value.Series.1))
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; ggplot(data=dados.df) + geom_line(aes(date, value.Series.1))
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-ggplot-single.png&quot; title=&quot;plot ggplot&quot; alt=&quot;plot-ggplot&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-ggplot-single.png&quot; alt=&quot;plot-ggplot&quot; title=&quot;plot ggplot&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Para conseguir em um único gráfico as três séries temporais, tive mais
 trabalho. Primeiro em transformar os dados em um data.frame que
 pudesse ser entendido pelo ggplot.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;gt; tmp &amp;lt;- stack(dados.df, select = -1)
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; tmp &amp;lt;- stack(dados.df, select = -1)
 &amp;gt; tmp$date &amp;lt;- dados.df[,1]
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;E finalmente, o novo plot:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;gt; ggplot(data=dados.df) + geom_line(aes(date, value.Series.1))
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; ggplot(data=dados.df) + geom_line(aes(date, value.Series.1))
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-ggplot-multi.png&quot; title=&quot;plot ggplot&quot; alt=&quot;plot-ggplot-multi&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-ggplot-multi.png&quot; alt=&quot;plot-ggplot-multi&quot; title=&quot;plot ggplot&quot; /&gt;&lt;/p&gt;
 
-&lt;h2&gt;Conclusão&lt;/h2&gt;
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
 
 &lt;p&gt;Não existe pacote melhor ou pior, cada um é mais adequado para cada
 situação. No particular problema de plotar multiplas séries temporais,
 sem nenhuma dúvida, preferi a facilidade do lattice em lidar com
-objetos &lt;code&gt;ts&lt;/code&gt;.&lt;/p&gt;
+objetos &lt;code class=&quot;highlighter-rouge&quot;&gt;ts&lt;/code&gt;.&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -1228,24 +1253,8 @@ regexp library, which makes this not a real constraint.&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/1215526.js&quot;&gt; &lt;/script&gt;
 
-
 &lt;p&gt;That is it! Comments are welcome!&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Portal Semântico do CPDOC</title>
-   <link href="http://arademaker.github.com/publications/2011/05/06/portal-semantico-cpdoc.html"/>
-   <updated>2011-05-06T00:00:00-03:00</updated>
-   <id>http://arademaker.github.com/publications/2011/05/06/portal-semantico-cpdoc</id>
-   <content type="html">&lt;h1&gt;Portal Semântico do CPDOC&lt;/h1&gt;
 
-&lt;p&gt;Este artigo descreve o projeto de criação do portal semântico do CPDOC
-– FGV, juntamente a todas as iniciativas que estão sendo engendradas
-para que este seja possível. Dentre estas, destacam-se a criação de
-ontologias de domínio para história contemporânea e descrição de
-acervos, para o adequado provisionamento de metadados para os
-documentos pertencentes aos acervos em questão.&lt;/p&gt;
 </content>
  </entry>
  
@@ -1260,123 +1269,59 @@ do R, pensei como seria construir uma tabela verdade usando o R. Minha
 solução em R está no github, gist abaixo, com o exemplo de como seria
 a tabela da expressão&lt;/p&gt;
 
-&lt;p&gt;$$\neg (a \lor b) \lor c$$&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\neg (a \lor b) \lor c&lt;/script&gt;
 
 &lt;script src=&quot;https://gist.github.com/852194.js&quot;&gt; &lt;/script&gt;
 
-
 &lt;p&gt;Observem que a saída do primeiro comando xtable é bastante bizarra,
 certamente um bug do pacote xtable. Editei a saída mantendo apenas o
-início da tabela gerada e incluíndo &quot;...&quot; no final.&lt;/p&gt;
+início da tabela gerada e incluíndo “…” no final.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;xtable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;tt&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;xtable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-
-
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;&lt;span class=&quot;c&quot;&gt;% latex table generated in R 2.11.1 by xtable 1.5-6 package&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;c&quot;&gt;% latex table generated in R 2.11.1 by xtable 1.5-6 package&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;% Wed Mar  2 23:18:40 2011&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[ht]
-&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;center&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;rllll&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\begin{table}&lt;/span&gt;[ht]
+&lt;span class=&quot;nt&quot;&gt;\begin{center}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\begin{tabular}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;rllll&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
- &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; a &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; b &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; c &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; ! (a &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; b) &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; c &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
+ &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; a &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; b &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; c &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; ! (a &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; b) &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; c &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
   &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
-1 &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; 
-    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; 
-    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; 
+1 &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; 
+    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; 
+    c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; 
     c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE) &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-2 &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; c(FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE) &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; 
+2 &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; c(FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE) &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; 
 ...
   &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;center&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+&lt;span class=&quot;nt&quot;&gt;\end{tabular}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\end{center}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\end{table}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Para fazer com que cada célula da tabela tivesse apenas o valor lógico
 correspondente, não um vetor, converti o data.frame em caracteres
 antes de usar o xtable. Minha solução original convertia em números,
 Bruno Lopes me lembrou de converter em caracteres diretamente.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[ht]
-&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;center&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;llll&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;nt&quot;&gt;\begin{table}&lt;/span&gt;[ht]
+&lt;span class=&quot;nt&quot;&gt;\begin{center}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\begin{tabular}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;llll&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
-a &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; b &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; c &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\~&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{}&lt;/span&gt; (a OR b) OR c &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
+a &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; b &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; c &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\~&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt; (a OR b) OR c &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
   &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
-FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
-  TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
+FALSE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
+  FALSE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
+  FALSE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
+  FALSE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
+  TRUE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
+  TRUE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
+  TRUE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
+  TRUE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; TRUE &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt; 
    &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;center&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;nt&quot;&gt;\end{tabular}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\end{center}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\end{table}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-
-
-</content>
- </entry>
- 
- <entry>
-   <title>Using Intuitionistic Logic as a Basis for Legal Ontologies</title>
-   <link href="http://arademaker.github.com/publications/2011/01/01/using-intuitionistic-logic-basis-legal-ontologies.html"/>
-   <updated>2011-01-01T00:00:00-02:00</updated>
-   <id>http://arademaker.github.com/publications/2011/01/01/using-intuitionistic-logic-basis-legal-ontologies</id>
-   <content type="html">&lt;h1&gt;Using Intuitionistic Logic as a Basis for Legal Ontologies&lt;/h1&gt;
-
-&lt;p&gt;Classical Description Logic has been widely used as a basis for
-ontology creation and reasoning in many knowledge specific
-domains. These specific domains naturally include Legal AI. As in any
-other domain, consistency is an important issue for legal ontologies.
-However, due to its inherently normative feature, coherence
-(consistency) in legal ontologies is more subtle than in most other
-domains. Negation and subsumption play a central role in ontology
-coherence. An adequate intuitionistic semantics for negation in a
-legal domain comes to the fore when we take legally valid individual
-statements as the inhabitants of our legal ontology. This allows us to
-elegantly deal with particular situations of legal coherence, such as
-conflict of laws, as those solved by Private International Law
-analysis. This paper: (1) Briefly presents our version of
-Intuitionistic Description Logic, called IALC for Intuitionistic ALC
-(ALC being the canonical classical description logic system)(2)
-Discuss the jurisprudence foundation of our system, and (3) Shows how
-we can perform a coherence analysis of “Conflict of Laws in Space” by
-means of IALC. This paper reports work-in-progress on using this
-alternative definition of logical negation for building and testing
-legal ontologies and reasoning in AI.&lt;/p&gt;
-
-&lt;p&gt;Keywords: Description logic, intuitionistic Logic, legal ontologies, constructive negation&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Intuitionistic Logic and Legal Ontologies</title>
-   <link href="http://arademaker.github.com/publications/2010/12/16/intuitionistic-logic-legal-ontologies.html"/>
-   <updated>2010-12-16T00:00:00-02:00</updated>
-   <id>http://arademaker.github.com/publications/2010/12/16/intuitionistic-logic-legal-ontologies</id>
-   <content type="html">&lt;h1&gt;Intuitionistic Logic and Legal Ontologies&lt;/h1&gt;
-
-&lt;p&gt;Classical Description Logic has been widely used as a basis for
-ontology creation and reasoning in many knowledge specific
-domains. These specific domains naturally include Legal AI. As in any
-other domain, consistency is an important issue for legal ontologies.
-However, due to its inherently normative feature, coherence
-(consistency) in legal ontologies is more subtle than in most other
-domains. Negation and subsumption play a central role in ontology
-coherence. An adequate intuitionistic semantics for negation in a
-legal domain comes to the fore when we take legally valid individual
-statements as the inhabitants of our legal ontology.&lt;/p&gt;
-
-&lt;p&gt;Keywords: Description logic, intuitionistic Logic, legal ontologies, constructive negation&lt;/p&gt;
 </content>
  </entry>
  
@@ -1396,112 +1341,28 @@ facilmente produzido com os comandos básicos de gráficos do R.&lt;/p&gt;
 &lt;p&gt;Digamos que seus dados sejam uma data.frame composto por duas
 variáveis.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;dados &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; data.frame&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;a &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; sample&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; b &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; sample&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;dados&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data.frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sample&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sample&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-
-&lt;p&gt;O que desejamos é representar no gráfico os valores da variável &lt;code&gt;a&lt;/code&gt;
-como barras e os valores da variável &lt;code&gt;b&lt;/code&gt; como pontos conectados por
+&lt;p&gt;O que desejamos é representar no gráfico os valores da variável &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;
+como barras e os valores da variável &lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt; como pontos conectados por
 linhas. O comando abaixo produz o gráfico de barras e retorna um
-vetor com as coordenadas &lt;code&gt;x&lt;/code&gt; dos meios das barras produzidas.&lt;/p&gt;
+vetor com as coordenadas &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; dos meios das barras produzidas.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;a &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; barplot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;dados&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;a&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ylim &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;barplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dados&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ylim&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Agora é fácil criar os pontos e linhas:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;points&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;a&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; dados&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;b&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ylim&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-lines&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;a&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; dados&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;b&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; ylim&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; c&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;points&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dados&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ylim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;lines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dados&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ylim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Image que seus dados são temporais, onde cada observação está
 relacionada a uma ano. Pode-se incluir os anos como rótulos do eixo
-&quot;x&quot; com o comando:&lt;/p&gt;
+“x” com o comando:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;axis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; at &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; a&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; labels &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2009&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2009&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
+&lt;p&gt;&lt;img src=&quot;/images/2010-11-18-fig.png&quot; alt=&quot;bar-and-line&quot; title=&quot;bar and line&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/2010-11-18-fig.png&quot; title=&quot;bar and line&quot; alt=&quot;bar-and-line&quot; /&gt;&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Providing a Proof-Theoretical Basis for Explanation. A Case Study on UML and ALCQI Reasoning</title>
-   <link href="http://arademaker.github.com/publications/2010/11/01/providing-proof-theoretical-basis-explanation.html"/>
-   <updated>2010-11-01T00:00:00-02:00</updated>
-   <id>http://arademaker.github.com/publications/2010/11/01/providing-proof-theoretical-basis-explanation</id>
-   <content type="html">&lt;h1&gt;Providing a Proof-Theoretical Basis for Explanation. A Case Study on UML and ALCQI Reasoning&lt;/h1&gt;
-
-&lt;p&gt;In this article we argue in favour of Natural Deduction Systems as a
-basis for formal proof explanations. We illustrate our choice
-presenting a Natural Deduction for ALCQI and use it to help explain
-UML reasoning.&lt;/p&gt;
-
-&lt;p&gt;Key Words: ALC, Description Logics, UML, ALCQI, Proof Theory, Sequent
-Calcu- lus, Natural Deduction&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Constructive Description Logics Hybrid-Style</title>
-   <link href="http://arademaker.github.com/publications/2010/07/10/constructive-description-logics-hybrid-style.html"/>
-   <updated>2010-07-10T00:00:00-03:00</updated>
-   <id>http://arademaker.github.com/publications/2010/07/10/constructive-description-logics-hybrid-style</id>
-   <content type="html">&lt;h1&gt;Constructive Description Logics Hybrid-Style&lt;/h1&gt;
-
-&lt;p&gt;Constructive modal logics come in several different flavours and
-constructive description logics, not surprisingly, do the same. We
-introduce an intuitionistic description logic, which we call iALC (for
-intuitionistic ALC, since ALC is the name of the canonical description
-logic system) and provide axioms, a Natural Deduction formulation and
-a sequent calculus for it. The system iALC is related to Simpsonʼs
-constructive modal logic IK the same way Mendler and Scheeleʼs cALC is
-related to constructive CK and in the same way classical multimodal K
-is related to ALC. In the system iALC, as well as in cALC, the
-classical principles of the excluded middle C⊔¬C=T, double negation
-¬¬C=C and the definitions of the modalities ∃R.C=¬∀R.¬C and
-∀R.C=¬∃R.¬C are no longer validities, but simply non-trivial TBox
-statements used to axiomatize specific application
-scenarios. Meanwhile in iALC, like in classical ALC, we have that the
-distribution of existential roles over disjunction
-i.e. ∃R.(C⊔D)=∃R.C⊔∃R.D and (the nullary case) ∃R.⊥=⊥ hold, which is
-not true for cALC. We intend to use iALC for modelling juridical
-Artificial Intelligence (AI) systems and we describe briefly how.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Using Intuitionistic Logic as a basis for Legal Ontologies</title>
-   <link href="http://arademaker.github.com/publications/2010/07/07/using-intuitionistic-logic-basis-legal-ontologies.html"/>
-   <updated>2010-07-07T00:00:00-03:00</updated>
-   <id>http://arademaker.github.com/publications/2010/07/07/using-intuitionistic-logic-basis-legal-ontologies</id>
-   <content type="html">&lt;h1&gt;Using Intuitionistic Logic as a basis for Legal Ontologies&lt;/h1&gt;
-
-&lt;p&gt;Classical Description Logic has been widely used as a basis for
-ontology creation and reasoning in many knowledge specific
-domains. These specific domains naturally include Legal AI. As in any
-other domain, consistency is an important issue for legal ontologies.
-However, due to its inherently normative feature, coherence
-(consistency) in legal ontologies is more subtle than in most other
-domains. Negation and subsumption play a central role in ontology
-coherence. An adequate intuitionistic semantics for negation in a
-legal domain comes to the fore when we take legally valid individual
-statements as the inhabitants of our legal ontology. This allows us to
-elegantly deal with particular situations of legal coherence, such as
-conflict of laws, as those solved by Private International Law
-analysis. This paper: (1) Briefly presents our version of
-Intuitionistic Description Logic, called IALC for Intuitionistic ALC
-(ALC being the canonical classical description logic system)(2)
-Discuss the jurisprudence foundation of our system, and (3) Shows how
-we can perform a coherence analysis of “Conflict of Laws in Space” by
-means of IALC. This paper reports work-in-progress on using this
-alternative definition of logical negation for building and testing
-legal ontologies and reasoning in AI.&lt;/p&gt;
-
-&lt;p&gt;Keywords: Description logic, intuitionistic Logic, legal ontologies, constructive negation&lt;/p&gt;
 </content>
  </entry>
  
@@ -1510,314 +1371,31 @@ legal ontologies and reasoning in AI.&lt;/p&gt;
    <link href="http://arademaker.github.com/blog/2010/01/30/datasets.html"/>
    <updated>2010-01-30T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2010/01/30/datasets</id>
-   <content type="html">&lt;p&gt;Est&amp;atilde;o come&amp;ccedil;ando a surgir no Brasil iniciativas para real
-transpar&amp;ecirc;ncia no acesso aos dados do governo. A
-estrutura&amp;ccedil;&amp;atilde;o dos dados em formatos abertos (RDF, CSV
+   <content type="html">&lt;p&gt;Estão começando a surgir no Brasil iniciativas para real
+transparência no acesso aos dados do governo. A
+estruturação dos dados em formatos abertos (RDF, CSV
 etc), acompanhados de metadados e indexados em interfaces de busca e
-navega&amp;ccedil;&amp;atilde;o que facilitem o download dos arquivos
-s&amp;atilde;o para mim as condi&amp;ccedil;&amp;otilde;es necess&amp;aacute;rias para
-o livre acesso &amp;agrave; informa&amp;ccedil;&amp;atilde;o. Uma destas
-iniciativas &amp;eacute; o &lt;a href=&quot;http://www.lexml.gov.br/&quot;&gt;LeXML&lt;/a&gt;.  Nos EUA
+navegação que facilitem o download dos arquivos
+são para mim as condições necessárias para
+o livre acesso à informação. Uma destas
+iniciativas é o &lt;a href=&quot;http://www.lexml.gov.br/&quot;&gt;LeXML&lt;/a&gt;.  Nos EUA
 existem os projetos &lt;a href=&quot;http://data.gov/&quot;&gt;data.gov&lt;/a&gt; e
 &lt;a href=&quot;http://datasf.org/&quot;&gt;datasf.org&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Na linha oposta, est&amp;atilde;o servi&amp;ccedil;os como o da ANP de
-levantamento de &lt;a href=&quot;http://www.anp.gov.br/preco/&quot;&gt;pre&amp;ccedil;os de
-combust&amp;iacute;veis&lt;/a&gt;. Que tipo de
-pesquisa pode ser feita com estes dados? Para come&amp;ccedil;ar,
-s&amp;oacute; a constru&amp;ccedil;&amp;atilde;o de um datasets a partir deste
+&lt;p&gt;Na linha oposta, estão serviços como o da ANP de
+levantamento de &lt;a href=&quot;http://www.anp.gov.br/preco/&quot;&gt;preços de
+combustíveis&lt;/a&gt;. Que tipo de
+pesquisa pode ser feita com estes dados? Para começar,
+só a construção de um datasets a partir deste
 site demanda um bom trabalho de desenvolvimento de um crawler e
-transformadores. Afinal, eu me pergunto, qual &amp;eacute; o objetivo
-deste site da ANP? Se for para um cidad&amp;atilde;o comum pesquisar qual
+transformadores. Afinal, eu me pergunto, qual é o objetivo
+deste site da ANP? Se for para um cidadão comum pesquisar qual
 o melhor posto para abastecer seu carro, a interface deixa a
-desejar. Se for para a sociedade acompanhar os pre&amp;ccedil;os de
-combust&amp;iacute;veis no Brasil, isto implica acessibilidade as
-s&amp;eacute;ries de dados, e todos meus coment&amp;aacute;rios anteriores
-fazem sentido, n&amp;atilde;o?&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Using Intuitionistic Logic as a Basis for Legal Ontologies</title>
-   <link href="http://arademaker.github.com/publications/2010/01/01/using-intuitionistic-logic-basis-legal-ontologies.html"/>
-   <updated>2010-01-01T00:00:00-02:00</updated>
-   <id>http://arademaker.github.com/publications/2010/01/01/using-intuitionistic-logic-basis-legal-ontologies</id>
-   <content type="html">&lt;h1&gt;Using Intuitionistic Logic as a Basis for Legal Ontologies&lt;/h1&gt;
+desejar. Se for para a sociedade acompanhar os preços de
+combustíveis no Brasil, isto implica acessibilidade as
+séries de dados, e todos meus comentários anteriores
+fazem sentido, não?&lt;/p&gt;
 
-&lt;p&gt;Classical Description Logic has been widely used as a basis for
-ontology creation and reasoning in many knowledge specific
-domains. These specific domains naturally include Legal AI. As in any
-other domain, consistency is an important issue for legal ontologies.
-However, due to its inherently normative feature, coherence
-(consistency) in legal ontologies is more subtle than in most other
-domains. Negation and subsumption play a central role in ontology
-coherence. An adequate intuitionistic semantics for negation in a
-legal domain comes to the fore when we take legally valid individual
-statements as the inhabitants of our legal ontology. This allows us to
-elegantly deal with particular situations of legal coherence, such as
-conflict of laws, as those solved by Private International Law
-analysis. This paper: (1) Briefly presents our version of
-Intuitionistic Description Logic, called IALC for Intuitionistic ALC
-(ALC being the canonical classical description logic system)(2)
-Discuss the jurisprudence foundation of our system, and (3) Shows how
-we can perform a coherence analysis of “Conflict of Laws in Space” by
-means of IALC. This paper reports work-in-progress on using this
-alternative definition of logical negation for building and testing
-legal ontologies and reasoning in AI.&lt;/p&gt;
-
-&lt;p&gt;Keywords: Description logic, intuitionistic Logic, legal ontologies, constructive negation&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Is it important to explain a theorem? A case study on UML and ALCQI</title>
-   <link href="http://arademaker.github.com/publications/2009/11/09/important-explain-theorem-case-study-uml-alcqi.html"/>
-   <updated>2009-11-09T00:00:00-02:00</updated>
-   <id>http://arademaker.github.com/publications/2009/11/09/important-explain-theorem-case-study-uml-alcqi</id>
-   <content type="html">&lt;h1&gt;Is it important to explain a theorem? A case study on UML and ALCQI&lt;/h1&gt;
-
-&lt;p&gt;Description Logics (DL) are quite well-established as underlying
-logics for KR. is a basic description logic. ER and UML are among the
-most used semiformal artifacts in computer science. The DL-community
-has shown that one needs to go a bit further to reason on ER and UML
-models. is able to express most of the features involved in an ER and
-UML modeling. DL-Lite would also be taken for doing this, although it
-might be more verbose.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>On the Proof Theory of ALC</title>
-   <link href="http://arademaker.github.com/publications/2009/10/12/proof-theory-alc.html"/>
-   <updated>2009-10-12T00:00:00-03:00</updated>
-   <id>http://arademaker.github.com/publications/2009/10/12/proof-theory-alc</id>
-   <content type="html">&lt;h1&gt;On the Proof Theory of ALC&lt;/h1&gt;
-
-&lt;p&gt;Description Logics is a family of formalisms used to represent
-knowledge of a domain. In con- trast with others knowledge
-representation systems, Description Logics are equipped with a formal,
-logic-based semantics. Knowledge representation systems based on
-description logics provide various inference capabilities that deduce
-implicit knowledge from the explicitly represented knowledge.  In &quot;A
-sequent calculus for alc&quot; we present a sequent calculus for ALC , a
-basic Description Logic, called SALC . The first motivation for
-developing such system is the extraction of computational content of
-ALC proofs. The present calculus is an intermediate step towards a
-Natural Deduction System for ALC . In this paper we present the proof
-of cut elimination for SALC .&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Designing ubiquitous applications, proposal of a specification environment</title>
-   <link href="http://arademaker.github.com/publications/2009/06/15/designing-ubiquitous-applications.html"/>
-   <updated>2009-06-15T00:00:00-03:00</updated>
-   <id>http://arademaker.github.com/publications/2009/06/15/designing-ubiquitous-applications</id>
-   <content type="html">&lt;h1&gt;Designing ubiquitous applications, proposal of a specification environment&lt;/h1&gt;
-
-&lt;p&gt;In ubiquitous applications, where the meaning of an entity, such as a
-user or service, depends on environment-specific constraints and
-dynamic changes in the environment have to be considered in all stages
-of development, the separation between the system&#39;s behaviour and its
-context representation (a.k.a. context model) is essential for
-facilitating the development of such inherently complex systems. At
-the same time, because of its well-known benefits, a formal
-specifications should be considered not only for describing the
-system&#39;s behaviour, but also the corresponding context
-model. Considering this, we propose in this paper an environment to
-support context modelling through formal specification. For this sake,
-we adopt the algebra of contextualized entities proposed and define
-levels of abstractions over its diagrams, enabling a stepwise
-construction of modular specifications. The overall goal is to reduce
-the gap between the formal description of an ubiquitous application
-and its implementation.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Is it important to explain a theorem? A case study on UML and ALCQI</title>
-   <link href="http://arademaker.github.com/publications/2009/01/01/important-explain-theorem-case-study-uml-alcqi.html"/>
-   <updated>2009-01-01T00:00:00-02:00</updated>
-   <id>http://arademaker.github.com/publications/2009/01/01/important-explain-theorem-case-study-uml-alcqi</id>
-   <content type="html">&lt;h1&gt;Is it important to explain a theorem? A case study on UML and ALCQI&lt;/h1&gt;
-
-&lt;p&gt;Description Logics (DL) are quite well-established as underlying
-logics for KR. is a basic description logic. ER and UML are among the
-most used semiformal artifacts in computer science. The DL-community
-has shown that one needs to go a bit further to reason on ER and UML
-models. is able to express most of the features involved in an ER and
-UML modeling. DL-Lite would also be taken for doing this, although it
-might be more verbose.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Toward Short and Structural ALC-Reasoning Explanations, A Sequent Calculus Approach</title>
-   <link href="http://arademaker.github.com/publications/2008/10/26/toward-short-structural-alc-reasoning-explanations.html"/>
-   <updated>2008-10-26T00:00:00-02:00</updated>
-   <id>http://arademaker.github.com/publications/2008/10/26/toward-short-structural-alc-reasoning-explanations</id>
-   <content type="html">&lt;h1&gt;Toward Short and Structural ALC-Reasoning Explanations, A Sequent Calculus Approach&lt;/h1&gt;
-
-&lt;p&gt;Description Logics (DL) are quite well-established as underlying
-logics for KR. is a basic description logic. ER and UML are among the
-most used semiformal artifacts in computer science. The DL-community
-has shown that one needs to go a bit further to reason on ER and UML
-models. is able to express most of the features involved in an ER and
-UML modeling. DL-Lite would also be taken for doing this, although it
-might be more verbose.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>A Formal Framework for Modeling Context-Aware Behavior in Ubiquitous Computing</title>
-   <link href="http://arademaker.github.com/publications/2008/10/13/formal-framework-modeling-context-aware-behavior-ubiquitous-computing.html"/>
-   <updated>2008-10-13T00:00:00-03:00</updated>
-   <id>http://arademaker.github.com/publications/2008/10/13/formal-framework-modeling-context-aware-behavior-ubiquitous-computing</id>
-   <content type="html">&lt;h1&gt;A Formal Framework for Modeling Context-Aware Behavior in Ubiquitous Computing&lt;/h1&gt;
-
-&lt;p&gt;A formal framework to contextualize ontologies, proposed in [3],
-provides several ways of composing ontologies, contexts or both. The
-proposed algebra can be used to model applications in which the
-meaning of an entity depends on environment constraints or where
-dynamic changes in the environment have to be considered. In this
-article we use this algebra to formalize the problem of interpreting
-context information in ubiquitous systems, based on a concrete
-scenario. The main goal is to verify, on one hand, how the formal
-approach can contribute with a better understanding of the fundamental
-concepts of ubiquitous computing and, on the other hand, if this
-formal framework is flexible and rich enough to adequately express
-specific characteristics of the concrete application domain and
-scenario.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>On The Proof Theory of ALC</title>
-   <link href="http://arademaker.github.com/publications/2008/05/11/proof-theory-alc.html"/>
-   <updated>2008-05-11T00:00:00-03:00</updated>
-   <id>http://arademaker.github.com/publications/2008/05/11/proof-theory-alc</id>
-   <content type="html">&lt;h1&gt;On The Proof Theory of ALC&lt;/h1&gt;
-
-&lt;p&gt;Description Logics is a family of formalisms used to represent
-knowledge of a domain. In con- trast with others knowledge
-representation systems, Description Logics are equipped with a formal,
-logic-based semantics. Knowledge representation systems based on
-description logics provide various inference capabilities that deduce
-implicit knowledge from the explicitly represented knowledge.  In &quot;A
-sequent calculus for alc&quot; we present a sequent calculus for ALC , a
-basic Description Logic, called SALC . The first motivation for
-developing such system is the extraction of computational content of
-ALC proofs. The present calculus is an intermediate step towards a
-Natural Deduction System for ALC . In this paper we present the proof
-of cut elimination for SALC .&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Ontology and Context</title>
-   <link href="http://arademaker.github.com/publications/2008/03/17/ontology-context.html"/>
-   <updated>2008-03-17T00:00:00-03:00</updated>
-   <id>http://arademaker.github.com/publications/2008/03/17/ontology-context</id>
-   <content type="html">&lt;h1&gt;Ontology and Context&lt;/h1&gt;
-
-&lt;p&gt;This paper considers a formal framework to contextualize ontologies
-and presents a formal algebra to manipulate these entities providing
-several ways of composing ontologies, contexts or both. The algebra
-gives the flexibility that is required to model applications where the
-meaning of an entity depends on environment constraints or where
-dynamic changes in the environment must be considered.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>On The Proof Theory of ALC</title>
-   <link href="http://arademaker.github.com/publications/2008/01/15/proof-theory-alc.html"/>
-   <updated>2008-01-15T00:00:00-02:00</updated>
-   <id>http://arademaker.github.com/publications/2008/01/15/proof-theory-alc</id>
-   <content type="html">&lt;h1&gt;On The Proof Theory of ALC&lt;/h1&gt;
-
-&lt;p&gt;Description Logics is a family of formalisms used to represent
-knowledge of a domain. In con- trast with others knowledge
-representation systems, Description Logics are equipped with a formal,
-logic-based semantics. Knowledge representation systems based on
-description logics provide various inference capabilities that deduce
-implicit knowledge from the explicitly represented knowledge.  In &quot;A
-sequent calculus for alc&quot; we present a sequent calculus for ALC , a
-basic Description Logic, called SALC . The first motivation for
-developing such system is the extraction of computational content of
-ALC proofs. The present calculus is an intermediate step towards a
-Natural Deduction System for ALC . In this paper we present the proof
-of cut elimination for SALC .&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Dealing with the Formal Analysis of Information Security Policies through Ontologies. A Case Study</title>
-   <link href="http://arademaker.github.com/publications/2007/12/02/dealing-formal-analysis-information-security-policies-through-ontologies.html"/>
-   <updated>2007-12-02T00:00:00-02:00</updated>
-   <id>http://arademaker.github.com/publications/2007/12/02/dealing-formal-analysis-information-security-policies-through-ontologies</id>
-   <content type="html">&lt;h1&gt;Dealing with the Formal Analysis of Information Security Policies through Ontologies. A Case Study&lt;/h1&gt;
-
-&lt;p&gt;We present the structure of an ontology for Information Security (IS),
-applied to the extraction of knowledge from Natural Language texts (IS
-standards, security policies and security control descriptions). This
-ontology is com- posed of the vocabulary for the IS Domain, and a
-partic- ular kind of ontology description, logical forms to deter-
-mine the structure of the DL formulas associated with the texts. We
-also discuss the relationship between the struc- ture of the formulas
-and the efficiency of the reasoner.&lt;/p&gt;
-
-&lt;p&gt;Keywords: Information Security Policies, Description Logic, Ontologies&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>An Ontology-based Approach to the Formalization of Information Security Policies</title>
-   <link href="http://arademaker.github.com/publications/2006/10/16/ontology-based-approach-formalization-information-security-policies.html"/>
-   <updated>2006-10-16T00:00:00-03:00</updated>
-   <id>http://arademaker.github.com/publications/2006/10/16/ontology-based-approach-formalization-information-security-policies</id>
-   <content type="html">&lt;h1&gt;An Ontology-based Approach to the Formalization of Information Security Policies&lt;/h1&gt;
-
-&lt;p&gt;We present the structure of an ontology for Information Security (IS)
-and discuss a paradigm whereby it can be used to extract knowledge
-from natural language texts such as IS standards, security policies
-and security control descriptions. Besides providing a vocabulary for
-the IS domain, the proposed ontology stores logical forms
-corresponding to statements in the text, as well as a set of axioms
-used for inference in description logic (DL). We also describe a tool
-to provide automatic support for the formalization process.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>A Rewriting Semantics for a Software Architecture Description Language</title>
-   <link href="http://arademaker.github.com/publications/2004/11/23/rewriting-semantics-software-architecture-description-language.html"/>
-   <updated>2004-11-23T00:00:00-02:00</updated>
-   <id>http://arademaker.github.com/publications/2004/11/23/rewriting-semantics-software-architecture-description-language</id>
-   <content type="html">&lt;h1&gt;A Rewriting Semantics for a Software Architecture Description Language&lt;/h1&gt;
-
-&lt;p&gt;Distributed and concurrent application invariably have coordination
-requirements. The design of those applications, composed by several
-(possibly distributed) components, has to consider coordination
-requirements comprising inter-component interaction styles, and
-intra-component concurrency and synchronization aspects. In our
-approach coordination aspects are treated in the software architecture
-level and can be specified in high-level contracts in CBabel ADL. A
-rewriting logic semantics for the software architecture description
-language CBabel is given, revisiting and extending previous work by
-some of the authors, which now includes a revision of the previous
-semantics and the addition of new features covering all the
-language. The CBabel tool is also presented. The CBabel tool is a
-prototype executable environment for CBabel, that implements the given
-CBabel&#39;s rewriting logic semantics and allows the execution and
-verification of CBabel descriptions in the Maude system, an
-implementation of rewriting logic. In this way, software architectures
-describing complex applications can be formally verified regarding
-properties such as deadlock and synchronization consistency in the
-software architecture design phase of its life cycle.&lt;/p&gt;
-
-&lt;p&gt;Keywords: software architecture description languages; rewriting
-logic; Maude; contracts&lt;/p&gt;
 </content>
  </entry>
  

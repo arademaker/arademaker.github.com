@@ -54,7 +54,7 @@
       <div class="title">
 	<a href="/">Alexandre Rademaker</a>
 	<a class="extra" href="/about.html">about me</a>
-	<a class="extra" href="/publications/index.html">publications</a>
+	<a class="extra" href="/publications.html">publications</a>
         <a class="extra" href="/research.html">research</a>
 	<a class="extra" href="/teaching.html">teaching</a>
       </div>
@@ -84,43 +84,47 @@ Linux e no MacOS (MacPorts). Para executar a transformação e validar
 um XML em relação ao seu DTD/Schema, ainda são necessários os
 programas xsltproc e xmllint.</p>
 
-<h2>Instalação dos programas necessários</h2>
+<h2 id="instalao-dos-programas-necessrios">Instalação dos programas necessários</h2>
 
 <p>Para quem usa o MacPorts no MacOS:</p>
 
-<pre><code>sudo port -v install bibtool bibutils
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo port -v install bibtool bibutils
 </code></pre>
+</div>
 
 <p>O xmllint e xsltproc já estão instalados no MacOS (acho que no XCode).</p>
 
 <p>Para quem usa Linux/Ubuntu:</p>
 
-<pre><code>sudo apt-get install bibtool bibutils xsltproc libxml2-utils
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install bibtool bibutils xsltproc libxml2-utils
 </code></pre>
+</div>
 
 <p>Para quem usa Windows, consultar o site destas ferramentas, não
 trivial! Esquece o Windows e instala o Ubuntu! ;-)</p>
 
-<h2>Usando a transformação</h2>
+<h2 id="usando-a-transformao">Usando a transformação</h2>
 
 <p>Com as ferramentas instaladas, o primeiro passo é acesssar o sistema
 <a href="http://lattes.cnpq.br">Lattes do CNPq</a>, link <strong>atualizar</strong>, logar-se
 no sistema e escolher a opção de exportar para XML. Será iniciado o
 download de um arquivo ZIP. Abra ZIP e extraia o arquivo XML dentro
 dele que tem mesmo nome, seu lattes ID. Imagine então que vc renomeou
-este arquivo XML para <code>LATTES.xml</code> e o moveu para o mesmo diretório
-onde está o arquivo com <code>lattes2mods.xsl</code> que você pegou do
+este arquivo XML para <code class="highlighter-rouge">LATTES.xml</code> e o moveu para o mesmo diretório
+onde está o arquivo com <code class="highlighter-rouge">lattes2mods.xsl</code> que você pegou do
 repositório no github.</p>
 
 <p>Agora basta rodar:</p>
 
-<pre><code>xsltproc lattes2mods.xsl LATTES.xml &gt; LATTES.mods
+<div class="highlighter-rouge"><pre class="highlight"><code>xsltproc lattes2mods.xsl LATTES.xml &gt; LATTES.mods
 </code></pre>
+</div>
 
 <p>E em seguida:</p>
 
-<pre><code>xml2bib -b -w LATTES.mods &gt; LATTES.bib
+<div class="highlighter-rouge"><pre class="highlight"><code>xml2bib -b -w LATTES.mods &gt; LATTES.bib
 </code></pre>
+</div>
 
 <p>Mas o interessante é antes de rodar o xml2bib, validar o arquivo mods
 gerado contra o
@@ -128,8 +132,9 @@ gerado contra o
 disponibilizado no site da Biblioteca do Congresso Americano, baixe a
 versão 3.4:</p>
 
-<pre><code>xmllint --schema mods.xsd LATTTES.mods
+<div class="highlighter-rouge"><pre class="highlight"><code>xmllint --schema mods.xsd LATTTES.mods
 </code></pre>
+</div>
 
 <p>Esta validação serve para verificar não apenas erros na estrutura do
 arquivo, que seriam bugs no meu código, mas também erros nos dados, em
@@ -138,6 +143,7 @@ Lattes.</p>
 
 <p>Comentários são sempre bem vindos. Problemas podem ser reportados
 diretamente no <a href="https://github.com/arademaker/SLattes/issues">github</a>.</p>
+
 
 
  <hr/>

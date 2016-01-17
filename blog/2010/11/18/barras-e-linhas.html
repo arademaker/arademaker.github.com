@@ -54,7 +54,7 @@
       <div class="title">
 	<a href="/">Alexandre Rademaker</a>
 	<a class="extra" href="/about.html">about me</a>
-	<a class="extra" href="/publications/index.html">publications</a>
+	<a class="extra" href="/publications.html">publications</a>
         <a class="extra" href="/research.html">research</a>
 	<a class="extra" href="/teaching.html">teaching</a>
       </div>
@@ -73,35 +73,28 @@ facilmente produzido com os comandos básicos de gráficos do R.</p>
 <p>Digamos que seus dados sejam uma data.frame composto por duas
 variáveis.</p>
 
-<div class="highlight"><pre><code class="r">dados <span class="o">&lt;-</span> data.frame<span class="p">(</span>a <span class="o">=</span> sample<span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span><span class="m">10</span><span class="p">),</span> b <span class="o">=</span> sample<span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span><span class="m">10</span><span class="p">))</span>
-</code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dados</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span><span class="m">10</span><span class="p">),</span> <span class="n">b</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span><span class="m">10</span><span class="p">))</span></code></pre></figure>
 
-
-<p>O que desejamos é representar no gráfico os valores da variável <code>a</code>
-como barras e os valores da variável <code>b</code> como pontos conectados por
+<p>O que desejamos é representar no gráfico os valores da variável <code class="highlighter-rouge">a</code>
+como barras e os valores da variável <code class="highlighter-rouge">b</code> como pontos conectados por
 linhas. O comando abaixo produz o gráfico de barras e retorna um
-vetor com as coordenadas <code>x</code> dos meios das barras produzidas.</p>
+vetor com as coordenadas <code class="highlighter-rouge">x</code> dos meios das barras produzidas.</p>
 
-<div class="highlight"><pre><code class="r">a <span class="o">&lt;-</span> barplot<span class="p">(</span>dados<span class="o">$</span>a<span class="p">,</span> ylim <span class="o">=</span> c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">))</span>
-</code></pre></div>
-
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">a</span> <span class="o">&lt;-</span> <span class="n">barplot</span><span class="p">(</span><span class="n">dados</span><span class="o">$</span><span class="n">a</span><span class="p">,</span> <span class="n">ylim</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">))</span></code></pre></figure>
 
 <p>Agora é fácil criar os pontos e linhas:</p>
 
-<div class="highlight"><pre><code class="r">points<span class="p">(</span>a<span class="p">,</span> dados<span class="o">$</span>b<span class="p">,</span> ylim<span class="o">=</span> c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">))</span>
-lines<span class="p">(</span>a<span class="p">,</span> dados<span class="o">$</span>b<span class="p">,</span> ylim<span class="o">=</span> c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">))</span>
-</code></pre></div>
-
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">points</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dados</span><span class="o">$</span><span class="n">b</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">))</span>
+<span class="n">lines</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dados</span><span class="o">$</span><span class="n">b</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">))</span></code></pre></figure>
 
 <p>Image que seus dados são temporais, onde cada observação está
 relacionada a uma ano. Pode-se incluir os anos como rótulos do eixo
-"x" com o comando:</p>
+“x” com o comando:</p>
 
-<div class="highlight"><pre><code class="r">axis<span class="p">(</span><span class="m">1</span><span class="p">,</span> at <span class="o">=</span> a<span class="p">,</span> labels <span class="o">=</span> <span class="m">2000</span><span class="o">:</span><span class="m">2009</span><span class="p">)</span>
-</code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">axis</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">at</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="m">2000</span><span class="o">:</span><span class="m">2009</span><span class="p">)</span></code></pre></figure>
 
+<p><img src="/images/2010-11-18-fig.png" alt="bar-and-line" title="bar and line" /></p>
 
-<p><img src="/images/2010-11-18-fig.png" title="bar and line" alt="bar-and-line" /></p>
 
 
  <hr/>

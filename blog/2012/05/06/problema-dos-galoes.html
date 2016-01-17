@@ -54,7 +54,7 @@
       <div class="title">
 	<a href="/">Alexandre Rademaker</a>
 	<a class="extra" href="/about.html">about me</a>
-	<a class="extra" href="/publications/index.html">publications</a>
+	<a class="extra" href="/publications.html">publications</a>
         <a class="extra" href="/research.html">research</a>
 	<a class="extra" href="/teaching.html">teaching</a>
       </div>
@@ -74,12 +74,15 @@ sequência de operações que termine com 2 litros no galão de 7 ou 4
 litros. Pede-se:</p>
 
 <ul>
-<li><p>Modele o problema como um problema de grafo, descrevendo
+  <li>
+    <p>Modele o problema como um problema de grafo, descrevendo
 precisamente a definição do grafo envolvido e descrevendo a solução
-em função do grafo.</p></li>
-<li><p>Qual algorítmo de grafo deverá ser usado?</p></li>
+em função do grafo.</p>
+  </li>
+  <li>
+    <p>Qual algorítmo de grafo deverá ser usado?</p>
+  </li>
 </ul>
-
 
 <p>Este é um problema clássico que pode ser encontrado em vários livros
 de estrutura de dados e algorítmos (Ex 3.8 do Algorithms by Dasgupta,
@@ -99,7 +102,7 @@ linguagem e ao sistema ao mesmo tempo.</p>
 
 <p>A implementação em Maude é muito simples:</p>
 
-<pre><code>mod GAL is
+<div class="highlighter-rouge"><pre class="highlight"><code>mod GAL is
   inc INT .
 
   sorts Galon System .
@@ -125,11 +128,12 @@ linguagem e ao sistema ao mesmo tempo.</p>
   eq initial = &lt; 0 , 10 &gt; &lt; 7 , 7 &gt; &lt; 4 , 4 &gt; .
 endm
 </code></pre>
+</div>
 
 <p>Trata-se de uma especificação algébrica do estado do sistema como um
 multiset de galões onde cada galão é uma dupla de números inteiros:
 primeiro componente é a quantidade de líquido e segundo a
-capacidade. A operação <code>initial</code> serve apenas para criar uma constante
+capacidade. A operação <code class="highlighter-rouge">initial</code> serve apenas para criar uma constante
 que representa o estado inicial do sistema.</p>
 
 <p>As duas regras de reescrita fazem deste módulo um módulo de sistema
@@ -147,24 +151,26 @@ um sistema. Logicamente, as regras podem ser entendidas como regras de
 inferência de um sistema de reescrita.</p>
 
 <p>Na prática, podemos aplicar as reescritas de estado usando o comando
-<code>rew</code> e realizar uma busca por estados a partir de um estado inicial
-usando o comando <code>search</code>.</p>
+<code class="highlighter-rouge">rew</code> e realizar uma busca por estados a partir de um estado inicial
+usando o comando <code class="highlighter-rouge">search</code>.</p>
 
 <p>Para testarmos a implementação, podemos aplicar algumas regras a
 partir do estado initial. Por exemplo, para aplicarmos 4 regras de
 reescrita a partir do estado inicial usamos:</p>
 
-<pre><code>Maude&gt; rew [4] initial .
+<div class="highlighter-rouge"><pre class="highlight"><code>Maude&gt; rew [4] initial .
 rewrite [4] in GAL : initial .
 rewrites: 33 in 0ms cpu (0ms real) (131474 rewrites/second)
 result System: &lt; 0,4 &gt; &lt; 4,10 &gt; &lt; 7,7 &gt;
 </code></pre>
+</div>
 
 <p>Note-se que não controlamos que regras são aplicadas (estratégia de
 aplicação). Para encontrarmos a solução, usamos:</p>
 
-<pre><code>search initial =&gt;* &lt; 2 , X:Int &gt; S:System such that X:Int &lt; 10 .
+<div class="highlighter-rouge"><pre class="highlight"><code>search initial =&gt;* &lt; 2 , X:Int &gt; S:System such that X:Int &lt; 10 .
 </code></pre>
+</div>
 
 <p>Este comando acima efetua uma busca (BFS, busca em largura), a partir
 do estado inicial, por algum estado atingido com zero ou mais
@@ -174,7 +180,7 @@ seja menor que 10.</p>
 
 <p>A resposta do sistema são 4 possíveis soluções:</p>
 
-<pre><code>Solution 1 (state 16)
+<div class="highlighter-rouge"><pre class="highlight"><code>Solution 1 (state 16)
 states: 17  rewrites: 501 in 3ms cpu (3ms real) (139244 rewrites/second)
 S:System --&gt; &lt; 2,10 &gt; &lt; 7,7 &gt;
 X:Int --&gt; 4
@@ -197,11 +203,12 @@ X:Int --&gt; 7
 No more solutions.
 states: 21  rewrites: 721 in 6ms cpu (6ms real) (109824 rewrites/second)
 </code></pre>
+</div>
 
 <p>Para examinarmos a primeira solução, pedimos para o sistema mostrar o
 caminho, isto é, as reescritas executadas.</p>
 
-<pre><code>Maude&gt; show path 16 .
+<div class="highlighter-rouge"><pre class="highlight"><code>Maude&gt; show path 16 .
 state 0, System: &lt; 0,10 &gt; &lt; 4,4 &gt; &lt; 7,7 &gt;
 ===[ crl ... [label transfer-1] . ]===&gt;
 state 1, System: &lt; 0,4 &gt; &lt; 4,10 &gt; &lt; 7,7 &gt;
@@ -216,12 +223,14 @@ state 14, System: &lt; 2,10 &gt; &lt; 4,4 &gt; &lt; 5,7 &gt;
 ===[ crl ... [label transfer-2] . ]===&gt;
 state 16, System: &lt; 2,4 &gt; &lt; 2,10 &gt; &lt; 7,7 &gt;
 </code></pre>
+</div>
 
 <p>O estado encontrado é onde o galão de 4 litros está com 2 litros, o
 galão de 7 litros está completo e o galão de 10 litros está com 2
 litros.</p>
 
 <p>Bem legal, não acham!?</p>
+
 
 
  <hr/>

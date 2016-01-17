@@ -54,7 +54,7 @@
       <div class="title">
 	<a href="/">Alexandre Rademaker</a>
 	<a class="extra" href="/about.html">about me</a>
-	<a class="extra" href="/publications/index.html">publications</a>
+	<a class="extra" href="/publications.html">publications</a>
         <a class="extra" href="/research.html">research</a>
 	<a class="extra" href="/teaching.html">teaching</a>
       </div>
@@ -64,48 +64,44 @@
 
   <p>Yesterday my friend
 <a href="http://researcher.ibm.com/researcher/view.php?person=br-mnerys">Marcelo Nery</a>
-and I found a bug in the <code>split</code> command of Mac OS. At first, I was
-surprised (we don't expect to find bugs in core tools like grep, ls,
-split, wc..., right?) and almost expected to find the same bug in the
+and I found a bug in the <code class="highlighter-rouge">split</code> command of Mac OS. At first, I was
+surprised (we don’t expect to find bugs in core tools like grep, ls,
+split, wc…, right?) and almost expected to find the same bug in the
 Linux version of split. At least in the split of Ubuntu distribution,
 that was not the case. The bug is presented only in the Mac OS
 version.</p>
 
-<h2>The bug</h2>
+<h2 id="the-bug">The bug</h2>
 
-<p>Consider the file <code>zero.log</code> created with the following Common Lisp code
-(actually for the rest of the post you don't need to understand the
+<p>Consider the file <code class="highlighter-rouge">zero.log</code> created with the following Common Lisp code
+(actually for the rest of the post you don’t need to understand the
 code):</p>
 
-<div class="highlight"><pre><code class="common-lisp"><span class="p">(</span><span class="nb">with-open-file</span> <span class="p">(</span><span class="nv">out</span> <span class="s">&quot;zero.log&quot;</span> <span class="ss">:element-type</span> <span class="o">&#39;</span><span class="p">(</span><span class="kt">unsigned-byte</span> <span class="mi">8</span><span class="p">)</span>
-                  <span class="ss">:direction</span> <span class="ss">:output</span>
-                  <span class="ss">:if-exists</span> <span class="ss">:supersede</span>
-                  <span class="ss">:external-format</span> <span class="ss">:utf-8</span><span class="p">)</span>
-       <span class="p">(</span><span class="nb">loop</span> <span class="nv">for</span> <span class="nb">char</span> <span class="nv">across</span> <span class="p">(</span><span class="nb">format</span> <span class="no">nil</span> <span class="s">&quot;AB_CDE~%F~%G~%&quot;</span><span class="p">)</span>
-             <span class="nb">do</span> <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">equal</span> <span class="nb">char</span> <span class="sc">#\_</span><span class="p">)</span>
-                  <span class="p">(</span><span class="nb">loop</span> <span class="nv">for</span> <span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">to</span> <span class="mi">3</span> <span class="nb">do</span>
+<figure class="highlight"><pre><code class="language-common-lisp" data-lang="common-lisp"><span class="p">(</span><span class="nb">with-open-file</span> <span class="p">(</span><span class="nv">out</span> <span class="s">"zero.log"</span> <span class="ss">:element-type</span> <span class="o">'</span><span class="p">(</span><span class="kt">unsigned-byte</span> <span class="mi">8</span><span class="p">)</span>
+			      <span class="ss">:direction</span> <span class="ss">:output</span>
+			      <span class="ss">:if-exists</span> <span class="ss">:supersede</span>
+			      <span class="ss">:external-format</span> <span class="ss">:utf-8</span><span class="p">)</span>
+	   <span class="p">(</span><span class="nb">loop</span> <span class="nv">for</span> <span class="nb">char</span> <span class="nv">across</span> <span class="p">(</span><span class="nb">format</span> <span class="no">nil</span> <span class="s">"AB_CDE~%F~%G~%"</span><span class="p">)</span>
+		     <span class="nb">do</span> <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">equal</span> <span class="nb">char</span> <span class="sc">#\_</span><span class="p">)</span>
+			      <span class="p">(</span><span class="nb">loop</span> <span class="nv">for</span> <span class="nv">i</span> <span class="nv">from</span> <span class="mi">1</span> <span class="nv">to</span> <span class="mi">3</span> <span class="nb">do</span>
                      <span class="p">(</span><span class="nb">write-byte</span> <span class="mi">0</span> <span class="nv">out</span><span class="p">))</span>
-                  <span class="p">(</span><span class="nb">write-byte</span> <span class="p">(</span><span class="nb">char-code</span> <span class="nb">char</span><span class="p">)</span> <span class="nv">out</span><span class="p">))))</span>
-</code></pre></div>
-
+			      <span class="p">(</span><span class="nb">write-byte</span> <span class="p">(</span><span class="nb">char-code</span> <span class="nb">char</span><span class="p">)</span> <span class="nv">out</span><span class="p">))))</span></code></pre></figure>
 
 <p>This file content could be inspected with hexdump command:</p>
 
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>hexdump -C zero.log
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>hexdump -C zero.log
 00000000  41 42 00 00 00 43 44 45  0a 46 0a 47 0a     |AB...CDE.F.G.|
-0000000d
-</code></pre></div>
-
+0000000d</code></pre></figure>
 
 <p>That is, the file has three 0 bytes in the first line right after the
-<code>B</code> letter and before the <code>C</code> letter. Now we want to split this file
+<code class="highlighter-rouge">B</code> letter and before the <code class="highlighter-rouge">C</code> letter. Now we want to split this file
 one line per file.</p>
 
 <p>The Linux version of split works as expected, it splits the file
 keeping the zero bytes unchanged.</p>
 
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>split -1 zero.log
-<span class="nv">$ </span><span class="k">for </span>f in x??; <span class="k">do </span><span class="nb">echo</span> <span class="s2">&quot;---Begin: $f&quot;</span>; cat <span class="nv">$f</span>; <span class="nb">echo</span> <span class="s2">&quot;---End: $f&quot;</span>; <span class="k">done</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>split -1 zero.log
+<span class="gp">$ </span><span class="k">for </span>f <span class="k">in </span>x??; <span class="k">do </span><span class="nb">echo</span> <span class="s2">"---Begin: </span><span class="nv">$f</span><span class="s2">"</span>; cat <span class="nv">$f</span>; <span class="nb">echo</span> <span class="s2">"---End: </span><span class="nv">$f</span><span class="s2">"</span>; <span class="k">done</span>
 ---Begin: xaa
 ABCDE
 ---End: xaa
@@ -114,35 +110,32 @@ F
 ---End: xab
 ---Begin: xac
 G
----End: xac
-</code></pre></div>
+---End: xac</code></pre></figure>
 
-
-<p>Moreover, the sum of bytes of the <code>x??</code> files is equal the number of
-bytes in the <code>zero.log</code> file, 13 bytes.</p>
+<p>Moreover, the sum of bytes of the <code class="highlighter-rouge">x??</code> files is equal the number of
+bytes in the <code class="highlighter-rouge">zero.log</code> file, 13 bytes.</p>
 
 <p>Nevertheless, the Mac OS version of split produces an unexpected
-output. The letter <code>F</code> is merged with the begining of the first line
-althouth it is in the second line of the <code>zero.log</code> file. Besides
+output. The letter <code class="highlighter-rouge">F</code> is merged with the begining of the first line
+althouth it is in the second line of the <code class="highlighter-rouge">zero.log</code> file. Besides
 that, the zero bytes causes the Mac OS split to ignore the rest of the
-first line of <code>zero.log</code> causing a lost of data. The sum of the bytes
-of the <code>x??</code> files in Mac OS is only 6 bytes.</p>
+first line of <code class="highlighter-rouge">zero.log</code> causing a lost of data. The sum of the bytes
+of the <code class="highlighter-rouge">x??</code> files in Mac OS is only 6 bytes.</p>
 
-<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>split -1 zero.log
-<span class="nv">$ </span><span class="k">for </span>f in x??; <span class="k">do </span><span class="nb">echo</span> <span class="s2">&quot;---Begin: $f&quot;</span>; cat <span class="nv">$f</span>; <span class="nb">echo</span> <span class="s2">&quot;---End: $f&quot;</span>; <span class="k">done</span>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>split -1 zero.log
+<span class="gp">$ </span><span class="k">for </span>f <span class="k">in </span>x??; <span class="k">do </span><span class="nb">echo</span> <span class="s2">"---Begin: </span><span class="nv">$f</span><span class="s2">"</span>; cat <span class="nv">$f</span>; <span class="nb">echo</span> <span class="s2">"---End: </span><span class="nv">$f</span><span class="s2">"</span>; <span class="k">done</span>
 ---Begin: xaa
 ABF
 ---End: xaa
 ---Begin: xab
 G
----End: xab
-</code></pre></div>
+---End: xab</code></pre></figure>
 
-
-<h2>Reporting the bug</h2>
+<h2 id="reporting-the-bug">Reporting the bug</h2>
 
 <p>I reported the bug to Apple using the
 <a href="http://www.apple.com/feedback/macosx.html">Mac OS Feedback form</a>.</p>
+
 
 
  <hr/>
