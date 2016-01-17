@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2016-01-17T13:11:51-02:00</updated>
+ <updated>2016-01-17T16:17:08-02:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -17,57 +17,39 @@
    <link href="http://arademaker.github.com/blog/2016/01/03/building-shared-world.html"/>
    <updated>2016-01-03T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2016/01/03/building-shared-world</id>
-   <content type="html">&lt;p&gt;
-The introduction of this papers is fascinating. The complementarity
-mentioned in the introduction has been in my mind for a while:
-&lt;/p&gt;
-
+   <content type="html">&lt;p&gt;The introduction of this papers is fascinating. The complementarity
+  mentioned in the introduction has been in my mind for a while:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;
-In recent years, the complementarity of distributional and formal
-semantics has become increasingly evident&amp;#x2026; A number of proposals
-have emerged from these considerations, suggesting that an overarching
-semantics integrating both distributional and formal aspects would be
-desirable&amp;#x2026;
-&lt;/p&gt;
+  &lt;p&gt;In recent years, the complementarity of distributional and formal
+    semantics has become increasingly evident&amp;#8230; A number of proposals
+    have emerged from these considerations, suggesting that an overarching
+    semantics integrating both distributional and formal aspects would be
+    desirable&amp;#8230;&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;
-Another interesting part of the paper is its section 4.2, when the
-authors introduce their definition of &#39;model-theoretic spaces&#39;:
-&lt;/p&gt;
-
+&lt;p&gt;Another interesting part of the paper is its section 4.2, when the
+  authors introduce their definition of &amp;#8216;model-theoretic spaces&amp;#8217;:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;
-Ontologies can be represented in various ways, but in this paper, we
-assume they are formalised in terms of sets of entities&amp;#x2026; In our
-account, we do not have an a priori model of the world: we wish to
-infer it from our observation of language data
-&lt;/p&gt;
+  &lt;p&gt;Ontologies can be represented in various ways, but in this paper, we
+    assume they are formalised in terms of sets of entities&amp;#8230; In our
+    account, we do not have an a priori model of the world: we wish to
+    infer it from our observation of language data&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;
-In the next paragraphs, the authors precisely defined their
-&#39;model-theoretic spaces&#39;. The article is worth to reading.
-&lt;/p&gt;
-
-
-&lt;div class=&quot;org-src-container&quot;&gt;
-
-&lt;pre class=&quot;src src-bibtex&quot;&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;@InProceedings&lt;/span&gt;{&lt;span style=&quot;color: #008b8b;&quot;&gt;herbelot-vecchi:2015:EMNLP&lt;/span&gt;,
-    &lt;span style=&quot;color: #a0522d;&quot;&gt;author&lt;/span&gt;    = {Herbelot, Aur\&#39;{e}lie  and  Vecchi, Eva Maria},
-    &lt;span style=&quot;color: #a0522d;&quot;&gt;title&lt;/span&gt;     = {Building a shared world: mapping distributional to
+&lt;p&gt;In the next paragraphs, the authors precisely defined their
+  &amp;#8216;model-theoretic spaces&amp;#8217;. The article is worth to reading.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;bibtex&quot;&gt;
+@InProceedings{herbelot-vecchi:2015:EMNLP,
+    author    = {Herbelot, Aur\&amp;#39;{e}lie  and  Vecchi, Eva Maria},
+    title     = {Building a shared world: mapping distributional to
                     model-theoretic semantic spaces},
-    &lt;span style=&quot;color: #a0522d;&quot;&gt;booktitle&lt;/span&gt; = {Proceedings of the 2015 Conference on Empirical Methods
+    booktitle = {Proceedings of the 2015 Conference on Empirical Methods
                     in Natural Language Processing},
-    &lt;span style=&quot;color: #a0522d;&quot;&gt;month&lt;/span&gt;     = {September},
-    &lt;span style=&quot;color: #a0522d;&quot;&gt;year&lt;/span&gt;      = {2015},  address   = {Lisbon, Portugal},
-    &lt;span style=&quot;color: #a0522d;&quot;&gt;publisher&lt;/span&gt; = {Association for Computational Linguistics},
-    &lt;span style=&quot;color: #a0522d;&quot;&gt;pages&lt;/span&gt;     = {22--32},
-    &lt;span style=&quot;color: #a0522d;&quot;&gt;url&lt;/span&gt;       = {&lt;span style=&quot;color: #3a5fcd; text-decoration: underline;&quot;&gt;http://aclweb.org/anthology/D15-1003&lt;/span&gt;}
+    month     = {September},
+    year      = {2015},  address   = {Lisbon, Portugal},
+    publisher = {Association for Computational Linguistics},
+    pages     = {22--32},
+    url       = {http://aclweb.org/anthology/D15-1003}
 }
 &lt;/pre&gt;
-&lt;/div&gt;
 </content>
  </entry>
  
@@ -76,21 +58,15 @@ In the next paragraphs, the authors precisely defined their
    <link href="http://arademaker.github.com/blog/2015/08/18/combine-rdf.html"/>
    <updated>2015-08-18T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2015/08/18/combine-rdf</id>
-   <content type="html">&lt;p&gt;
-How to merge multiple RDF files into a single RDF file? The first idea
-would be to convert each RDF file in &lt;a href=&quot;http://www.w3.org/2001/sw/RDFCore/ntriples/&quot;&gt;ntriples&lt;/a&gt; and just concatenate
-them using unix &lt;code&gt;cat&lt;/code&gt; utility, right? No, it doesn&#39;t work with blank
-nodes (or BNodes)! BNodes from different files with the same ID would
-be merged as a single resource and this is not the expected semantics,
-BNodes from different files are different resources, even if they have
-the same id.
-&lt;/p&gt;
-
-&lt;p&gt;
-The &lt;code&gt;rapper&lt;/code&gt; is a utility from the package &lt;a href=&quot;http://librdf.org&quot;&gt;Redland&lt;/a&gt;. Below I am
-presented the files and the number of triples on each one.
-&lt;/p&gt;
-
+   <content type="html">&lt;p&gt;How to merge multiple RDF files into a single RDF file? The first idea
+  would be to convert each RDF file in &lt;a href=&quot;http://www.w3.org/2001/sw/RDFCore/ntriples/&quot;&gt;ntriples&lt;/a&gt; and just concatenate
+  them using unix &lt;code&gt;cat&lt;/code&gt; utility, right? No, it doesn&amp;#8217;t work with blank
+  nodes (or BNodes)! BNodes from different files with the same ID would
+  be merged as a single resource and this is not the expected semantics,
+  BNodes from different files are different resources, even if they have
+  the same id.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;rapper&lt;/code&gt; is a utility from the package &lt;a href=&quot;http://librdf.org&quot;&gt;Redland&lt;/a&gt;. Below I am
+  presented the files and the number of triples on each one.&lt;/p&gt;
 &lt;pre class=&quot;example&quot;&gt;
 $ rapper -c -i ntriples wordnet-en-fixed.nt
 rapper: Parsing returned 3517504 triples
@@ -98,38 +74,26 @@ rapper: Parsing returned 3517504 triples
 $ rapper -c -i ntriples own-pt-fixed.nt
 rapper: Parsing returned  824916 triples
 &lt;/pre&gt;
-
-&lt;p&gt;
-The oldest tool to support merging of RDF files is &lt;a href=&quot;http://www.w3.org/2000/10/swap/doc/cwm.html&quot;&gt;CWM&lt;/a&gt;. CWM is written
-in python and its performance is really bad. The command below hasn&#39;t
-finish after 5 minutes. 
-&lt;/p&gt;
-
+&lt;p&gt;The oldest tool to support merging of RDF files is &lt;a href=&quot;http://www.w3.org/2000/10/swap/doc/cwm.html&quot;&gt;CWM&lt;/a&gt;. CWM is written
+  in python and its performance is really bad. The command below hasn&amp;#8217;t
+  finish after 5 minutes.&lt;/p&gt;
 &lt;pre class=&quot;example&quot;&gt;
 /usr/local/cwm-1.2.1/cwm --ntriples own-pt-fixed.nt wordnet-en-fixed.nt &amp;gt; tudo-cwm.nt
 &lt;/pre&gt;
-
-&lt;p&gt;
-Next tool that I tried was &lt;a href=&quot;http://rdfpro.fbk.eu&quot;&gt;\(RDF_{pro}\)&lt;/a&gt;. The performance was excellent,
-only 11 seconds! But we must add a parameter &lt;code&gt;-w&lt;/code&gt; to force BNodes in
-input files to be renamed to avoid possible clashes. Actually, it
-doesn&#39;t make sense to me why this is not the default behaviour.
-&lt;/p&gt;
-
+&lt;p&gt;Next tool that I tried was &lt;a href=&quot;http://rdfpro.fbk.eu&quot;&gt;$RDF&lt;sub&gt;pro&lt;/sub&gt;$&lt;/a&gt;. The performance was excellent,
+  only 11 seconds! But we must add a parameter &lt;code&gt;-w&lt;/code&gt; to force BNodes in
+  input files to be renamed to avoid possible clashes. Actually, it
+  doesn&amp;#8217;t make sense to me why this is not the default behaviour.&lt;/p&gt;
 &lt;pre class=&quot;example&quot;&gt;
 $ rdfpro @r -w own-pt-fixed.nt wordnet-en-fixed.nt @w tudo-pro.nt
 14:45:53(I) 4342420 triples read (377077 tr/s avg)
 14:45:53(I) 4342420 triples written (377077 tr/s avg)
 14:45:53(I) Done in 11 s
 &lt;/pre&gt;
-
-&lt;p&gt;
-Next tool, &lt;code&gt;riot&lt;/code&gt; from the &lt;a href=&quot;https://jena.apache.org&quot;&gt;Jena&lt;/a&gt; library. The performance was not bad,
-it took twice the time of \(RDF_{pro}\) but it finished. The only
-problem is that it complained about some IRI that no other tool
-complained.
-&lt;/p&gt;
-
+&lt;p&gt;Next tool, &lt;code&gt;riot&lt;/code&gt; from the &lt;a href=&quot;https://jena.apache.org&quot;&gt;Jena&lt;/a&gt; library. The performance was not bad,
+  it took twice the time of $RDF&lt;sub&gt;pro&lt;/sub&gt;$ but it finished. The only
+  problem is that it complained about some IRI that no other tool
+  complained.&lt;/p&gt;
 &lt;pre class=&quot;example&quot;&gt;
 $ time riot own-pt-fixed.nt wordnet-en-fixed.nt &amp;gt; tudo-riot.nt
 14:51:14 WARN riot :: [line: 282756, col: 1 ] Bad IRI: &amp;lt;https://w3id.org/own-pt/wn30-pt/instances/word-Ĳsselmeer&amp;gt; Code: 47/NOT_NFKC in PATH: The IRI is not in Unicode Normal Form KC.
@@ -140,13 +104,9 @@ real	0m27.398s
 user	0m29.905s
 sys	0m1.751s
 &lt;/pre&gt;
-
-&lt;p&gt;
-I don&#39;t like warnnings so I tried the safe path. I converted the
-ntriple file with these strange IRIs to RDF/XML and called &lt;code&gt;riot&lt;/code&gt;
-again. No warnnings this time, good!
-&lt;/p&gt;
-
+&lt;p&gt;I don&amp;#8217;t like warnnings so I tried the safe path. I converted the
+  ntriple file with these strange IRIs to RDF/XML and called &lt;code&gt;riot&lt;/code&gt;
+  again. No warnnings this time, good!&lt;/p&gt;
 &lt;pre class=&quot;example&quot;&gt;
 $ rapper -i ntriples -o rdfxml own-pt-fixed.nt  &amp;gt; own-pt-fixed.rdf
 rapper: Serializing with serializer rdfxml
@@ -157,12 +117,8 @@ own-pt-fixed.rdf : 14.84 sec  824,916 triples  55,602.32 TPS
 wordnet-en-fixed.nt : 21.82 sec  3,517,504 triples  161,175.95 TPS
 Total : 36.66 sec  4,342,420 triples  118,451.17 TPS
 &lt;/pre&gt;
-
-&lt;p&gt;
-But the output produced does have some errors! The IRIs are not
-encoded as the way the ntriples specification requires.
-&lt;/p&gt;
-
+&lt;p&gt;But the output produced does have some errors! The IRIs are not
+  encoded as the way the ntriples specification requires.&lt;/p&gt;
 &lt;pre class=&quot;example&quot;&gt;
 $ rapper -c -i ntriples tudo-riot.nt
 
@@ -170,10 +126,7 @@ rapper: Parsing URI tudo-riot.nt with parser ntriples
 rapper: Error - URI tudo-riot.nt:117668 column 55 - Non-printable ASCII character 195 (0xC3) found.
 rapper: Error - URI tudo-riot.nt:117668 column 56 - Non-printable ASCII character 162 (0xA2) found.
 &lt;/pre&gt;
-
-&lt;p&gt;
-By the way, for the future, I will use \(RDF_pro\).
-&lt;/p&gt;
+&lt;p&gt;By the way, for the future, I will use $RDF&lt;sub&gt;pro&lt;/sub&gt;$.&lt;/p&gt;
 </content>
  </entry>
  
@@ -182,207 +135,124 @@ By the way, for the future, I will use \(RDF_pro\).
    <link href="http://arademaker.github.com/blog/2014/04/30/webinar.html"/>
    <updated>2014-04-30T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2014/04/30/webinar</id>
-   <content type="html">&lt;div id=&quot;outline-container-sec-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Introduction&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-&lt;p&gt;
-Yerterday I presented for the Apps and Tools working group my workflow
-to prepared data to be inserted into FGV VIVO instance. Since some
-people asked be to share the links and the file that I used to guide
-my presentation, I made this post. 
-&lt;/p&gt;
-
-&lt;p&gt;
-This page is generated from a &lt;a href=&quot;http://orgmode.org&quot;&gt;org file&lt;/a&gt; that I export to HTML and
-further processed with &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;. The process of use org files with
-jekyll is outlined &lt;a href=&quot;http://orgmode.org/worg/org-tutorials/org-jekyll.html&quot;&gt;here&lt;/a&gt;. I am stil not very confortable with this
-workflow but I am using it for my personal website and for the
-websites of the courses that I teach at FGV.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-2&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-2&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; The Toolset&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
-&lt;p&gt;
-This is the non comprehensive list of tools that I use. I am listing
-here the main tools that come up into my mind that should be
-interesting to others.
-&lt;/p&gt;
-
-&lt;ul class=&quot;org-ul&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.gnu.org/software/emacs/&quot;&gt;Emacs&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://orgmode.org&quot;&gt;Org-Mode&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://common-lisp.net/project/slime/&quot;&gt;Slime&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;Common Lisp compilers and interpreters: &lt;a href=&quot;http://franz.com/products/allegro-common-lisp/&quot;&gt;Allegro CL&lt;/a&gt;, &lt;a href=&quot;http://www.sbcl.org&quot;&gt;SBCL&lt;/a&gt; and &lt;a href=&quot;http://abcl.org&quot;&gt;ABCL&lt;/a&gt;
-  (Lisp on JVM, so I can use Java RDF libraries).
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.w3.org/2000/10/swap/doc/cwm.html&quot;&gt;CWM&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://franz.com/agraph/allegrograph/&quot;&gt;Allegro Graph Triplestore&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://franz.com/agraph/gruff/&quot;&gt;Gruff&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;Git
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.r-project.org&quot;&gt;R&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;Python
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://xmlsoft.org&quot;&gt;xsltproc and xmllint&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://tidy.sourceforge.net&quot;&gt;tidy&lt;/a&gt;
-&lt;/li&gt;
+   <content type="html">&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Yerterday I presented for the Apps and Tools working group my workflow
+  to prepared data to be inserted into FGV VIVO instance. Since some
+  people asked be to share the links and the file that I used to guide
+  the presentation, I made this post.&lt;/p&gt;
+&lt;p&gt;This page is generated from a &lt;a href=&quot;http://orgmode.org&quot;&gt;org file&lt;/a&gt; that I export to HTML and
+  further processed with &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;. The process of use org files with
+  jekyll is outlined &lt;a href=&quot;http://orgmode.org/worg/org-tutorials/org-jekyll.html&quot;&gt;here&lt;/a&gt;. I plan to improve this workflow, but it is
+  working for my personal website and for the websites of the courses
+  that I teach at FGV.&lt;/p&gt;
+&lt;h1&gt;The Toolset&lt;/h1&gt;
+&lt;p&gt;This is the non comprehensive list of tools that I use. I am listing
+  here the main tools that come up into my mind that should be
+  interesting to others.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.gnu.org/software/emacs/&quot;&gt;Emacs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://orgmode.org&quot;&gt;Org-Mode&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://common-lisp.net/project/slime/&quot;&gt;Slime&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Common Lisp compilers and interpreters: &lt;a href=&quot;http://franz.com/products/allegro-common-lisp/&quot;&gt;Allegro CL&lt;/a&gt;, &lt;a href=&quot;http://www.sbcl.org&quot;&gt;SBCL&lt;/a&gt; and &lt;a href=&quot;http://abcl.org&quot;&gt;ABCL&lt;/a&gt;
+    (Lisp on JVM, so I can use Java RDF libraries).&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.w3.org/2000/10/swap/doc/cwm.html&quot;&gt;CWM&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://franz.com/agraph/allegrograph/&quot;&gt;Allegro Graph Triplestore&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://franz.com/agraph/gruff/&quot;&gt;Gruff&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Git&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.r-project.org&quot;&gt;R&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Python&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://xmlsoft.org&quot;&gt;xsltproc and xmllint&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://tidy.sourceforge.net&quot;&gt;tidy&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-3&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-3&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Data Sources&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
-&lt;p&gt;
-We have to main sources of data: (1) the FGV researchers&#39; curricula
-vitae from &lt;a href=&quot;http://lattes.cnpq.br&quot;&gt;Lattes Platform&lt;/a&gt; and; (2) the FGV digital library.
-&lt;/p&gt;
-
-&lt;p&gt;
-During the webinar I shared my screen and presented the web interface
-that &lt;a href=&quot;http://cnpq.br&quot;&gt;CNPq&lt;/a&gt; provides for researchers update their resumes. I also shown
-&lt;a href=&quot;http://lattes.cnpq.br/0675365413696898&quot;&gt;my curriculum vitae&lt;/a&gt; and discussed why I do not consider Brazilian
-Researchers curricula vitae open data given the captcha that blocks
-crawlers to get XML files from the Lattes website in a batch mode.
-&lt;/p&gt;
-
-&lt;p&gt;
-I forgot to mention during the webinar but one of my old dreams is to
-convice CNPq to add &lt;a href=&quot;http://www.w3.org/TR/xhtml-rdfa-primer/&quot;&gt;RDFa&lt;/a&gt; or &lt;a href=&quot;https://schema.org&quot;&gt;https://schema.org&lt;/a&gt; microformats into the
-HTML pages of the curricula vitae. This would not only allow crawlers
-to easier process the data but could also facilitate the maintainance
-of the system. My current XSLT transformation of Lattes XML to RDF
-cloud provide the starting point to RDFa embeeding.
-&lt;/p&gt;
-
-&lt;p&gt;
-The &lt;a href=&quot;http://bibliotecadigital.fgv.br/dspace&quot;&gt;FGV Digital Library&lt;/a&gt; runs Dspace. The publications and collections
-metadata are easly collected from Dspace using the &lt;a href=&quot;http://www.openarchives.org/&quot;&gt;OAI-PMH protocol&lt;/a&gt;.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-4&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-4&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; Lattes XML Files&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
-&lt;p&gt;
-As I said in the previous section, the curricula vitae of Brazilian
-Researchers are not open data, that is, they are not public available
-in structured format. They are only public available as HTML pages in
-the Lattes website, with limited search interface. The only way to
-universities and research institutions get the curricula vitae of
-their researchers in a structured format is to sign an &lt;a href=&quot;http://www.cnpq.br/web/portal-lattes/acordos-institucionais&quot;&gt;aggrement&lt;/a&gt; with
-CNPq. FGV has signed this aggrement and we have one server authorized
-to access CNPq web server to retrive the XML files of all curriculae
-that have informed any professional activity with FGV.
-&lt;/p&gt;
-
-&lt;p&gt;
-To transform the Lattes files to RDF, I use a XSLT transformation that
-I developed few years ago. The XSLT is freely available at github in
-the repository &lt;a href=&quot;https://github.com/arademaker/SLattes&quot;&gt;Semantic Lattes&lt;/a&gt;. 
-&lt;/p&gt;
-
-&lt;p&gt;
-In this repo, I made also available the DTD that I try hard to keep
-up-to-date. Unfortunately, until recently, CNPq did not make public
-annoucement of chances in the structure of the XML files that they
-produce, so I had to adapt the DTD whenever I identify changes. I have
-just found in the end of &lt;a href=&quot;http://www.cnpq.br/web/portal-lattes/extracoes-de-dados&quot;&gt;this page&lt;/a&gt; that CNPq finally realized the
-importance of making available the updated DTD. Nevertheless, the DTD
-in the link of this page is outdated. At least, using this DTD to
-validate the 489 FGV&#39;s curriculae I got more than 100 erros but using
-my DTD to validate the same files I got only 2 errors. Considering
-that those 489 files were produced my CNPq, we have two options: (1)
-the DTD is outdated; or (2) the code that produces the XML files has
-bugs. The two erros that I find using my DTD occur only with two
-curriculae that were not updated in the last 2 years.
-&lt;/p&gt;
-
-&lt;p&gt;
-After download the XML files, the general idea to process them and
-produce the RDF files is outlined in the code below:
-&lt;/p&gt;
-
-&lt;div class=&quot;org-src-container&quot;&gt;
-
-&lt;pre class=&quot;src src-sh&quot;&gt;&lt;span style=&quot;color: #a020f0;&quot;&gt;for&lt;/span&gt; f&lt;span style=&quot;color: #a020f0;&quot;&gt; in&lt;/span&gt; $&lt;span style=&quot;color: #a0522d;&quot;&gt;ROOT&lt;/span&gt;/ontos/xml/*.xml; &lt;span style=&quot;color: #a020f0;&quot;&gt;do&lt;/span&gt;
-    &lt;span style=&quot;color: #a0522d;&quot;&gt;ID&lt;/span&gt;=$(&lt;span style=&quot;color: #ff00ff;&quot;&gt;basename&lt;/span&gt; $&lt;span style=&quot;color: #a0522d;&quot;&gt;f&lt;/span&gt; .xml)
-    &lt;span style=&quot;color: #483d8b;&quot;&gt;echo&lt;/span&gt; Processing $&lt;span style=&quot;color: #a0522d;&quot;&gt;ID&lt;/span&gt;
-    xmllint --noout --dtdvalid $&lt;span style=&quot;color: #a0522d;&quot;&gt;REPO&lt;/span&gt;/LMPLCurriculo.DTD $&lt;span style=&quot;color: #a0522d;&quot;&gt;f&lt;/span&gt; 2&amp;gt;&amp;gt; error.log
-    xsltproc --stringparam ID $&lt;span style=&quot;color: #a0522d;&quot;&gt;ID&lt;/span&gt; $&lt;span style=&quot;color: #a0522d;&quot;&gt;REPO&lt;/span&gt;/lattes.xsl $&lt;span style=&quot;color: #a0522d;&quot;&gt;f&lt;/span&gt; &amp;gt; $&lt;span style=&quot;color: #a0522d;&quot;&gt;ID&lt;/span&gt;.rdf  
-&lt;span style=&quot;color: #a020f0;&quot;&gt;done&lt;/span&gt;
+&lt;h1&gt;Data Sources&lt;/h1&gt;
+&lt;p&gt;We have to main sources of data: (1) the FGV researchers&amp;#8217; curricula
+  vitae from &lt;a href=&quot;http://lattes.cnpq.br&quot;&gt;Lattes Platform&lt;/a&gt; and; (2) the FGV digital library.&lt;/p&gt;
+&lt;p&gt;During the webinar I shared my screen and presented the web interface
+  that &lt;a href=&quot;http://cnpq.br&quot;&gt;CNPq&lt;/a&gt; provides for researchers update their resumes. I also shown
+  &lt;a href=&quot;http://lattes.cnpq.br/0675365413696898&quot;&gt;my curriculum vitae&lt;/a&gt; and discussed why I do not consider Brazilian
+  Researchers curricula vitae open data given the captcha that blocks
+  crawlers to get XML files from the Lattes website in a batch mode.&lt;/p&gt;
+&lt;p&gt;I forgot to mention during the webinar but one of my old dreams is to
+  convice CNPq to add &lt;a href=&quot;http://www.w3.org/TR/xhtml-rdfa-primer/&quot;&gt;RDFa&lt;/a&gt; or https://schema.org microformats into the
+  HTML pages of the curricula vitae. This would not only allow crawlers
+  to easier process the data but could also facilitate the maintainance
+  of the system. My current XSLT transformation of Lattes XML to RDF
+  cloud provide the starting point to RDFa embeeding.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;http://bibliotecadigital.fgv.br/dspace&quot;&gt;FGV Digital Library&lt;/a&gt; runs Dspace. The publications and collections
+  metadata are easly collected from Dspace using the &lt;a href=&quot;http://www.openarchives.org/&quot;&gt;OAI-PMH protocol&lt;/a&gt;.&lt;/p&gt;
+&lt;h1&gt;Lattes XML Files&lt;/h1&gt;
+&lt;p&gt;As I said in the previous section, the curricula vitae of Brazilian
+  Researchers are not open data, that is, they are not public available
+  in structured format. They are only public available as HTML pages in
+  the Lattes website, with limited search interface. The only way to
+  universities and research institutions get the curricula vitae of
+  their researchers in a structured format is to sign an &lt;a href=&quot;http://www.cnpq.br/web/portal-lattes/acordos-institucionais&quot;&gt;aggrement&lt;/a&gt; with
+  CNPq. FGV has signed this aggrement and we have one server authorized
+  to access CNPq web server to retrive the XML files of all curriculae
+  that have informed any professional activity with FGV.&lt;/p&gt;
+&lt;p&gt;To transform the Lattes files to RDF, I use a XSLT transformation that
+  I developed few years ago. The XSLT is freely available at github in
+  the repository &lt;a href=&quot;https://github.com/arademaker/SLattes&quot;&gt;Semantic Lattes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In this repo, I made also available the DTD that I try hard to keep
+  up-to-date. Unfortunately, until recently, CNPq did not make public
+  annoucement of chances in the structure of the XML files that they
+  produce, so I had to adapt the DTD whenever I identify changes. I have
+  just found in the end of &lt;a href=&quot;http://www.cnpq.br/web/portal-lattes/extracoes-de-dados&quot;&gt;this page&lt;/a&gt; that CNPq finally realized the
+  importance of making available the updated DTD. Nevertheless, the DTD
+  in the link of this page is outdated. At least, using this DTD to
+  validate the 489 FGV&amp;#8217;s curriculae I got more than 100 erros but using
+  my DTD to validate the same files I got only 2 errors. Considering
+  that those 489 files were produced my CNPq, we have two options: (1)
+  the DTD is outdated; or (2) the code that produces the XML files has
+  bugs. The two erros that I find using my DTD occur only with two
+  curriculae that were not updated in the last 2 years.&lt;/p&gt;
+&lt;p&gt;After download the XML files, the general idea to process them and
+  produce the RDF files is outlined in the code below:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;sh&quot;&gt;
+for f in $ROOT/ontos/xml/*.xml; do
+    ID=$(basename $f .xml)
+    echo Processing $ID
+    xmllint --noout --dtdvalid $REPO/LMPLCurriculo.DTD $f 2&amp;gt;&amp;gt; error.log
+    xsltproc --stringparam ID $ID $REPO/lattes.xsl $f &amp;gt; $ID.rdf  
+done
 &lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;
-After that, I import the RDF files to Allegro Graph making each
-curriculum a separated graph so I can easly identify the provenance of
-each triple. The importation is done using the &lt;a href=&quot;http://franz.com/agraph/support/documentation/current/agload.html&quot;&gt;agload&lt;/a&gt; utility. The
-load process takes aprox. 2 minutes:
-&lt;/p&gt;
-
+&lt;p&gt;After that, I import the RDF files to Allegro Graph making each
+  curriculum a separated graph so I can easly identify the provenance of
+  each triple. The importation is done using the &lt;a href=&quot;http://franz.com/agraph/support/documentation/current/agload.html&quot;&gt;agload&lt;/a&gt; utility. The
+  load process takes aprox. 2 minutes:&lt;/p&gt;
 &lt;pre class=&quot;example&quot;&gt;
 Load finished 487 sources in 00:02:03 (123.02 seconds).  
 Triples added: 1,690,538 
 Average Rate: 13742.00 tps
 &lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-5&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-5&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;5&lt;/span&gt; Data Deduplication&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;
-&lt;p&gt;
-I briefly commented about the deduplication of records during the
-webinar. I do have to take care of removing duplicated resources about
-the same entity. Considering a thesis defended by and student at FGV
-whom have as advisor a professor at FGV. I will have metadata
-(triples) about this thesis from three different sources: (1) the RDF
-produced from the advisor&#39;s curriculum lattes XML; (2) the RDF produce
-from the student&#39;s curriculum lattes XML; and (3) the RDF obtained
-from the FGV Digital Library. 
-&lt;/p&gt;
-
-&lt;p&gt;
-The &lt;a href=&quot;http://github.com/arademaker/vivo-code&quot;&gt;current code&lt;/a&gt; that I use to identify duplicated resources is a
-Common Lisp library that is easily used if placed inside the
-local-projects directory of a &lt;a href=&quot;http://www.quicklisp.org/&quot;&gt;Quicklisp&lt;/a&gt; instalation.
-&lt;/p&gt;
-
-&lt;p&gt;
-I can write an entire article only about deduplication in RDF. I am
-still thinking hard about this problem and really would like to find
-better alternatives.  One can note that deduplication of nodes in a
-RDF graph should not be done type by type as I am doing now. The rules
-to identify resources as being refering the same entity could
-dependent each other. That is, the deduplication of instances of
-&lt;code&gt;foaf:Person&lt;/code&gt; can activate the rule to deduplicate instances of
-&lt;code&gt;bibo:Article&lt;/code&gt; and vice-versa. It would be better to have a kind of
-fixed point transformation in the RDF graph that could keep clustering
-nodes until nothing more can be done. As a logician, I am very
-interested in approach this problem in a more declarative and
-deductive way.
-&lt;/p&gt;
-
-&lt;p&gt;
-I also have to note that &lt;code&gt;owl:sameAs&lt;/code&gt; semantics doesn&#39;t help here. I
-do use &lt;code&gt;owl:sameAs&lt;/code&gt; to mark the nodes that should be merged but I have
-to merge the nodes after all &lt;code&gt;owl:sameAs&lt;/code&gt; triples are produced. I do
-this with two SPARQL construct queries:
-&lt;/p&gt;
-
+&lt;h1&gt;Data Deduplication&lt;/h1&gt;
+&lt;p&gt;I briefly commented about the deduplication of records during the
+  webinar. I do have to take care of removing duplicated resources about
+  the same entity. Considering a thesis defended by and student at FGV
+  whom have as advisor a professor at FGV. I will have metadata
+  (triples) about this thesis from three different sources: (1) the RDF
+  produced from the advisor&amp;#8217;s curriculum lattes XML; (2) the RDF produce
+  from the student&amp;#8217;s curriculum lattes XML; and (3) the RDF obtained
+  from the FGV Digital Library.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;http://github.com/arademaker/vivo-code&quot;&gt;current code&lt;/a&gt; that I use to identify duplicated resources is a
+  Common Lisp library that is easily used if placed inside the
+  local-projects directory of a &lt;a href=&quot;http://www.quicklisp.org/&quot;&gt;Quicklisp&lt;/a&gt; instalation.&lt;/p&gt;
+&lt;p&gt;I can write an entire article only about deduplication in RDF. I am
+  still thinking hard about this problem and really would like to find
+  better alternatives.  One can note that deduplication of nodes in a
+  RDF graph should not be done type by type as I am doing now. The rules
+  to identify resources as being refering the same entity could
+  dependent each other. That is, the deduplication of instances of
+  &lt;code&gt;foaf:Person&lt;/code&gt; can activate the rule to deduplicate instances of
+  &lt;code&gt;bibo:Article&lt;/code&gt; and vice-versa. It would be better to have a kind of
+  fixed point transformation in the RDF graph that could keep clustering
+  nodes until nothing more can be done. As a logician, I am very
+  interested in approach this problem in a more declarative and
+  deductive way.&lt;/p&gt;
+&lt;p&gt;I also have to note that &lt;code&gt;owl:sameAs&lt;/code&gt; semantics doesn&amp;#8217;t help here. I
+  do use &lt;code&gt;owl:sameAs&lt;/code&gt; to mark the nodes that should be merged but I have
+  to merge the nodes after all &lt;code&gt;owl:sameAs&lt;/code&gt; triples are produced. I do
+  this with two SPARQL construct queries:&lt;/p&gt;
 &lt;pre class=&quot;example&quot;&gt;
 delete { ?s1 ?p ?o . }
 insert { ?s2 ?p ?o . }
@@ -392,7 +262,6 @@ where {
   filter( !sameTerm(?p, owl:sameAs) )
 }
 &lt;/pre&gt;
-
 &lt;pre class=&quot;example&quot;&gt;
 delete { ?x ?p ?o1 . }
 insert { ?x ?p ?o2 . }
@@ -402,58 +271,34 @@ where {
   filter( !sameTerm(?p, owl:sameAs) )
 }
 &lt;/pre&gt;
-
-&lt;p&gt;
-Note that the filters block the propagation of the &lt;code&gt;owl:sameAs&lt;/code&gt;
-triples. 
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-6&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-6&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;6&lt;/span&gt; Mapping Lattes RDF to VIVO RDF&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-6&quot;&gt;
-&lt;p&gt;
-To map the Lattes RDF model produced by my XSLT to the expected VIVO
-RDF model, I have to look carefully to each instance of data. This
-mapping is not completed but at this point I have already mapped most
-of the data about people, publication, research areas and
-departaments.
-&lt;/p&gt;
-
-&lt;p&gt;
-To work on the rules and queries to transform the data, I used the
-query and data browsing tools developed by Franz: Gruff and
-AllegroGraph WebView. During the webinar I presented both systems.
-&lt;/p&gt;
-
-&lt;p&gt;
-The mapping is developed as rules that were easly tested with CWM. One
-example of rules is
-&lt;/p&gt;
-
+&lt;p&gt;Note that the filters block the propagation of the &lt;code&gt;owl:sameAs&lt;/code&gt;
+  triples.&lt;/p&gt;
+&lt;h1&gt;Mapping Lattes RDF to VIVO RDF&lt;/h1&gt;
+&lt;p&gt;To map the Lattes RDF model produced by my XSLT to the expected VIVO
+  RDF model, I have to look carefully to each instance of data. This
+  mapping is not completed but at this point I have already mapped most
+  of the data about people, publication, research areas and
+  departaments.&lt;/p&gt;
+&lt;p&gt;To work on the rules and queries to transform the data, I used the
+  query and data browsing tools developed by Franz: Gruff and
+  AllegroGraph WebView. During the webinar I presented both systems.&lt;/p&gt;
+&lt;p&gt;The mapping is developed as rules that were easly tested with CWM. One
+  example of rules is&lt;/p&gt;
 &lt;pre class=&quot;example&quot;&gt;
 { ?dept foaf:member ?person ;
         rdf:type foaf:Group . } =&amp;gt; 
 { [ vivo:relates ?dept ;
     vivo:relates ?person ;
     a vivo:FacultyPosition ;
-    rdfs:label &quot;Professor Adjunto&quot;@pt ] . } .
+    rdfs:label &amp;quot;Professor Adjunto&amp;quot;@pt ] . } .
 &lt;/pre&gt;
-
-&lt;p&gt;
-Rules like the one above are placed in an n3 file and executed by CWM
-that receives the rule file and the data file and produces the data
-output file. Unfortunately, CWM does not have good performance and I
-haven&#39;t even tried to use it with all the data. I develop the rules
-and test them with only one curriculum vitae file.
-&lt;/p&gt;
-
-&lt;p&gt;
-Once I finish to test the rules, I rewrite them as SPARQL queries. The
-one above becomes:
-&lt;/p&gt;
-
+&lt;p&gt;Rules like the one above are placed in an n3 file and executed by CWM
+  that receives the rule file and the data file and produces the data
+  output file. Unfortunately, CWM does not have good performance and I
+  haven&amp;#8217;t even tried to use it with all the data. I develop the rules
+  and test them with only one curriculum vitae file.&lt;/p&gt;
+&lt;p&gt;Once I finish to test the rules, I rewrite them as SPARQL queries. The
+  one above becomes:&lt;/p&gt;
 &lt;pre class=&quot;example&quot;&gt;
 insert 
 { graph &amp;lt;http://www.fgv.br/vivo/import/&amp;gt; 
@@ -461,7 +306,7 @@ insert
    [ vivo:relates ?dept ;
      vivo:relates ?person ;
       a vivo:FacultyPosition ;
-     rdfs:label &quot;Professor Adjunto&quot;@pt ] . 
+     rdfs:label &amp;quot;Professor Adjunto&amp;quot;@pt ] . 
   }
 }
 where
@@ -469,29 +314,18 @@ where
         rdf:type foaf:Group . 
 }
 &lt;/pre&gt;
-
-&lt;p&gt;
-Note that: (1) the query produces blank nodes that need to be
-transformed into normal nodes before loaded into VIVO; (2) All created
-triples are placed in a separated graph; and (3) if this query is
-executed twice it will generate duplicated and dispensable
-triples. This is the most important limitation of using SPARQL for
-me. CWM will only execute a rule whenever necessary and the rules do
-not have to explicit declare any condition to avoid unnecessary
-creation of triples.
-&lt;/p&gt;
-
-&lt;p&gt;
-It is still not clear to me if all SPARQL queries can be rewrited to
-prevent non necessary creation of triples. Moreover, I don&#39;t want to
-have too complicated SPARQL queries to maintain.
-&lt;/p&gt;
-
-&lt;p&gt;
-More on the next post.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;p&gt;Note that: (1) the query produces blank nodes that need to be
+  transformed into normal nodes before loaded into VIVO; (2) All created
+  triples are placed in a separated graph; and (3) if this query is
+  executed twice it will generate duplicated and dispensable
+  triples. This is the most important limitation of using SPARQL for
+  me. CWM will only execute a rule whenever necessary and the rules do
+  not have to explicit declare any condition to avoid unnecessary
+  creation of triples.&lt;/p&gt;
+&lt;p&gt;It is still not clear to me if all SPARQL queries can be rewrited to
+  prevent non necessary creation of triples. Moreover, I don&amp;#8217;t want to
+  have too complicated SPARQL queries to maintain.&lt;/p&gt;
+&lt;p&gt;More on the next post.&lt;/p&gt;
 </content>
  </entry>
  

@@ -1,0 +1,229 @@
+&#8212;
+layout: post
+published: false
+title: VIVO Apps and Tools Webinar
+tags:
+  <ul>
+    <li>
+    </li>
+    <li>
+    </li>
+    <li>
+    </li>
+  </ul>
+<p>
+</p>
+<h1>Introduction</h1>
+<p>I am here continuing my last post where I have started to write about
+  the webinar that I presented to the VIVO Apps and Tools Group.</p>
+<h1>Working with OAI-PMH</h1>
+<p>As I wrote in the last post, metadata about thesis and working papers
+  are collected from FGV Digital Library that runs Dspace. DSpace
+  <a href="https://wiki.duraspace.org/display/DSDOC4x/OAI">implements</a> the <a href="http://www.openarchives.org">OAI-PMH protocol</a>, which makes the crawler of data much
+  easier.</p>
+<ul>
+  <li>http://re.cs.uct.ac.za</li>
+  <li>http://cran.r-project.org/web/packages/OAIHarvester/index.html</li>
+  <li>https://pypi.python.org/pypi/pyoai/2.4.4</li>
+</ul>
+<h2>Repository Exploring</h2>
+<pre class="src" lang="R">
+library(OAIHarvester)
+baseurl &lt;- &quot;http://bibliotecadigital.fgv.br/oai/request&quot;
+oaih_list_metadata_formats(baseurl)
+</pre>
+<p>#+RESULTS[dd4722f705f05eb68c2467507e4b544b27d4a687]:</p>
+<table>
+  <tr><td>oai_dc</td><td>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</td><td>http://www.openarchives.org/OAI/2.0/oai_dc/</td></tr>
+  <tr><td>rdf</td><td>http://www.openarchives.org/OAI/2.0/rdf.xsd</td><td>http://www.openarchives.org/OAI/2.0/rdf/</td></tr>
+  <tr><td>ore</td><td>http://tweety.lanl.gov/public/schemas/2008-06/atom-tron.sch</td><td>http://www.w3.org/2005/Atom</td></tr>
+  <tr><td>mets</td><td>http://www.loc.gov/standards/mets/mets.xsd</td><td>http://www.loc.gov/METS/</td></tr>
+</table>
+<pre class="src" lang="R">
+sets &lt;- oaih_list_sets(baseurl)
+head(sets)
+</pre>
+<p>#+RESULTS[88f5fc9bb6b8b770ab93863c18bf4730121309ad]: sets</p>
+<table>
+  <tr><td>hdl_10438_6904</td><td>Cadernos FGV Projetos</td><td>list()</td></tr>
+  <tr><td>hdl_10438_4132</td><td>CPDOC - Artigos, Livros, Papers</td><td>list()</td></tr>
+  <tr><td>hdl_10438_2692</td><td>CPDOC - Dissertações, Mestrado em História, Política e Bens Culturais</td><td>list()</td></tr>
+  <tr><td>hdl_10438_1758</td><td>CPDOC - Dissertações, Mestrado Profissional em Bens Culturais e Projetos Sociais</td><td>list()</td></tr>
+  <tr><td>hdl_10438_4164</td><td>CPDOC Relações Internacionais - Artigos e papers</td><td>list()</td></tr>
+  <tr><td>hdl_10438_4168</td><td>CPDOC Relações Internacionais -Teses e Dissertações</td><td>list()</td></tr>
+</table>
+<pre class="src" lang="R">
+records &lt;- oaih_list_records(baseurl, set = series[3,1])
+dim(records)
+colnames(records)
+</pre>
+<p>#+RESULTS[3587dddb293079161648e2c7e98cd2fa565669ab]:</p>
+<pre class="example">
+[1] 31  5
+[1] &quot;identifier&quot; &quot;datestamp&quot;  &quot;setSpec&quot;    &quot;metadata&quot;   &quot;about&quot;
+</pre>
+<pre class="src" lang="R">
+records[1,&quot;metadata&quot;]
+</pre>
+<p>#+RESULTS[7bb006f3d1b1a99e16a30bc162146090c066c046]:</p>
+<pre class="example">
+$metadata
+&lt;oai_dc:dc schemaLocation=&quot;http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd&quot; xmlns:oai_dc=&quot;http://www.openarchives.org/OAI/2.0/oai_dc/&quot; xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+ &lt;dc:title&gt;Por que é cidadão o jornalista-cidadão? História das mídias e jornalismo cidadão de base comunitária na Maré&lt;/dc:title&gt;
+ &lt;dc:creator&gt;Chagas, Viktor Henrique Carneiro de Souza&lt;/dc:creator&gt;
+ &lt;dc:description&gt;Afinal, por que é cidadão o jornalista cidadão? Foi esta a pergunta que desencadeou
+todo um esforço de pesquisa no sentido de identificar práticas comuns nas diferentes
+experiências de jornalismo cidadão. Para desenvolver e tentar ampliar o conceito
+trabalhado, a opção foi de analisar o espectro da comunicação comunitária, sobretudo
+em veículos que tiveram origem na área da Maré, no Rio de Janeiro, nas últimas três
+décadas. Assim, mapeando algumas dessas experiências e selecionando casos entre os
+que chamaram mais atenção pela propriedade com que trabalham os aspectos
+relacionados ao jornalismo cidadão, esta dissertação se detém sobre o significado da
+cidadania para o cidadão-jornalista e a contribuição à identidade local prestada pela
+comunicação comunitária. Minha idéia é demonstrar como experiências deste gênero
+são capazes de não apenas de pautar meios tradicionais de mídia, mas sobretudo de
+ajudar a estabelecer dentro da própria comunidade uma cultura de mídia e uma esfera
+pública local, desenvolvendo uma reapropriação da identidade da favela e de seus
+moradores e contribuindo para a busca e/ou exercício da cidadania.&lt;/dc:description&gt;
+ &lt;dc:contributor&gt;Hollanda, Bernardo Borges Buarque de&lt;/dc:contributor&gt;
+ &lt;dc:contributor&gt;Albuquerque, Afonso de&lt;/dc:contributor&gt;
+ &lt;dc:contributor&gt;Aldé, Alessandra&lt;/dc:contributor&gt;
+ &lt;dc:contributor&gt;Miguel, Luis Felipe&lt;/dc:contributor&gt;
+ &lt;dc:contributor&gt;Lattman-Weltman, Fernando&lt;/dc:contributor&gt;
+ &lt;dc:date&gt;2009-06-17T19:02:36Z&lt;/dc:date&gt;
+ &lt;dc:date&gt;2009-06-17T19:02:36Z&lt;/dc:date&gt;
+ &lt;dc:date&gt;2009-03-06&lt;/dc:date&gt;
+ &lt;dc:type&gt;Dissertation&lt;/dc:type&gt;
+ &lt;dc:identifier&gt;http://hdl.handle.net/10438/2676&lt;/dc:identifier&gt;
+ &lt;dc:language&gt;pt_BR&lt;/dc:language&gt;
+&lt;/oai_dc:dc&gt;
+</pre>
+<h2>Current Workflow</h2>
+<ul>
+  <li>shell script
+    <ul>
+      <li>python script getdata.py</li>
+      <li>XSLT transformation over dc metadata records</li>
+    </ul>
+  </li>
+  <li>show files</li>
+</ul>
+<h2>Future directions</h2>
+<ul>
+  <li>CL package for OAI-PMH (forget Python!)</li>
+  <li>retrieve using mets instead of dc</li>
+  <li>see http://bibliotecadigital.fgv.br/dspace/handle/10438/11552?show=full</li>
+</ul>
+<pre class="src" lang="R">
+r1 &lt;- oaih_list_records(baseurl, prefix = &quot;mets&quot;, set = series[3,1])
+r1[1,&quot;metadata&quot;]
+</pre>
+<p>#+RESULTS[2b0c923b80d32bd434a90e31c0580bec9cd4e367]:</p>
+<pre class="example">
+$metadata
+&lt;mets OBJID=&quot;hdl:10438/2676&quot; LABEL=&quot;DSpace Item&quot; schemaLocation=&quot;http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-0.xsd&quot; xmlns=&quot;http://www.loc.gov/METS/&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:mods=&quot;http://www.loc.gov/mods/v3&quot;&gt;
+ &lt;metsHdr CREATEDATE=&quot;2014-04-29T08:02:23&quot;&gt;
+  &lt;agent ROLE=&quot;CUSTODIAN&quot; TYPE=&quot;ORGANIZATION&quot;&gt;
+   &lt;name&gt;DSpace@FGV&lt;/name&gt;
+  &lt;/agent&gt;
+ &lt;/metsHdr&gt;
+ &lt;dmdSec ID=&quot;DMD_hdl_10438/2676&quot;&gt;
+  &lt;mdWrap MDTYPE=&quot;MODS&quot;&gt;
+   &lt;xmlData&gt;
+    &lt;mods:name&gt;
+     &lt;mods:role&gt;
+      &lt;mods:roleTerm type=&quot;text&quot;&gt;advisor&lt;/mods:roleTerm&gt;
+     &lt;/mods:role&gt;
+     &lt;mods:namePart&gt;Lattman-Weltman, Fernando&lt;/mods:namePart&gt;
+    &lt;/mods:name&gt;
+    &lt;mods:name&gt;
+     &lt;mods:role&gt;
+      &lt;mods:roleTerm type=&quot;text&quot;&gt;author&lt;/mods:roleTerm&gt;
+     &lt;/mods:role&gt;
+     &lt;mods:namePart&gt;Chagas, Viktor Henrique Carneiro de Souza&lt;/mods:namePart&gt;
+    &lt;/mods:name&gt;
+    &lt;mods:name&gt;
+     &lt;mods:role&gt;
+      &lt;mods:roleTerm type=&quot;text&quot;&gt;other&lt;/mods:roleTerm&gt;
+     &lt;/mods:role&gt;
+     &lt;mods:namePart&gt;Hollanda, Bernardo Borges Buarque de&lt;/mods:namePart&gt;
+    &lt;/mods:name&gt;
+    &lt;mods:name&gt;
+     &lt;mods:role&gt;
+      &lt;mods:roleTerm type=&quot;text&quot;&gt;other&lt;/mods:roleTerm&gt;
+     &lt;/mods:role&gt;
+     &lt;mods:namePart&gt;Albuquerque, Afonso de&lt;/mods:namePart&gt;
+    &lt;/mods:name&gt;
+    &lt;mods:name&gt;
+     &lt;mods:role&gt;
+      &lt;mods:roleTerm type=&quot;text&quot;&gt;other&lt;/mods:roleTerm&gt;
+     &lt;/mods:role&gt;
+     &lt;mods:namePart&gt;Aldé, Alessandra&lt;/mods:namePart&gt;
+    &lt;/mods:name&gt;
+    &lt;mods:name&gt;
+     &lt;mods:role&gt;
+      &lt;mods:roleTerm type=&quot;text&quot;&gt;other&lt;/mods:roleTerm&gt;
+     &lt;/mods:role&gt;
+     &lt;mods:namePart&gt;Miguel, Luis Felipe&lt;/mods:namePart&gt;
+    &lt;/mods:name&gt;
+    &lt;mods:extension&gt;
+     &lt;mods:dateAccessioned encoding=&quot;iso8601&quot;&gt;2009-06-17T19:02:36Z&lt;/mods:dateAccessioned&gt;
+    &lt;/mods:extension&gt;
+    &lt;mods:extension&gt;
+     &lt;mods:dateAvailable encoding=&quot;iso8601&quot;&gt;2009-06-17T19:02:36Z&lt;/mods:dateAvailable&gt;
+    &lt;/mods:extension&gt;
+    &lt;mods:originInfo&gt;
+     &lt;mods:dateIssued encoding=&quot;iso8601&quot;&gt;2009-03-06&lt;/mods:dateIssued&gt;
+    &lt;/mods:originInfo&gt;
+    &lt;mods:identifier type=&quot;uri&quot;&gt;http://hdl.handle.net/10438/2676&lt;/mods:identifier&gt;
+    &lt;mods:abstract&gt;Afinal, por que é cidadão o jornalista cidadão? Foi esta a pergunta que desencadeou
+todo um esforço de pesquisa no sentido de identificar práticas comuns nas diferentes
+experiências de jornalismo cidadão. Para desenvolver e tentar ampliar o conceito
+trabalhado, a opção foi de analisar o espectro da comunicação comunitária, sobretudo
+em veículos que tiveram origem na área da Maré, no Rio de Janeiro, nas últimas três
+décadas. Assim, mapeando algumas dessas experiências e selecionando casos entre os
+que chamaram mais atenção pela propriedade com que trabalham os aspectos
+relacionados ao jornalismo cidadão, esta dissertação se detém sobre o significado da
+cidadania para o cidadão-jornalista e a contribuição à identidade local prestada pela
+comunicação comunitária. Minha idéia é demonstrar como experiências deste gênero
+são capazes de não apenas de pautar meios tradicionais de mídia, mas sobretudo de
+ajudar a estabelecer dentro da própria comunidade uma cultura de mídia e uma esfera
+pública local, desenvolvendo uma reapropriação da identidade da favela e de seus
+moradores e contribuindo para a busca e/ou exercício da cidadania.&lt;/mods:abstract&gt;
+    &lt;mods:language&gt;
+     &lt;mods:languageTerm authority=&quot;rfc3066&quot;&gt;pt_BR&lt;/mods:languageTerm&gt;
+    &lt;/mods:language&gt;
+    &lt;mods:titleInfo&gt;Por que é cidadão o jornalista-cidadão? História das mídias e jornalismo cidadão de base comunitária na Maré&lt;/mods:titleInfo&gt;
+    &lt;mods:genre&gt;Dissertation&lt;/mods:genre&gt;
+   &lt;/xmlData&gt;
+  &lt;/mdWrap&gt;
+ &lt;/dmdSec&gt;
+ &lt;amdSec ID=&quot;TMD_hdl_10438/2676&quot;&gt;
+  &lt;rightsMD&gt;
+   &lt;mdWrap MIMETYPE=&quot;text/plain&quot; MDTYPE=&quot;OTHER&quot; OTHERMDTYPE=&quot;TEXT&quot;&gt;
+    &lt;binData&gt;TGljZW5z...&lt;/binData&gt;
+   &lt;/mdWrap&gt;
+  &lt;/rightsMD&gt;
+ &lt;/amdSec&gt;
+ &lt;fileSec&gt;
+  &lt;fileGrp USE=&quot;ORIGINAL&quot;&gt;
+   &lt;file ID=&quot;10438_2676_1&quot; MIMETYPE=&quot;application/pdf&quot; SIZE=&quot;2326531&quot; CHECKSUM=&quot;6b19a1b5f0a14e36ccd4e92a04f821c7&quot; CHECKSUMTYPE=&quot;MD5&quot; OWNERID=&quot;http://bibliotecadigital.fgv.br/dspace/bitstream/10438/2676/1/CPDOC2009ViktorHenriqueCarneirodeSouzaChagas.pdf&quot; GROUPID=&quot;GROUP_10438_2676_1&quot;&gt;
+    &lt;FLocat LOCTYPE=&quot;URL&quot; type=&quot;simple&quot; href=&quot;http://bibliotecadigital.fgv.br/dspace/bitstream/10438/2676/1/CPDOC2009ViktorHenriqueCarneirodeSouzaChagas.pdf&quot;/&gt;
+   &lt;/file&gt;
+  &lt;/fileGrp&gt;
+  &lt;fileGrp USE=&quot;TEXT&quot;&gt;
+   &lt;file ID=&quot;10438_2676_3&quot; MIMETYPE=&quot;text/plain&quot; SIZE=&quot;594220&quot; CHECKSUM=&quot;4fd22d612ed02fcc711dd31e554d72d8&quot; CHECKSUMTYPE=&quot;MD5&quot; OWNERID=&quot;http://bibliotecadigital.fgv.br/dspace/bitstream/10438/2676/3/CPDOC2009ViktorHenriqueCarneirodeSouzaChagas.pdf.txt&quot; GROUPID=&quot;GROUP_10438_2676_1&quot;&gt;
+    &lt;FLocat LOCTYPE=&quot;URL&quot; type=&quot;simple&quot; href=&quot;http://bibliotecadigital.fgv.br/dspace/bitstream/10438/2676/3/CPDOC2009ViktorHenriqueCarneirodeSouzaChagas.pdf.txt&quot;/&gt;
+   &lt;/file&gt;
+  &lt;/fileGrp&gt;
+  &lt;fileGrp USE=&quot;THUMBNAIL&quot;&gt;
+   &lt;file ID=&quot;10438_2676_4&quot; MIMETYPE=&quot;image/jpeg&quot; SIZE=&quot;14717&quot; CHECKSUM=&quot;a04473733661de3408752512dc6f5743&quot; CHECKSUMTYPE=&quot;MD5&quot; OWNERID=&quot;http://bibliotecadigital.fgv.br/dspace/bitstream/10438/2676/4/CPDOC2009ViktorHenriqueCarneirodeSouzaChagas.pdf.jpg&quot; GROUPID=&quot;GROUP_10438_2676_1&quot;&gt;
+    &lt;FLocat LOCTYPE=&quot;URL&quot; type=&quot;simple&quot; href=&quot;http://bibliotecadigital.fgv.br/dspace/bitstream/10438/2676/4/CPDOC2009ViktorHenriqueCarneirodeSouzaChagas.pdf.jpg&quot;/&gt;
+   &lt;/file&gt;
+  &lt;/fileGrp&gt;
+ &lt;/fileSec&gt;
+ &lt;structMap&gt;
+  &lt;div/&gt;
+ &lt;/structMap&gt;
+&lt;/mets&gt;
+</pre>
