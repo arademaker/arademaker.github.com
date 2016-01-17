@@ -1,10 +1,3 @@
-#+startup: showall 
-#+PROPERTY: cache yes
-#+PROPERTY: results output
-#+PROPERTY: cache yes
-#+OPTIONS: toc:nil
-#+PROPERTY: exports code
-#+BEGIN_HTML
 ---
 layout: post
 latex: true
@@ -12,7 +5,12 @@ title: Merging RDF files
 tags:
  - RDF
 ---
-#+END_HTML
+#+startup: showall 
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+PROPERTY: cache yes
+#+OPTIONS: toc:nil
+#+PROPERTY: exports code
 
 How to merge multiple RDF files into a single RDF file? The first idea
 would be to convert each RDF file in [[http://www.w3.org/2001/sw/RDFCore/ntriples/][ntriples]] and just concatenate
@@ -95,4 +93,5 @@ rapper: Error - URI tudo-riot.nt:117668 column 55 - Non-printable ASCII characte
 rapper: Error - URI tudo-riot.nt:117668 column 56 - Non-printable ASCII character 162 (0xA2) found.
 #+END_EXAMPLE
 
-By the way, for the future, I will use $RDF_pro$.
+By the way, for the future, I will use $RDF_{pro}$.
+
