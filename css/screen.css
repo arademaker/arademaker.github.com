@@ -13,6 +13,11 @@ html, body {
   height: 100%;
 }
 
+div#post iframe {
+    float:left;
+    padding: 10pt 10pt 10pt 10pt;
+}    
+
 body {
   background-color: white;
   /* font-family: 'Inconsolata', sans-serif; */
@@ -74,11 +79,15 @@ table {
 /*****************************************************************************/
 
 ul.posts {
-    list-style-type: none;
-    margin-bottom: 2em;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 90px;
+    text-indent: -90px;
+    padding-bottom: 2em;
 }
 
 ul.posts li {
+    text-align: left;
     line-height: 1.75em;
 }
 

@@ -4,13 +4,45 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2016-01-19T13:32:17-02:00</updated>
+ <updated>2016-02-08T20:39:07-02:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Let over Lambda</title>
+   <link href="http://arademaker.github.com/blog/2016/02/07/let-over-lambda.html"/>
+   <updated>2016-02-07T00:00:00-02:00</updated>
+   <id>http://arademaker.github.com/blog/2016/02/07/let-over-lambda</id>
+   <content type="html">&lt;iframe style=&quot;width:120px;height:240px;&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; src=&quot;//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&amp;OneJS=1&amp;Operation=GetAdHtml&amp;MarketPlace=US&amp;source=ac&amp;ref=tf_til&amp;ad_type=product_link&amp;tracking_id=alexanradema-20&amp;marketplace=amazon&amp;region=US&amp;placement=1435712757&amp;asins=1435712757&amp;linkId=2H7S2HFMK6B465XQ&amp;show_border=false&amp;link_opens_in_new_window=true&quot;&gt;
+&lt;/iframe&gt;
+&lt;p&gt;I am reading &amp;#8220;Let over Lambda&amp;#8221;. Amazing how truly is the comments and
+  the words on the back cover. This book is really for Common Lisp
+  developers with very solid background. I am still in Section 5.3, some
+  part demands 1-2 days for real understanding. The problem isn&amp;#8217;t the
+  text, actually, the book is very well-written, but the code blocks are
+  hard to grasp: macros that define macros that define macros and so
+  on&amp;#8230;&lt;/p&gt;
+&lt;p&gt;I hope to update this post with more specific comments from my
+  experiences through the book. So far, two observations:&lt;/p&gt;
+&lt;p&gt;Don&amp;#8217;t try to use &lt;a href=&quot;http://sbcl.org&quot;&gt;SBCL&lt;/a&gt; for run the code. The way that SBCL encodes
+  backquotes is incompatible with the code from Chapter 3. More in this
+  &lt;a href=&quot;http://stackoverflow.com/questions/33724300/macros-that-write-macros-compile-error&quot;&gt;question&lt;/a&gt; of Stackoverflow.  I didn&amp;#8217;t find any information about it in
+  the official &lt;a href=&quot;http://letoverlambda.com&quot;&gt;book website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I haven&amp;#8217;t investigated it further but it looks like CCL does not
+  handle very well the &lt;a href=&quot;http://clhs.lisp.se/Body/02_dhq.htm&quot;&gt;read-time conditionalization&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
+#+nil
+&lt;/pre&gt;
+&lt;p&gt;That is, the selection of the &lt;code&gt;nil&lt;/code&gt; feature - one method to comment
+  the following expression. I am still investigating this issue since it
+  only appeared when I loaded the code using an ASDF system definition
+  and &lt;a href=&quot;http://quicklisp.org&quot;&gt;quicklisp&lt;/a&gt;. Comments are welcome.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Building a shared world: Mapping distributional to model-theoretic semantic spaces</title>

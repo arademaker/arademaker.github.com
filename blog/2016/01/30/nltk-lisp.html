@@ -4,7 +4,7 @@
 <head>
  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
  
-   <title>Verifying Integrity Constraints of a RDF-based WordNet</title>
+   <title>Let over Lambda</title>
  
  <meta name="author" content="Alexandre Rademaker" />
  <link href="http://feeds.feedburner.com/arademaker" rel="alternate" title="Alexandre Rademaker" type="application/atom+xml" />
@@ -60,49 +60,42 @@
       </div>
       
       <div id="post">
-  <h1> Verifying Integrity Constraints of a RDF-based WordNet </h1>
+  <h1> Let over Lambda </h1>
 
-  <p>  </p>
+  <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=alexanradema-20&marketplace=amazon&region=US&placement=1435712757&asins=1435712757&linkId=2H7S2HFMK6B465XQ&show_border=false&link_opens_in_new_window=true">
+</iframe>
+<p>I am reading &#8220;Let over Lambda&#8221;. Amazing how truly is the comments and
+  the words on the back cover. This book is really for Common Lisp
+  developers with very solid background. I am still in Section 5.3, some
+  part demands 1-2 days for real understanding. The problem isn&#8217;t the
+  text, actually, the book is very well-written, but the code blocks are
+  hard to grasp: macros that define macros that define macros and so
+  on&#8230;</p>
+<p>I hope to update this post with more specific comments from my
+  experiences through the book. So far, two observations:</p>
+<p>Don&#8217;t try to use <a href="http://sbcl.org">SBCL</a> for run the code. The way that SBCL encodes
+  backquotes is incompatible with the code from Chapter 3. More <a href="http://stackoverflow.com/questions/33724300/macros-that-write-macros-compile-error#comment58232800_33724300">here</a>.  I
+  didn&#8217;t find any information about it in the official <a href="http://letoverlambda.com">book website</a>.</p>
+<p>I haven&#8217;t investigated it further but it looks like CCL does not
+  handle very well the [[http://clhs.lisp.se/Body/02_dhq.htm][read-time
+  conditionalization] <code>#+nil</code>. That is, the selection of the <code>nil</code>
+  feature was a way to comment the following expression. I am still
+  investigating this issue since it only appeared when I loaded the code
+  using an ASDF system definition and <a href="http://quicklisp.org">quicklisp</a>.</p>
 
-  
-  
 
-   <h3>Downloads:</h3>
-   <p><ul>
-     
-      <li> <a href="/files/gwc-2016-icv.pdf">full text</a></li>
-     
-     
-      <li> <a href="http://www.slideshare.net/arademaker/verifying-integrity-constraints-of-a-rdfbased-wordnet">slides</a></li>
-     
-   </ul></p>
+ <hr/>
 
-  <h3>BibTeX:</h3>
-  <figure class="highlight"><pre><code class="language-bash" data-lang="bash">  @inproceedings<span class="o">{</span>gwc-2016-icv,
-  author <span class="o">=</span> <span class="o">{</span>Rademaker, Alexandre and Chalub, Fabricio<span class="o">}</span>,
-  title <span class="o">=</span> <span class="o">{</span>Verifying Integrity Constraints of a RDF-based WordNet<span class="o">}</span>,
-  booktitle <span class="o">=</span> <span class="o">{</span>Global Wordnet Conference 2016<span class="o">}</span>,
-  year <span class="o">=</span> <span class="o">{</span>2016<span class="o">}</span>,
-  address <span class="o">=</span> <span class="o">{</span>Bucharest, Romenia<span class="o">}</span>,
-  month <span class="o">=</span> jan,
-  slides <span class="o">=</span> <span class="o">{</span>http://www.slideshare.net/arademaker/verifying-integrity-constraints-of-a-rdfbased-wordnet<span class="o">}</span>,
-  pdflink1 <span class="o">=</span> <span class="o">{</span>/files/gwc-2016-icv.pdf<span class="o">}</span>
-<span class="o">}</span>
- 
-  </code></pre></figure>
-</div>
-
-<br/>
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'arademaker'; 
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ <div id="disqus_thread"></div>
+ <script type="text/javascript">
+   var disqus_shortname = 'arademaker'; 
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
 
