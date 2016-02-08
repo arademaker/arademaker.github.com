@@ -5,10 +5,8 @@ title: Merging RDF files
 tags:
  - RDF
 ---
-#+startup: showall 
 #+PROPERTY: cache yes
 #+PROPERTY: results output
-#+PROPERTY: cache yes
 #+OPTIONS: toc:nil
 #+PROPERTY: exports code
 

@@ -1,0 +1,44 @@
+---
+title: Let over Lambda
+layout: post
+tags:
+ - book
+---
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+OPTIONS: toc:nil
+#+PROPERTY: exports code
+
+#+BEGIN_HTML
+<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=alexanradema-20&marketplace=amazon&region=US&placement=1435712757&asins=1435712757&linkId=2H7S2HFMK6B465XQ&show_border=false&link_opens_in_new_window=true">
+</iframe>
+#+END_HTML
+
+I am reading "Let over Lambda". Amazing how truly is the comments and
+the words on the back cover. This book is really for Common Lisp
+developers with very solid background. I am still in Section 5.3, some
+part demands 1-2 days for real understanding. The problem isn't the
+text, actually, the book is very well-written, but the code blocks are
+hard to grasp: macros that define macros that define macros and so
+on...
+
+I hope to update this post with more specific comments from my
+experiences through the book. So far, two observations:
+
+Don't try to use [[http://sbcl.org][SBCL]] for run the code. The way that SBCL encodes
+backquotes is incompatible with the code from Chapter 3. More in this
+[[http://stackoverflow.com/questions/33724300/macros-that-write-macros-compile-error][question]] of Stackoverflow.  I didn't find any information about it in
+the official [[http://letoverlambda.com][book website]].
+
+I haven't investigated it further but it looks like CCL does not
+handle very well the [[http://clhs.lisp.se/Body/02_dhq.htm][read-time conditionalization]]:
+
+#+BEGIN_SRC lisp
+#+nil
+#+END_SRC
+
+That is, the selection of the =nil= feature - one method to comment
+the following expression. I am still investigating this issue since it
+only appeared when I loaded the code using an ASDF system definition
+and [[http://quicklisp.org][quicklisp]]. Comments are welcome.
+
