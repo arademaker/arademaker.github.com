@@ -81,9 +81,14 @@
   handle very well the <a href="http://clhs.lisp.se/Body/02_dhq.htm">read-time conditionalization</a>:</p>
 <pre class="src" lang="lisp">
 #+nil
+(progn
+  (defvar test (counter-class))
+  (funcall test)
+  (toogle-counter-direction)
+  (funcall test))
 </pre>
-<p>That is, the selection of the <code>nil</code> feature - one method to comment
-  the following expression. I am still investigating this issue since it
+<p>That is, the selection of no feature - one method to comment the
+  following expression. I am still investigating this issue since it
   only appeared when I loaded the code using an ASDF system definition
   and <a href="http://quicklisp.org">quicklisp</a>. Comments are welcome.</p>
 
