@@ -10,4 +10,17 @@ tags:
 #+OPTIONS: toc:nil
 #+PROPERTY: exports code
 
+1. http://www.ncbi.nlm.nih.gov/sciencv/ and http://lattes.cnpq.br are
+   similar efforts to provide a system and data model for researchers
+   resumes. Besides all private services with similar aim, like
+   https://www.researchgate.net, https://www.academia.edu, and
+   http://orcid.org. We also have https://github.com/openrif and
+   https://www.eagle-i.net
+   (https://open.med.harvard.edu/project/eagle-i/) as a open-source
+   initiatives for suggest a open model for that domain. How to
+   compare all these projects and services? Many more not listed here
+   are available, of course. How to map those different data models?
+
+
+
 Ideas about NLTK in Lisp...

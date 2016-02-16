@@ -34,11 +34,16 @@ I haven't investigated it further but it looks like CCL does not
 handle very well the [[http://clhs.lisp.se/Body/02_dhq.htm][read-time conditionalization]]:
 
 #+BEGIN_SRC lisp
-#+nil
+  #+nil
+  (progn
+    (defvar test (counter-class))
+    (funcall test)
+    (toogle-counter-direction)
+    (funcall test))
 #+END_SRC
 
-That is, the selection of the =nil= feature - one method to comment
-the following expression. I am still investigating this issue since it
+That is, the selection of no feature - one method to comment the
+following expression. I am still investigating this issue since it
 only appeared when I loaded the code using an ASDF system definition
 and [[http://quicklisp.org][quicklisp]]. Comments are welcome.
 
