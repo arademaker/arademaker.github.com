@@ -9,6 +9,7 @@ tags:
 #+OPTIONS: toc:nil
 #+PROPERTY: exports both
 
+
 Solving the [[http://fivethirtyeight.com/features/can-you-solve-the-impossible-puzzle/][Can You Solve The Impossible Puzzle?]] 
 
 Our search space contains 45 possible candidates of pairs. The tables
@@ -17,58 +18,67 @@ column, we have the multiple, in the second column the sum and the
 last two columns the candidate pair. 
 
 #+name: start
-#+BEGIN_SRC lisp
-  (loop for x from 1 to 9
-        append (loop for y from 9 downto x
-                     collect (list (* x y) (+ x y) x y)))
+#+BEGIN_SRC lisp :results value
+  (defun auxiliar (data func)
+    (let* ((pre (group-by:group-by-repeated data :keys (list func)))
+           (res '((mult sum x y)))
+           (input (remove-if (lambda (p) (<= (length (cdr p)) 1)) pre)))
+      (dolist (a input res)
+        (setf res (append res (cdr a))))))
+
+  (cons '(mult sum x y) 
+        (loop for x from 1 to 9
+              append (loop for y from 9 downto x
+                           collect (list (* x y) (+ x y) x y))))
 #+END_SRC
 
-#+RESULTS: start
-|  9 | 10 | 1 | 9 |
-|  8 |  9 | 1 | 8 |
-|  7 |  8 | 1 | 7 |
-|  6 |  7 | 1 | 6 |
-|  5 |  6 | 1 | 5 |
-|  4 |  5 | 1 | 4 |
-|  3 |  4 | 1 | 3 |
-|  2 |  3 | 1 | 2 |
-|  1 |  2 | 1 | 1 |
-| 18 | 11 | 2 | 9 |
-| 16 | 10 | 2 | 8 |
-| 14 |  9 | 2 | 7 |
-| 12 |  8 | 2 | 6 |
-| 10 |  7 | 2 | 5 |
-|  8 |  6 | 2 | 4 |
-|  6 |  5 | 2 | 3 |
-|  4 |  4 | 2 | 2 |
-| 27 | 12 | 3 | 9 |
-| 24 | 11 | 3 | 8 |
-| 21 | 10 | 3 | 7 |
-| 18 |  9 | 3 | 6 |
-| 15 |  8 | 3 | 5 |
-| 12 |  7 | 3 | 4 |
-|  9 |  6 | 3 | 3 |
-| 36 | 13 | 4 | 9 |
-| 32 | 12 | 4 | 8 |
-| 28 | 11 | 4 | 7 |
-| 24 | 10 | 4 | 6 |
-| 20 |  9 | 4 | 5 |
-| 16 |  8 | 4 | 4 |
-| 45 | 14 | 5 | 9 |
-| 40 | 13 | 5 | 8 |
-| 35 | 12 | 5 | 7 |
-| 30 | 11 | 5 | 6 |
-| 25 | 10 | 5 | 5 |
-| 54 | 15 | 6 | 9 |
-| 48 | 14 | 6 | 8 |
-| 42 | 13 | 6 | 7 |
-| 36 | 12 | 6 | 6 |
-| 63 | 16 | 7 | 9 |
-| 56 | 15 | 7 | 8 |
-| 49 | 14 | 7 | 7 |
-| 72 | 17 | 8 | 9 |
-| 64 | 16 | 8 | 8 |
-| 81 | 18 | 9 | 9 |
+#+RESULTS[c9211c8d8b42fa22785d8b17a75bb82cb7ebdda1]: start
+| mult | sum | x | y |
+|    9 |  10 | 1 | 9 |
+|    8 |   9 | 1 | 8 |
+|    7 |   8 | 1 | 7 |
+|    6 |   7 | 1 | 6 |
+|    5 |   6 | 1 | 5 |
+|    4 |   5 | 1 | 4 |
+|    3 |   4 | 1 | 3 |
+|    2 |   3 | 1 | 2 |
+|    1 |   2 | 1 | 1 |
+|   18 |  11 | 2 | 9 |
+|   16 |  10 | 2 | 8 |
+|   14 |   9 | 2 | 7 |
+|   12 |   8 | 2 | 6 |
+|   10 |   7 | 2 | 5 |
+|    8 |   6 | 2 | 4 |
+|    6 |   5 | 2 | 3 |
+|    4 |   4 | 2 | 2 |
+|   27 |  12 | 3 | 9 |
+|   24 |  11 | 3 | 8 |
+|   21 |  10 | 3 | 7 |
+|   18 |   9 | 3 | 6 |
+|   15 |   8 | 3 | 5 |
+|   12 |   7 | 3 | 4 |
+|    9 |   6 | 3 | 3 |
+|   36 |  13 | 4 | 9 |
+|   32 |  12 | 4 | 8 |
+|   28 |  11 | 4 | 7 |
+|   24 |  10 | 4 | 6 |
+|   20 |   9 | 4 | 5 |
+|   16 |   8 | 4 | 4 |
+|   45 |  14 | 5 | 9 |
+|   40 |  13 | 5 | 8 |
+|   35 |  12 | 5 | 7 |
+|   30 |  11 | 5 | 6 |
+|   25 |  10 | 5 | 5 |
+|   54 |  15 | 6 | 9 |
+|   48 |  14 | 6 | 8 |
+|   42 |  13 | 6 | 7 |
+|   36 |  12 | 6 | 6 |
+|   63 |  16 | 7 | 9 |
+|   56 |  15 | 7 | 8 |
+|   49 |  14 | 7 | 7 |
+|   72 |  17 | 8 | 9 |
+|   64 |  16 | 8 | 8 |
+|   81 |  18 | 9 | 9 |
 
 In the first time that Barack asked Pete, if Pete knew the answer his
 multiple would be unique defined in the candidate list, that was not
@@ -76,32 +86,29 @@ the case, so we must remove the multiples without repetitions.
 
 #+name: step-1
 #+BEGIN_SRC lisp :var data=start :results value
-  (let ((res nil)
-        (input (remove-if (lambda (p) (<= (length (cdr p)) 1))
-                          (group-by:group-by-repeated data :keys (list #'car)))))
-    (dolist (a input res)
-      (setf res (append (cdr a) res))))
+  (auxiliar (cdr data) #'car)
 #+END_SRC
 
-#+RESULTS: step-1
-|  9 |  6 | 3 | 3 |
-|  9 | 10 | 1 | 9 |
-|  8 |  6 | 2 | 4 |
-|  8 |  9 | 1 | 8 |
-|  6 |  5 | 2 | 3 |
-|  6 |  7 | 1 | 6 |
-|  4 |  4 | 2 | 2 |
-|  4 |  5 | 1 | 4 |
-| 18 |  9 | 3 | 6 |
-| 18 | 11 | 2 | 9 |
-| 16 |  8 | 4 | 4 |
-| 16 | 10 | 2 | 8 |
-| 12 |  7 | 3 | 4 |
-| 12 |  8 | 2 | 6 |
-| 24 | 10 | 4 | 6 |
-| 24 | 11 | 3 | 8 |
-| 36 | 12 | 6 | 6 |
-| 36 | 13 | 4 | 9 |
+#+RESULTS[0a1358cf7ca4a4406313f32a911c83bbd2d83eab]: step-1
+| mult | sum | x | y |
+|   36 |  12 | 6 | 6 |
+|   36 |  13 | 4 | 9 |
+|   24 |  10 | 4 | 6 |
+|   24 |  11 | 3 | 8 |
+|   12 |   7 | 3 | 4 |
+|   12 |   8 | 2 | 6 |
+|   16 |   8 | 4 | 4 |
+|   16 |  10 | 2 | 8 |
+|   18 |   9 | 3 | 6 |
+|   18 |  11 | 2 | 9 |
+|    4 |   4 | 2 | 2 |
+|    4 |   5 | 1 | 4 |
+|    6 |   5 | 2 | 3 |
+|    6 |   7 | 1 | 6 |
+|    8 |   6 | 2 | 4 |
+|    8 |   9 | 1 | 8 |
+|    9 |   6 | 3 | 3 |
+|    9 |  10 | 1 | 9 |
 
 When Barack asked Susan for the first time, she already knew that Pete
 didn't know the answer either. So the candidate list in her mind is
@@ -110,177 +117,156 @@ either, so her sum are not unique in this list too.
 
 #+name: step-2
 #+BEGIN_SRC lisp :var data=step-1 :results value
-  (let ((res nil)
-        (input (remove-if (lambda (p) (<= (length (cdr p)) 1))
-                          (group-by:group-by-repeated data :keys (list #'cadr)))))
-    (dolist (a input res)
-      (setf res (append (cdr a) res))))
+  (auxiliar (cdr data) #'cadr)
 #+END_SRC
 
-#+RESULTS: step-2
-|  8 |  6 | 2 | 4 |
-|  9 |  6 | 3 | 3 |
-| 24 | 10 | 4 | 6 |
-| 16 | 10 | 2 | 8 |
-|  9 | 10 | 1 | 9 |
-| 18 |  9 | 3 | 6 |
-|  8 |  9 | 1 | 8 |
-|  4 |  5 | 1 | 4 |
-|  6 |  5 | 2 | 3 |
-| 12 |  7 | 3 | 4 |
-|  6 |  7 | 1 | 6 |
-| 24 | 11 | 3 | 8 |
-| 18 | 11 | 2 | 9 |
-| 12 |  8 | 2 | 6 |
-| 16 |  8 | 4 | 4 |
+#+RESULTS[a3d0faf034776af5d6c4a9345568fe55abab1b36]: step-2
+| mult | sum | x | y |
+|    9 |   6 | 3 | 3 |
+|    8 |   6 | 2 | 4 |
+|    6 |   5 | 2 | 3 |
+|    4 |   5 | 1 | 4 |
+|    8 |   9 | 1 | 8 |
+|   18 |   9 | 3 | 6 |
+|   16 |   8 | 4 | 4 |
+|   12 |   8 | 2 | 6 |
+|    6 |   7 | 1 | 6 |
+|   12 |   7 | 3 | 4 |
+|   18 |  11 | 2 | 9 |
+|   24 |  11 | 3 | 8 |
+|    9 |  10 | 1 | 9 |
+|   16 |  10 | 2 | 8 |
+|   24 |  10 | 4 | 6 |
 
 In the second time that Barack asked Pete, he still didn't know. So we
 have to exclude all unique multiples again.
 
 #+name: step-3
 #+BEGIN_SRC lisp :var data=step-2 :results value
-  (let ((res nil)
-        (input (remove-if (lambda (p) (<= (length (cdr p)) 1))
-                          (group-by:group-by-repeated data :keys (list #'car)))))
-    (dolist (a input res)
-      (setf res (append (cdr a) res))))
+  (auxiliar (cdr data) #'car)
 #+END_SRC
 
-#+RESULTS: step-3
-|  8 |  9 | 1 | 8 |
-|  8 |  6 | 2 | 4 |
-|  9 | 10 | 1 | 9 |
-|  9 |  6 | 3 | 3 |
-| 24 | 11 | 3 | 8 |
-| 24 | 10 | 4 | 6 |
-| 16 |  8 | 4 | 4 |
-| 16 | 10 | 2 | 8 |
-| 18 | 11 | 2 | 9 |
-| 18 |  9 | 3 | 6 |
-|  6 |  7 | 1 | 6 |
-|  6 |  5 | 2 | 3 |
-| 12 |  8 | 2 | 6 |
-| 12 |  7 | 3 | 4 |
+#+RESULTS[29091e5db94cdf69ed2d29d0954ec29088ab242a]: step-3
+| mult | sum | x | y |
+|   24 |  10 | 4 | 6 |
+|   24 |  11 | 3 | 8 |
+|   12 |   7 | 3 | 4 |
+|   12 |   8 | 2 | 6 |
+|   16 |  10 | 2 | 8 |
+|   16 |   8 | 4 | 4 |
+|   18 |  11 | 2 | 9 |
+|   18 |   9 | 3 | 6 |
+|    6 |   7 | 1 | 6 |
+|    6 |   5 | 2 | 3 |
+|    8 |   9 | 1 | 8 |
+|    8 |   6 | 2 | 4 |
+|    9 |  10 | 1 | 9 |
+|    9 |   6 | 3 | 3 |
 
 The same again for the second time Barack asked Susan:
 
 #+name: step-4
 #+BEGIN_SRC lisp :var data=step-3 :results value
-  (let ((res nil)
-        (input (remove-if (lambda (p) (<= (length (cdr p)) 1))
-                          (group-by:group-by-repeated data :keys (list #'cadr)))))
-    (dolist (a input res)
-      (setf res (append (cdr a) res))))
+  (auxiliar (cdr data) #'cadr)
 #+END_SRC
 
-#+RESULTS: step-4
-| 18 |  9 | 3 | 6 |
-|  8 |  9 | 1 | 8 |
-|  9 |  6 | 3 | 3 |
-|  8 |  6 | 2 | 4 |
-| 16 | 10 | 2 | 8 |
-| 24 | 10 | 4 | 6 |
-|  9 | 10 | 1 | 9 |
-| 18 | 11 | 2 | 9 |
-| 24 | 11 | 3 | 8 |
-| 12 |  8 | 2 | 6 |
-| 16 |  8 | 4 | 4 |
-| 12 |  7 | 3 | 4 |
-|  6 |  7 | 1 | 6 |
+#+RESULTS[8f4ab88d475e3770ab85a7587e199dde6b89e219]: step-4
+| mult | sum | x | y |
+|    9 |   6 | 3 | 3 |
+|    8 |   6 | 2 | 4 |
+|    8 |   9 | 1 | 8 |
+|   18 |   9 | 3 | 6 |
+|   16 |   8 | 4 | 4 |
+|   12 |   8 | 2 | 6 |
+|    6 |   7 | 1 | 6 |
+|   12 |   7 | 3 | 4 |
+|   18 |  11 | 2 | 9 |
+|   24 |  11 | 3 | 8 |
+|    9 |  10 | 1 | 9 |
+|   16 |  10 | 2 | 8 |
+|   24 |  10 | 4 | 6 |
 
 Pete in the third time still didn't know.
 
 #+name: step-5
 #+BEGIN_SRC lisp :var data=step-4 :results value
-  (let ((res nil)
-        (input (remove-if (lambda (p) (<= (length (cdr p)) 1))
-                          (group-by:group-by-repeated data :keys (list #'car)))))
-    (dolist (a input res)
-      (setf res (append (cdr a) res))))
+  (auxiliar (cdr data) #'car)
 #+END_SRC
 
-#+RESULTS: step-5
-| 18 | 11 | 2 | 9 |
-| 18 |  9 | 3 | 6 |
-|  8 |  6 | 2 | 4 |
-|  8 |  9 | 1 | 8 |
-|  9 | 10 | 1 | 9 |
-|  9 |  6 | 3 | 3 |
-| 16 |  8 | 4 | 4 |
-| 16 | 10 | 2 | 8 |
-| 24 | 11 | 3 | 8 |
-| 24 | 10 | 4 | 6 |
-| 12 |  7 | 3 | 4 |
-| 12 |  8 | 2 | 6 |
+#+RESULTS[a4f82476e9f5b91c7365bfbcd243eb9a5b0ef184]: step-5
+| mult | sum | x | y |
+|   24 |  10 | 4 | 6 |
+|   24 |  11 | 3 | 8 |
+|   12 |   7 | 3 | 4 |
+|   12 |   8 | 2 | 6 |
+|   16 |  10 | 2 | 8 |
+|   16 |   8 | 4 | 4 |
+|   18 |  11 | 2 | 9 |
+|   18 |   9 | 3 | 6 |
+|    8 |   9 | 1 | 8 |
+|    8 |   6 | 2 | 4 |
+|    9 |  10 | 1 | 9 |
+|    9 |   6 | 3 | 3 |
 
 Susan in the third still didn't know.
 
 #+name: step-6
 #+BEGIN_SRC lisp :var data=step-5 :results value
-  (let ((res nil)
-        (input (remove-if (lambda (p) (<= (length (cdr p)) 1))
-                          (group-by:group-by-repeated data :keys (list #'cadr)))))
-    (dolist (a input res)
-      (setf res (append (cdr a) res))))
+  (auxiliar (cdr data) #'cadr)
 #+END_SRC
 
-#+RESULTS: step-6
-| 24 | 11 | 3 | 8 |
-| 18 | 11 | 2 | 9 |
-|  8 |  9 | 1 | 8 |
-| 18 |  9 | 3 | 6 |
-|  9 |  6 | 3 | 3 |
-|  8 |  6 | 2 | 4 |
-| 24 | 10 | 4 | 6 |
-| 16 | 10 | 2 | 8 |
-|  9 | 10 | 1 | 9 |
-| 12 |  8 | 2 | 6 |
-| 16 |  8 | 4 | 4 |
+#+RESULTS[d5ef11d7b9e904ae92893a3e7719922628e8fcd6]: step-6
+| mult | sum | x | y |
+|    9 |   6 | 3 | 3 |
+|    8 |   6 | 2 | 4 |
+|    8 |   9 | 1 | 8 |
+|   18 |   9 | 3 | 6 |
+|   16 |   8 | 4 | 4 |
+|   12 |   8 | 2 | 6 |
+|   18 |  11 | 2 | 9 |
+|   24 |  11 | 3 | 8 |
+|    9 |  10 | 1 | 9 |
+|   16 |  10 | 2 | 8 |
+|   24 |  10 | 4 | 6 |
 
 Pete once more didn't know:
 
 #+name: step-7
 #+BEGIN_SRC lisp :var data=step-6 :results value
-  (let ((res nil)
-        (input (remove-if (lambda (p) (<= (length (cdr p)) 1))
-                          (group-by:group-by-repeated data :keys (list #'car)))))
-    (dolist (a input res)
-      (setf res (append (cdr a) res))))
+  (auxiliar (cdr data) #'car)
 #+END_SRC
 
-#+RESULTS: step-7
-| 24 | 10 | 4 | 6 |
-| 24 | 11 | 3 | 8 |
-| 18 |  9 | 3 | 6 |
-| 18 | 11 | 2 | 9 |
-|  8 |  6 | 2 | 4 |
-|  8 |  9 | 1 | 8 |
-|  9 | 10 | 1 | 9 |
-|  9 |  6 | 3 | 3 |
-| 16 |  8 | 4 | 4 |
-| 16 | 10 | 2 | 8 |
+#+RESULTS[210f459fccb8d83504937e6ab5153c40933d1478]: step-7
+| mult | sum | x | y |
+|   24 |  10 | 4 | 6 |
+|   24 |  11 | 3 | 8 |
+|   16 |  10 | 2 | 8 |
+|   16 |   8 | 4 | 4 |
+|   18 |  11 | 2 | 9 |
+|   18 |   9 | 3 | 6 |
+|    8 |   9 | 1 | 8 |
+|    8 |   6 | 2 | 4 |
+|    9 |  10 | 1 | 9 |
+|    9 |   6 | 3 | 3 |
 
 Susan in the fourth time didn't know either:
 
 #+name: step-8
 #+BEGIN_SRC lisp :var data=step-7 :results value
-  (let ((res nil)
-        (input (remove-if (lambda (p) (<= (length (cdr p)) 1))
-                          (group-by:group-by-repeated data :keys (list #'cadr)))))
-    (dolist (a input res)
-      (setf res (append (cdr a) res))))
+  (auxiliar (cdr data) #'cadr)
 #+END_SRC
 
-#+RESULTS: step-8
-| 16 | 10 | 2 | 8 |
-|  9 | 10 | 1 | 9 |
-| 24 | 10 | 4 | 6 |
-| 18 | 11 | 2 | 9 |
-| 24 | 11 | 3 | 8 |
-|  8 |  9 | 1 | 8 |
-| 18 |  9 | 3 | 6 |
-|  9 |  6 | 3 | 3 |
-|  8 |  6 | 2 | 4 |
+#+RESULTS[6fb43a3379ff627dcfbfb028689022f9ed6e11c8]: step-8
+| mult | sum | x | y |
+|    9 |   6 | 3 | 3 |
+|    8 |   6 | 2 | 4 |
+|    8 |   9 | 1 | 8 |
+|   18 |   9 | 3 | 6 |
+|   18 |  11 | 2 | 9 |
+|   24 |  11 | 3 | 8 |
+|    9 |  10 | 1 | 9 |
+|   16 |  10 | 2 | 8 |
+|   24 |  10 | 4 | 6 |
 
 At this moment, in the fifth time, Pete knew the answer. That is, his
 number should be 16, since this is the only multiple that unique
@@ -292,22 +278,19 @@ candidates:
 
 #+name: step-9
 #+BEGIN_SRC lisp :var data=step-8 :results value
-  (let ((res nil)
-        (input (remove-if (lambda (p) (<= (length (cdr p)) 1))
-                          (group-by:group-by-repeated data :keys (list #'car)))))
-    (dolist (a input res)
-      (setf res (append (cdr a) res))))
+  (auxiliar (cdr data) #'car)
 #+END_SRC
 
-#+RESULTS: step-9
-|  9 |  6 | 3 | 3 |
-|  9 | 10 | 1 | 9 |
-| 24 | 11 | 3 | 8 |
-| 24 | 10 | 4 | 6 |
-| 18 |  9 | 3 | 6 |
-| 18 | 11 | 2 | 9 |
-|  8 |  6 | 2 | 4 |
-|  8 |  9 | 1 | 8 |
+#+RESULTS[0b1b6db3323d938fef641a61b3d73026a79b4a84]: step-9
+| mult | sum | x | y |
+|   24 |  10 | 4 | 6 |
+|   24 |  11 | 3 | 8 |
+|   18 |  11 | 2 | 9 |
+|   18 |   9 | 3 | 6 |
+|    8 |   9 | 1 | 8 |
+|    8 |   6 | 2 | 4 |
+|    9 |  10 | 1 | 9 |
+|    9 |   6 | 3 | 3 |
 
 In this candidate list, Susan would not be able to identify the
 numbers since no sum is unique.
