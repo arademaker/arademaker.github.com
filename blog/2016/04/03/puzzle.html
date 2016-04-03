@@ -7,10 +7,12 @@
    <title>Solving the Puzzle</title>
  
  <meta name="author" content="Alexandre Rademaker" />
- <link href="http://feeds.feedburner.com/arademaker" rel="alternate" title="Alexandre Rademaker" type="application/atom+xml" />
+ <link href="http://feeds.feedburner.com/arademaker" rel="alternate"
+       title="Alexandre Rademaker" type="application/atom+xml" />
  
  <!-- syntax highlighting CSS -->
  <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+ <link rel="stylesheet" href="/css/table.css" type="text/css" />
 
  <!-- <link href="/css/highlight.css" rel="stylesheet" type="text/css"> -->
  <link href="/css/gists.css" rel="stylesheet" type="text/css"/>
@@ -68,80 +70,239 @@
   column, we have the multiple, in the second column the sum and the
   last two columns the candidate pair.</p>
 <pre class="src" lang="lisp">
-(loop for x from 1 to 9
-      append (loop for y from 9 downto x
-                   collect (list (* x y) (+ x y) x y)))
+(defun auxiliar (data func)
+  (let* ((pre (group-by:group-by-repeated data :keys (list func)))
+         (res &#39;((mult sum x y)))
+         (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1)) pre)))
+    (dolist (a input res)
+      (setf res (append res (cdr a))))))
+
+(cons &#39;(mult sum x y) 
+      (loop for x from 1 to 9
+            append (loop for y from 9 downto x
+                         collect (list (* x y) (+ x y) x y))))
 </pre>
+<p>#+RESULTS[c9211c8d8b42fa22785d8b17a75bb82cb7ebdda1]: start</p>
+<table>
+  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>9</td><td>10</td><td>1</td><td>9</td></tr>
+  <tr><td>8</td><td>9</td><td>1</td><td>8</td></tr>
+  <tr><td>7</td><td>8</td><td>1</td><td>7</td></tr>
+  <tr><td>6</td><td>7</td><td>1</td><td>6</td></tr>
+  <tr><td>5</td><td>6</td><td>1</td><td>5</td></tr>
+  <tr><td>4</td><td>5</td><td>1</td><td>4</td></tr>
+  <tr><td>3</td><td>4</td><td>1</td><td>3</td></tr>
+  <tr><td>2</td><td>3</td><td>1</td><td>2</td></tr>
+  <tr><td>1</td><td>2</td><td>1</td><td>1</td></tr>
+  <tr><td>18</td><td>11</td><td>2</td><td>9</td></tr>
+  <tr><td>16</td><td>10</td><td>2</td><td>8</td></tr>
+  <tr><td>14</td><td>9</td><td>2</td><td>7</td></tr>
+  <tr><td>12</td><td>8</td><td>2</td><td>6</td></tr>
+  <tr><td>10</td><td>7</td><td>2</td><td>5</td></tr>
+  <tr><td>8</td><td>6</td><td>2</td><td>4</td></tr>
+  <tr><td>6</td><td>5</td><td>2</td><td>3</td></tr>
+  <tr><td>4</td><td>4</td><td>2</td><td>2</td></tr>
+  <tr><td>27</td><td>12</td><td>3</td><td>9</td></tr>
+  <tr><td>24</td><td>11</td><td>3</td><td>8</td></tr>
+  <tr><td>21</td><td>10</td><td>3</td><td>7</td></tr>
+  <tr><td>18</td><td>9</td><td>3</td><td>6</td></tr>
+  <tr><td>15</td><td>8</td><td>3</td><td>5</td></tr>
+  <tr><td>12</td><td>7</td><td>3</td><td>4</td></tr>
+  <tr><td>9</td><td>6</td><td>3</td><td>3</td></tr>
+  <tr><td>36</td><td>13</td><td>4</td><td>9</td></tr>
+  <tr><td>32</td><td>12</td><td>4</td><td>8</td></tr>
+  <tr><td>28</td><td>11</td><td>4</td><td>7</td></tr>
+  <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
+  <tr><td>20</td><td>9</td><td>4</td><td>5</td></tr>
+  <tr><td>16</td><td>8</td><td>4</td><td>4</td></tr>
+  <tr><td>45</td><td>14</td><td>5</td><td>9</td></tr>
+  <tr><td>40</td><td>13</td><td>5</td><td>8</td></tr>
+  <tr><td>35</td><td>12</td><td>5</td><td>7</td></tr>
+  <tr><td>30</td><td>11</td><td>5</td><td>6</td></tr>
+  <tr><td>25</td><td>10</td><td>5</td><td>5</td></tr>
+  <tr><td>54</td><td>15</td><td>6</td><td>9</td></tr>
+  <tr><td>48</td><td>14</td><td>6</td><td>8</td></tr>
+  <tr><td>42</td><td>13</td><td>6</td><td>7</td></tr>
+  <tr><td>36</td><td>12</td><td>6</td><td>6</td></tr>
+  <tr><td>63</td><td>16</td><td>7</td><td>9</td></tr>
+  <tr><td>56</td><td>15</td><td>7</td><td>8</td></tr>
+  <tr><td>49</td><td>14</td><td>7</td><td>7</td></tr>
+  <tr><td>72</td><td>17</td><td>8</td><td>9</td></tr>
+  <tr><td>64</td><td>16</td><td>8</td><td>8</td></tr>
+  <tr><td>81</td><td>18</td><td>9</td><td>9</td></tr>
+</table>
 <p>In the first time that Barack asked Pete, if Pete knew the answer his
   multiple would be unique defined in the candidate list, that was not
   the case, so we must remove the multiples without repetitions.</p>
 <pre class="src" lang="lisp">
-(let ((res nil)
-      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
-                        (group-by:group-by-repeated data :keys (list #&#39;car)))))
-  (dolist (a input res)
-    (setf res (append (cdr a) res))))
+(auxiliar (cdr data) #&#39;car)
 </pre>
+<p>#+RESULTS[0a1358cf7ca4a4406313f32a911c83bbd2d83eab]: step-1</p>
+<table>
+  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>36</td><td>12</td><td>6</td><td>6</td></tr>
+  <tr><td>36</td><td>13</td><td>4</td><td>9</td></tr>
+  <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
+  <tr><td>24</td><td>11</td><td>3</td><td>8</td></tr>
+  <tr><td>12</td><td>7</td><td>3</td><td>4</td></tr>
+  <tr><td>12</td><td>8</td><td>2</td><td>6</td></tr>
+  <tr><td>16</td><td>8</td><td>4</td><td>4</td></tr>
+  <tr><td>16</td><td>10</td><td>2</td><td>8</td></tr>
+  <tr><td>18</td><td>9</td><td>3</td><td>6</td></tr>
+  <tr><td>18</td><td>11</td><td>2</td><td>9</td></tr>
+  <tr><td>4</td><td>4</td><td>2</td><td>2</td></tr>
+  <tr><td>4</td><td>5</td><td>1</td><td>4</td></tr>
+  <tr><td>6</td><td>5</td><td>2</td><td>3</td></tr>
+  <tr><td>6</td><td>7</td><td>1</td><td>6</td></tr>
+  <tr><td>8</td><td>6</td><td>2</td><td>4</td></tr>
+  <tr><td>8</td><td>9</td><td>1</td><td>8</td></tr>
+  <tr><td>9</td><td>6</td><td>3</td><td>3</td></tr>
+  <tr><td>9</td><td>10</td><td>1</td><td>9</td></tr>
+</table>
 <p>When Barack asked Susan for the first time, she already knew that Pete
   didn&#8217;t know the answer either. So the candidate list in her mind is
   the list above. But she didn&#8217;t know the answer of Barack&#8217;s question
   either, so her sum are not unique in this list too.</p>
 <pre class="src" lang="lisp">
-(let ((res nil)
-      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
-                        (group-by:group-by-repeated data :keys (list #&#39;cadr)))))
-  (dolist (a input res)
-    (setf res (append (cdr a) res))))
+(auxiliar (cdr data) #&#39;cadr)
 </pre>
+<p>#+RESULTS[a3d0faf034776af5d6c4a9345568fe55abab1b36]: step-2</p>
+<table>
+  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>9</td><td>6</td><td>3</td><td>3</td></tr>
+  <tr><td>8</td><td>6</td><td>2</td><td>4</td></tr>
+  <tr><td>6</td><td>5</td><td>2</td><td>3</td></tr>
+  <tr><td>4</td><td>5</td><td>1</td><td>4</td></tr>
+  <tr><td>8</td><td>9</td><td>1</td><td>8</td></tr>
+  <tr><td>18</td><td>9</td><td>3</td><td>6</td></tr>
+  <tr><td>16</td><td>8</td><td>4</td><td>4</td></tr>
+  <tr><td>12</td><td>8</td><td>2</td><td>6</td></tr>
+  <tr><td>6</td><td>7</td><td>1</td><td>6</td></tr>
+  <tr><td>12</td><td>7</td><td>3</td><td>4</td></tr>
+  <tr><td>18</td><td>11</td><td>2</td><td>9</td></tr>
+  <tr><td>24</td><td>11</td><td>3</td><td>8</td></tr>
+  <tr><td>9</td><td>10</td><td>1</td><td>9</td></tr>
+  <tr><td>16</td><td>10</td><td>2</td><td>8</td></tr>
+  <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
+</table>
 <p>In the second time that Barack asked Pete, he still didn&#8217;t know. So we
   have to exclude all unique multiples again.</p>
 <pre class="src" lang="lisp">
-(let ((res nil)
-      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
-                        (group-by:group-by-repeated data :keys (list #&#39;car)))))
-  (dolist (a input res)
-    (setf res (append (cdr a) res))))
+(auxiliar (cdr data) #&#39;car)
 </pre>
+<p>#+RESULTS[29091e5db94cdf69ed2d29d0954ec29088ab242a]: step-3</p>
+<table>
+  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
+  <tr><td>24</td><td>11</td><td>3</td><td>8</td></tr>
+  <tr><td>12</td><td>7</td><td>3</td><td>4</td></tr>
+  <tr><td>12</td><td>8</td><td>2</td><td>6</td></tr>
+  <tr><td>16</td><td>10</td><td>2</td><td>8</td></tr>
+  <tr><td>16</td><td>8</td><td>4</td><td>4</td></tr>
+  <tr><td>18</td><td>11</td><td>2</td><td>9</td></tr>
+  <tr><td>18</td><td>9</td><td>3</td><td>6</td></tr>
+  <tr><td>6</td><td>7</td><td>1</td><td>6</td></tr>
+  <tr><td>6</td><td>5</td><td>2</td><td>3</td></tr>
+  <tr><td>8</td><td>9</td><td>1</td><td>8</td></tr>
+  <tr><td>8</td><td>6</td><td>2</td><td>4</td></tr>
+  <tr><td>9</td><td>10</td><td>1</td><td>9</td></tr>
+  <tr><td>9</td><td>6</td><td>3</td><td>3</td></tr>
+</table>
 <p>The same again for the second time Barack asked Susan:</p>
 <pre class="src" lang="lisp">
-(let ((res nil)
-      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
-                        (group-by:group-by-repeated data :keys (list #&#39;cadr)))))
-  (dolist (a input res)
-    (setf res (append (cdr a) res))))
+(auxiliar (cdr data) #&#39;cadr)
 </pre>
+<p>#+RESULTS[8f4ab88d475e3770ab85a7587e199dde6b89e219]: step-4</p>
+<table>
+  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>9</td><td>6</td><td>3</td><td>3</td></tr>
+  <tr><td>8</td><td>6</td><td>2</td><td>4</td></tr>
+  <tr><td>8</td><td>9</td><td>1</td><td>8</td></tr>
+  <tr><td>18</td><td>9</td><td>3</td><td>6</td></tr>
+  <tr><td>16</td><td>8</td><td>4</td><td>4</td></tr>
+  <tr><td>12</td><td>8</td><td>2</td><td>6</td></tr>
+  <tr><td>6</td><td>7</td><td>1</td><td>6</td></tr>
+  <tr><td>12</td><td>7</td><td>3</td><td>4</td></tr>
+  <tr><td>18</td><td>11</td><td>2</td><td>9</td></tr>
+  <tr><td>24</td><td>11</td><td>3</td><td>8</td></tr>
+  <tr><td>9</td><td>10</td><td>1</td><td>9</td></tr>
+  <tr><td>16</td><td>10</td><td>2</td><td>8</td></tr>
+  <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
+</table>
 <p>Pete in the third time still didn&#8217;t know.</p>
 <pre class="src" lang="lisp">
-(let ((res nil)
-      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
-                        (group-by:group-by-repeated data :keys (list #&#39;car)))))
-  (dolist (a input res)
-    (setf res (append (cdr a) res))))
+(auxiliar (cdr data) #&#39;car)
 </pre>
+<p>#+RESULTS[a4f82476e9f5b91c7365bfbcd243eb9a5b0ef184]: step-5</p>
+<table>
+  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
+  <tr><td>24</td><td>11</td><td>3</td><td>8</td></tr>
+  <tr><td>12</td><td>7</td><td>3</td><td>4</td></tr>
+  <tr><td>12</td><td>8</td><td>2</td><td>6</td></tr>
+  <tr><td>16</td><td>10</td><td>2</td><td>8</td></tr>
+  <tr><td>16</td><td>8</td><td>4</td><td>4</td></tr>
+  <tr><td>18</td><td>11</td><td>2</td><td>9</td></tr>
+  <tr><td>18</td><td>9</td><td>3</td><td>6</td></tr>
+  <tr><td>8</td><td>9</td><td>1</td><td>8</td></tr>
+  <tr><td>8</td><td>6</td><td>2</td><td>4</td></tr>
+  <tr><td>9</td><td>10</td><td>1</td><td>9</td></tr>
+  <tr><td>9</td><td>6</td><td>3</td><td>3</td></tr>
+</table>
 <p>Susan in the third still didn&#8217;t know.</p>
 <pre class="src" lang="lisp">
-(let ((res nil)
-      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
-                        (group-by:group-by-repeated data :keys (list #&#39;cadr)))))
-  (dolist (a input res)
-    (setf res (append (cdr a) res))))
+(auxiliar (cdr data) #&#39;cadr)
 </pre>
+<p>#+RESULTS[d5ef11d7b9e904ae92893a3e7719922628e8fcd6]: step-6</p>
+<table>
+  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>9</td><td>6</td><td>3</td><td>3</td></tr>
+  <tr><td>8</td><td>6</td><td>2</td><td>4</td></tr>
+  <tr><td>8</td><td>9</td><td>1</td><td>8</td></tr>
+  <tr><td>18</td><td>9</td><td>3</td><td>6</td></tr>
+  <tr><td>16</td><td>8</td><td>4</td><td>4</td></tr>
+  <tr><td>12</td><td>8</td><td>2</td><td>6</td></tr>
+  <tr><td>18</td><td>11</td><td>2</td><td>9</td></tr>
+  <tr><td>24</td><td>11</td><td>3</td><td>8</td></tr>
+  <tr><td>9</td><td>10</td><td>1</td><td>9</td></tr>
+  <tr><td>16</td><td>10</td><td>2</td><td>8</td></tr>
+  <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
+</table>
 <p>Pete once more didn&#8217;t know:</p>
 <pre class="src" lang="lisp">
-(let ((res nil)
-      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
-                        (group-by:group-by-repeated data :keys (list #&#39;car)))))
-  (dolist (a input res)
-    (setf res (append (cdr a) res))))
+(auxiliar (cdr data) #&#39;car)
 </pre>
+<p>#+RESULTS[210f459fccb8d83504937e6ab5153c40933d1478]: step-7</p>
+<table>
+  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
+  <tr><td>24</td><td>11</td><td>3</td><td>8</td></tr>
+  <tr><td>16</td><td>10</td><td>2</td><td>8</td></tr>
+  <tr><td>16</td><td>8</td><td>4</td><td>4</td></tr>
+  <tr><td>18</td><td>11</td><td>2</td><td>9</td></tr>
+  <tr><td>18</td><td>9</td><td>3</td><td>6</td></tr>
+  <tr><td>8</td><td>9</td><td>1</td><td>8</td></tr>
+  <tr><td>8</td><td>6</td><td>2</td><td>4</td></tr>
+  <tr><td>9</td><td>10</td><td>1</td><td>9</td></tr>
+  <tr><td>9</td><td>6</td><td>3</td><td>3</td></tr>
+</table>
 <p>Susan in the fourth time didn&#8217;t know either:</p>
 <pre class="src" lang="lisp">
-(let ((res nil)
-      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
-                        (group-by:group-by-repeated data :keys (list #&#39;cadr)))))
-  (dolist (a input res)
-    (setf res (append (cdr a) res))))
+(auxiliar (cdr data) #&#39;cadr)
 </pre>
+<p>#+RESULTS[6fb43a3379ff627dcfbfb028689022f9ed6e11c8]: step-8</p>
+<table>
+  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>9</td><td>6</td><td>3</td><td>3</td></tr>
+  <tr><td>8</td><td>6</td><td>2</td><td>4</td></tr>
+  <tr><td>8</td><td>9</td><td>1</td><td>8</td></tr>
+  <tr><td>18</td><td>9</td><td>3</td><td>6</td></tr>
+  <tr><td>18</td><td>11</td><td>2</td><td>9</td></tr>
+  <tr><td>24</td><td>11</td><td>3</td><td>8</td></tr>
+  <tr><td>9</td><td>10</td><td>1</td><td>9</td></tr>
+  <tr><td>16</td><td>10</td><td>2</td><td>8</td></tr>
+  <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
+</table>
 <p>At this moment, in the fifth time, Pete knew the answer. That is, his
   number should be 16, since this is the only multiple that unique
   defines the candidates: 2 and 8.</p>
@@ -149,12 +310,20 @@
   Susan and we would have to exclude the pair <code>(2,8)</code> from the list of
   candidates:</p>
 <pre class="src" lang="lisp">
-(let ((res nil)
-      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
-                        (group-by:group-by-repeated data :keys (list #&#39;car)))))
-  (dolist (a input res)
-    (setf res (append (cdr a) res))))
+(auxiliar (cdr data) #&#39;car)
 </pre>
+<p>#+RESULTS[0b1b6db3323d938fef641a61b3d73026a79b4a84]: step-9</p>
+<table>
+  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
+  <tr><td>24</td><td>11</td><td>3</td><td>8</td></tr>
+  <tr><td>18</td><td>11</td><td>2</td><td>9</td></tr>
+  <tr><td>18</td><td>9</td><td>3</td><td>6</td></tr>
+  <tr><td>8</td><td>9</td><td>1</td><td>8</td></tr>
+  <tr><td>8</td><td>6</td><td>2</td><td>4</td></tr>
+  <tr><td>9</td><td>10</td><td>1</td><td>9</td></tr>
+  <tr><td>9</td><td>6</td><td>3</td><td>3</td></tr>
+</table>
 <p>In this candidate list, Susan would not be able to identify the
   numbers since no sum is unique.</p>
 
