@@ -7,7 +7,7 @@ tags:
 #+PROPERTY: cache yes
 #+PROPERTY: results output
 #+OPTIONS: toc:nil
-#+PROPERTY: exports code
+#+PROPERTY: exports code results
 
 Solving the [[http://fivethirtyeight.com/features/can-you-solve-the-impossible-puzzle/][Can You Solve The Impossible Puzzle?]] 
 
