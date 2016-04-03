@@ -4,13 +4,116 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2016-02-16T10:03:53-02:00</updated>
+ <updated>2016-04-03T17:45:34-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Solving the Puzzle</title>
+   <link href="http://arademaker.github.com/blog/2016/04/03/puzzle.html"/>
+   <updated>2016-04-03T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2016/04/03/puzzle</id>
+   <content type="html">&lt;p&gt;Solving the &lt;a href=&quot;http://fivethirtyeight.com/features/can-you-solve-the-impossible-puzzle/&quot;&gt;Can You Solve The Impossible Puzzle?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Our search space contains 45 possible candidates of pairs. The tables
+  below will have one candidate of a pair on each row. In the first
+  column, we have the multiple, in the second column the sum and the
+  last two columns the candidate pair.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
+(loop for x from 1 to 9
+      append (loop for y from 9 downto x
+                   collect (list (* x y) (+ x y) x y)))
+&lt;/pre&gt;
+&lt;p&gt;In the first time that Barack asked Pete, if Pete knew the answer his
+  multiple would be unique defined in the candidate list, that was not
+  the case, so we must remove the multiples without repetitions.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
+(let ((res nil)
+      (input (remove-if (lambda (p) (&amp;lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&amp;#39;car)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+&lt;/pre&gt;
+&lt;p&gt;When Barack asked Susan for the first time, she already knew that Pete
+  didn&amp;#8217;t know the answer either. So the candidate list in her mind is
+  the list above. But she didn&amp;#8217;t know the answer of Barack&amp;#8217;s question
+  either, so her sum are not unique in this list too.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
+(let ((res nil)
+      (input (remove-if (lambda (p) (&amp;lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&amp;#39;cadr)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+&lt;/pre&gt;
+&lt;p&gt;In the second time that Barack asked Pete, he still didn&amp;#8217;t know. So we
+  have to exclude all unique multiples again.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
+(let ((res nil)
+      (input (remove-if (lambda (p) (&amp;lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&amp;#39;car)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+&lt;/pre&gt;
+&lt;p&gt;The same again for the second time Barack asked Susan:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
+(let ((res nil)
+      (input (remove-if (lambda (p) (&amp;lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&amp;#39;cadr)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+&lt;/pre&gt;
+&lt;p&gt;Pete in the third time still didn&amp;#8217;t know.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
+(let ((res nil)
+      (input (remove-if (lambda (p) (&amp;lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&amp;#39;car)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+&lt;/pre&gt;
+&lt;p&gt;Susan in the third still didn&amp;#8217;t know.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
+(let ((res nil)
+      (input (remove-if (lambda (p) (&amp;lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&amp;#39;cadr)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+&lt;/pre&gt;
+&lt;p&gt;Pete once more didn&amp;#8217;t know:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
+(let ((res nil)
+      (input (remove-if (lambda (p) (&amp;lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&amp;#39;car)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+&lt;/pre&gt;
+&lt;p&gt;Susan in the fourth time didn&amp;#8217;t know either:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
+(let ((res nil)
+      (input (remove-if (lambda (p) (&amp;lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&amp;#39;cadr)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+&lt;/pre&gt;
+&lt;p&gt;At this moment, in the fifth time, Pete knew the answer. That is, his
+  number should be 16, since this is the only multiple that unique
+  defines the candidates: 2 and 8.&lt;/p&gt;
+&lt;p&gt;If Pete didn&amp;#8217;t knew at this time, Barack would have asked once more to
+  Susan and we would have to exclude the pair &lt;code&gt;(2,8)&lt;/code&gt; from the list of
+  candidates:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
+(let ((res nil)
+      (input (remove-if (lambda (p) (&amp;lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&amp;#39;car)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+&lt;/pre&gt;
+&lt;p&gt;In this candidate list, Susan would not be able to identify the
+  numbers since no sum is unique.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Let over Lambda</title>

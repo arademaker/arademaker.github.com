@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ 
+   <title>Solving the Puzzle</title>
+ 
+ <meta name="author" content="Alexandre Rademaker" />
+ <link href="http://feeds.feedburner.com/arademaker" rel="alternate" title="Alexandre Rademaker" type="application/atom+xml" />
+ 
+ <!-- syntax highlighting CSS -->
+ <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+ <!-- <link href="/css/highlight.css" rel="stylesheet" type="text/css"> -->
+ <link href="/css/gists.css" rel="stylesheet" type="text/css"/>
+
+ <!-- CSS -->
+ <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+ <!-- Typekit 
+ <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+ <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+ -->
+
+ <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-97240-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+  <div id="outer">
+    <div id="top"></div>
+
+    <div id="left">
+      <img src="/images/eu-sf.jpg"/>
+    </div>  
+
+    <div class="site">
+      <div class="title">
+	<a href="/">Alexandre Rademaker</a>
+	<a class="extra" href="/about.html">about me</a>
+	<a class="extra" href="/publications.html">publications</a>
+        <a class="extra" href="/research.html">research</a>
+	<a class="extra" href="/teaching.html">teaching</a>
+      </div>
+      
+      <div id="post">
+  <h1> Solving the Puzzle </h1>
+
+  <p>Solving the <a href="http://fivethirtyeight.com/features/can-you-solve-the-impossible-puzzle/">Can You Solve The Impossible Puzzle?</a></p>
+<p>Our search space contains 45 possible candidates of pairs. The tables
+  below will have one candidate of a pair on each row. In the first
+  column, we have the multiple, in the second column the sum and the
+  last two columns the candidate pair.</p>
+<pre class="src" lang="lisp">
+(loop for x from 1 to 9
+      append (loop for y from 9 downto x
+                   collect (list (* x y) (+ x y) x y)))
+</pre>
+<p>In the first time that Barack asked Pete, if Pete knew the answer his
+  multiple would be unique defined in the candidate list, that was not
+  the case, so we must remove the multiples without repetitions.</p>
+<pre class="src" lang="lisp">
+(let ((res nil)
+      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&#39;car)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+</pre>
+<p>When Barack asked Susan for the first time, she already knew that Pete
+  didn&#8217;t know the answer either. So the candidate list in her mind is
+  the list above. But she didn&#8217;t know the answer of Barack&#8217;s question
+  either, so her sum are not unique in this list too.</p>
+<pre class="src" lang="lisp">
+(let ((res nil)
+      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&#39;cadr)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+</pre>
+<p>In the second time that Barack asked Pete, he still didn&#8217;t know. So we
+  have to exclude all unique multiples again.</p>
+<pre class="src" lang="lisp">
+(let ((res nil)
+      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&#39;car)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+</pre>
+<p>The same again for the second time Barack asked Susan:</p>
+<pre class="src" lang="lisp">
+(let ((res nil)
+      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&#39;cadr)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+</pre>
+<p>Pete in the third time still didn&#8217;t know.</p>
+<pre class="src" lang="lisp">
+(let ((res nil)
+      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&#39;car)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+</pre>
+<p>Susan in the third still didn&#8217;t know.</p>
+<pre class="src" lang="lisp">
+(let ((res nil)
+      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&#39;cadr)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+</pre>
+<p>Pete once more didn&#8217;t know:</p>
+<pre class="src" lang="lisp">
+(let ((res nil)
+      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&#39;car)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+</pre>
+<p>Susan in the fourth time didn&#8217;t know either:</p>
+<pre class="src" lang="lisp">
+(let ((res nil)
+      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&#39;cadr)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+</pre>
+<p>At this moment, in the fifth time, Pete knew the answer. That is, his
+  number should be 16, since this is the only multiple that unique
+  defines the candidates: 2 and 8.</p>
+<p>If Pete didn&#8217;t knew at this time, Barack would have asked once more to
+  Susan and we would have to exclude the pair <code>(2,8)</code> from the list of
+  candidates:</p>
+<pre class="src" lang="lisp">
+(let ((res nil)
+      (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1))
+                        (group-by:group-by-repeated data :keys (list #&#39;car)))))
+  (dolist (a input res)
+    (setf res (append (cdr a) res))))
+</pre>
+<p>In this candidate list, Susan would not be able to identify the
+  numbers since no sum is unique.</p>
+
+
+ <hr/>
+
+ <div id="disqus_thread"></div>
+ <script type="text/javascript">
+   var disqus_shortname = 'arademaker'; 
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+      <div class="footer">
+	<div class="contact">
+	  <p>
+            Professor at <a href="http://emap.fgv.br/">EMAp/FGV</a>, Researcher at <a href="http://research.ibm.com">IBM</a><br/>
+            arademaker AT gmail DOT com
+	  </p>
+	  
+	  <p><a id="academia-button" href="https://ibm.academia.edu/AlexandreRademaker">Follow me on Academia.edu</a><script src="//a.academia-assets.com/javascripts/social.js"></script></p>
+
+	  <p>
+	    <a href="http://github.com/arademaker/">github.com/arademaker</a> - 
+            <a href="http://twitter.com/arademaker/">twitter.com/arademaker</a> - 
+            <a href="http://facebook.com/alexandre.rademaker">Facebook</a> -
+	    <a href="https://scholar.google.com.br/citations?user=SWz6BjIAAAAJ&hl=en">Google Scholar</a>
+	  </p>
+	  <p>The postings and pages on this site are my own and don't
+	    necessarily represent IBM's or FGV's positions, strategies
+	    or opinions.</p>
+	</div>	
+	<div class="rss">
+	  <p><a href="http://feeds.feedburner.com/arademaker"><img src="/images/rss.png" alt="Subscribe to RSS Feed" /></a></p>
+	</div>
+      </div>
+    </div>
+
+    <div id="right">
+    </div>
+  </div>
+</body>
+</html>
