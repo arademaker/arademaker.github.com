@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2016-04-03T19:08:40-03:00</updated>
+ <updated>2016-04-03T19:19:54-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -17,7 +17,8 @@
    <link href="http://arademaker.github.com/blog/2016/04/03/puzzle.html"/>
    <updated>2016-04-03T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2016/04/03/puzzle</id>
-   <content type="html">&lt;p&gt;Solving the &lt;a href=&quot;http://fivethirtyeight.com/features/can-you-solve-the-impossible-puzzle/&quot;&gt;Can You Solve The Impossible Puzzle?&lt;/a&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;Solving the &lt;a href=&quot;http://fivethirtyeight.com/features/can-you-solve-the-impossible-puzzle/&quot;&gt;Can You Solve The Impossible Puzzle?&lt;/a&gt; with Common Lisp and
+  &lt;a href=&quot;http://orgmode.org&quot;&gt;Org Mode&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Our search space contains 45 possible candidates of pairs. The tables
   below will have one candidate of a pair on each row. In the first
   column, we have the multiple, in the second column the sum and the
@@ -25,17 +26,16 @@
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
 (defun auxiliar (data func)
   (let* ((pre (group-by:group-by-repeated data :keys (list func)))
-         (res &amp;#39;((mult sum x y)))
          (input (remove-if (lambda (p) (&amp;lt;= (length (cdr p)) 1)) pre)))
-    (dolist (a input res)
-      (setf res (append res (cdr a))))))
+    (reduce (lambda (acc a) (append acc (cdr a))) input
+            :initial-value &amp;#39;((mult sum x y)))))
 
 (cons &amp;#39;(mult sum x y) 
       (loop for x from 1 to 9
             append (loop for y from 9 downto x
                          collect (list (* x y) (+ x y) x y))))
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[c9211c8d8b42fa22785d8b17a75bb82cb7ebdda1]: start&lt;/p&gt;
+&lt;p&gt;#+RESULTS[cb7ead729afb1c44971a437c005c6bdb91c7f83f]: start&lt;/p&gt;
 &lt;table&gt;
   &lt;tr&gt;&lt;td&gt;mult&lt;/td&gt;&lt;td&gt;sum&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;/tr&gt;

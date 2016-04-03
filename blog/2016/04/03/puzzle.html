@@ -64,7 +64,8 @@
       <div id="post">
   <h1> Solving the Puzzle </h1>
 
-  <p>Solving the <a href="http://fivethirtyeight.com/features/can-you-solve-the-impossible-puzzle/">Can You Solve The Impossible Puzzle?</a></p>
+  <p>Solving the <a href="http://fivethirtyeight.com/features/can-you-solve-the-impossible-puzzle/">Can You Solve The Impossible Puzzle?</a> with Common Lisp and
+  <a href="http://orgmode.org">Org Mode</a>.</p>
 <p>Our search space contains 45 possible candidates of pairs. The tables
   below will have one candidate of a pair on each row. In the first
   column, we have the multiple, in the second column the sum and the
@@ -72,17 +73,16 @@
 <pre class="src" lang="lisp">
 (defun auxiliar (data func)
   (let* ((pre (group-by:group-by-repeated data :keys (list func)))
-         (res &#39;((mult sum x y)))
          (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1)) pre)))
-    (dolist (a input res)
-      (setf res (append res (cdr a))))))
+    (reduce (lambda (acc a) (append acc (cdr a))) input
+            :initial-value &#39;((mult sum x y)))))
 
 (cons &#39;(mult sum x y) 
       (loop for x from 1 to 9
             append (loop for y from 9 downto x
                          collect (list (* x y) (+ x y) x y))))
 </pre>
-<p>#+RESULTS[c9211c8d8b42fa22785d8b17a75bb82cb7ebdda1]: start</p>
+<p>#+RESULTS[cb7ead729afb1c44971a437c005c6bdb91c7f83f]: start</p>
 <table>
   <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
   <tr><td>9</td><td>10</td><td>1</td><td>9</td></tr>
