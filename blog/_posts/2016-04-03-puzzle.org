@@ -9,8 +9,8 @@ tags:
 #+OPTIONS: toc:nil
 #+PROPERTY: exports both
 
-
-Solving the [[http://fivethirtyeight.com/features/can-you-solve-the-impossible-puzzle/][Can You Solve The Impossible Puzzle?]] 
+Solving the [[http://fivethirtyeight.com/features/can-you-solve-the-impossible-puzzle/][Can You Solve The Impossible Puzzle?]] with Common Lisp and
+[[http://orgmode.org][Org Mode]].
 
 Our search space contains 45 possible candidates of pairs. The tables
 below will have one candidate of a pair on each row. In the first
@@ -21,10 +21,9 @@ last two columns the candidate pair.
 #+BEGIN_SRC lisp :results value
   (defun auxiliar (data func)
     (let* ((pre (group-by:group-by-repeated data :keys (list func)))
-           (res '((mult sum x y)))
            (input (remove-if (lambda (p) (<= (length (cdr p)) 1)) pre)))
-      (dolist (a input res)
-        (setf res (append res (cdr a))))))
+      (reduce (lambda (acc a) (append acc (cdr a))) input
+              :initial-value '((mult sum x y)))))
 
   (cons '(mult sum x y) 
         (loop for x from 1 to 9
@@ -32,7 +31,7 @@ last two columns the candidate pair.
                            collect (list (* x y) (+ x y) x y))))
 #+END_SRC
 
-#+RESULTS[c9211c8d8b42fa22785d8b17a75bb82cb7ebdda1]: start
+#+RESULTS[cb7ead729afb1c44971a437c005c6bdb91c7f83f]: start
 | mult | sum | x | y |
 |    9 |  10 | 1 | 9 |
 |    8 |   9 | 1 | 8 |
