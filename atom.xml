@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2016-04-04T08:23:01-03:00</updated>
+ <updated>2016-04-04T08:36:40-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -19,12 +19,16 @@
    <id>http://arademaker.github.com/blog/2016/04/03/puzzle</id>
    <content type="html">&lt;p&gt;Solving the &lt;a href=&quot;http://fivethirtyeight.com/features/can-you-solve-the-impossible-puzzle/&quot;&gt;Can You Solve The Impossible Puzzle?&lt;/a&gt; with Common Lisp and
   &lt;a href=&quot;http://orgmode.org&quot;&gt;Org Mode&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Our search space contains 45 possible candidates of pairs. The tables
-  below will have one candidate of a pair on each row. In the first
-  column, we have the multiple, in the second column the sum and the
-  last two columns the candidate pair.&lt;/p&gt;
+&lt;p&gt;Our search space contains 45 possible candidates of pairs of
+  numbers. The tables below will have one candidate of a pair on each
+  row. In the first column, we have the multiple, in the second column
+  the sum and the last two columns the candidate pair. The &lt;code&gt;prune&lt;/code&gt;
+  function will help us to reduce the search space on each interaction,
+  filtering the elements without repetition.&lt;/p&gt;
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
-(defun auxiliar (data func)
+(ql:quickload :group-by)
+
+(defun prune (data func)
   (let* ((pre (group-by:group-by-repeated data :keys (list func)))
          (input (remove-if (lambda (p) (&amp;lt;= (length (cdr p)) 1)) pre)))
     (reduce (lambda (acc a) (append acc (cdr a))) input
@@ -35,7 +39,7 @@
             append (loop for y from 9 downto x
                          collect (list (* x y) (+ x y) x y))))
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[4f16128bf63481860381515fd0f502cdb3bee0e8]: start&lt;/p&gt;
+&lt;p&gt;#+RESULTS[ca79f9a22ba8cd356c32197a5ac0ad93f8159c81]: start&lt;/p&gt;
 &lt;table&gt;
   &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;/tr&gt;
@@ -88,9 +92,9 @@
   multiple would be unique defined in the candidate list, that was not
   the case, so we must remove the multiples without repetitions.&lt;/p&gt;
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
-(auxiliar data #&amp;#39;car)
+(prune (cdr data) #&amp;#39;first)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[85ea821794ebcb819daf2878195530a279649456]: step-1&lt;/p&gt;
+&lt;p&gt;#+RESULTS[6db81e23c88ea3483e1865437f8de0f9cca170cd]: step-1&lt;/p&gt;
 &lt;table&gt;
   &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;36&lt;/td&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
@@ -117,9 +121,9 @@
   the list above. But she didn&amp;#8217;t know the answer of Barack&amp;#8217;s question
   either, so her sum are not unique in this list too.&lt;/p&gt;
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
-(auxiliar (cdr data) #&amp;#39;cadr)
+(prune (cdr data) #&amp;#39;second)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[e4ad86e2760a07dd879d5b7e8e0b65bd9fa50e51]: step-2&lt;/p&gt;
+&lt;p&gt;#+RESULTS[2ac1f2a3d955fbf7a89f6db99a91c8f902775483]: step-2&lt;/p&gt;
 &lt;table&gt;
   &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;
@@ -141,9 +145,9 @@
 &lt;p&gt;In the second time that Barack asked Pete, he still didn&amp;#8217;t know. So we
   have to exclude all unique multiples again.&lt;/p&gt;
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
-(auxiliar (cdr data) #&amp;#39;car)
+(prune (cdr data) #&amp;#39;first)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[156c37978fbb0edeefed2c8a16bc604ca90a50a1]: step-3&lt;/p&gt;
+&lt;p&gt;#+RESULTS[d5b928145f97d2bea7471b63383a9e34d6178b5a]: step-3&lt;/p&gt;
 &lt;table&gt;
   &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
@@ -163,9 +167,9 @@
 &lt;/table&gt;
 &lt;p&gt;The same again for the second time Barack asked Susan:&lt;/p&gt;
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
-(auxiliar (cdr data) #&amp;#39;cadr)
+(prune (cdr data) #&amp;#39;second)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[c8d66c677b812868a817d9b49d716b5f634c757b]: step-4&lt;/p&gt;
+&lt;p&gt;#+RESULTS[17b25e5fc689d147eda2bd35c388cde44f310568]: step-4&lt;/p&gt;
 &lt;table&gt;
   &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;
@@ -184,9 +188,9 @@
 &lt;/table&gt;
 &lt;p&gt;Pete in the third time still didn&amp;#8217;t know.&lt;/p&gt;
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
-(auxiliar (cdr data) #&amp;#39;car)
+(prune (cdr data) #&amp;#39;first)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[ac597a2b491100c48a03032bf12b6d86783be52d]: step-5&lt;/p&gt;
+&lt;p&gt;#+RESULTS[44d455fea1e59e9db1788bb012f6cdd4abcc32f1]: step-5&lt;/p&gt;
 &lt;table&gt;
   &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
@@ -204,9 +208,9 @@
 &lt;/table&gt;
 &lt;p&gt;Susan in the third still didn&amp;#8217;t know.&lt;/p&gt;
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
-(auxiliar (cdr data) #&amp;#39;cadr)
+(prune (cdr data) #&amp;#39;second)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[e2001ee037b59d920e6cf2aed554191680c14924]: step-6&lt;/p&gt;
+&lt;p&gt;#+RESULTS[7a0a13546e37c1bd0d1fff1059eb069b381cbd30]: step-6&lt;/p&gt;
 &lt;table&gt;
   &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;
@@ -223,9 +227,9 @@
 &lt;/table&gt;
 &lt;p&gt;Pete once more didn&amp;#8217;t know:&lt;/p&gt;
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
-(auxiliar (cdr data) #&amp;#39;car)
+(prune (cdr data) #&amp;#39;first)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[6ecc05353a4fb2b1db0837e2ffa48aab066d141e]: step-7&lt;/p&gt;
+&lt;p&gt;#+RESULTS[079394364b443353af7d9353a8c0a38835b09ee2]: step-7&lt;/p&gt;
 &lt;table&gt;
   &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
@@ -241,9 +245,9 @@
 &lt;/table&gt;
 &lt;p&gt;Susan in the fourth time didn&amp;#8217;t know either:&lt;/p&gt;
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
-(auxiliar (cdr data) #&amp;#39;cadr)
+(prune (cdr data) #&amp;#39;second)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[8272a99180bbcff7525392eced4d1fa0c0ac0192]: step-8&lt;/p&gt;
+&lt;p&gt;#+RESULTS[e8f43474732654a4d80a659c50fe51b7ddba6a28]: step-8&lt;/p&gt;
 &lt;table&gt;
   &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;
@@ -263,9 +267,9 @@
   Susan and we would have to exclude the pair &lt;code&gt;(2,8)&lt;/code&gt; from the list of
   candidates:&lt;/p&gt;
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
-(auxiliar (cdr data) #&amp;#39;car)
+(prune (cdr data) #&amp;#39;first)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[7c8de1b92d06cead4953cd4632f2b7ba65e0642b]: step-9&lt;/p&gt;
+&lt;p&gt;#+RESULTS[b04f949aa4cfaea9ae9f63533fc50b207336f698]: step-9&lt;/p&gt;
 &lt;table&gt;
   &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
@@ -279,6 +283,14 @@
 &lt;/table&gt;
 &lt;p&gt;In this candidate list, Susan would not be able to identify the
   numbers since no sum is unique.&lt;/p&gt;
+&lt;h1&gt;Links&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.jstatsoft.org/article/view/v046i03&quot;&gt;A Multi-Language Computing Environment for Literate Programming and
+    Reproducible Research&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;http://orgmode.org&lt;/li&gt;
+  &lt;li&gt;http://quicklisp.org&lt;/li&gt;
+  &lt;li&gt;https://common-lisp.net&lt;/li&gt;
+&lt;/ul&gt;
 </content>
  </entry>
  
