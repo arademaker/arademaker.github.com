@@ -302,7 +302,7 @@ numbers since no sum is unique.
 
 - [[https://www.jstatsoft.org/article/view/v046i03][A Multi-Language Computing Environment for Literate Programming and
   Reproducible Research]]
-- http://orgmode.org
-- http://quicklisp.org
-- https://common-lisp.net
+- [[http://orgmode.org]]
+- [[http://quicklisp.org]]
+- [[https://common-lisp.net][Common Lisp]]
 
