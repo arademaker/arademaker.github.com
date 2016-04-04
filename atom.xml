@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2016-04-04T08:36:40-03:00</updated>
+ <updated>2016-04-04T08:40:56-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -287,9 +287,9 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.jstatsoft.org/article/view/v046i03&quot;&gt;A Multi-Language Computing Environment for Literate Programming and
     Reproducible Research&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;http://orgmode.org&lt;/li&gt;
-  &lt;li&gt;http://quicklisp.org&lt;/li&gt;
-  &lt;li&gt;https://common-lisp.net&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://orgmode.org&quot;&gt;http://orgmode.org&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://quicklisp.org&quot;&gt;http://quicklisp.org&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://common-lisp.net&quot;&gt;Common Lisp&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
  </entry>
