@@ -75,16 +75,16 @@
   (let* ((pre (group-by:group-by-repeated data :keys (list func)))
          (input (remove-if (lambda (p) (&lt;= (length (cdr p)) 1)) pre)))
     (reduce (lambda (acc a) (append acc (cdr a))) input
-            :initial-value &#39;((mult sum x y)))))
+            :initial-value &#39;((m s x y)))))
 
-(cons &#39;(mult sum x y) 
+(cons &#39;(m s x y)
       (loop for x from 1 to 9
             append (loop for y from 9 downto x
                          collect (list (* x y) (+ x y) x y))))
 </pre>
-<p>#+RESULTS[cb7ead729afb1c44971a437c005c6bdb91c7f83f]: start</p>
+<p>#+RESULTS[4f16128bf63481860381515fd0f502cdb3bee0e8]: start</p>
 <table>
-  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>m</td><td>s</td><td>x</td><td>y</td></tr>
   <tr><td>9</td><td>10</td><td>1</td><td>9</td></tr>
   <tr><td>8</td><td>9</td><td>1</td><td>8</td></tr>
   <tr><td>7</td><td>8</td><td>1</td><td>7</td></tr>
@@ -135,11 +135,11 @@
   multiple would be unique defined in the candidate list, that was not
   the case, so we must remove the multiples without repetitions.</p>
 <pre class="src" lang="lisp">
-(auxiliar (cdr data) #&#39;car)
+(auxiliar data #&#39;car)
 </pre>
-<p>#+RESULTS[0a1358cf7ca4a4406313f32a911c83bbd2d83eab]: step-1</p>
+<p>#+RESULTS[85ea821794ebcb819daf2878195530a279649456]: step-1</p>
 <table>
-  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>m</td><td>s</td><td>x</td><td>y</td></tr>
   <tr><td>36</td><td>12</td><td>6</td><td>6</td></tr>
   <tr><td>36</td><td>13</td><td>4</td><td>9</td></tr>
   <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
@@ -166,9 +166,9 @@
 <pre class="src" lang="lisp">
 (auxiliar (cdr data) #&#39;cadr)
 </pre>
-<p>#+RESULTS[a3d0faf034776af5d6c4a9345568fe55abab1b36]: step-2</p>
+<p>#+RESULTS[e4ad86e2760a07dd879d5b7e8e0b65bd9fa50e51]: step-2</p>
 <table>
-  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>m</td><td>s</td><td>x</td><td>y</td></tr>
   <tr><td>9</td><td>6</td><td>3</td><td>3</td></tr>
   <tr><td>8</td><td>6</td><td>2</td><td>4</td></tr>
   <tr><td>6</td><td>5</td><td>2</td><td>3</td></tr>
@@ -190,9 +190,9 @@
 <pre class="src" lang="lisp">
 (auxiliar (cdr data) #&#39;car)
 </pre>
-<p>#+RESULTS[29091e5db94cdf69ed2d29d0954ec29088ab242a]: step-3</p>
+<p>#+RESULTS[156c37978fbb0edeefed2c8a16bc604ca90a50a1]: step-3</p>
 <table>
-  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>m</td><td>s</td><td>x</td><td>y</td></tr>
   <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
   <tr><td>24</td><td>11</td><td>3</td><td>8</td></tr>
   <tr><td>12</td><td>7</td><td>3</td><td>4</td></tr>
@@ -212,9 +212,9 @@
 <pre class="src" lang="lisp">
 (auxiliar (cdr data) #&#39;cadr)
 </pre>
-<p>#+RESULTS[8f4ab88d475e3770ab85a7587e199dde6b89e219]: step-4</p>
+<p>#+RESULTS[c8d66c677b812868a817d9b49d716b5f634c757b]: step-4</p>
 <table>
-  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>m</td><td>s</td><td>x</td><td>y</td></tr>
   <tr><td>9</td><td>6</td><td>3</td><td>3</td></tr>
   <tr><td>8</td><td>6</td><td>2</td><td>4</td></tr>
   <tr><td>8</td><td>9</td><td>1</td><td>8</td></tr>
@@ -233,9 +233,9 @@
 <pre class="src" lang="lisp">
 (auxiliar (cdr data) #&#39;car)
 </pre>
-<p>#+RESULTS[a4f82476e9f5b91c7365bfbcd243eb9a5b0ef184]: step-5</p>
+<p>#+RESULTS[ac597a2b491100c48a03032bf12b6d86783be52d]: step-5</p>
 <table>
-  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>m</td><td>s</td><td>x</td><td>y</td></tr>
   <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
   <tr><td>24</td><td>11</td><td>3</td><td>8</td></tr>
   <tr><td>12</td><td>7</td><td>3</td><td>4</td></tr>
@@ -253,9 +253,9 @@
 <pre class="src" lang="lisp">
 (auxiliar (cdr data) #&#39;cadr)
 </pre>
-<p>#+RESULTS[d5ef11d7b9e904ae92893a3e7719922628e8fcd6]: step-6</p>
+<p>#+RESULTS[e2001ee037b59d920e6cf2aed554191680c14924]: step-6</p>
 <table>
-  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>m</td><td>s</td><td>x</td><td>y</td></tr>
   <tr><td>9</td><td>6</td><td>3</td><td>3</td></tr>
   <tr><td>8</td><td>6</td><td>2</td><td>4</td></tr>
   <tr><td>8</td><td>9</td><td>1</td><td>8</td></tr>
@@ -272,9 +272,9 @@
 <pre class="src" lang="lisp">
 (auxiliar (cdr data) #&#39;car)
 </pre>
-<p>#+RESULTS[210f459fccb8d83504937e6ab5153c40933d1478]: step-7</p>
+<p>#+RESULTS[6ecc05353a4fb2b1db0837e2ffa48aab066d141e]: step-7</p>
 <table>
-  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>m</td><td>s</td><td>x</td><td>y</td></tr>
   <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
   <tr><td>24</td><td>11</td><td>3</td><td>8</td></tr>
   <tr><td>16</td><td>10</td><td>2</td><td>8</td></tr>
@@ -290,9 +290,9 @@
 <pre class="src" lang="lisp">
 (auxiliar (cdr data) #&#39;cadr)
 </pre>
-<p>#+RESULTS[6fb43a3379ff627dcfbfb028689022f9ed6e11c8]: step-8</p>
+<p>#+RESULTS[8272a99180bbcff7525392eced4d1fa0c0ac0192]: step-8</p>
 <table>
-  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>m</td><td>s</td><td>x</td><td>y</td></tr>
   <tr><td>9</td><td>6</td><td>3</td><td>3</td></tr>
   <tr><td>8</td><td>6</td><td>2</td><td>4</td></tr>
   <tr><td>8</td><td>9</td><td>1</td><td>8</td></tr>
@@ -312,9 +312,9 @@
 <pre class="src" lang="lisp">
 (auxiliar (cdr data) #&#39;car)
 </pre>
-<p>#+RESULTS[0b1b6db3323d938fef641a61b3d73026a79b4a84]: step-9</p>
+<p>#+RESULTS[7c8de1b92d06cead4953cd4632f2b7ba65e0642b]: step-9</p>
 <table>
-  <tr><td>mult</td><td>sum</td><td>x</td><td>y</td></tr>
+  <tr><td>m</td><td>s</td><td>x</td><td>y</td></tr>
   <tr><td>24</td><td>10</td><td>4</td><td>6</td></tr>
   <tr><td>24</td><td>11</td><td>3</td><td>8</td></tr>
   <tr><td>18</td><td>11</td><td>2</td><td>9</td></tr>

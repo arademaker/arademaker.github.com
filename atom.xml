@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2016-04-03T19:19:54-03:00</updated>
+ <updated>2016-04-04T08:23:01-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -28,16 +28,16 @@
   (let* ((pre (group-by:group-by-repeated data :keys (list func)))
          (input (remove-if (lambda (p) (&amp;lt;= (length (cdr p)) 1)) pre)))
     (reduce (lambda (acc a) (append acc (cdr a))) input
-            :initial-value &amp;#39;((mult sum x y)))))
+            :initial-value &amp;#39;((m s x y)))))
 
-(cons &amp;#39;(mult sum x y) 
+(cons &amp;#39;(m s x y)
       (loop for x from 1 to 9
             append (loop for y from 9 downto x
                          collect (list (* x y) (+ x y) x y))))
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[cb7ead729afb1c44971a437c005c6bdb91c7f83f]: start&lt;/p&gt;
+&lt;p&gt;#+RESULTS[4f16128bf63481860381515fd0f502cdb3bee0e8]: start&lt;/p&gt;
 &lt;table&gt;
-  &lt;tr&gt;&lt;td&gt;mult&lt;/td&gt;&lt;td&gt;sum&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;/tr&gt;
@@ -88,11 +88,11 @@
   multiple would be unique defined in the candidate list, that was not
   the case, so we must remove the multiples without repetitions.&lt;/p&gt;
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
-(auxiliar (cdr data) #&amp;#39;car)
+(auxiliar data #&amp;#39;car)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[0a1358cf7ca4a4406313f32a911c83bbd2d83eab]: step-1&lt;/p&gt;
+&lt;p&gt;#+RESULTS[85ea821794ebcb819daf2878195530a279649456]: step-1&lt;/p&gt;
 &lt;table&gt;
-  &lt;tr&gt;&lt;td&gt;mult&lt;/td&gt;&lt;td&gt;sum&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;36&lt;/td&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;36&lt;/td&gt;&lt;td&gt;13&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
@@ -119,9 +119,9 @@
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
 (auxiliar (cdr data) #&amp;#39;cadr)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[a3d0faf034776af5d6c4a9345568fe55abab1b36]: step-2&lt;/p&gt;
+&lt;p&gt;#+RESULTS[e4ad86e2760a07dd879d5b7e8e0b65bd9fa50e51]: step-2&lt;/p&gt;
 &lt;table&gt;
-  &lt;tr&gt;&lt;td&gt;mult&lt;/td&gt;&lt;td&gt;sum&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;
@@ -143,9 +143,9 @@
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
 (auxiliar (cdr data) #&amp;#39;car)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[29091e5db94cdf69ed2d29d0954ec29088ab242a]: step-3&lt;/p&gt;
+&lt;p&gt;#+RESULTS[156c37978fbb0edeefed2c8a16bc604ca90a50a1]: step-3&lt;/p&gt;
 &lt;table&gt;
-  &lt;tr&gt;&lt;td&gt;mult&lt;/td&gt;&lt;td&gt;sum&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;/tr&gt;
@@ -165,9 +165,9 @@
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
 (auxiliar (cdr data) #&amp;#39;cadr)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[8f4ab88d475e3770ab85a7587e199dde6b89e219]: step-4&lt;/p&gt;
+&lt;p&gt;#+RESULTS[c8d66c677b812868a817d9b49d716b5f634c757b]: step-4&lt;/p&gt;
 &lt;table&gt;
-  &lt;tr&gt;&lt;td&gt;mult&lt;/td&gt;&lt;td&gt;sum&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;
@@ -186,9 +186,9 @@
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
 (auxiliar (cdr data) #&amp;#39;car)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[a4f82476e9f5b91c7365bfbcd243eb9a5b0ef184]: step-5&lt;/p&gt;
+&lt;p&gt;#+RESULTS[ac597a2b491100c48a03032bf12b6d86783be52d]: step-5&lt;/p&gt;
 &lt;table&gt;
-  &lt;tr&gt;&lt;td&gt;mult&lt;/td&gt;&lt;td&gt;sum&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;/tr&gt;
@@ -206,9 +206,9 @@
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
 (auxiliar (cdr data) #&amp;#39;cadr)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[d5ef11d7b9e904ae92893a3e7719922628e8fcd6]: step-6&lt;/p&gt;
+&lt;p&gt;#+RESULTS[e2001ee037b59d920e6cf2aed554191680c14924]: step-6&lt;/p&gt;
 &lt;table&gt;
-  &lt;tr&gt;&lt;td&gt;mult&lt;/td&gt;&lt;td&gt;sum&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;
@@ -225,9 +225,9 @@
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
 (auxiliar (cdr data) #&amp;#39;car)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[210f459fccb8d83504937e6ab5153c40933d1478]: step-7&lt;/p&gt;
+&lt;p&gt;#+RESULTS[6ecc05353a4fb2b1db0837e2ffa48aab066d141e]: step-7&lt;/p&gt;
 &lt;table&gt;
-  &lt;tr&gt;&lt;td&gt;mult&lt;/td&gt;&lt;td&gt;sum&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;16&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;
@@ -243,9 +243,9 @@
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
 (auxiliar (cdr data) #&amp;#39;cadr)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[6fb43a3379ff627dcfbfb028689022f9ed6e11c8]: step-8&lt;/p&gt;
+&lt;p&gt;#+RESULTS[8272a99180bbcff7525392eced4d1fa0c0ac0192]: step-8&lt;/p&gt;
 &lt;table&gt;
-  &lt;tr&gt;&lt;td&gt;mult&lt;/td&gt;&lt;td&gt;sum&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;
@@ -265,9 +265,9 @@
 &lt;pre class=&quot;src&quot; lang=&quot;lisp&quot;&gt;
 (auxiliar (cdr data) #&amp;#39;car)
 &lt;/pre&gt;
-&lt;p&gt;#+RESULTS[0b1b6db3323d938fef641a61b3d73026a79b4a84]: step-9&lt;/p&gt;
+&lt;p&gt;#+RESULTS[7c8de1b92d06cead4953cd4632f2b7ba65e0642b]: step-9&lt;/p&gt;
 &lt;table&gt;
-  &lt;tr&gt;&lt;td&gt;mult&lt;/td&gt;&lt;td&gt;sum&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;x&lt;/td&gt;&lt;td&gt;y&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;
   &lt;tr&gt;&lt;td&gt;18&lt;/td&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;/tr&gt;
