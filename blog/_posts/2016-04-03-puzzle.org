@@ -12,14 +12,18 @@ tags:
 Solving the [[http://fivethirtyeight.com/features/can-you-solve-the-impossible-puzzle/][Can You Solve The Impossible Puzzle?]] with Common Lisp and
 [[http://orgmode.org][Org Mode]].
 
-Our search space contains 45 possible candidates of pairs. The tables
-below will have one candidate of a pair on each row. In the first
-column, we have the multiple, in the second column the sum and the
-last two columns the candidate pair. 
+Our search space contains 45 possible candidates of pairs of
+numbers. The tables below will have one candidate of a pair on each
+row. In the first column, we have the multiple, in the second column
+the sum and the last two columns the candidate pair. The =prune=
+function will help us to reduce the search space on each interaction,
+filtering the elements without repetition.
 
 #+name: start
 #+BEGIN_SRC lisp :results value
-  (defun auxiliar (data func)
+  (ql:quickload :group-by)
+
+  (defun prune (data func)
     (let* ((pre (group-by:group-by-repeated data :keys (list func)))
            (input (remove-if (lambda (p) (<= (length (cdr p)) 1)) pre)))
       (reduce (lambda (acc a) (append acc (cdr a))) input
@@ -31,7 +35,7 @@ last two columns the candidate pair.
                            collect (list (* x y) (+ x y) x y))))
 #+END_SRC
 
-#+RESULTS[4f16128bf63481860381515fd0f502cdb3bee0e8]: start
+#+RESULTS[ca79f9a22ba8cd356c32197a5ac0ad93f8159c81]: start
 |  m |  s | x | y |
 |  9 | 10 | 1 | 9 |
 |  8 |  9 | 1 | 8 |
@@ -85,10 +89,10 @@ the case, so we must remove the multiples without repetitions.
 
 #+name: step-1
 #+BEGIN_SRC lisp :var data=start :results value
-  (auxiliar data #'car)
+  (prune (cdr data) #'first)
 #+END_SRC
 
-#+RESULTS[85ea821794ebcb819daf2878195530a279649456]: step-1
+#+RESULTS[6db81e23c88ea3483e1865437f8de0f9cca170cd]: step-1
 |  m |  s | x | y |
 | 36 | 12 | 6 | 6 |
 | 36 | 13 | 4 | 9 |
@@ -116,10 +120,10 @@ either, so her sum are not unique in this list too.
 
 #+name: step-2
 #+BEGIN_SRC lisp :var data=step-1 :results value
-  (auxiliar (cdr data) #'cadr)
+  (prune (cdr data) #'second)
 #+END_SRC
 
-#+RESULTS[e4ad86e2760a07dd879d5b7e8e0b65bd9fa50e51]: step-2
+#+RESULTS[2ac1f2a3d955fbf7a89f6db99a91c8f902775483]: step-2
 |  m |  s | x | y |
 |  9 |  6 | 3 | 3 |
 |  8 |  6 | 2 | 4 |
@@ -142,10 +146,10 @@ have to exclude all unique multiples again.
 
 #+name: step-3
 #+BEGIN_SRC lisp :var data=step-2 :results value
-  (auxiliar (cdr data) #'car)
+  (prune (cdr data) #'first)
 #+END_SRC
 
-#+RESULTS[156c37978fbb0edeefed2c8a16bc604ca90a50a1]: step-3
+#+RESULTS[d5b928145f97d2bea7471b63383a9e34d6178b5a]: step-3
 |  m |  s | x | y |
 | 24 | 10 | 4 | 6 |
 | 24 | 11 | 3 | 8 |
@@ -166,10 +170,10 @@ The same again for the second time Barack asked Susan:
 
 #+name: step-4
 #+BEGIN_SRC lisp :var data=step-3 :results value
-  (auxiliar (cdr data) #'cadr)
+  (prune (cdr data) #'second)
 #+END_SRC
 
-#+RESULTS[c8d66c677b812868a817d9b49d716b5f634c757b]: step-4
+#+RESULTS[17b25e5fc689d147eda2bd35c388cde44f310568]: step-4
 |  m |  s | x | y |
 |  9 |  6 | 3 | 3 |
 |  8 |  6 | 2 | 4 |
@@ -189,10 +193,10 @@ Pete in the third time still didn't know.
 
 #+name: step-5
 #+BEGIN_SRC lisp :var data=step-4 :results value
-  (auxiliar (cdr data) #'car)
+  (prune (cdr data) #'first)
 #+END_SRC
 
-#+RESULTS[ac597a2b491100c48a03032bf12b6d86783be52d]: step-5
+#+RESULTS[44d455fea1e59e9db1788bb012f6cdd4abcc32f1]: step-5
 |  m |  s | x | y |
 | 24 | 10 | 4 | 6 |
 | 24 | 11 | 3 | 8 |
@@ -211,10 +215,10 @@ Susan in the third still didn't know.
 
 #+name: step-6
 #+BEGIN_SRC lisp :var data=step-5 :results value
-  (auxiliar (cdr data) #'cadr)
+  (prune (cdr data) #'second)
 #+END_SRC
 
-#+RESULTS[e2001ee037b59d920e6cf2aed554191680c14924]: step-6
+#+RESULTS[7a0a13546e37c1bd0d1fff1059eb069b381cbd30]: step-6
 |  m |  s | x | y |
 |  9 |  6 | 3 | 3 |
 |  8 |  6 | 2 | 4 |
@@ -232,10 +236,10 @@ Pete once more didn't know:
 
 #+name: step-7
 #+BEGIN_SRC lisp :var data=step-6 :results value
-  (auxiliar (cdr data) #'car)
+  (prune (cdr data) #'first)
 #+END_SRC
 
-#+RESULTS[6ecc05353a4fb2b1db0837e2ffa48aab066d141e]: step-7
+#+RESULTS[079394364b443353af7d9353a8c0a38835b09ee2]: step-7
 |  m |  s | x | y |
 | 24 | 10 | 4 | 6 |
 | 24 | 11 | 3 | 8 |
@@ -252,10 +256,10 @@ Susan in the fourth time didn't know either:
 
 #+name: step-8
 #+BEGIN_SRC lisp :var data=step-7 :results value
-  (auxiliar (cdr data) #'cadr)
+  (prune (cdr data) #'second)
 #+END_SRC
 
-#+RESULTS[8272a99180bbcff7525392eced4d1fa0c0ac0192]: step-8
+#+RESULTS[e8f43474732654a4d80a659c50fe51b7ddba6a28]: step-8
 |  m |  s | x | y |
 |  9 |  6 | 3 | 3 |
 |  8 |  6 | 2 | 4 |
@@ -277,10 +281,10 @@ candidates:
 
 #+name: step-9
 #+BEGIN_SRC lisp :var data=step-8 :results value
-  (auxiliar (cdr data) #'car)
+  (prune (cdr data) #'first)
 #+END_SRC
 
-#+RESULTS[7c8de1b92d06cead4953cd4632f2b7ba65e0642b]: step-9
+#+RESULTS[b04f949aa4cfaea9ae9f63533fc50b207336f698]: step-9
 |  m |  s | x | y |
 | 24 | 10 | 4 | 6 |
 | 24 | 11 | 3 | 8 |
@@ -293,3 +297,12 @@ candidates:
 
 In this candidate list, Susan would not be able to identify the
 numbers since no sum is unique.
+
+* Links
+
+- [[https://www.jstatsoft.org/article/view/v046i03][A Multi-Language Computing Environment for Literate Programming and
+  Reproducible Research]]
+- http://orgmode.org
+- http://quicklisp.org
+- https://common-lisp.net
+
