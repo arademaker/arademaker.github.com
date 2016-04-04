@@ -23,61 +23,61 @@ last two columns the candidate pair.
     (let* ((pre (group-by:group-by-repeated data :keys (list func)))
            (input (remove-if (lambda (p) (<= (length (cdr p)) 1)) pre)))
       (reduce (lambda (acc a) (append acc (cdr a))) input
-              :initial-value '((mult sum x y)))))
+              :initial-value '((m s x y)))))
 
-  (cons '(mult sum x y) 
+  (cons '(m s x y)
         (loop for x from 1 to 9
               append (loop for y from 9 downto x
                            collect (list (* x y) (+ x y) x y))))
 #+END_SRC
 
-#+RESULTS[cb7ead729afb1c44971a437c005c6bdb91c7f83f]: start
-| mult | sum | x | y |
-|    9 |  10 | 1 | 9 |
-|    8 |   9 | 1 | 8 |
-|    7 |   8 | 1 | 7 |
-|    6 |   7 | 1 | 6 |
-|    5 |   6 | 1 | 5 |
-|    4 |   5 | 1 | 4 |
-|    3 |   4 | 1 | 3 |
-|    2 |   3 | 1 | 2 |
-|    1 |   2 | 1 | 1 |
-|   18 |  11 | 2 | 9 |
-|   16 |  10 | 2 | 8 |
-|   14 |   9 | 2 | 7 |
-|   12 |   8 | 2 | 6 |
-|   10 |   7 | 2 | 5 |
-|    8 |   6 | 2 | 4 |
-|    6 |   5 | 2 | 3 |
-|    4 |   4 | 2 | 2 |
-|   27 |  12 | 3 | 9 |
-|   24 |  11 | 3 | 8 |
-|   21 |  10 | 3 | 7 |
-|   18 |   9 | 3 | 6 |
-|   15 |   8 | 3 | 5 |
-|   12 |   7 | 3 | 4 |
-|    9 |   6 | 3 | 3 |
-|   36 |  13 | 4 | 9 |
-|   32 |  12 | 4 | 8 |
-|   28 |  11 | 4 | 7 |
-|   24 |  10 | 4 | 6 |
-|   20 |   9 | 4 | 5 |
-|   16 |   8 | 4 | 4 |
-|   45 |  14 | 5 | 9 |
-|   40 |  13 | 5 | 8 |
-|   35 |  12 | 5 | 7 |
-|   30 |  11 | 5 | 6 |
-|   25 |  10 | 5 | 5 |
-|   54 |  15 | 6 | 9 |
-|   48 |  14 | 6 | 8 |
-|   42 |  13 | 6 | 7 |
-|   36 |  12 | 6 | 6 |
-|   63 |  16 | 7 | 9 |
-|   56 |  15 | 7 | 8 |
-|   49 |  14 | 7 | 7 |
-|   72 |  17 | 8 | 9 |
-|   64 |  16 | 8 | 8 |
-|   81 |  18 | 9 | 9 |
+#+RESULTS[4f16128bf63481860381515fd0f502cdb3bee0e8]: start
+|  m |  s | x | y |
+|  9 | 10 | 1 | 9 |
+|  8 |  9 | 1 | 8 |
+|  7 |  8 | 1 | 7 |
+|  6 |  7 | 1 | 6 |
+|  5 |  6 | 1 | 5 |
+|  4 |  5 | 1 | 4 |
+|  3 |  4 | 1 | 3 |
+|  2 |  3 | 1 | 2 |
+|  1 |  2 | 1 | 1 |
+| 18 | 11 | 2 | 9 |
+| 16 | 10 | 2 | 8 |
+| 14 |  9 | 2 | 7 |
+| 12 |  8 | 2 | 6 |
+| 10 |  7 | 2 | 5 |
+|  8 |  6 | 2 | 4 |
+|  6 |  5 | 2 | 3 |
+|  4 |  4 | 2 | 2 |
+| 27 | 12 | 3 | 9 |
+| 24 | 11 | 3 | 8 |
+| 21 | 10 | 3 | 7 |
+| 18 |  9 | 3 | 6 |
+| 15 |  8 | 3 | 5 |
+| 12 |  7 | 3 | 4 |
+|  9 |  6 | 3 | 3 |
+| 36 | 13 | 4 | 9 |
+| 32 | 12 | 4 | 8 |
+| 28 | 11 | 4 | 7 |
+| 24 | 10 | 4 | 6 |
+| 20 |  9 | 4 | 5 |
+| 16 |  8 | 4 | 4 |
+| 45 | 14 | 5 | 9 |
+| 40 | 13 | 5 | 8 |
+| 35 | 12 | 5 | 7 |
+| 30 | 11 | 5 | 6 |
+| 25 | 10 | 5 | 5 |
+| 54 | 15 | 6 | 9 |
+| 48 | 14 | 6 | 8 |
+| 42 | 13 | 6 | 7 |
+| 36 | 12 | 6 | 6 |
+| 63 | 16 | 7 | 9 |
+| 56 | 15 | 7 | 8 |
+| 49 | 14 | 7 | 7 |
+| 72 | 17 | 8 | 9 |
+| 64 | 16 | 8 | 8 |
+| 81 | 18 | 9 | 9 |
 
 In the first time that Barack asked Pete, if Pete knew the answer his
 multiple would be unique defined in the candidate list, that was not
@@ -85,29 +85,29 @@ the case, so we must remove the multiples without repetitions.
 
 #+name: step-1
 #+BEGIN_SRC lisp :var data=start :results value
-  (auxiliar (cdr data) #'car)
+  (auxiliar data #'car)
 #+END_SRC
 
-#+RESULTS[0a1358cf7ca4a4406313f32a911c83bbd2d83eab]: step-1
-| mult | sum | x | y |
-|   36 |  12 | 6 | 6 |
-|   36 |  13 | 4 | 9 |
-|   24 |  10 | 4 | 6 |
-|   24 |  11 | 3 | 8 |
-|   12 |   7 | 3 | 4 |
-|   12 |   8 | 2 | 6 |
-|   16 |   8 | 4 | 4 |
-|   16 |  10 | 2 | 8 |
-|   18 |   9 | 3 | 6 |
-|   18 |  11 | 2 | 9 |
-|    4 |   4 | 2 | 2 |
-|    4 |   5 | 1 | 4 |
-|    6 |   5 | 2 | 3 |
-|    6 |   7 | 1 | 6 |
-|    8 |   6 | 2 | 4 |
-|    8 |   9 | 1 | 8 |
-|    9 |   6 | 3 | 3 |
-|    9 |  10 | 1 | 9 |
+#+RESULTS[85ea821794ebcb819daf2878195530a279649456]: step-1
+|  m |  s | x | y |
+| 36 | 12 | 6 | 6 |
+| 36 | 13 | 4 | 9 |
+| 24 | 10 | 4 | 6 |
+| 24 | 11 | 3 | 8 |
+| 12 |  7 | 3 | 4 |
+| 12 |  8 | 2 | 6 |
+| 16 |  8 | 4 | 4 |
+| 16 | 10 | 2 | 8 |
+| 18 |  9 | 3 | 6 |
+| 18 | 11 | 2 | 9 |
+|  4 |  4 | 2 | 2 |
+|  4 |  5 | 1 | 4 |
+|  6 |  5 | 2 | 3 |
+|  6 |  7 | 1 | 6 |
+|  8 |  6 | 2 | 4 |
+|  8 |  9 | 1 | 8 |
+|  9 |  6 | 3 | 3 |
+|  9 | 10 | 1 | 9 |
 
 When Barack asked Susan for the first time, she already knew that Pete
 didn't know the answer either. So the candidate list in her mind is
@@ -119,23 +119,23 @@ either, so her sum are not unique in this list too.
   (auxiliar (cdr data) #'cadr)
 #+END_SRC
 
-#+RESULTS[a3d0faf034776af5d6c4a9345568fe55abab1b36]: step-2
-| mult | sum | x | y |
-|    9 |   6 | 3 | 3 |
-|    8 |   6 | 2 | 4 |
-|    6 |   5 | 2 | 3 |
-|    4 |   5 | 1 | 4 |
-|    8 |   9 | 1 | 8 |
-|   18 |   9 | 3 | 6 |
-|   16 |   8 | 4 | 4 |
-|   12 |   8 | 2 | 6 |
-|    6 |   7 | 1 | 6 |
-|   12 |   7 | 3 | 4 |
-|   18 |  11 | 2 | 9 |
-|   24 |  11 | 3 | 8 |
-|    9 |  10 | 1 | 9 |
-|   16 |  10 | 2 | 8 |
-|   24 |  10 | 4 | 6 |
+#+RESULTS[e4ad86e2760a07dd879d5b7e8e0b65bd9fa50e51]: step-2
+|  m |  s | x | y |
+|  9 |  6 | 3 | 3 |
+|  8 |  6 | 2 | 4 |
+|  6 |  5 | 2 | 3 |
+|  4 |  5 | 1 | 4 |
+|  8 |  9 | 1 | 8 |
+| 18 |  9 | 3 | 6 |
+| 16 |  8 | 4 | 4 |
+| 12 |  8 | 2 | 6 |
+|  6 |  7 | 1 | 6 |
+| 12 |  7 | 3 | 4 |
+| 18 | 11 | 2 | 9 |
+| 24 | 11 | 3 | 8 |
+|  9 | 10 | 1 | 9 |
+| 16 | 10 | 2 | 8 |
+| 24 | 10 | 4 | 6 |
 
 In the second time that Barack asked Pete, he still didn't know. So we
 have to exclude all unique multiples again.
@@ -145,22 +145,22 @@ have to exclude all unique multiples again.
   (auxiliar (cdr data) #'car)
 #+END_SRC
 
-#+RESULTS[29091e5db94cdf69ed2d29d0954ec29088ab242a]: step-3
-| mult | sum | x | y |
-|   24 |  10 | 4 | 6 |
-|   24 |  11 | 3 | 8 |
-|   12 |   7 | 3 | 4 |
-|   12 |   8 | 2 | 6 |
-|   16 |  10 | 2 | 8 |
-|   16 |   8 | 4 | 4 |
-|   18 |  11 | 2 | 9 |
-|   18 |   9 | 3 | 6 |
-|    6 |   7 | 1 | 6 |
-|    6 |   5 | 2 | 3 |
-|    8 |   9 | 1 | 8 |
-|    8 |   6 | 2 | 4 |
-|    9 |  10 | 1 | 9 |
-|    9 |   6 | 3 | 3 |
+#+RESULTS[156c37978fbb0edeefed2c8a16bc604ca90a50a1]: step-3
+|  m |  s | x | y |
+| 24 | 10 | 4 | 6 |
+| 24 | 11 | 3 | 8 |
+| 12 |  7 | 3 | 4 |
+| 12 |  8 | 2 | 6 |
+| 16 | 10 | 2 | 8 |
+| 16 |  8 | 4 | 4 |
+| 18 | 11 | 2 | 9 |
+| 18 |  9 | 3 | 6 |
+|  6 |  7 | 1 | 6 |
+|  6 |  5 | 2 | 3 |
+|  8 |  9 | 1 | 8 |
+|  8 |  6 | 2 | 4 |
+|  9 | 10 | 1 | 9 |
+|  9 |  6 | 3 | 3 |
 
 The same again for the second time Barack asked Susan:
 
@@ -169,21 +169,21 @@ The same again for the second time Barack asked Susan:
   (auxiliar (cdr data) #'cadr)
 #+END_SRC
 
-#+RESULTS[8f4ab88d475e3770ab85a7587e199dde6b89e219]: step-4
-| mult | sum | x | y |
-|    9 |   6 | 3 | 3 |
-|    8 |   6 | 2 | 4 |
-|    8 |   9 | 1 | 8 |
-|   18 |   9 | 3 | 6 |
-|   16 |   8 | 4 | 4 |
-|   12 |   8 | 2 | 6 |
-|    6 |   7 | 1 | 6 |
-|   12 |   7 | 3 | 4 |
-|   18 |  11 | 2 | 9 |
-|   24 |  11 | 3 | 8 |
-|    9 |  10 | 1 | 9 |
-|   16 |  10 | 2 | 8 |
-|   24 |  10 | 4 | 6 |
+#+RESULTS[c8d66c677b812868a817d9b49d716b5f634c757b]: step-4
+|  m |  s | x | y |
+|  9 |  6 | 3 | 3 |
+|  8 |  6 | 2 | 4 |
+|  8 |  9 | 1 | 8 |
+| 18 |  9 | 3 | 6 |
+| 16 |  8 | 4 | 4 |
+| 12 |  8 | 2 | 6 |
+|  6 |  7 | 1 | 6 |
+| 12 |  7 | 3 | 4 |
+| 18 | 11 | 2 | 9 |
+| 24 | 11 | 3 | 8 |
+|  9 | 10 | 1 | 9 |
+| 16 | 10 | 2 | 8 |
+| 24 | 10 | 4 | 6 |
 
 Pete in the third time still didn't know.
 
@@ -192,20 +192,20 @@ Pete in the third time still didn't know.
   (auxiliar (cdr data) #'car)
 #+END_SRC
 
-#+RESULTS[a4f82476e9f5b91c7365bfbcd243eb9a5b0ef184]: step-5
-| mult | sum | x | y |
-|   24 |  10 | 4 | 6 |
-|   24 |  11 | 3 | 8 |
-|   12 |   7 | 3 | 4 |
-|   12 |   8 | 2 | 6 |
-|   16 |  10 | 2 | 8 |
-|   16 |   8 | 4 | 4 |
-|   18 |  11 | 2 | 9 |
-|   18 |   9 | 3 | 6 |
-|    8 |   9 | 1 | 8 |
-|    8 |   6 | 2 | 4 |
-|    9 |  10 | 1 | 9 |
-|    9 |   6 | 3 | 3 |
+#+RESULTS[ac597a2b491100c48a03032bf12b6d86783be52d]: step-5
+|  m |  s | x | y |
+| 24 | 10 | 4 | 6 |
+| 24 | 11 | 3 | 8 |
+| 12 |  7 | 3 | 4 |
+| 12 |  8 | 2 | 6 |
+| 16 | 10 | 2 | 8 |
+| 16 |  8 | 4 | 4 |
+| 18 | 11 | 2 | 9 |
+| 18 |  9 | 3 | 6 |
+|  8 |  9 | 1 | 8 |
+|  8 |  6 | 2 | 4 |
+|  9 | 10 | 1 | 9 |
+|  9 |  6 | 3 | 3 |
 
 Susan in the third still didn't know.
 
@@ -214,19 +214,19 @@ Susan in the third still didn't know.
   (auxiliar (cdr data) #'cadr)
 #+END_SRC
 
-#+RESULTS[d5ef11d7b9e904ae92893a3e7719922628e8fcd6]: step-6
-| mult | sum | x | y |
-|    9 |   6 | 3 | 3 |
-|    8 |   6 | 2 | 4 |
-|    8 |   9 | 1 | 8 |
-|   18 |   9 | 3 | 6 |
-|   16 |   8 | 4 | 4 |
-|   12 |   8 | 2 | 6 |
-|   18 |  11 | 2 | 9 |
-|   24 |  11 | 3 | 8 |
-|    9 |  10 | 1 | 9 |
-|   16 |  10 | 2 | 8 |
-|   24 |  10 | 4 | 6 |
+#+RESULTS[e2001ee037b59d920e6cf2aed554191680c14924]: step-6
+|  m |  s | x | y |
+|  9 |  6 | 3 | 3 |
+|  8 |  6 | 2 | 4 |
+|  8 |  9 | 1 | 8 |
+| 18 |  9 | 3 | 6 |
+| 16 |  8 | 4 | 4 |
+| 12 |  8 | 2 | 6 |
+| 18 | 11 | 2 | 9 |
+| 24 | 11 | 3 | 8 |
+|  9 | 10 | 1 | 9 |
+| 16 | 10 | 2 | 8 |
+| 24 | 10 | 4 | 6 |
 
 Pete once more didn't know:
 
@@ -235,18 +235,18 @@ Pete once more didn't know:
   (auxiliar (cdr data) #'car)
 #+END_SRC
 
-#+RESULTS[210f459fccb8d83504937e6ab5153c40933d1478]: step-7
-| mult | sum | x | y |
-|   24 |  10 | 4 | 6 |
-|   24 |  11 | 3 | 8 |
-|   16 |  10 | 2 | 8 |
-|   16 |   8 | 4 | 4 |
-|   18 |  11 | 2 | 9 |
-|   18 |   9 | 3 | 6 |
-|    8 |   9 | 1 | 8 |
-|    8 |   6 | 2 | 4 |
-|    9 |  10 | 1 | 9 |
-|    9 |   6 | 3 | 3 |
+#+RESULTS[6ecc05353a4fb2b1db0837e2ffa48aab066d141e]: step-7
+|  m |  s | x | y |
+| 24 | 10 | 4 | 6 |
+| 24 | 11 | 3 | 8 |
+| 16 | 10 | 2 | 8 |
+| 16 |  8 | 4 | 4 |
+| 18 | 11 | 2 | 9 |
+| 18 |  9 | 3 | 6 |
+|  8 |  9 | 1 | 8 |
+|  8 |  6 | 2 | 4 |
+|  9 | 10 | 1 | 9 |
+|  9 |  6 | 3 | 3 |
 
 Susan in the fourth time didn't know either:
 
@@ -255,17 +255,17 @@ Susan in the fourth time didn't know either:
   (auxiliar (cdr data) #'cadr)
 #+END_SRC
 
-#+RESULTS[6fb43a3379ff627dcfbfb028689022f9ed6e11c8]: step-8
-| mult | sum | x | y |
-|    9 |   6 | 3 | 3 |
-|    8 |   6 | 2 | 4 |
-|    8 |   9 | 1 | 8 |
-|   18 |   9 | 3 | 6 |
-|   18 |  11 | 2 | 9 |
-|   24 |  11 | 3 | 8 |
-|    9 |  10 | 1 | 9 |
-|   16 |  10 | 2 | 8 |
-|   24 |  10 | 4 | 6 |
+#+RESULTS[8272a99180bbcff7525392eced4d1fa0c0ac0192]: step-8
+|  m |  s | x | y |
+|  9 |  6 | 3 | 3 |
+|  8 |  6 | 2 | 4 |
+|  8 |  9 | 1 | 8 |
+| 18 |  9 | 3 | 6 |
+| 18 | 11 | 2 | 9 |
+| 24 | 11 | 3 | 8 |
+|  9 | 10 | 1 | 9 |
+| 16 | 10 | 2 | 8 |
+| 24 | 10 | 4 | 6 |
 
 At this moment, in the fifth time, Pete knew the answer. That is, his
 number should be 16, since this is the only multiple that unique
@@ -280,16 +280,16 @@ candidates:
   (auxiliar (cdr data) #'car)
 #+END_SRC
 
-#+RESULTS[0b1b6db3323d938fef641a61b3d73026a79b4a84]: step-9
-| mult | sum | x | y |
-|   24 |  10 | 4 | 6 |
-|   24 |  11 | 3 | 8 |
-|   18 |  11 | 2 | 9 |
-|   18 |   9 | 3 | 6 |
-|    8 |   9 | 1 | 8 |
-|    8 |   6 | 2 | 4 |
-|    9 |  10 | 1 | 9 |
-|    9 |   6 | 3 | 3 |
+#+RESULTS[7c8de1b92d06cead4953cd4632f2b7ba65e0642b]: step-9
+|  m |  s | x | y |
+| 24 | 10 | 4 | 6 |
+| 24 | 11 | 3 | 8 |
+| 18 | 11 | 2 | 9 |
+| 18 |  9 | 3 | 6 |
+|  8 |  9 | 1 | 8 |
+|  8 |  6 | 2 | 4 |
+|  9 | 10 | 1 | 9 |
+|  9 |  6 | 3 | 3 |
 
 In this candidate list, Susan would not be able to identify the
 numbers since no sum is unique.
