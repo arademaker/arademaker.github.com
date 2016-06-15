@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2016-06-15T16:04:12-03:00</updated>
+ <updated>2016-06-15T16:09:09-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -17,7 +17,7 @@
    <link href="http://arademaker.github.com/blog/2016/06/13/nominalizations.html"/>
    <updated>2016-06-13T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2016/06/13/nominalizations</id>
-   <content type="html">&lt;p&gt;We have presented the paper &lt;a href=&quot;/bibliography/lrec-2016 morpholinks.html&quot;&gt;Semantic Links for Portuguese&lt;/a&gt; in the
+   <content type="html">&lt;p&gt;We have presented the paper &lt;a href=&quot;/bibliography/lrec-2016-morpholinks.html&quot;&gt;Semantic Links for Portuguese&lt;/a&gt; in the
   LREC 2016. As we already know, the paper is not the end of this work,
   possible the contrary of that. We already know some improvements
   needed and some related works that we sill have to analyse. This post
@@ -30,7 +30,7 @@
     Portuguesa (Escrita e Falada) - EPLP&amp;#8217;93, (Lisboa, 25-26 de Fevereiro
     de 1993).&lt;/li&gt;
   &lt;li&gt;Alina Villalva, &lt;a href=&quot;https://www.uam.es/gruposinv/upstairs/upstairs2/curricula/trabajos/villalva_1995_estructuras.pdf&quot;&gt;Estruturas Morfológicas&lt;/a&gt;, thesis, Lisboa, 1994.&lt;/li&gt;
-  &lt;li&gt;http://lattes.cnpq.br/0344501785488249 thesis.&lt;/li&gt;
+  &lt;li&gt;Another &lt;a href=&quot;http://lattes.cnpq.br/0344501785488249&quot;&gt;thesis&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Articles in PROPOR or EBRALC or ELC from Violeta Quertal.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;We still need more experiments with corpora. Possible verifying the
