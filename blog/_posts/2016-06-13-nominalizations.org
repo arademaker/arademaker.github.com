@@ -9,7 +9,7 @@ tags:
 #+OPTIONS: toc:nil
 #+PROPERTY: exports both
 
-We have presented the paper [[/bibliography/lrec-2016 morpholinks.html][Semantic Links for Portuguese]] in the
+We have presented the paper [[/bibliography/lrec-2016-morpholinks.html][Semantic Links for Portuguese]] in the
 LREC 2016. As we already know, the paper is not the end of this work,
 possible the contrary of that. We already know some improvements
 needed and some related works that we sill have to analyse. This post
@@ -25,7 +25,7 @@ Thanks, Diana Santos for suggesting me the works:
 
 - Alina Villalva, [[https://www.uam.es/gruposinv/upstairs/upstairs2/curricula/trabajos/villalva_1995_estructuras.pdf][Estruturas Morfológicas]], thesis, Lisboa, 1994.
 
-- http://lattes.cnpq.br/0344501785488249 thesis.
+- Another [[http://lattes.cnpq.br/0344501785488249][thesis]]
 
 - Articles in PROPOR or EBRALC or ELC from Violeta Quertal.
 
