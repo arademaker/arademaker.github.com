@@ -1,0 +1,46 @@
+---
+title: Semantic Links for Portuguese
+layout: post
+tags:
+ - article
+---
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+OPTIONS: toc:nil
+#+PROPERTY: exports both
+
+We have presented the paper [[/bibliography/lrec-2016 morpholinks.html][Semantic Links for Portuguese]] in the
+LREC 2016. As we already know, the paper is not the end of this work,
+possible the contrary of that. We already know some improvements
+needed and some related works that we sill have to analyse. This post
+is to register these information and list possible future works for
+the article.
+
+Thanks, Diana Santos for suggesting me the works:
+
+- Medeiros, José Carlos, Rui Marques & Diana Santos. [[http://www.linguateca.pt/Diana/download/Medeirosetal93.pdf][Português
+  Quantitativo]], Actas do 1.o Encontro de Processamento de Língua
+  Portuguesa (Escrita e Falada) - EPLP'93, (Lisboa, 25-26 de Fevereiro
+  de 1993).
+
+- Alina Villalva, [[https://www.uam.es/gruposinv/upstairs/upstairs2/curricula/trabajos/villalva_1995_estructuras.pdf][Estruturas Morfológicas]], thesis, Lisboa, 1994.
+
+- http://lattes.cnpq.br/0344501785488249 thesis.
+
+- Articles in PROPOR or EBRALC or ELC from Violeta Quertal.
+
+We still need more experiments with corpora. Possible verifying the
+cases of zero-derivational words. We can use a generator of verbs
+forms (conjugator) for help the annotation of candidates.
+
+We have cases like 'aparecer', 'aparição', 'aparecimento' and
+'aparência'. All of them must be in the resource. Other cases are
+'coberta' and 'cobertura'. Valid cases should also be in the resource
+but are not frequent enough to appear in the corpus (ex: 'eu
+/governo/').
+
+Ambiguities versus fine-grained classification. The semantic links
+/ação/ and /resultado/ do make sense in Portuguese? If the introduce
+too many classes (using classes from other languages), we are creating
+a problem not dealing with one real problem.
+

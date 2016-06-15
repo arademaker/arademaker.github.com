@@ -12,6 +12,7 @@ title: Teaching
 ** 2016
 
 - [[https://github.com/arademaker/ED-2016.1][Estruturas de dados e algorítmos]], Graduação EMAp, FGV.
+- [[https://github.com/arademaker/ed-2016-mestrado][Estruturas de dados e algorítmos]], Mestrado EMAp, FGV.
 
 ** 2015
 

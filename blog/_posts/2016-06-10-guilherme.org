@@ -1,0 +1,24 @@
+---
+title: Congratuatios Guilherme Passos
+layout: post
+tags:
+ - report
+---
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+OPTIONS: toc:nil
+#+PROPERTY: exports both
+
+Guilherme Passos presented last week his final undergrad
+project. Congratulations Guilherme, well done. The project is an
+extension of the ideas from the book:
+
+P. Blackburn and J. Bos, Representation and inference for natural
+language. 2005
+
+Guilherme expands the code from the book to use the Princeton Wordnet
+for making a simple conversational chatbot that can understand some
+sentences (basically all type of sentences considered in the book)
+module some hyponyms and hypernyms from PWN, and provide some answers
+to the user. The links for the code and texts will be available soon
+here.
