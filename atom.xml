@@ -4,13 +4,68 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2016-05-26T10:46:30-03:00</updated>
+ <updated>2016-06-15T16:04:12-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Semantic Links for Portuguese</title>
+   <link href="http://arademaker.github.com/blog/2016/06/13/nominalizations.html"/>
+   <updated>2016-06-13T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2016/06/13/nominalizations</id>
+   <content type="html">&lt;p&gt;We have presented the paper &lt;a href=&quot;/bibliography/lrec-2016 morpholinks.html&quot;&gt;Semantic Links for Portuguese&lt;/a&gt; in the
+  LREC 2016. As we already know, the paper is not the end of this work,
+  possible the contrary of that. We already know some improvements
+  needed and some related works that we sill have to analyse. This post
+  is to register these information and list possible future works for
+  the article.&lt;/p&gt;
+&lt;p&gt;Thanks, Diana Santos for suggesting me the works:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Medeiros, José Carlos, Rui Marques &amp;amp; Diana Santos. &lt;a href=&quot;http://www.linguateca.pt/Diana/download/Medeirosetal93.pdf&quot;&gt;Português
+    Quantitativo&lt;/a&gt;, Actas do 1.o Encontro de Processamento de Língua
+    Portuguesa (Escrita e Falada) - EPLP&amp;#8217;93, (Lisboa, 25-26 de Fevereiro
+    de 1993).&lt;/li&gt;
+  &lt;li&gt;Alina Villalva, &lt;a href=&quot;https://www.uam.es/gruposinv/upstairs/upstairs2/curricula/trabajos/villalva_1995_estructuras.pdf&quot;&gt;Estruturas Morfológicas&lt;/a&gt;, thesis, Lisboa, 1994.&lt;/li&gt;
+  &lt;li&gt;http://lattes.cnpq.br/0344501785488249 thesis.&lt;/li&gt;
+  &lt;li&gt;Articles in PROPOR or EBRALC or ELC from Violeta Quertal.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We still need more experiments with corpora. Possible verifying the
+  cases of zero-derivational words. We can use a generator of verbs
+  forms (conjugator) for help the annotation of candidates.&lt;/p&gt;
+&lt;p&gt;We have cases like &amp;#8216;aparecer&amp;#8217;, &amp;#8216;aparição&amp;#8217;, &amp;#8216;aparecimento&amp;#8217; and
+  &amp;#8216;aparência&amp;#8217;. All of them must be in the resource. Other cases are
+  &amp;#8216;coberta&amp;#8217; and &amp;#8216;cobertura&amp;#8217;. Valid cases should also be in the resource
+  but are not frequent enough to appear in the corpus (ex: &amp;#8216;eu
+  &lt;i&gt;governo&lt;/i&gt;&amp;#8217;).&lt;/p&gt;
+&lt;p&gt;Ambiguities versus fine-grained classification. The semantic links
+  &lt;i&gt;ação&lt;/i&gt; and &lt;i&gt;resultado&lt;/i&gt; do make sense in Portuguese? If the introduce
+  too many classes (using classes from other languages), we are creating
+  a problem not dealing with one real problem.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Congratuatios Guilherme Passos</title>
+   <link href="http://arademaker.github.com/blog/2016/06/10/guilherme.html"/>
+   <updated>2016-06-10T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2016/06/10/guilherme</id>
+   <content type="html">&lt;p&gt;Guilherme Passos presented last week his final undergrad
+  project. Congratulations Guilherme, well done. The project is an
+  extension of the ideas from the book:&lt;/p&gt;
+&lt;p&gt;P. Blackburn and J. Bos, Representation and inference for natural
+  language. 2005&lt;/p&gt;
+&lt;p&gt;Guilherme expands the code from the book to use the Princeton Wordnet
+  for making a simple conversational chatbot that can understand some
+  sentences (basically all type of sentences considered in the book)
+  module some hyponyms and hypernyms from PWN, and provide some answers
+  to the user. The links for the code and texts will be available soon
+  here.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Solving the Puzzle</title>
