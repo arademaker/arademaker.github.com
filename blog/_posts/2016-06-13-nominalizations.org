@@ -25,22 +25,24 @@ Thanks, Diana Santos for suggesting me the works:
 
 - Alina Villalva, [[https://www.uam.es/gruposinv/upstairs/upstairs2/curricula/trabajos/villalva_1995_estructuras.pdf][Estruturas Morfológicas]], thesis, Lisboa, 1994.
 
-- Another [[http://lattes.cnpq.br/0344501785488249][thesis]]
+- The thesis "A complementação da forma nominalizada deverbal sufixal
+  e a conceituação do complemento nominal" by Rosa Marina de Brito
+  Meyer, see [[http://lattes.cnpq.br/0344501785488249][thesis]].
 
 - Articles in PROPOR or EBRALC or ELC from Violeta Quertal.
 
 We still need more experiments with corpora. Possible verifying the
 cases of zero-derivational words. We can use a generator of verbs
-forms (conjugator) for help the annotation of candidates.
+forms (conjugator) for help with the annotation of candidates.
 
-We have cases like 'aparecer', 'aparição', 'aparecimento' and
-'aparência'. All of them must be in the resource. Other cases are
-'coberta' and 'cobertura'. Valid cases should also be in the resource
-but are not frequent enough to appear in the corpus (ex: 'eu
-/governo/').
+We have cases like the verb 'aparecer' and its nominalizations:
+'aparição', 'aparecimento' and 'aparência'. All of them must be in the
+resource for sure. Words as 'coberta' and 'cobertura' should be also
+in the resource, but what about the less frequent ones?
 
 Ambiguities versus fine-grained classification. The semantic links
 /ação/ and /resultado/ do make sense in Portuguese? If the introduce
 too many classes (using classes from other languages), we are creating
-a problem not dealing with one real problem.
+a problem, not dealing with one real problem.
 
+Valeria has also posted recently about our work with [[http://logic-forall.blogspot.pt/2016/06/nominalizations-and-zombie-nouns.html][nominalizations]].
