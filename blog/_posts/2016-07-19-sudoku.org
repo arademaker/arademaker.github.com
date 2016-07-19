@@ -1,0 +1,33 @@
+---
+title: Sudoku as programming and logic exercise
+layout: post
+tags:
+ - ideas
+---
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+OPTIONS: toc:nil
+#+PROPERTY: exports both
+
+Last semester, at some point in my course on Data Structures and
+Algorithms, once again I mentioned the SUDOKU problem. I am sure that
+I haven't covered all about it yet, and this post is just to remember
+me about things that I would like to came back at some point:
+
+In Common Lisp, some libraries make the problem so easy that is hard
+to explain to the students why the logic based approaches are so
+challenging. Examples are: [[https://common-lisp.net/project/computed-class/index-old.shtml][computed-class]], [[https://github.com/kennytilton/cells/wiki][cells]] and [[http://www.cliki.net/screamer][screamer]].
+
+Sudoku as SAT is documented in the article [3] and we know that a
+better encoding should be possible. I would love to continue the
+experiments with [[http://www.ai.sri.com/~stickel/snark.html][SNARK]] theorem prover following ideas from the
+papers [1] and [2].
+
+1. T. Hillenbrand, D. Topic, and C. Weidenbach, "Sudokus as Logical
+   Puzzles", pp. 1–11, Apr. 2016.
+2. G. Santos-García and M. Palomino, "Solving Sudoku Puzzles with
+   Rewriting Rules", pp. 1–16, 2006.
+3. I. Lynce and J. Ouaknine, "Sudoku as a SAT Problem", [[http://anytime.cs.umass.edu/aimath06/proceedings/P34.pdf][online]].
+
+So many interesting things to do! 
+
