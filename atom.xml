@@ -4,13 +4,40 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2016-07-18T10:26:18-03:00</updated>
+ <updated>2016-07-19T11:19:46-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Sudoku as programming and logic exercise</title>
+   <link href="http://arademaker.github.com/blog/2016/07/19/sudoku.html"/>
+   <updated>2016-07-19T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2016/07/19/sudoku</id>
+   <content type="html">&lt;p&gt;Last semester, at some point in my course on Data Structures and
+  Algorithms, once again I mentioned the SUDOKU problem. I am sure that
+  I haven&amp;#8217;t covered all about it yet, and this post is just to remember
+  me about things that I would like to came back at some point:&lt;/p&gt;
+&lt;p&gt;In Common Lisp, some libraries make the problem so easy that is hard
+  to explain to the students why the logic based approaches are so
+  challenging. Examples are: &lt;a href=&quot;https://common-lisp.net/project/computed-class/index-old.shtml&quot;&gt;computed-class&lt;/a&gt;, &lt;a href=&quot;https://github.com/kennytilton/cells/wiki&quot;&gt;cells&lt;/a&gt; and &lt;a href=&quot;http://www.cliki.net/screamer&quot;&gt;screamer&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Sudoku as SAT is documented in the article [3] and we know that a
+  better encoding should be possible. I would love to continue the
+  experiments with &lt;a href=&quot;http://www.ai.sri.com/~stickel/snark.html&quot;&gt;SNARK&lt;/a&gt; theorem prover following ideas from the
+  papers [1] and [2].&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;T. Hillenbrand, D. Topic, and C. Weidenbach, &amp;#8220;Sudokus as Logical
+    Puzzles&amp;#8221;, pp. 1–11, Apr. 2016.&lt;/li&gt;
+  &lt;li&gt;G. Santos-García and M. Palomino, &amp;#8220;Solving Sudoku Puzzles with
+    Rewriting Rules&amp;#8221;, pp. 1–16, 2006.&lt;/li&gt;
+  &lt;li&gt;I. Lynce and J. Ouaknine, &amp;#8220;Sudoku as a SAT Problem&amp;#8221;, &lt;a href=&quot;http://anytime.cs.umass.edu/aimath06/proceedings/P34.pdf&quot;&gt;online&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So many interesting things to do!&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Semantic Links for Portuguese</title>
