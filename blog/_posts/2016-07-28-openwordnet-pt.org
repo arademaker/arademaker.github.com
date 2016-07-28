@@ -10,18 +10,18 @@ tags:
 #+PROPERTY: exports both
 
 Our [[http://wnpt.brlcloud.com/wn/][OpenWordnet-PT]] is freely available for download and online use
-since its beginning. Nevertheless, some people still have difficult to
-use the data without a proper introduction to our 'data
+since its beginning. Nevertheless, some people still have difficulties
+to use the data without a proper introduction to our 'data
 model'. Although we have already presented it in many conferences and
 articles, I believe some examples of queries can help people
 understand better our data.
 
-All relations between synsets are among the synsets from PWN
-(Princeton). Since we haven't created yet new synsets, all our synsets
-are linked to Princeton Synsets via =owl:sameAs=. Thus, our network is
-a projection of the PWN network, we have a map 1-1 between our synsets
-and PWN synsets. Obviously, we have new senses and new words and these
-resources are linked to our synsets.
+All relations are between synsets from PWN (Princeton). Since we
+haven't created any new synset yet, all our synsets are linked to
+Princeton Synsets via =owl:sameAs= relation. Thus, our network is a
+projection of the PWN network, we have a injective map between our
+synsets and PWN synsets. Obviously, we have new senses and new words
+and these resources are linked to our synsets.
 
 In other words, to know the hypernyms of the word "cachorro" one must
 'use' the PWN synsets and relations:
@@ -42,9 +42,8 @@ Note that =hyponymOf+= is a SPARQL 1.1 construction ([[http://www.w3.org/TR/spar
 paths]]). It means the transitive closure of the =hyponymOf=
 relation. The idea is to first get the synset in OWN-PT which contains
 "cachorro", then find the equivalent synset in PWN. With the right
-synsets in PWN, we look for the related ones that we are looking for
-and return the PT equivalents. Finally, we get the words from the
-OWN-PT synsets that we found.
+synsets in PWN, we look for the related ones in OWN-PT and return
+them. Finally, we get the words from the OWN-PT synsets that we found.
 
 Note also that not all relations are between synsets, some relations
 such as =derivationallyRelated= are relation between senses:
@@ -69,4 +68,5 @@ select distinct ?schema
 #+END_SRC
 
 Our data model is described in the [[https://github.com/own-pt/openWordnet-PT/blob/master/wn30.ttl][wn30.ttl]] file. This is our
-'vocabulary' in Semantic Web terms.
+'vocabulary' in Semantic Web terms. The queries above can be tested in
+our [[http://wnpt.brlcloud.com:10035/repositories/wn30][SPARQL endpoint]].
