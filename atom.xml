@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2016-07-28T15:02:22-03:00</updated>
+ <updated>2016-07-28T18:43:36-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -18,17 +18,17 @@
    <updated>2016-07-28T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2016/07/28/openwordnet-pt</id>
    <content type="html">&lt;p&gt;Our &lt;a href=&quot;http://wnpt.brlcloud.com/wn/&quot;&gt;OpenWordnet-PT&lt;/a&gt; is freely available for download and online use
-  since its beginning. Nevertheless, some people still have difficult to
-  use the data without a proper introduction to our &amp;#8216;data
+  since its beginning. Nevertheless, some people still have difficulties
+  to use the data without a proper introduction to our &amp;#8216;data
   model&amp;#8217;. Although we have already presented it in many conferences and
   articles, I believe some examples of queries can help people
   understand better our data.&lt;/p&gt;
-&lt;p&gt;All relations between synsets are among the synsets from PWN
-  (Princeton). Since we haven&amp;#8217;t created yet new synsets, all our synsets
-  are linked to Princeton Synsets via &lt;code&gt;owl:sameAs&lt;/code&gt;. Thus, our network is
-  a projection of the PWN network, we have a map 1-1 between our synsets
-  and PWN synsets. Obviously, we have new senses and new words and these
-  resources are linked to our synsets.&lt;/p&gt;
+&lt;p&gt;All relations are between synsets from PWN (Princeton). Since we
+  haven&amp;#8217;t created any new synset yet, all our synsets are linked to
+  Princeton Synsets via &lt;code&gt;owl:sameAs&lt;/code&gt; relation. Thus, our network is a
+  projection of the PWN network, we have a injective map between our
+  synsets and PWN synsets. Obviously, we have new senses and new words
+  and these resources are linked to our synsets.&lt;/p&gt;
 &lt;p&gt;In other words, to know the hypernyms of the word &amp;#8220;cachorro&amp;#8221; one must
   &amp;#8216;use&amp;#8217; the PWN synsets and relations:&lt;/p&gt;
 &lt;pre class=&quot;src&quot; lang=&quot;sparql&quot;&gt;
@@ -46,9 +46,8 @@ select ?sspt ?otherpt ?otherword
   paths&lt;/a&gt;). It means the transitive closure of the &lt;code&gt;hyponymOf&lt;/code&gt;
   relation. The idea is to first get the synset in OWN-PT which contains
   &amp;#8220;cachorro&amp;#8221;, then find the equivalent synset in PWN. With the right
-  synsets in PWN, we look for the related ones that we are looking for
-  and return the PT equivalents. Finally, we get the words from the
-  OWN-PT synsets that we found.&lt;/p&gt;
+  synsets in PWN, we look for the related ones in OWN-PT and return
+  them. Finally, we get the words from the OWN-PT synsets that we found.&lt;/p&gt;
 &lt;p&gt;Note also that not all relations are between synsets, some relations
   such as &lt;code&gt;derivationallyRelated&lt;/code&gt; are relation between senses:&lt;/p&gt;
 &lt;pre class=&quot;src&quot; lang=&quot;sparql&quot;&gt;
@@ -68,7 +67,8 @@ select distinct ?schema
 }
 &lt;/pre&gt;
 &lt;p&gt;Our data model is described in the &lt;a href=&quot;https://github.com/own-pt/openWordnet-PT/blob/master/wn30.ttl&quot;&gt;wn30.ttl&lt;/a&gt; file. This is our
-  &amp;#8216;vocabulary&amp;#8217; in Semantic Web terms.&lt;/p&gt;
+  &amp;#8216;vocabulary&amp;#8217; in Semantic Web terms. The queries above can be tested in
+  our &lt;a href=&quot;http://wnpt.brlcloud.com:10035/repositories/wn30&quot;&gt;SPARQL endpoint&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>
  

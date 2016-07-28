@@ -65,17 +65,17 @@
   <h1> Simple queries in openWordnet-PT </h1>
 
   <p>Our <a href="http://wnpt.brlcloud.com/wn/">OpenWordnet-PT</a> is freely available for download and online use
-  since its beginning. Nevertheless, some people still have difficult to
-  use the data without a proper introduction to our &#8216;data
+  since its beginning. Nevertheless, some people still have difficulties
+  to use the data without a proper introduction to our &#8216;data
   model&#8217;. Although we have already presented it in many conferences and
   articles, I believe some examples of queries can help people
   understand better our data.</p>
-<p>All relations between synsets are among the synsets from PWN
-  (Princeton). Since we haven&#8217;t created yet new synsets, all our synsets
-  are linked to Princeton Synsets via <code>owl:sameAs</code>. Thus, our network is
-  a projection of the PWN network, we have a map 1-1 between our synsets
-  and PWN synsets. Obviously, we have new senses and new words and these
-  resources are linked to our synsets.</p>
+<p>All relations are between synsets from PWN (Princeton). Since we
+  haven&#8217;t created any new synset yet, all our synsets are linked to
+  Princeton Synsets via <code>owl:sameAs</code> relation. Thus, our network is a
+  projection of the PWN network, we have a injective map between our
+  synsets and PWN synsets. Obviously, we have new senses and new words
+  and these resources are linked to our synsets.</p>
 <p>In other words, to know the hypernyms of the word &#8220;cachorro&#8221; one must
   &#8216;use&#8217; the PWN synsets and relations:</p>
 <pre class="src" lang="sparql">
@@ -93,9 +93,8 @@ select ?sspt ?otherpt ?otherword
   paths</a>). It means the transitive closure of the <code>hyponymOf</code>
   relation. The idea is to first get the synset in OWN-PT which contains
   &#8220;cachorro&#8221;, then find the equivalent synset in PWN. With the right
-  synsets in PWN, we look for the related ones that we are looking for
-  and return the PT equivalents. Finally, we get the words from the
-  OWN-PT synsets that we found.</p>
+  synsets in PWN, we look for the related ones in OWN-PT and return
+  them. Finally, we get the words from the OWN-PT synsets that we found.</p>
 <p>Note also that not all relations are between synsets, some relations
   such as <code>derivationallyRelated</code> are relation between senses:</p>
 <pre class="src" lang="sparql">
@@ -115,7 +114,8 @@ select distinct ?schema
 }
 </pre>
 <p>Our data model is described in the <a href="https://github.com/own-pt/openWordnet-PT/blob/master/wn30.ttl">wn30.ttl</a> file. This is our
-  &#8216;vocabulary&#8217; in Semantic Web terms.</p>
+  &#8216;vocabulary&#8217; in Semantic Web terms. The queries above can be tested in
+  our <a href="http://wnpt.brlcloud.com:10035/repositories/wn30">SPARQL endpoint</a>.</p>
 
 
  <hr/>
