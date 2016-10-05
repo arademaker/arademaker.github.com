@@ -23,13 +23,6 @@ We would like to have an environment similar to
 https://www.hackerrank.com for receiving submissions of students
 projects.
 
-* Lisp library for metadata extraction 
-
-Contribute to projects like http://code.google.com/p/cl-jpegmeta/ and
-http://www.xach.com/lisp/zpb-exif/ to improve both library and the
-hability to handle IIM-style IPTC fields, EXIF fields and XMP
-metadata.
-
 * SUMO to TFF and HTF 
 
 We have an SUMO to TPTP/FOF translation in
@@ -41,3 +34,10 @@ http://www.ai.sri.com/~stickel/snark.html language.
 
 Both systems were realised opensource, much can be done to improve
 them!
+
+* Lisp library for metadata extraction 
+
+Contribute to projects like http://code.google.com/p/cl-jpegmeta/ and
+http://www.xach.com/lisp/zpb-exif/ to improve both library and the
+hability to handle IIM-style IPTC fields, EXIF fields and XMP
+metadata.
