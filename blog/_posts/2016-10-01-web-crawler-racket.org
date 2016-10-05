@@ -1,0 +1,47 @@
+---
+title: web crawler in Racket
+layout: post
+tags:
+ - teaching
+---
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+OPTIONS: toc:nil
+#+PROPERTY: exports both
+
+I usually like to suggest projects for students as part of their
+evaluation in the 'programming language' course. This course uses
+[[http://racket-lang.org][Racket]] language and we follow the [[https://mitpress.mit.edu/sicp/full-text/book/book.html][SICP]] book. So the question is always
+what are the good projects for the students. Getting data from
+different source and combine then in a flexible user interface is a
+very common idea. Today I decide to investigate the difficult of
+developing a simple web crawler in Racket. Since I usually code in
+Common Lisp, I was looking for something similar of CL libs like
+[[http://www.weitz.de/drakma/][drakma]] and [[https://common-lisp.net/project/closure/closure-html/][Closure]].
+
+Using DrRacket only for teaching is not enough for being confortable
+with the Racket ecosystem. First I had to discover how to install the
+HTML parsing lib. This was done with:
+
+#+BEGIN_SRC bash
+raco pkg install html-parsing
+#+END_SRC
+
+After I have decided what libs to use, I had to understand their
+interfaces. My first code in Racket for retrieve and parse a simple
+HTML page is:
+
+#+BEGIN_SRC scheme
+#lang racket
+
+(require net/http-client)
+(require html-parsing)
+
+(let-values (((a b c) (http-sendrecv "arademaker.github.io"
+                                     "/about.html")))
+  (html->xexp c))
+#+END_SRC
+
+Not sure if this is the most efficiente way to make it, but surelly it
+is simple enough to start with.
+

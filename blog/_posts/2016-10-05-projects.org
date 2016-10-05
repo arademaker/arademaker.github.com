@@ -1,0 +1,21 @@
+---
+title: Projects Ideas
+layout: post
+tags:
+ - ideas
+---
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+OPTIONS: toc:nil
+#+PROPERTY: exports both
+
+We need Common Lisp libraries for Linked Data and related
+technologies:
+
+- http://json-ld.org :: some initial attempt made from [[https://github.com/RDProjekt/cl-json-ld][cl-json-ld]] and
+     maybe some references from [[http://allegrograph.com/rdf-json/][Franz's code]].
+
+- http://owlapi.sourceforge.net :: some references at [[http://www.cliki.net/rdf][cliki]].
+
+I would be very happy to supervise a work (undergrad or masters) to
+develop such libraries in Common Lisp.

@@ -1,0 +1,43 @@
+---
+title: Project Ideas
+layout: post
+published: false
+tags:
+ - ideas
+---
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+OPTIONS: toc:nil
+#+PROPERTY: exports both
+
+* Knowledge Representation via ACE
+
+Following the article https://arxiv.org/abs/1303.4293, we can think in
+a lot of possible extensions. For Portuguese support, we would need to
+develop the Portuguese concrete syntax in GF. The idea of code the
+translation of ACE to OWL in GF would be very interesting to explore.
+
+* Learning support tools
+
+We would like to have an environment similar to
+https://www.hackerrank.com for receiving submissions of students
+projects.
+
+* Lisp library for metadata extraction 
+
+Contribute to projects like http://code.google.com/p/cl-jpegmeta/ and
+http://www.xach.com/lisp/zpb-exif/ to improve both library and the
+hability to handle IIM-style IPTC fields, EXIF fields and XMP
+metadata.
+
+* SUMO to TFF and HTF 
+
+We have an SUMO to TPTP/FOF translation in
+https://github.com/own-pt/cl-krr. We would like to extend to TFF and
+later to TFF or THF. Alternatively, we can also translate to
+http://www.ai.sri.com/~stickel/snark.html language.
+
+* Racer and Wilbur
+
+Both systems were realised opensource, much can be done to improve
+them!
