@@ -4,13 +4,91 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2016-09-08T14:33:25-03:00</updated>
+ <updated>2016-10-05T15:38:24-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>web crawler in Racket</title>
+   <link href="http://arademaker.github.com/blog/2016/10/01/web-crawler-racket.html"/>
+   <updated>2016-10-01T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2016/10/01/web-crawler-racket</id>
+   <content type="html">&lt;p&gt;I usually like to suggest projects for students as part of their
+  evaluation in the &amp;#8216;programming language&amp;#8217; course. This course uses
+  &lt;a href=&quot;http://racket-lang.org&quot;&gt;Racket&lt;/a&gt; language and we follow the &lt;a href=&quot;https://mitpress.mit.edu/sicp/full-text/book/book.html&quot;&gt;SICP&lt;/a&gt; book. So the question is always
+  what are the good projects for the students. Getting data from
+  different source and combine then in a flexible user interface is a
+  very common idea. Today I decide to investigate the difficult of
+  developing a simple web crawler in Racket. Since I usually code in
+  Common Lisp, I was looking for something similar of CL libs like
+  &lt;a href=&quot;http://www.weitz.de/drakma/&quot;&gt;drakma&lt;/a&gt; and &lt;a href=&quot;https://common-lisp.net/project/closure/closure-html/&quot;&gt;Closure&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Using DrRacket only for teaching is not enough for being confortable
+  with the Racket ecosystem. First I had to discover how to install the
+  HTML parsing lib. This was done with:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;bash&quot;&gt;
+raco pkg install html-parsing
+&lt;/pre&gt;
+&lt;p&gt;After I have decided what libs to use, I had to understand their
+  interfaces. My first code in Racket for retrieve and parse a simple
+  HTML page is:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;scheme&quot;&gt;
+#lang racket
+
+(require net/http-client)
+(require html-parsing)
+
+(let-values (((a b c) (http-sendrecv &amp;quot;arademaker.github.io&amp;quot;
+                                     &amp;quot;/about.html&amp;quot;)))
+  (html-&amp;gt;xexp c))
+&lt;/pre&gt;
+&lt;p&gt;Not sure if this is the most efficiente way to make it, but surelly it
+  is simple enough to start with.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Project Ideas</title>
+   <link href="http://arademaker.github.com/blog/2016/09/17/projects.html"/>
+   <updated>2016-09-17T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2016/09/17/projects</id>
+   <content type="html">&lt;h1&gt;Knowledge Representation via ACE&lt;/h1&gt;
+&lt;p&gt;Following the article https://arxiv.org/abs/1303.4293, we can think in
+  a lot of possible extensions. For Portuguese support, we would need to
+  develop the Portuguese concrete syntax in GF. The idea of code the
+  translation of ACE to OWL in GF would be very interesting to explore.&lt;/p&gt;
+&lt;h1&gt;Learning support tools&lt;/h1&gt;
+&lt;p&gt;We would like to have an environment similar to
+  https://www.hackerrank.com for receiving submissions of students
+  projects.&lt;/p&gt;
+&lt;h1&gt;SUMO to TFF and HTF&lt;/h1&gt;
+&lt;p&gt;We have an SUMO to TPTP/FOF translation in
+  https://github.com/own-pt/cl-krr. We would like to extend to TFF and
+  later to TFF or THF. Alternatively, we can also translate to
+  http://www.ai.sri.com/~stickel/snark.html language.&lt;/p&gt;
+&lt;h1&gt;Semantic Web technologies&lt;/h1&gt;
+&lt;p&gt;Both systems were realised opensource, much can be done to improve
+  them! We need Common Lisp libraries for Linked Data and related
+  technologies:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://json-ld.org&quot;&gt;json-ld&lt;/a&gt;: some initial attempt made from &lt;a href=&quot;https://github.com/RDProjekt/cl-json-ld&quot;&gt;cl-json-ld&lt;/a&gt; and
+    maybe some references from &lt;a href=&quot;http://allegrograph.com/rdf-json/&quot;&gt;Franz&amp;#8217;s code&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://owlapi.sourceforge.net&quot;&gt;owlapi&lt;/a&gt;: some references at &lt;a href=&quot;http://www.cliki.net/rdf&quot;&gt;cliki&lt;/a&gt;. Common Lisp really need an OWLAPI
+    library.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ha-mo-we/Racer&quot;&gt;Racer&lt;/a&gt; and &lt;a href=&quot;http://wilbur-rdf.sourceforge.net&quot;&gt;Wilbur&lt;/a&gt; are very nice libs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I would be very happy to supervise a work (undergrad or masters) to
+  develop such libraries in Common Lisp.&lt;/p&gt;
+&lt;h1&gt;Lisp library for metadata extraction&lt;/h1&gt;
+&lt;p&gt;Contribute to projects like http://code.google.com/p/cl-jpegmeta/ and
+  http://www.xach.com/lisp/zpb-exif/ to improve both library and the
+  hability to handle IIM-style IPTC fields, EXIF fields and XMP
+  metadata.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Simple queries in openWordnet-PT</title>
@@ -812,7 +890,7 @@ version.&lt;/p&gt;
 (actually for the rest of the post you don’t need to understand the
 code):&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-common-lisp&quot; data-lang=&quot;common-lisp&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;with-open-file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;zero.log&quot;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:element-type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned-byte&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-common-lisp&quot; data-lang=&quot;common-lisp&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;with-open-file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;zero.log&quot;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:element-type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned-byte&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 			      &lt;span class=&quot;ss&quot;&gt;:direction&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:output&lt;/span&gt;
 			      &lt;span class=&quot;ss&quot;&gt;:if-exists&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:supersede&lt;/span&gt;
 			      &lt;span class=&quot;ss&quot;&gt;:external-format&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:utf-8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -1275,8 +1353,8 @@ using the Omegahat repository version with the command:&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; install.packages(&quot;SSOAP&quot;, repos = &quot;http://www.omegahat.org/R&quot;, 
                    dependencies = TRUE, 
                    type = &quot;source&quot;)
-trying URL &#39;http://www.omegahat.org/R/src/contrib/SSOAP_0.8-1.tar.gz&#39;
-Content type &#39;application/x-gzip&#39; length 195424 bytes (190 Kb)
+trying URL 'http://www.omegahat.org/R/src/contrib/SSOAP_0.8-1.tar.gz'
+Content type 'application/x-gzip' length 195424 bytes (190 Kb)
 opened URL
 ==================================================
 downloaded 190 Kb
@@ -1288,7 +1366,7 @@ downloaded 190 Kb
 Creating a new generic function for ‘help’ in package ‘SSOAP’
 Warning in .NonstandardGenericTest(body(fdef), name, stdGenericBody) :
   the supplied generic function definition for toSOAP does not
-  seem to call &#39;standardGeneric&#39;; no methods will be dispatched!
+  seem to call 'standardGeneric'; no methods will be dispatched!
 ** help
 *** installing help indices
 ** building package indices ...
