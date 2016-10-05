@@ -1,7 +1,6 @@
 ---
 title: Project Ideas
 layout: post
-published: false
 tags:
  - ideas
 ---
@@ -30,10 +29,22 @@ https://github.com/own-pt/cl-krr. We would like to extend to TFF and
 later to TFF or THF. Alternatively, we can also translate to
 http://www.ai.sri.com/~stickel/snark.html language.
 
-* Racer and Wilbur
+* Semantic Web technologies
 
 Both systems were realised opensource, much can be done to improve
-them!
+them! We need Common Lisp libraries for Linked Data and related
+technologies:
+
+- [[http://json-ld.org][json-ld]]: some initial attempt made from [[https://github.com/RDProjekt/cl-json-ld][cl-json-ld]] and
+  maybe some references from [[http://allegrograph.com/rdf-json/][Franz's code]].
+
+- [[http://owlapi.sourceforge.net][owlapi]]: some references at [[http://www.cliki.net/rdf][cliki]]. Common Lisp really need an OWLAPI
+  library. 
+
+- [[https://github.com/ha-mo-we/Racer][Racer]] and [[http://wilbur-rdf.sourceforge.net][Wilbur]] are very nice libs.
+
+I would be very happy to supervise a work (undergrad or masters) to
+develop such libraries in Common Lisp.
 
 * Lisp library for metadata extraction 
 
