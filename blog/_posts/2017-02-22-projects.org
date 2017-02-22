@@ -1,5 +1,5 @@
 ---
-title: Ideas of Projects
+title: Ideas of Projects for 2017
 layout: post
 tags:
  - teaching
