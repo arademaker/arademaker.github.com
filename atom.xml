@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2017-02-22T14:11:10-03:00</updated>
+ <updated>2017-02-22T14:17:13-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -13,10 +13,10 @@
 
  
  <entry>
-   <title>Ideas of Projects</title>
-   <link href="http://arademaker.github.com/blog/2017/02/22/project-ideas.html"/>
+   <title>Ideas of Projects for 2017</title>
+   <link href="http://arademaker.github.com/blog/2017/02/22/projects.html"/>
    <updated>2017-02-22T00:00:00-03:00</updated>
-   <id>http://arademaker.github.com/blog/2017/02/22/project-ideas</id>
+   <id>http://arademaker.github.com/blog/2017/02/22/projects</id>
    <content type="html">&lt;p&gt;Some possible ideas for students looking for projects: &amp;#8216;iniciação
   científica&amp;#8217;.&lt;/p&gt;
 &lt;h2&gt;Text Entailment&lt;/h2&gt;
