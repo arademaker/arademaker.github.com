@@ -4,13 +4,90 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2016-10-05T15:38:24-03:00</updated>
+ <updated>2017-02-22T14:11:10-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Ideas of Projects</title>
+   <link href="http://arademaker.github.com/blog/2017/02/22/project-ideas.html"/>
+   <updated>2017-02-22T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2017/02/22/project-ideas</id>
+   <content type="html">&lt;p&gt;Some possible ideas for students looking for projects: &amp;#8216;iniciação
+  científica&amp;#8217;.&lt;/p&gt;
+&lt;h2&gt;Text Entailment&lt;/h2&gt;
+&lt;p&gt;We propose a project to evaluate different techniques for &lt;a href=&quot;https://en.wikipedia.org/wiki/Textual_entailment&quot;&gt;text
+  entailment&lt;/a&gt; using deep parsing. We were particularly interested in
+  ‘deep’ linguistic processing of sentences. The goal is the combination
+  of linguistic and statistical processing methods for getting at the
+  meaning of texts and utterances.  For the experiments, we propose the
+  use of the &lt;a href=&quot;http://clic.cimec.unitn.it/composes/sick.html&quot;&gt;SICK&lt;/a&gt; corpus and it was the corpus used in the &lt;a href=&quot;http://alt.qcri.org/semeval2014/task1/&quot;&gt;SemEval 2014&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Some tools/ideas under consideration are:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1702.03196&quot;&gt;Universal DepLambda&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/percyliang/sempre&quot;&gt;Sempre&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nlp.stanford.edu/pubs/schuster2016enhanced.pdf&quot;&gt;Enhanced Dependencies&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/uwnlp/EasySRL&quot;&gt;EasySRL&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://amr.isi.edu/&quot;&gt;AMR&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Dependency Parser for Portuguese in FreeLing&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://nlp.lsi.upc.edu/freeling/&quot;&gt;Freeling&lt;/a&gt; is a developer-oriented library providing language analysis
+  services.  Freeling has already a good support for Portuguese in all
+  its base modules (tokenizer, sentence splitter, POS tagger, WSD,
+  etc.). We want to extend that support with a dependency parser for
+  Portuguese.  This project is about to understand how to train a parser
+  in FreeLing and make it for Portuguese, evaluating the result.&lt;/p&gt;
+&lt;p&gt;For the training we can use the recently released UD_Portuguese data
+  under the &lt;a href=&quot;http://universaldependencies.org/&quot;&gt;Universal Dependencies&lt;/a&gt; project.&lt;/p&gt;
+&lt;h2&gt;SUO-KIF translator to TPTP&lt;/h2&gt;
+&lt;p&gt;We have rewrote the &lt;a href=&quot;https://github.com/own-pt/cl-krr&quot;&gt;translation&lt;/a&gt; from &lt;a href=&quot;http://www.adampease.org/OP/&quot;&gt;SUO-KIF&lt;/a&gt; logic language to &lt;a href=&quot;http://www.cs.miami.edu/~tptp/&quot;&gt;TPTP&lt;/a&gt;
+  language. In this project we want to expand the translation of
+  high-order construction to TPTP/THF. In the sequence, we want to make
+  the output readable to &lt;a href=&quot;http://www.ai.sri.com/~stickel/snark.html&quot;&gt;SNARK&lt;/a&gt; prover to explore its support to
+  Procedural Attachments.&lt;/p&gt;
+&lt;p&gt;Ideally, the translator should be written in logic or functional
+  programming style using: Prolog, Haskell or Common Lisp, etc.&lt;/p&gt;
+&lt;h2&gt;CoNLL-U and Universal Dependencies toolset&lt;/h2&gt;
+&lt;p&gt;The creation of an annotated corpus with dependencies is a hard task
+  and very time-consuming. We are collaborating with the &lt;a href=&quot;http://universaldependencies.org/&quot;&gt;Universal
+  Dependencies&lt;/a&gt; Project, with a Portuguese Corpus (&lt;a href=&quot;http://github.com/universaldependencies/ud_portuguese&quot;&gt;UD_Portuguese&lt;/a&gt;). After
+  release 2.0, we are now preparing for the next version expanding and
+  solving errors in the current 2.0 corpus.&lt;/p&gt;
+&lt;p&gt;In this project, we are interested in improving the necessary tools
+  that we use:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/own-pt/cl-conllu&quot;&gt;CL-CONLLU&lt;/a&gt; : a Common Lisp library for work with CoNLL-U files&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/own-pt/conll-workbench&quot;&gt;conllu-workbench&lt;/a&gt; : a set of opensource tools that we use for
+    searching and editing the corpus.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In particular, the CL library needs better support for rules and
+  functions for comparing different trees and help in the identification
+  of common patterns of errors.&lt;/p&gt;
+&lt;h2&gt;Improving the openWordnet-PT interface&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&quot;http://wnpt.brlcloud.com/wn/&quot;&gt;OpenWordnet-PT&lt;/a&gt;, abbreviated as OpenWN-PT or simply OWN-PT) is a
+  open access wordnet for Portuguese, originally developed by Valeria de
+  Paiva, Alexandre Rademaker and Gerard de Melo as a syntactic
+  projection of Universal WordNet (UWN) of de Melo and Weikum. Like many
+  other open wordnets we believe that lexical resources need to be open
+  to be useful.&lt;/p&gt;
+&lt;p&gt;The OpenWN-PT is available in RDF/OWL, following and expanding, when
+  necessary, the mappings from the original Princeton WordNet. Both the
+  data and the RDF template settings (classes and properties) of the
+  OpenWN-PT are freely available for download here. Besides being
+  downloadable, the data can be retrieved via SPARQL in the endpoint and
+  one can consult and compare it with other wordnets at the generic
+  interface provided by the Open MultiLingual WordNet project.&lt;/p&gt;
+&lt;p&gt;This project is about helping our team in the improving of the &lt;a href=&quot;https://github.com/own-pt/cl-wnbrowser&quot;&gt;web
+  interface&lt;/a&gt; for our openWordnet-PT.&lt;/p&gt;
+&lt;p&gt;In particular, we need to: (1) simplify the architecture; (2) improve
+  the interface for votes and suggestions; (3) improve navegation and
+  data visualization.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>web crawler in Racket</title>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ 
+   <title>Ideas of Projects</title>
+ 
+ <meta name="author" content="Alexandre Rademaker" />
+ <link href="http://feeds.feedburner.com/arademaker" rel="alternate"
+       title="Alexandre Rademaker" type="application/atom+xml" />
+ 
+ <!-- syntax highlighting CSS -->
+ <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+ <link rel="stylesheet" href="/css/table.css" type="text/css" />
+
+ <!-- <link href="/css/highlight.css" rel="stylesheet" type="text/css"> -->
+ <link href="/css/gists.css" rel="stylesheet" type="text/css"/>
+
+ <!-- CSS -->
+ <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+ <!-- Typekit 
+ <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+ <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+ -->
+
+ <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-97240-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+  <div id="outer">
+    <div id="top"></div>
+
+    <div id="left">
+      <img src="/images/eu-sf.jpg"/>
+    </div>  
+
+    <div class="site">
+      <div class="title">
+	<a href="/">Alexandre Rademaker</a>
+	<a class="extra" href="/about.html">about me</a>
+	<a class="extra" href="/publications.html">publications</a>
+        <a class="extra" href="/research.html">research</a>
+	<a class="extra" href="/teaching.html">teaching</a>
+      </div>
+      
+      <div id="post">
+  <h1> Ideas of Projects </h1>
+
+  <p>Some possible ideas for students looking for projects: &#8216;iniciação
+  científica&#8217;.</p>
+<h2>Text Entailment</h2>
+<p>We propose a project to evaluate different techniques for <a href="https://en.wikipedia.org/wiki/Textual_entailment">text
+  entailment</a> using deep parsing. We were particularly interested in
+  ‘deep’ linguistic processing of sentences. The goal is the combination
+  of linguistic and statistical processing methods for getting at the
+  meaning of texts and utterances.  For the experiments, we propose the
+  use of the <a href="http://clic.cimec.unitn.it/composes/sick.html">SICK</a> corpus and it was the corpus used in the <a href="http://alt.qcri.org/semeval2014/task1/">SemEval 2014</a>.</p>
+<p>Some tools/ideas under consideration are:</p>
+<ol>
+  <li><a href="https://arxiv.org/abs/1702.03196">Universal DepLambda</a></li>
+  <li><a href="https://github.com/percyliang/sempre">Sempre</a></li>
+  <li><a href="http://nlp.stanford.edu/pubs/schuster2016enhanced.pdf">Enhanced Dependencies</a></li>
+  <li><a href="https://github.com/uwnlp/EasySRL">EasySRL</a></li>
+  <li><a href="http://amr.isi.edu/">AMR</a></li>
+</ol>
+<h2>Dependency Parser for Portuguese in FreeLing</h2>
+<p><a href="http://nlp.lsi.upc.edu/freeling/">Freeling</a> is a developer-oriented library providing language analysis
+  services.  Freeling has already a good support for Portuguese in all
+  its base modules (tokenizer, sentence splitter, POS tagger, WSD,
+  etc.). We want to extend that support with a dependency parser for
+  Portuguese.  This project is about to understand how to train a parser
+  in FreeLing and make it for Portuguese, evaluating the result.</p>
+<p>For the training we can use the recently released UD_Portuguese data
+  under the <a href="http://universaldependencies.org/">Universal Dependencies</a> project.</p>
+<h2>SUO-KIF translator to TPTP</h2>
+<p>We have rewrote the <a href="https://github.com/own-pt/cl-krr">translation</a> from <a href="http://www.adampease.org/OP/">SUO-KIF</a> logic language to <a href="http://www.cs.miami.edu/~tptp/">TPTP</a>
+  language. In this project we want to expand the translation of
+  high-order construction to TPTP/THF. In the sequence, we want to make
+  the output readable to <a href="http://www.ai.sri.com/~stickel/snark.html">SNARK</a> prover to explore its support to
+  Procedural Attachments.</p>
+<p>Ideally, the translator should be written in logic or functional
+  programming style using: Prolog, Haskell or Common Lisp, etc.</p>
+<h2>CoNLL-U and Universal Dependencies toolset</h2>
+<p>The creation of an annotated corpus with dependencies is a hard task
+  and very time-consuming. We are collaborating with the <a href="http://universaldependencies.org/">Universal
+  Dependencies</a> Project, with a Portuguese Corpus (<a href="http://github.com/universaldependencies/ud_portuguese">UD_Portuguese</a>). After
+  release 2.0, we are now preparing for the next version expanding and
+  solving errors in the current 2.0 corpus.</p>
+<p>In this project, we are interested in improving the necessary tools
+  that we use:</p>
+<ol>
+  <li><a href="https://github.com/own-pt/cl-conllu">CL-CONLLU</a> : a Common Lisp library for work with CoNLL-U files</li>
+  <li><a href="https://github.com/own-pt/conll-workbench">conllu-workbench</a> : a set of opensource tools that we use for
+    searching and editing the corpus.</li>
+</ol>
+<p>In particular, the CL library needs better support for rules and
+  functions for comparing different trees and help in the identification
+  of common patterns of errors.</p>
+<h2>Improving the openWordnet-PT interface</h2>
+<p>The <a href="http://wnpt.brlcloud.com/wn/">OpenWordnet-PT</a>, abbreviated as OpenWN-PT or simply OWN-PT) is a
+  open access wordnet for Portuguese, originally developed by Valeria de
+  Paiva, Alexandre Rademaker and Gerard de Melo as a syntactic
+  projection of Universal WordNet (UWN) of de Melo and Weikum. Like many
+  other open wordnets we believe that lexical resources need to be open
+  to be useful.</p>
+<p>The OpenWN-PT is available in RDF/OWL, following and expanding, when
+  necessary, the mappings from the original Princeton WordNet. Both the
+  data and the RDF template settings (classes and properties) of the
+  OpenWN-PT are freely available for download here. Besides being
+  downloadable, the data can be retrieved via SPARQL in the endpoint and
+  one can consult and compare it with other wordnets at the generic
+  interface provided by the Open MultiLingual WordNet project.</p>
+<p>This project is about helping our team in the improving of the <a href="https://github.com/own-pt/cl-wnbrowser">web
+  interface</a> for our openWordnet-PT.</p>
+<p>In particular, we need to: (1) simplify the architecture; (2) improve
+  the interface for votes and suggestions; (3) improve navegation and
+  data visualization.</p>
+
+
+ <hr/>
+
+ <div id="disqus_thread"></div>
+ <script type="text/javascript">
+   var disqus_shortname = 'arademaker'; 
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+      <div class="footer">
+	<div class="contact">
+	  <p>
+            Professor at <a href="http://emap.fgv.br/">EMAp/FGV</a>, Researcher at <a href="http://research.ibm.com">IBM</a><br/>
+            arademaker AT gmail DOT com
+	  </p>
+	  
+	  <p><a id="academia-button" href="https://ibm.academia.edu/AlexandreRademaker">Follow me on Academia.edu</a><script src="//a.academia-assets.com/javascripts/social.js"></script></p>
+
+	  <p>
+	    <a href="http://github.com/arademaker/">github.com/arademaker</a> - 
+            <a href="http://twitter.com/arademaker/">twitter.com/arademaker</a> - 
+            <a href="http://facebook.com/alexandre.rademaker">Facebook</a> -
+	    <a href="https://scholar.google.com.br/citations?user=SWz6BjIAAAAJ&hl=en">Google Scholar</a>
+	  </p>
+	  <p>The postings and pages on this site are my own and don't
+	    necessarily represent IBM's or FGV's positions, strategies
+	    or opinions.</p>
+	</div>	
+	<div class="rss">
+	  <p><a href="http://feeds.feedburner.com/arademaker"><img src="/images/rss.png" alt="Subscribe to RSS Feed" /></a></p>
+	</div>
+      </div>
+    </div>
+
+    <div id="right">
+    </div>
+  </div>
+</body>
+</html>
