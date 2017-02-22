@@ -1,0 +1,12 @@
+---
+layout: default
+title: Representação do Conhecimento e Inferência
+---
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+OPTIONS: toc:nil
+#+PROPERTY: exports code
+
+* {{ page.title }}
+
+under construction
