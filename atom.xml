@@ -4,13 +4,106 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2017-02-22T14:17:13-03:00</updated>
+ <updated>2017-06-06T10:33:21-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>anotações sintáticas</title>
+   <link href="http://arademaker.github.com/blog/2017/06/06/dependencias.html"/>
+   <updated>2017-06-06T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2017/06/06/dependencias</id>
+   <content type="html">&lt;p&gt;A sentença &amp;#8220;O garoto, que mora na rua 12, estava correndo atrás da
+  bola.&amp;#8221; adimite certamente várias análises sintáticas diferentes a
+  partir de diferentes interpretações. Mas mesmo fixada uma
+  interepratação, são várias as análises sintáticas possíveis dependendo
+  do formalismo adotado. Estes formalismos dividem-se em duas grandes
+  classes: `phrase-structure` ou `dependencies` mas existem variações
+  entre teorias dentro destas classes. Vejamos dois formalismos de
+  dependências.&lt;/p&gt;
+&lt;p&gt;O sistema &lt;a href=&quot;http://visl.sdu.dk/visl/pt/parsing/automatic/dependency.php&quot;&gt;PALAVRAS&lt;/a&gt; tem como saída padrão para a análise por
+  dependências da sentença acima, o seguinte trecho:&lt;/p&gt;
+&lt;pre class=&quot;example&quot;&gt;
+O [o] &amp;lt;*&amp;gt; &amp;lt;artd&amp;gt; DET M S @&amp;gt;N #1-&amp;gt;2
+garoto [garoto] &amp;lt;Hbio&amp;gt; N M S @SUBJ&amp;gt; #2-&amp;gt;11
+, #3-&amp;gt;0
+que [que] &amp;lt;clb&amp;gt; &amp;lt;clb-fs&amp;gt; &amp;lt;rel&amp;gt; SPEC M S @SUBJ&amp;gt; #4-&amp;gt;5
+mora [morar] &amp;lt;vK&amp;gt; &amp;lt;mv&amp;gt; &amp;lt;np-close&amp;gt; V PR 3S IND VFIN @FS-N&amp;lt; #5-&amp;gt;2
+em [em] &amp;lt;sam-&amp;gt; PRP @&amp;lt;SA #6-&amp;gt;5
+a [o] &amp;lt;-sam&amp;gt; &amp;lt;artd&amp;gt; DET F S @&amp;gt;N #7-&amp;gt;8
+rua [rua] N F S @P&amp;lt; #8-&amp;gt;6
+12 [12] &amp;lt;card&amp;gt; NUM M/F P @&amp;lt;SC #9-&amp;gt;5
+, #10-&amp;gt;0
+estava [estar] &amp;lt;fmc&amp;gt; &amp;lt;aux&amp;gt; V IMPF 3S IND VFIN @FS-STA #11-&amp;gt;0
+correndo [correr] &amp;lt;clb&amp;gt; &amp;lt;mv&amp;gt; V GER @ICL-AUX&amp;lt; #12-&amp;gt;11
+atrás de [atrás=de] &amp;lt;sam-&amp;gt; PRP @&amp;lt;ADVL #13-&amp;gt;12
+a [o] &amp;lt;artd&amp;gt; &amp;lt;-sam&amp;gt; DET F S @&amp;gt;N #14-&amp;gt;15
+bola [bola] &amp;lt;cc&amp;gt; &amp;lt;tool&amp;gt; &amp;lt;food-c-h&amp;gt; &amp;lt;act&amp;gt; N F S @P&amp;lt; #15-&amp;gt;13
+. #16-&amp;gt;0
+&lt;/pre&gt;
+&lt;p&gt;Um parser de dependências treinado com um corpus anotado seguindo o
+  modelo de dependências &lt;a href=&quot;http://universaldependencies.org&quot;&gt;Universal Dependencies&lt;/a&gt;, neste caso o corpus
+  UD_Portuguese (Bosque em UD produzido pelo nosso grupo), produz a
+  seguinte saída para a mesma sentença:&lt;/p&gt;
+&lt;pre class=&quot;example&quot;&gt;
+1	O	_	DET	DET	_	2	det	_	_
+2	garoto	_	NOUN	NOUN	_	12	nsubj	_	SpaceAfter=No
+3	,	_	PUNCT	.	_	5	punct	_	_
+4	que	_	PRON	PRON	_	5	nsubj	_	_
+5	mora	_	VERB	VERB	_	2	acl:relcl	_	_
+6-7	na	_	_	_	_	_	_	_	_
+6	en	en	ADP	ADP	_	8	case	_	_
+7	a	o	DET	DET	Definite=Def|Gender=Fem|Number=Sing|PronType=Art	8	det	_	_
+8	rua	_	NOUN	NOUN	_	5	nmod	_	_
+9	12	_	NUM	NUM	NumType=Card	8	appos	_	SpaceAfter=No
+10	,	_	PUNCT	.	_	5	punct	_	_
+11	estava	_	AUX	AUX	_	12	aux	_	_
+12	correndo	_	VERB	VERB	_	0	root	_	_
+13	atrás	_	ADV	ADV	_	12	advmod	_	_
+14-15	da	_	_	_	_	_	_	_	_
+14	de	de	ADP	ADP	_	16	case	_	_
+15	a	o	DET	DET	Definite=Def|Gender=Fem|Number=Sing|PronType=Art	16	det	_	_
+16	bola	_	NOUN	NOUN	_	13	nmod	_	SpaceAfter=No
+17	.	_	PUNCT	.	_	12	punct	_	_
+&lt;/pre&gt;
+&lt;p&gt;Existem diferenças teóricas e técnicas entre estes dois modelos de
+  dependências. As diferenças teórias são as que caracterizam cada
+  modelo ou formalismo. Por exemplo, em UD, o `root` da sentença, o nó
+  raiz da árvore sintática, é o verbo `correr`. Para o PALAVRAS o root é
+  o verbo `estar` que, alias, não é exatamente o root, porque o root
+  para o PALAVRAS é um nó 0, que não tem nenhum token
+  associado. PALAVRAS identificou `atrás de` como uma MWE funcionando
+  como preposição enquanto UD não fez o mesmo agrupamento. Para o
+  PALAVRAS, todas as pontuações apontam para o root da sentença. Para
+  UD, o tratamento das pontuações não é tão simples. Vale perceber que o
+  parser &lt;a href=&quot;http://lindat.mff.cuni.cz/services/udpipe/run.php&quot;&gt;UDPipe&lt;/a&gt;, que usei para produzir a saída acima, errou no
+  desmembramento da contração `na`.&lt;/p&gt;
+&lt;p&gt;Mas para revisão do corpus, estou agora mais interessado nas
+  diferenças técnicas. Ambas as saídas codificam de forma diferente
+  várias informações: os links de dependência, as POS tags, as features,
+  lemas etc. Ambos representam um token por linha, mas o PALAVRAS
+  apresenta as informações de cada token de uma forma mais `flat`, uma
+  &lt;i&gt;sopa&lt;/i&gt; de símbolos, apelando para alguns caracteres especiais que
+  identificam os tipos de cada símbolo. Lema entre conchetes, tags e
+  features em maiusculas, relações sintáticas começam com o símbolo `@`
+  e outras tags sintáticas e semânticas entre `&amp;lt;&amp;#8230;&amp;gt;`. Em contrapartida,
+  o formato CoNLL-U adotado por UD propõe que cada informação esteja em
+  uma coluna de um formato tabular. Em UD, as features são
+  explicitamente definidas, por exemplo, `Gender=Fem`. No PALAVRAS o
+  símbolo `F` codifica esta mesma informação.&lt;/p&gt;
+&lt;p&gt;Pensando na tarefa de revisão de anotações sintáticas, qual formato
+  seria mais adequado para edições? Quais outros formatos possíveis
+  existem? Esta discussÃo é certamente menos relevante se adotarmos uma
+  postura de revisão de corpora centrada no suporte de alguma ferramenta
+  de anotação, como &lt;a href=&quot;http://brat.nlplab.org&quot;&gt;Brat&lt;/a&gt; ou &lt;a href=&quot;https://webanno.github.io/webanno/&quot;&gt;Webanno&lt;/a&gt;. Mas a verdade é que nenhuma destas
+  ferramentas é tão flexível como a edição direta de arquivos texto com
+  suporte de alguma interface de visualização e `debug` da anotação.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Ideas of Projects for 2017</title>

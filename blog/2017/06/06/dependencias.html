@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ 
+   <title>anotações sintáticas</title>
+ 
+ <meta name="author" content="Alexandre Rademaker" />
+ <link href="http://feeds.feedburner.com/arademaker" rel="alternate"
+       title="Alexandre Rademaker" type="application/atom+xml" />
+ 
+ <!-- syntax highlighting CSS -->
+ <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+ <link rel="stylesheet" href="/css/table.css" type="text/css" />
+
+ <!-- <link href="/css/highlight.css" rel="stylesheet" type="text/css"> -->
+ <link href="/css/gists.css" rel="stylesheet" type="text/css"/>
+
+ <!-- CSS -->
+ <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+ <!-- Typekit 
+ <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+ <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+ -->
+
+ <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-97240-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+  <div id="outer">
+    <div id="top"></div>
+
+    <div id="left">
+      <img src="/images/eu-sf.jpg"/>
+    </div>  
+
+    <div class="site">
+      <div class="title">
+	<a href="/">Alexandre Rademaker</a>
+	<a class="extra" href="/about.html">about me</a>
+	<a class="extra" href="/publications.html">publications</a>
+        <a class="extra" href="/research.html">research</a>
+	<a class="extra" href="/teaching.html">teaching</a>
+      </div>
+      
+      <div id="post">
+  <h1> anotações sintáticas </h1>
+
+  <p>A sentença &#8220;O garoto, que mora na rua 12, estava correndo atrás da
+  bola.&#8221; adimite certamente várias análises sintáticas diferentes a
+  partir de diferentes interpretações. Mas mesmo fixada uma
+  interepratação, são várias as análises sintáticas possíveis dependendo
+  do formalismo adotado. Estes formalismos dividem-se em duas grandes
+  classes: `phrase-structure` ou `dependencies` mas existem variações
+  entre teorias dentro destas classes. Vejamos dois formalismos de
+  dependências.</p>
+<p>O sistema <a href="http://visl.sdu.dk/visl/pt/parsing/automatic/dependency.php">PALAVRAS</a> tem como saída padrão para a análise por
+  dependências da sentença acima, o seguinte trecho:</p>
+<pre class="example">
+O [o] &lt;*&gt; &lt;artd&gt; DET M S @&gt;N #1-&gt;2
+garoto [garoto] &lt;Hbio&gt; N M S @SUBJ&gt; #2-&gt;11
+, #3-&gt;0
+que [que] &lt;clb&gt; &lt;clb-fs&gt; &lt;rel&gt; SPEC M S @SUBJ&gt; #4-&gt;5
+mora [morar] &lt;vK&gt; &lt;mv&gt; &lt;np-close&gt; V PR 3S IND VFIN @FS-N&lt; #5-&gt;2
+em [em] &lt;sam-&gt; PRP @&lt;SA #6-&gt;5
+a [o] &lt;-sam&gt; &lt;artd&gt; DET F S @&gt;N #7-&gt;8
+rua [rua] N F S @P&lt; #8-&gt;6
+12 [12] &lt;card&gt; NUM M/F P @&lt;SC #9-&gt;5
+, #10-&gt;0
+estava [estar] &lt;fmc&gt; &lt;aux&gt; V IMPF 3S IND VFIN @FS-STA #11-&gt;0
+correndo [correr] &lt;clb&gt; &lt;mv&gt; V GER @ICL-AUX&lt; #12-&gt;11
+atrás de [atrás=de] &lt;sam-&gt; PRP @&lt;ADVL #13-&gt;12
+a [o] &lt;artd&gt; &lt;-sam&gt; DET F S @&gt;N #14-&gt;15
+bola [bola] &lt;cc&gt; &lt;tool&gt; &lt;food-c-h&gt; &lt;act&gt; N F S @P&lt; #15-&gt;13
+. #16-&gt;0
+</pre>
+<p>Um parser de dependências treinado com um corpus anotado seguindo o
+  modelo de dependências <a href="http://universaldependencies.org">Universal Dependencies</a>, neste caso o corpus
+  UD_Portuguese (Bosque em UD produzido pelo nosso grupo), produz a
+  seguinte saída para a mesma sentença:</p>
+<pre class="example">
+1	O	_	DET	DET	_	2	det	_	_
+2	garoto	_	NOUN	NOUN	_	12	nsubj	_	SpaceAfter=No
+3	,	_	PUNCT	.	_	5	punct	_	_
+4	que	_	PRON	PRON	_	5	nsubj	_	_
+5	mora	_	VERB	VERB	_	2	acl:relcl	_	_
+6-7	na	_	_	_	_	_	_	_	_
+6	en	en	ADP	ADP	_	8	case	_	_
+7	a	o	DET	DET	Definite=Def|Gender=Fem|Number=Sing|PronType=Art	8	det	_	_
+8	rua	_	NOUN	NOUN	_	5	nmod	_	_
+9	12	_	NUM	NUM	NumType=Card	8	appos	_	SpaceAfter=No
+10	,	_	PUNCT	.	_	5	punct	_	_
+11	estava	_	AUX	AUX	_	12	aux	_	_
+12	correndo	_	VERB	VERB	_	0	root	_	_
+13	atrás	_	ADV	ADV	_	12	advmod	_	_
+14-15	da	_	_	_	_	_	_	_	_
+14	de	de	ADP	ADP	_	16	case	_	_
+15	a	o	DET	DET	Definite=Def|Gender=Fem|Number=Sing|PronType=Art	16	det	_	_
+16	bola	_	NOUN	NOUN	_	13	nmod	_	SpaceAfter=No
+17	.	_	PUNCT	.	_	12	punct	_	_
+</pre>
+<p>Existem diferenças teóricas e técnicas entre estes dois modelos de
+  dependências. As diferenças teórias são as que caracterizam cada
+  modelo ou formalismo. Por exemplo, em UD, o `root` da sentença, o nó
+  raiz da árvore sintática, é o verbo `correr`. Para o PALAVRAS o root é
+  o verbo `estar` que, alias, não é exatamente o root, porque o root
+  para o PALAVRAS é um nó 0, que não tem nenhum token
+  associado. PALAVRAS identificou `atrás de` como uma MWE funcionando
+  como preposição enquanto UD não fez o mesmo agrupamento. Para o
+  PALAVRAS, todas as pontuações apontam para o root da sentença. Para
+  UD, o tratamento das pontuações não é tão simples. Vale perceber que o
+  parser <a href="http://lindat.mff.cuni.cz/services/udpipe/run.php">UDPipe</a>, que usei para produzir a saída acima, errou no
+  desmembramento da contração `na`.</p>
+<p>Mas para revisão do corpus, estou agora mais interessado nas
+  diferenças técnicas. Ambas as saídas codificam de forma diferente
+  várias informações: os links de dependência, as POS tags, as features,
+  lemas etc. Ambos representam um token por linha, mas o PALAVRAS
+  apresenta as informações de cada token de uma forma mais `flat`, uma
+  <i>sopa</i> de símbolos, apelando para alguns caracteres especiais que
+  identificam os tipos de cada símbolo. Lema entre conchetes, tags e
+  features em maiusculas, relações sintáticas começam com o símbolo `@`
+  e outras tags sintáticas e semânticas entre `&lt;&#8230;&gt;`. Em contrapartida,
+  o formato CoNLL-U adotado por UD propõe que cada informação esteja em
+  uma coluna de um formato tabular. Em UD, as features são
+  explicitamente definidas, por exemplo, `Gender=Fem`. No PALAVRAS o
+  símbolo `F` codifica esta mesma informação.</p>
+<p>Pensando na tarefa de revisão de anotações sintáticas, qual formato
+  seria mais adequado para edições? Quais outros formatos possíveis
+  existem? Esta discussÃo é certamente menos relevante se adotarmos uma
+  postura de revisão de corpora centrada no suporte de alguma ferramenta
+  de anotação, como <a href="http://brat.nlplab.org">Brat</a> ou <a href="https://webanno.github.io/webanno/">Webanno</a>. Mas a verdade é que nenhuma destas
+  ferramentas é tão flexível como a edição direta de arquivos texto com
+  suporte de alguma interface de visualização e `debug` da anotação.</p>
+
+
+ <hr/>
+
+ <div id="disqus_thread"></div>
+ <script type="text/javascript">
+   var disqus_shortname = 'arademaker'; 
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+      <div class="footer">
+	<div class="contact">
+	  <p>
+            Professor at <a href="http://emap.fgv.br/">EMAp/FGV</a>, Researcher at <a href="http://research.ibm.com">IBM</a><br/>
+            arademaker AT gmail DOT com
+	  </p>
+	  
+	  <p><a id="academia-button" href="https://ibm.academia.edu/AlexandreRademaker">Follow me on Academia.edu</a><script src="//a.academia-assets.com/javascripts/social.js"></script></p>
+
+	  <p>
+	    <a href="http://github.com/arademaker/">github.com/arademaker</a> - 
+            <a href="http://twitter.com/arademaker/">twitter.com/arademaker</a> - 
+            <a href="http://facebook.com/alexandre.rademaker">Facebook</a> -
+	    <a href="https://scholar.google.com.br/citations?user=SWz6BjIAAAAJ&hl=en">Google Scholar</a>
+	  </p>
+	  <p>The postings and pages on this site are my own and don't
+	    necessarily represent IBM's or FGV's positions, strategies
+	    or opinions.</p>
+	</div>	
+	<div class="rss">
+	  <p><a href="http://feeds.feedburner.com/arademaker"><img src="/images/rss.png" alt="Subscribe to RSS Feed" /></a></p>
+	</div>
+      </div>
+    </div>
+
+    <div id="right">
+    </div>
+  </div>
+</body>
+</html>
