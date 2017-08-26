@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2017-06-06T10:33:21-03:00</updated>
+ <updated>2017-08-26T13:03:31-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -17,11 +17,9 @@
    <link href="http://arademaker.github.com/blog/2017/06/06/dependencias.html"/>
    <updated>2017-06-06T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2017/06/06/dependencias</id>
-   <content type="html">&lt;p&gt;A sentença &amp;#8220;O garoto, que mora na rua 12, estava correndo atrás da
-  bola.&amp;#8221; adimite certamente várias análises sintáticas diferentes a
-  partir de diferentes interpretações. Mas mesmo fixada uma
-  interepratação, são várias as análises sintáticas possíveis dependendo
-  do formalismo adotado. Estes formalismos dividem-se em duas grandes
+   <content type="html">&lt;p&gt;Dada a sentença &amp;#8220;O garoto, que mora na rua 12, estava correndo atrás
+  da bola.&amp;#8221;, são várias as análises sintáticas possíveis dependendo do
+  formalismo adotado. Estes formalismos dividem-se em duas grandes
   classes: `phrase-structure` ou `dependencies` mas existem variações
   entre teorias dentro destas classes. Vejamos dois formalismos de
   dependências.&lt;/p&gt;
