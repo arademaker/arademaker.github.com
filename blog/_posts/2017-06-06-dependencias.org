@@ -5,11 +5,9 @@ tags:
  - research
 ---
 
-A sentença "O garoto, que mora na rua 12, estava correndo atrás da
-bola." adimite certamente várias análises sintáticas diferentes a
-partir de diferentes interpretações. Mas mesmo fixada uma
-interepratação, são várias as análises sintáticas possíveis dependendo
-do formalismo adotado. Estes formalismos dividem-se em duas grandes
+Dada a sentença "O garoto, que mora na rua 12, estava correndo atrás
+da bola.", são várias as análises sintáticas possíveis dependendo do
+formalismo adotado. Estes formalismos dividem-se em duas grandes
 classes: `phrase-structure` ou `dependencies` mas existem variações
 entre teorias dentro destas classes. Vejamos dois formalismos de
 dependências.
