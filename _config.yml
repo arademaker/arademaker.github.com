@@ -1,5 +1,5 @@
 
-gems: [jekyll/scholar,rdiscount,jekyll-org-mode-converter]
+plugins: [jekyll/scholar,rdiscount,jekyll-org-mode-converter]
 
 highlighter: rouge
 markdown: kramdown
