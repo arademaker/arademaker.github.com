@@ -86,26 +86,24 @@ Linux e no MacOS (MacPorts). Para executar a transformação e validar
 um XML em relação ao seu DTD/Schema, ainda são necessários os
 programas xsltproc e xmllint.</p>
 
-<h2 id="instalao-dos-programas-necessrios">Instalação dos programas necessários</h2>
+<h2 id="instalação-dos-programas-necessários">Instalação dos programas necessários</h2>
 
 <p>Para quem usa o MacPorts no MacOS:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo port -v install bibtool bibutils
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo port -v install bibtool bibutils
+</code></pre></div></div>
 
 <p>O xmllint e xsltproc já estão instalados no MacOS (acho que no XCode).</p>
 
 <p>Para quem usa Linux/Ubuntu:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install bibtool bibutils xsltproc libxml2-utils
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install bibtool bibutils xsltproc libxml2-utils
+</code></pre></div></div>
 
 <p>Para quem usa Windows, consultar o site destas ferramentas, não
 trivial! Esquece o Windows e instala o Ubuntu! ;-)</p>
 
-<h2 id="usando-a-transformao">Usando a transformação</h2>
+<h2 id="usando-a-transformação">Usando a transformação</h2>
 
 <p>Com as ferramentas instaladas, o primeiro passo é acesssar o sistema
 <a href="http://lattes.cnpq.br">Lattes do CNPq</a>, link <strong>atualizar</strong>, logar-se
@@ -118,15 +116,13 @@ repositório no github.</p>
 
 <p>Agora basta rodar:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>xsltproc lattes2mods.xsl LATTES.xml &gt; LATTES.mods
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xsltproc lattes2mods.xsl LATTES.xml &gt; LATTES.mods
+</code></pre></div></div>
 
 <p>E em seguida:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>xml2bib -b -w LATTES.mods &gt; LATTES.bib
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xml2bib -b -w LATTES.mods &gt; LATTES.bib
+</code></pre></div></div>
 
 <p>Mas o interessante é antes de rodar o xml2bib, validar o arquivo mods
 gerado contra o
@@ -134,9 +130,8 @@ gerado contra o
 disponibilizado no site da Biblioteca do Congresso Americano, baixe a
 versão 3.4:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>xmllint --schema mods.xsd LATTTES.mods
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xmllint --schema mods.xsd LATTTES.mods
+</code></pre></div></div>
 
 <p>Esta validação serve para verificar não apenas erros na estrutura do
 arquivo, que seriam bugs no meu código, mas também erros nos dados, em

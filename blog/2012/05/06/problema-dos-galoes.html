@@ -104,7 +104,7 @@ linguagem e ao sistema ao mesmo tempo.</p>
 
 <p>A implementação em Maude é muito simples:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>mod GAL is
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mod GAL is
   inc INT .
 
   sorts Galon System .
@@ -129,8 +129,7 @@ linguagem e ao sistema ao mesmo tempo.</p>
   op initial : -&gt; System .
   eq initial = &lt; 0 , 10 &gt; &lt; 7 , 7 &gt; &lt; 4 , 4 &gt; .
 endm
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Trata-se de uma especificação algébrica do estado do sistema como um
 multiset de galões onde cada galão é uma dupla de números inteiros:
@@ -160,19 +159,17 @@ usando o comando <code class="highlighter-rouge">search</code>.</p>
 partir do estado initial. Por exemplo, para aplicarmos 4 regras de
 reescrita a partir do estado inicial usamos:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Maude&gt; rew [4] initial .
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Maude&gt; rew [4] initial .
 rewrite [4] in GAL : initial .
 rewrites: 33 in 0ms cpu (0ms real) (131474 rewrites/second)
 result System: &lt; 0,4 &gt; &lt; 4,10 &gt; &lt; 7,7 &gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Note-se que não controlamos que regras são aplicadas (estratégia de
 aplicação). Para encontrarmos a solução, usamos:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>search initial =&gt;* &lt; 2 , X:Int &gt; S:System such that X:Int &lt; 10 .
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>search initial =&gt;* &lt; 2 , X:Int &gt; S:System such that X:Int &lt; 10 .
+</code></pre></div></div>
 
 <p>Este comando acima efetua uma busca (BFS, busca em largura), a partir
 do estado inicial, por algum estado atingido com zero ou mais
@@ -182,7 +179,7 @@ seja menor que 10.</p>
 
 <p>A resposta do sistema são 4 possíveis soluções:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Solution 1 (state 16)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Solution 1 (state 16)
 states: 17  rewrites: 501 in 3ms cpu (3ms real) (139244 rewrites/second)
 S:System --&gt; &lt; 2,10 &gt; &lt; 7,7 &gt;
 X:Int --&gt; 4
@@ -204,13 +201,12 @@ X:Int --&gt; 7
 
 No more solutions.
 states: 21  rewrites: 721 in 6ms cpu (6ms real) (109824 rewrites/second)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Para examinarmos a primeira solução, pedimos para o sistema mostrar o
 caminho, isto é, as reescritas executadas.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Maude&gt; show path 16 .
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Maude&gt; show path 16 .
 state 0, System: &lt; 0,10 &gt; &lt; 4,4 &gt; &lt; 7,7 &gt;
 ===[ crl ... [label transfer-1] . ]===&gt;
 state 1, System: &lt; 0,4 &gt; &lt; 4,10 &gt; &lt; 7,7 &gt;
@@ -224,8 +220,7 @@ state 12, System: &lt; 0,4 &gt; &lt; 5,7 &gt; &lt; 6,10 &gt;
 state 14, System: &lt; 2,10 &gt; &lt; 4,4 &gt; &lt; 5,7 &gt;
 ===[ crl ... [label transfer-2] . ]===&gt;
 state 16, System: &lt; 2,4 &gt; &lt; 2,10 &gt; &lt; 7,7 &gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>O estado encontrado é onde o galão de 4 litros está com 2 litros, o
 galão de 7 litros está completo e o galão de 10 litros está com 2

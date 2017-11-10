@@ -81,17 +81,16 @@ package whish makes my
 package. Since I am running the last version of R, 2.14, the general
 procedure for install packages didn’t work.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt; install.packages("SSOAP")
-Warning message:
-In getDependencies(pkgs, dependencies, available, lib) :
-  package ‘SSOAP’ is not available (for R version 2.14.0)
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;</span> <span class="n">install</span><span class="p">.</span><span class="n">packages</span><span class="p">(</span><span class="s2">"SSOAP"</span><span class="p">)</span>
+<span class="n">Warning</span> <span class="n">message</span><span class="p">:</span>
+<span class="k">In</span> <span class="n">getDependencies</span><span class="p">(</span><span class="n">pkgs</span><span class="p">,</span> <span class="n">dependencies</span><span class="p">,</span> <span class="n">available</span><span class="p">,</span> <span class="n">lib</span><span class="p">)</span> <span class="p">:</span>
+  <span class="k">package</span> <span class="err">‘</span><span class="n">SSOAP</span><span class="err">’</span> <span class="n">is</span> <span class="k">not</span> <span class="n">available</span> <span class="p">(</span><span class="n">for</span> <span class="n">R</span> <span class="k">version</span> <span class="m">2.14.0</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>I finnaly figured out how to install the last version from source
 using the Omegahat repository version with the command:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt; install.packages("SSOAP", repos = "http://www.omegahat.org/R", 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; install.packages("SSOAP", repos = "http://www.omegahat.org/R", 
                    dependencies = TRUE, 
                    type = "source")
 trying URL 'http://www.omegahat.org/R/src/contrib/SSOAP_0.8-1.tar.gz'
@@ -117,8 +116,7 @@ Warning in .NonstandardGenericTest(body(fdef), name, stdGenericBody) :
 
 The downloaded packages are in
 	‘/private/var/.../downloaded_packages’
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>After that, I was prepared to actually test the package running the
 code that I created during the

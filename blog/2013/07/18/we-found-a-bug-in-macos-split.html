@@ -91,7 +91,7 @@ code):</p>
 
 <p>This file content could be inspected with hexdump command:</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>hexdump -C zero.log
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>hexdump <span class="nt">-C</span> zero.log
 00000000  41 42 00 00 00 43 44 45  0a 46 0a 47 0a     |AB...CDE.F.G.|
 0000000d</code></pre></figure>
 
@@ -102,17 +102,17 @@ one line per file.</p>
 <p>The Linux version of split works as expected, it splits the file
 keeping the zero bytes unchanged.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>split -1 zero.log
-<span class="gp">$ </span><span class="k">for </span>f <span class="k">in </span>x??; <span class="k">do </span><span class="nb">echo</span> <span class="s2">"---Begin: </span><span class="nv">$f</span><span class="s2">"</span>; cat <span class="nv">$f</span>; <span class="nb">echo</span> <span class="s2">"---End: </span><span class="nv">$f</span><span class="s2">"</span>; <span class="k">done</span>
----Begin: xaa
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>split <span class="nt">-1</span> zero.log
+<span class="nv">$ </span><span class="k">for </span>f <span class="k">in </span>x??<span class="p">;</span> <span class="k">do </span><span class="nb">echo</span> <span class="s2">"---Begin: </span><span class="nv">$f</span><span class="s2">"</span><span class="p">;</span> <span class="nb">cat</span> <span class="nv">$f</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">"---End: </span><span class="nv">$f</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>
+<span class="nt">---Begin</span>: xaa
 ABCDE
----End: xaa
----Begin: xab
+<span class="nt">---End</span>: xaa
+<span class="nt">---Begin</span>: xab
 F
----End: xab
----Begin: xac
+<span class="nt">---End</span>: xab
+<span class="nt">---Begin</span>: xac
 G
----End: xac</code></pre></figure>
+<span class="nt">---End</span>: xac</code></pre></figure>
 
 <p>Moreover, the sum of bytes of the <code class="highlighter-rouge">x??</code> files is equal the number of
 bytes in the <code class="highlighter-rouge">zero.log</code> file, 13 bytes.</p>
@@ -124,14 +124,14 @@ that, the zero bytes causes the Mac OS split to ignore the rest of the
 first line of <code class="highlighter-rouge">zero.log</code> causing a lost of data. The sum of the bytes
 of the <code class="highlighter-rouge">x??</code> files in Mac OS is only 6 bytes.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>split -1 zero.log
-<span class="gp">$ </span><span class="k">for </span>f <span class="k">in </span>x??; <span class="k">do </span><span class="nb">echo</span> <span class="s2">"---Begin: </span><span class="nv">$f</span><span class="s2">"</span>; cat <span class="nv">$f</span>; <span class="nb">echo</span> <span class="s2">"---End: </span><span class="nv">$f</span><span class="s2">"</span>; <span class="k">done</span>
----Begin: xaa
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>split <span class="nt">-1</span> zero.log
+<span class="nv">$ </span><span class="k">for </span>f <span class="k">in </span>x??<span class="p">;</span> <span class="k">do </span><span class="nb">echo</span> <span class="s2">"---Begin: </span><span class="nv">$f</span><span class="s2">"</span><span class="p">;</span> <span class="nb">cat</span> <span class="nv">$f</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">"---End: </span><span class="nv">$f</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>
+<span class="nt">---Begin</span>: xaa
 ABF
----End: xaa
----Begin: xab
+<span class="nt">---End</span>: xaa
+<span class="nt">---Begin</span>: xab
 G
----End: xab</code></pre></figure>
+<span class="nt">---End</span>: xab</code></pre></figure>
 
 <h2 id="reporting-the-bug">Reporting the bug</h2>
 

@@ -72,7 +72,7 @@
 
 <p>My final solution is to keep the directory produced by jekyll out of git control. This simple thing allows me to switch the branches, from source to master, and still have access to the produced files, directory <code class="highlighter-rouge">_site</code>. Once in the master branch, I only have to move the files under <code class="highlighter-rouge">_site/</code> to the root directory in the master branch and update the master branch before push it to GitHub.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git checkout source
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout source
 // do whatever you need
 git status / git add / git commit
 jekyll
@@ -80,8 +80,7 @@ checkout master
 cp -r _site/* . &amp;&amp; rm -rf _site/ &amp;&amp; touch .nojekyll
 git status &gt; git add &gt; git commit
 git push -all origin
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
 
