@@ -1,0 +1,30 @@
+---
+title: RDF/OWL support for Common Lisp
+layout: post
+tags:
+ - projects
+ - todo
+---
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+OPTIONS: toc:nil
+#+PROPERTY: exports both
+
+
+As I wrote in the comments on [[https://github.com/ha-mo-we/Racer/issues/4][this issue]], it would be a nice project
+to improve Wilbur and Racer2 making them more modular and robust. It
+is a shame the current support for RDF/OWL in Lisp, it is almost
+nothing compare with Python and Java libraries available such as:
+
+- https://rdflib.readthedocs.io/en/stable/
+- https://jena.apache.org
+
+The only robust library available for RDF/OWL in Lisp is the Allegro
+Graph system from Franz, but it is a commercial and since its 3.X
+version, it can't be used as a library for simples RDF/OWL
+manipulations.
+
+I found https://github.com/SeijiKoide/SWCLOS but I haven't tried it
+yet. The ideas didn't not evolved so much since the paper
+[[http://www.iiia.csic.es/~puyol/TAPIA2001/use-of-lisp-on-sw.pdf][The Use of Lisp in Semantic Web Applications]].
+
