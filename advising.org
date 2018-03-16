@@ -1,0 +1,46 @@
+---
+layout: default
+title: Advising
+---
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+OPTIONS: toc:nil
+#+PROPERTY: exports code
+
+* {{ page.title }}
+
+** Guilherme Passos
+
+Guilherme Paulino Passos is a Master's student in Computer Science at
+PESC/COPPE, under co-supervision of Alexandre Rademaker and
+supervision of Gerson Zaverucha. Guilherme is working in the formal
+representation of syntactical analyses of natural language, for
+improving the quality of linguistic datasets and detecting errors in
+data-driven parsing. In the past, he worked with Alexandre in projects
+on Formal Verification of Description Logics, and Computational
+Semantics. Guilherme holds a Bachelor's Degree in Law and a Bachelor's
+Degree in Applied Mathematics and his interests include Artificial
+Intelligence & Law, Natural Language Understanding, Logical and
+Relational Machine Learning, and Knowledge Representation and
+Reasoning.
+
+** Henrique Muniz
+
+Henrique is an undergrad student at EMAp/FGV and intern at IBM
+Research. He had worked with many projects related to NLP: (a) a
+Common Lisp library for processing CoNLL-U files; (b) web interface
+for the DHBB data visualization; (c) wordnet expansion for Geo Science
+domain. Currently at IBM we will work on projects related with
+information extraction for specific domains.
+
+** Pedro Delfino
+
+Pedro holds a Bachelor's Degree in Law, we are working on the
+developing of a system to pass in the OAB Exams.
+
+** Bruno Cuconato
+
+Bruno is a MSc student at EMAp/FGV. he likes programming languages and
+logic, and is currently working at a Portuguese computational grammar
+under the GF formalism.
+
