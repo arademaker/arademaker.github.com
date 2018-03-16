@@ -4,13 +4,36 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2018-01-02T09:02:48-02:00</updated>
+ <updated>2018-03-16T08:44:31-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>RDF/OWL support for Common Lisp</title>
+   <link href="http://arademaker.github.com/blog/2018/01/17/projects.html"/>
+   <updated>2018-01-17T00:00:00-02:00</updated>
+   <id>http://arademaker.github.com/blog/2018/01/17/projects</id>
+   <content type="html">&lt;p&gt;As I wrote in the comments on &lt;a href=&quot;https://github.com/ha-mo-we/Racer/issues/4&quot;&gt;this issue&lt;/a&gt;, it would be a nice project
+  to improve Wilbur and Racer2 making them more modular and robust. It
+  is a shame the current support for RDF/OWL in Lisp, it is almost
+  nothing compare with Python and Java libraries available such as:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://rdflib.readthedocs.io/en/stable/&lt;/li&gt;
+  &lt;li&gt;https://jena.apache.org&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The only robust library available for RDF/OWL in Lisp is the Allegro
+  Graph system from Franz, but it is a commercial and since its 3.X
+  version, it can&amp;#8217;t be used as a library for simples RDF/OWL
+  manipulations.&lt;/p&gt;
+&lt;p&gt;I found https://github.com/SeijiKoide/SWCLOS but I haven&amp;#8217;t tried it
+  yet. The ideas didn&amp;#8217;t not evolved so much since the paper
+  &lt;a href=&quot;http://www.iiia.csic.es/~puyol/TAPIA2001/use-of-lisp-on-sw.pdf&quot;&gt;The Use of Lisp in Semantic Web Applications&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>anotações sintáticas</title>

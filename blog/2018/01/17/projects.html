@@ -4,7 +4,7 @@
 <head>
  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
  
-   <title>Passing the Brazilian OAB Exam: Data Preparation and Some Experiments</title>
+   <title>RDF/OWL support for Common Lisp</title>
  
  <meta name="author" content="Alexandre Rademaker" />
  <link href="http://feeds.feedburner.com/arademaker" rel="alternate"
@@ -62,59 +62,37 @@
       </div>
       
       <div id="post">
-  <h1> Passing the Brazilian OAB Exam: Data Preparation and Some Experiments </h1>
+  <h1> RDF/OWL support for Common Lisp </h1>
 
-  <p>  </p>
+  <p>As I wrote in the comments on <a href="https://github.com/ha-mo-we/Racer/issues/4">this issue</a>, it would be a nice project
+  to improve Wilbur and Racer2 making them more modular and robust. It
+  is a shame the current support for RDF/OWL in Lisp, it is almost
+  nothing compare with Python and Java libraries available such as:</p>
+<ul>
+  <li>https://rdflib.readthedocs.io/en/stable/</li>
+  <li>https://jena.apache.org</li>
+</ul>
+<p>The only robust library available for RDF/OWL in Lisp is the Allegro
+  Graph system from Franz, but it is a commercial and since its 3.X
+  version, it can&#8217;t be used as a library for simples RDF/OWL
+  manipulations.</p>
+<p>I found https://github.com/SeijiKoide/SWCLOS but I haven&#8217;t tried it
+  yet. The ideas didn&#8217;t not evolved so much since the paper
+  <a href="http://www.iiia.csic.es/~puyol/TAPIA2001/use-of-lisp-on-sw.pdf">The Use of Lisp in Semantic Web Applications</a>.</p>
 
-  
-  
 
-   <h3>Downloads:</h3>
-   <p><ul>
-     
-      <li> <a href="http://ebooks.iospress.nl/volumearticle/48048">full text</a></li>
-     
-     
-      <li>No slides available</li>
-     
-   </ul></p>
+ <hr/>
 
-  <h3>BibTeX:</h3>
-  <figure class="highlight"><pre><code class="language-bash" data-lang="bash">  <span class="o">{</span>%raw%<span class="o">}</span>@incollection<span class="o">{</span>jurix-2017,
-  author <span class="o">=</span> <span class="o">{</span>Delfino, Pedro and Cuconato, Bruno and Haeusler, Edward Hermann and Rademaker, Alexandre<span class="o">}</span>,
-  title <span class="o">=</span> <span class="o">{</span>Passing the Brazilian OAB Exam: Data Preparation and Some Experiments<span class="o">}</span>,
-  optcrossref <span class="o">=</span> <span class="o">{}</span>,
-  optkey <span class="o">=</span> <span class="o">{}</span>,
-  booktitle <span class="o">=</span> <span class="o">{</span>Legal Knowledge and Information Systems<span class="o">}</span>,
-  year <span class="o">=</span> <span class="o">{</span>2017<span class="o">}</span>,
-  editor <span class="o">=</span> <span class="o">{</span>Wyner, Adam and Casini, Giovanni<span class="o">}</span>,
-  volume <span class="o">=</span> <span class="o">{</span>302<span class="o">}</span>,
-  optnumber <span class="o">=</span> <span class="o">{}</span>,
-  series <span class="o">=</span> <span class="o">{</span>Frontiers <span class="k">in </span>Artificial Intelligence and Applications<span class="o">}</span>,
-  optpages <span class="o">=</span> <span class="o">{}</span>,
-  optmonth <span class="o">=</span> <span class="o">{}</span>,
-  optaddress <span class="o">=</span> <span class="o">{}</span>,
-  optorganization <span class="o">=</span> <span class="o">{}</span>,
-  pdflink1 <span class="o">=</span> <span class="o">{</span>http://ebooks.iospress.nl/volumearticle/48048<span class="o">}</span>,
-  optpublisher <span class="o">=</span> <span class="o">{}</span>,
-  note <span class="o">=</span> <span class="o">{</span>30th International Conference on Legal Knowledge and Information Systems <span class="o">(</span>JURIX 2017<span class="o">)</span><span class="nb">.</span> Expanded version at https://arxiv.org/abs/1712.05128<span class="o">}</span>,
-  optannote <span class="o">=</span> <span class="o">{}</span>
-<span class="o">}</span>
-<span class="o">{</span>%endraw%<span class="o">}</span> 
-  </code></pre></figure>
-</div>
-
-<br/>
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'arademaker'; 
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ <div id="disqus_thread"></div>
+ <script type="text/javascript">
+   var disqus_shortname = 'arademaker'; 
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
 
