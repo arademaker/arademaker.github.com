@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Advising
+title: Advising and Mentoring
 ---
 #+PROPERTY: cache yes
 #+PROPERTY: results output
@@ -44,3 +44,7 @@ Bruno is a MSc student at EMAp/FGV. he likes programming languages and
 logic, and is currently working at a Portuguese computational grammar
 under the GF formalism.
 
+** Flávia Martins
+
+Flávia works at IBM and I am mentoring her in a project. Our goal is
+to annotate DHBB corpus in Watson Knowledge Studio.
