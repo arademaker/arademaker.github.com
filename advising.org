@@ -48,3 +48,8 @@ under the GF formalism.
 
 Flávia works at IBM and I am mentoring her in a project. Our goal is
 to annotate DHBB corpus in Watson Knowledge Studio.
+
+** Vitória Guardieiro
+
+Vitória is an undergrad student at EMAp/FGV, she is working with KR
+and reasoning.
