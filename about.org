@@ -43,6 +43,9 @@ expertise and interesting are logic, proof theory, knowledge
 representation and reasoning, type theory, computational semantics,
 lexical resources and computational grammars.
 
+Alexandre is also a board member of the [[http://www.globalwordnet.org][Global WordNet Association]] and
+the current coordinator of the [[http://cepln.github.io][CE-PLN]].
+
 You can find more information at:
 
  - [[http://researcher.ibm.com/person/br-alexrad]]
@@ -55,7 +58,6 @@ You can find more information at:
  - [[http://facebook.com/alexandre.rademaker]]
  - [[http://twitter.com/arademaker]]
   
-* Organizational activities
 
-- Board member of the [[http://www.globalwordnet.org][Global WordNet Association]].
+
   
