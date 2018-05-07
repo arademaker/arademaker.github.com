@@ -103,7 +103,7 @@ one line per file.</p>
 <p>The Linux version of split works as expected, it splits the file
 keeping the zero bytes unchanged.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>split <span class="nt">-1</span> zero.log
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">split</span> <span class="nt">-1</span> zero.log
 <span class="nv">$ </span><span class="k">for </span>f <span class="k">in </span>x??<span class="p">;</span> <span class="k">do </span><span class="nb">echo</span> <span class="s2">"---Begin: </span><span class="nv">$f</span><span class="s2">"</span><span class="p">;</span> <span class="nb">cat</span> <span class="nv">$f</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">"---End: </span><span class="nv">$f</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>
 <span class="nt">---Begin</span>: xaa
 ABCDE
@@ -125,7 +125,7 @@ that, the zero bytes causes the Mac OS split to ignore the rest of the
 first line of <code class="highlighter-rouge">zero.log</code> causing a lost of data. The sum of the bytes
 of the <code class="highlighter-rouge">x??</code> files in Mac OS is only 6 bytes.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>split <span class="nt">-1</span> zero.log
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">split</span> <span class="nt">-1</span> zero.log
 <span class="nv">$ </span><span class="k">for </span>f <span class="k">in </span>x??<span class="p">;</span> <span class="k">do </span><span class="nb">echo</span> <span class="s2">"---Begin: </span><span class="nv">$f</span><span class="s2">"</span><span class="p">;</span> <span class="nb">cat</span> <span class="nv">$f</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">"---End: </span><span class="nv">$f</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>
 <span class="nt">---Begin</span>: xaa
 ABF
