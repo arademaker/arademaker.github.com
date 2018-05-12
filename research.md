@@ -5,22 +5,26 @@ title: Research
 
 # {{ page.title }}
 
-## Program Committee 
+## Conferences
 
-- [PROPOR 2016](http://propor2016.di.fc.ul.pt) - Program Committee
- - [LexSem+Logics 2016](http://propor2016.di.fc.ul.pt/?page_id=385) -  Organizing Committee
-- [GWC 2016](http://gwc2016.racai.ro)
-- [STIL 2015](http://bracis2015.imd.ufrn.br) - Program Chair
+(not updated)
+
+- LREC 2018 - program committee
+- COLING 2018 - area chair
+- [PROPOR 2016](http://propor2016.di.fc.ul.pt) - program committee
+- [LexSem+Logics 2016](http://propor2016.di.fc.ul.pt/?page_id=385) -  organizing committee
+- [GWC 2016](http://gwc2016.racai.ro) - program committee
+- [STIL 2015](http://bracis2015.imd.ufrn.br) - program chair
 - [WoMO 2015](http://www.iaoa.org/jowo/womo2015/#pc)
 - [VIVO 2015](http://vivoconference.org)
 - [Ontobras 2015](http://www.ime.usp.br/~ontobras/)
 - [Coling 2014](http://www.coling-2014.org)
 - [FOIS 2014](http://fois2014.inf.ufes.br)
- - [6th Workshop on Formal Ontologies meet Industry](http://emap.fgv.br/fomi-2014/) - Organizer
- - [Workshop on Logics and Ontologies for Natural Language](http://emap.fgv.br/logonto-2014/) - Organizer
-- [Workshop ToRPorEsp @ Propor 2014](https://sites.google.com/site/torporesp/) - Organizer
+- [6th Workshop on Formal Ontologies meet Industry](http://emap.fgv.br/fomi-2014/) - organizer
+- [Workshop on Logics and Ontologies for Natural Language](http://emap.fgv.br/logonto-2014/) - organizer
+- [Workshop ToRPorEsp @ Propor 2014](https://sites.google.com/site/torporesp/) - organizer
 - [Ontobras 2013](http://ontobras.eci.ufmg.br/en)
-- [Logics and Ontologies for Portuguese 2011](http://emap.fgv.br/logonto-2011/) - Organizer
+- [Logics and Ontologies for Portuguese 2011](http://emap.fgv.br/logonto-2011/) - organizer
 
 ## Reviews for Journals
 
@@ -29,12 +33,14 @@ title: Research
 
 ## Invited talks
 
+- [Congresso em Humanidades Digitais 2018](http://eventos.fgv.br/en/hdrio2018) - Mineração do DHBB e o
+  desafio de resolver a prova da OAB -
+  ([slides](/files/slides-KR-hdrio-2018.pdf))
 - Processamento de Linguagem Natural em textos da História
   Comptemporânea do Brasil: o projeto OpenWordnet-PT,
   FGV, 2012. ([PDF](/files/cpdoc-2012-slides.pdf),
   [SlideShare](http://goo.gl/VelVo),
-  [url](http://cpdoc.fgv.br/noticias/eventos/03102012) )
-
+  [url](http://cpdoc.fgv.br/noticias/eventos/03102012))
 - [Primeiro Encontro em Computação Semântica](http://compsem.github.io) -
   Semantic Traffic Diagnosis with STAR-CITY, 2015.
 
@@ -42,30 +48,11 @@ title: Research
 
 I am interested in the following research areas: 
 
-- Logics (proof theory, ATP etc)
+- Natural Language Understanding 
 - knowledge representation and reasoning
-- Semantic Web
+- Logics (proof theory, ATP etc)
 - Functional Programming
-- Type Theory
-
-
-## Project Ideas
-
-Some ideas of projects that I would like to work on:
-
-- Ontology Alignment and Instance Matching: I would like to look again
-  to previous work with Edward Hermann and Isabel Cafezeiro. Vide
-  publications.
-
-- Semantic Lattes: improve the mapping from Lattes XML to RDF using
-  (and expanding) VIVO Ontology.
-
-- ATP: formalize in Lean Prover properties of ALC and iALC deduction
-systems.
-
-- Lexical Resources for Portuguese: openWordnet-PT, Nomlex-PT etc.
-
-- Logics and Law. 
+- Type Theory and Category Theory
 
 ## Why Lisp
 
@@ -81,7 +68,6 @@ systems.
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'arademaker'; 
-
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
