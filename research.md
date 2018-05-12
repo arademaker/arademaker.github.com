@@ -5,9 +5,9 @@ title: Research
 
 # {{ page.title }}
 
-## Conferences
+Please consider that this page is not updated.
 
-(not updated)
+## Conferences
 
 - LREC 2018 - program committee
 - COLING 2018 - area chair
@@ -43,16 +43,6 @@ title: Research
   [url](http://cpdoc.fgv.br/noticias/eventos/03102012))
 - [Primeiro Encontro em Computação Semântica](http://compsem.github.io) -
   Semantic Traffic Diagnosis with STAR-CITY, 2015.
-
-## Research Areas
-
-I am interested in the following research areas: 
-
-- Natural Language Understanding 
-- knowledge representation and reasoning
-- Logics (proof theory, ATP etc)
-- Functional Programming
-- Type Theory and Category Theory
 
 ## Why Lisp
 

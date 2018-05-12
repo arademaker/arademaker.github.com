@@ -9,6 +9,17 @@ title: Teaching
 
 * {{ page.title }}
 
+** 2018
+
+- Estruturas de dados e algorítmos, graduação EMAp, FGV.
+
+** 2017 
+
+- Estruturas de dados e algorítmos, graduação EMAp, FGV.
+- Estruturas de dados e algorítmos, mestrado EMAp, FGV.
+- Computational Semantics, mestrado EMAp, FGV.
+- Knowledge Representation and Reasoning, mestrado EMAp, FGV.
+
 ** 2016
 
 - [[https://github.com/arademaker/lp-2016.2/][Linguagens de Programação]], Graduação EMAp, FGV.
