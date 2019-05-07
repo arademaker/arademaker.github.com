@@ -7,6 +7,19 @@ title: Research
 
 Please consider that this page is not updated.
 
+## 2019 
+
+- PC from NAACL HLT 2019
+- Chair of UDW 2019
+- PC from LDK 2019
+- Participation AAA Simposium 2019
+- PC for The Eighth Joint Conference on Lexical and Computational Semantics (SEM 2019)
+- PC for ISWC 2019 (https://iswc2019.semanticweb.org/research-track-pc/)
+- PC for LSFA 2019
+- PC for SLATE 2019
+- PC for Joint Workshop on Multiword Expressions and WordNet (MWE-WN 2019) at ACL 2019
+- PC for [19th EPIA Conference on Artificial Intelligence](https://epia2019.utad.pt/index.php/83-thematic-tracks/109-tema)
+
 ## Conferences
 
 - LREC 2018 - program committee
