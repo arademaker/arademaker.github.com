@@ -1,0 +1,23 @@
+---
+title: PARSEME corpus
+layout: post
+tags:
+ - projects
+ - todo
+---
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+OPTIONS: toc:nil
+#+PROPERTY: exports both
+
+During the evaluation of a paper, I read about the PARSEME annotation
+guidelines of verbal multiword expression. 
+
+The question that came to my mind was, what would happen if we process
+PARSEME data with ERG grammar? Would it be possible to associate to
+each type of verbal construction a pattern in the MRS?
+
+Links:
+
+- http://parsemefr.lif.univ-mrs.fr/parseme-st-guidelines/1.1/?page=home
+- http://erg.delph-in.net
