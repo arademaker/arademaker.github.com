@@ -10,17 +10,18 @@ Please consider that this page is not updated.
 ## 2019 
 
 - PC of NAACL HLT 2019
-- Chair of UDW 2019
-- PC of 2nd Conference on Language, Data and Knowledge (LDK 2019)
-- Participation AAA Simposium 2019
 - PC of The Eighth Joint Conference on Lexical and Computational Semantics (SEM 2019)
+- Chair of Syntax Fest / UDW 2019
+- PC of [2nd Conference on Language, Data and Knowledge](http://2019.ldk-conf.org) (LDK 2019)
+- PC of [Joint Workshop on Multiword Expressions and WordNet](https://bit.ly/2Swqo7O) (MWE-WN 2019) at ACL 2019
+- PC of EMNLP-IJCNLP 2019
+- PC of [19th EPIA Conference on Artificial Intelligence](https://epia2019.utad.pt/index.php/83-thematic-tracks/109-tema)
 - PC of ISWC 2019 (https://iswc2019.semanticweb.org/research-track-pc/)
+
+- Participation AAA Simposium 2019
 - PC of LSFA 2019
 - PC of SLATE 2019
-- PC of Joint Workshop on Multiword Expressions and WordNet (MWE-WN 2019) at ACL 2019
-- PC of [19th EPIA Conference on Artificial Intelligence](https://epia2019.utad.pt/index.php/83-thematic-tracks/109-tema)
 - PC of Ontobras 2019
-- PC of EMNLP-IJCNLP 2019
 - PC of PROPOR 2019
 
 ## Conferences

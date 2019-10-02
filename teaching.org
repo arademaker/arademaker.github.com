@@ -9,6 +9,10 @@ title: Teaching
 
 * {{ page.title }}
 
+** 2019
+
+- Matemática Discreta, graduação EMAp, FGV.
+
 ** 2018
 
 - Estruturas de dados e algorítmos, graduação EMAp, FGV.
