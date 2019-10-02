@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2019-07-17T21:53:13+01:00</updated>
+ <updated>2019-10-02T08:17:57-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -15,7 +15,7 @@
  <entry>
    <title>PARSEME corpus</title>
    <link href="http://arademaker.github.com/blog/2019/05/20/parseme.html"/>
-   <updated>2019-05-20T00:00:00+01:00</updated>
+   <updated>2019-05-20T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2019/05/20/parseme</id>
    <content type="html">&lt;p&gt;During the evaluation of a paper, I read about the PARSEME annotation
   guidelines of verbal multiword expression.&lt;/p&gt;
@@ -33,7 +33,7 @@
  <entry>
    <title>RDF/OWL support for Common Lisp</title>
    <link href="http://arademaker.github.com/blog/2018/01/17/projects.html"/>
-   <updated>2018-01-17T00:00:00+00:00</updated>
+   <updated>2018-01-17T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2018/01/17/projects</id>
    <content type="html">&lt;p&gt;As I wrote in the comments on &lt;a href=&quot;https://github.com/ha-mo-we/Racer/issues/4&quot;&gt;this issue&lt;/a&gt;, it would be a nice project
   to improve Wilbur and Racer2 making them more modular and robust. It
@@ -56,7 +56,7 @@
  <entry>
    <title>anotações sintáticas</title>
    <link href="http://arademaker.github.com/blog/2017/06/06/dependencias.html"/>
-   <updated>2017-06-06T00:00:00+01:00</updated>
+   <updated>2017-06-06T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2017/06/06/dependencias</id>
    <content type="html">&lt;p&gt;Dada a sentença &amp;#8220;O garoto, que mora na rua 12, estava correndo atrás
   da bola.&amp;#8221;, são várias as análises sintáticas possíveis dependendo do
@@ -147,7 +147,7 @@ bola [bola] &amp;lt;cc&amp;gt; &amp;lt;tool&amp;gt; &amp;lt;food-c-h&amp;gt; &am
  <entry>
    <title>Ideas of Projects for 2017</title>
    <link href="http://arademaker.github.com/blog/2017/02/22/projects.html"/>
-   <updated>2017-02-22T00:00:00+00:00</updated>
+   <updated>2017-02-22T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2017/02/22/projects</id>
    <content type="html">&lt;p&gt;Some possible ideas for students looking for projects: &amp;#8216;iniciação
   científica&amp;#8217;.&lt;/p&gt;
@@ -224,7 +224,7 @@ bola [bola] &amp;lt;cc&amp;gt; &amp;lt;tool&amp;gt; &amp;lt;food-c-h&amp;gt; &am
  <entry>
    <title>web crawler in Racket</title>
    <link href="http://arademaker.github.com/blog/2016/10/01/web-crawler-racket.html"/>
-   <updated>2016-10-01T00:00:00+01:00</updated>
+   <updated>2016-10-01T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2016/10/01/web-crawler-racket</id>
    <content type="html">&lt;p&gt;I usually like to suggest projects for students as part of their
   evaluation in the &amp;#8216;programming language&amp;#8217; course. This course uses
@@ -262,7 +262,7 @@ raco pkg install html-parsing
  <entry>
    <title>Project Ideas</title>
    <link href="http://arademaker.github.com/blog/2016/09/17/projects.html"/>
-   <updated>2016-09-17T00:00:00+01:00</updated>
+   <updated>2016-09-17T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2016/09/17/projects</id>
    <content type="html">&lt;h1&gt;Knowledge Representation via ACE&lt;/h1&gt;
 &lt;p&gt;Following the article https://arxiv.org/abs/1303.4293, we can think in
@@ -302,7 +302,7 @@ raco pkg install html-parsing
  <entry>
    <title>Simple queries in openWordnet-PT</title>
    <link href="http://arademaker.github.com/blog/2016/07/28/openwordnet-pt.html"/>
-   <updated>2016-07-28T00:00:00+01:00</updated>
+   <updated>2016-07-28T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2016/07/28/openwordnet-pt</id>
    <content type="html">&lt;p&gt;Our &lt;a href=&quot;http://wnpt.brlcloud.com/wn/&quot;&gt;OpenWordnet-PT&lt;/a&gt; is freely available for download and online use
   since its beginning. Nevertheless, some people still have difficulties
@@ -362,7 +362,7 @@ select distinct ?schema
  <entry>
    <title>Sudoku as programming and logic exercise</title>
    <link href="http://arademaker.github.com/blog/2016/07/19/sudoku.html"/>
-   <updated>2016-07-19T00:00:00+01:00</updated>
+   <updated>2016-07-19T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2016/07/19/sudoku</id>
    <content type="html">&lt;p&gt;Last semester, at some point in my course on Data Structures and
   Algorithms, once again I mentioned the SUDOKU problem. I am sure that
@@ -389,7 +389,7 @@ select distinct ?schema
  <entry>
    <title>Semantic Links for Portuguese</title>
    <link href="http://arademaker.github.com/blog/2016/06/13/nominalizations.html"/>
-   <updated>2016-06-13T00:00:00+01:00</updated>
+   <updated>2016-06-13T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2016/06/13/nominalizations</id>
    <content type="html">&lt;p&gt;We have presented the paper &lt;a href=&quot;/bibliography/lrec-2016-morpholinks.html&quot;&gt;Semantic Links for Portuguese&lt;/a&gt; in the
   LREC 2016. As we already know, the paper is not the end of this work,
@@ -427,7 +427,7 @@ select distinct ?schema
  <entry>
    <title>Congratuatios Guilherme Passos</title>
    <link href="http://arademaker.github.com/blog/2016/06/10/guilherme.html"/>
-   <updated>2016-06-10T00:00:00+01:00</updated>
+   <updated>2016-06-10T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2016/06/10/guilherme</id>
    <content type="html">&lt;p&gt;Guilherme Passos presented last week his final undergrad
   project. Congratulations Guilherme, well done. The project is an
@@ -446,7 +446,7 @@ select distinct ?schema
  <entry>
    <title>Solving the Puzzle</title>
    <link href="http://arademaker.github.com/blog/2016/04/03/puzzle.html"/>
-   <updated>2016-04-03T00:00:00+01:00</updated>
+   <updated>2016-04-03T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2016/04/03/puzzle</id>
    <content type="html">&lt;p&gt;Solving the &lt;a href=&quot;http://fivethirtyeight.com/features/can-you-solve-the-impossible-puzzle/&quot;&gt;Can You Solve The Impossible Puzzle?&lt;/a&gt; with Common Lisp and
   &lt;a href=&quot;http://orgmode.org&quot;&gt;Org Mode&lt;/a&gt;.&lt;/p&gt;
@@ -728,7 +728,7 @@ select distinct ?schema
  <entry>
    <title>Let over Lambda</title>
    <link href="http://arademaker.github.com/blog/2016/02/07/let-over-lambda.html"/>
-   <updated>2016-02-07T00:00:00+00:00</updated>
+   <updated>2016-02-07T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2016/02/07/let-over-lambda</id>
    <content type="html">&lt;iframe style=&quot;width:120px;height:240px;&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; src=&quot;//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&amp;OneJS=1&amp;Operation=GetAdHtml&amp;MarketPlace=US&amp;source=ac&amp;ref=tf_til&amp;ad_type=product_link&amp;tracking_id=alexanradema-20&amp;marketplace=amazon&amp;region=US&amp;placement=1435712757&amp;asins=1435712757&amp;linkId=2H7S2HFMK6B465XQ&amp;show_border=false&amp;link_opens_in_new_window=true&quot;&gt;
 &lt;/iframe&gt;
@@ -765,7 +765,7 @@ select distinct ?schema
  <entry>
    <title>Building a shared world: Mapping distributional to model-theoretic semantic spaces</title>
    <link href="http://arademaker.github.com/blog/2016/01/03/building-shared-world.html"/>
-   <updated>2016-01-03T00:00:00+00:00</updated>
+   <updated>2016-01-03T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2016/01/03/building-shared-world</id>
    <content type="html">&lt;p&gt;The introduction of this papers is fascinating. The complementarity
   mentioned in the introduction has been in my mind for a while:&lt;/p&gt;
@@ -806,7 +806,7 @@ select distinct ?schema
  <entry>
    <title>Merging RDF files</title>
    <link href="http://arademaker.github.com/blog/2015/08/18/combine-rdf.html"/>
-   <updated>2015-08-18T00:00:00+01:00</updated>
+   <updated>2015-08-18T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2015/08/18/combine-rdf</id>
    <content type="html">&lt;p&gt;How to merge multiple RDF files into a single RDF file? The first idea
   would be to convert each RDF file in &lt;a href=&quot;http://www.w3.org/2001/sw/RDFCore/ntriples/&quot;&gt;ntriples&lt;/a&gt; and just concatenate
@@ -883,7 +883,7 @@ rapper: Error - URI tudo-riot.nt:117668 column 56 - Non-printable ASCII characte
  <entry>
    <title>VIVO Apps and Tools Webinar</title>
    <link href="http://arademaker.github.com/blog/2014/04/30/webinar.html"/>
-   <updated>2014-04-30T00:00:00+01:00</updated>
+   <updated>2014-04-30T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2014/04/30/webinar</id>
    <content type="html">&lt;h1&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Yerterday I presented for the Apps and Tools working group my workflow
@@ -1082,7 +1082,7 @@ where
  <entry>
    <title>We found a bug in the split command of Mac OS</title>
    <link href="http://arademaker.github.com/blog/2013/07/18/we-found-a-bug-in-macos-split.html"/>
-   <updated>2013-07-18T00:00:00+01:00</updated>
+   <updated>2013-07-18T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2013/07/18/we-found-a-bug-in-macos-split</id>
    <content type="html">&lt;p&gt;Yesterday my friend
 &lt;a href=&quot;http://researcher.ibm.com/researcher/view.php?person=br-mnerys&quot;&gt;Marcelo Nery&lt;/a&gt;
@@ -1164,7 +1164,7 @@ G
  <entry>
    <title>The GeTFun Research Project</title>
    <link href="http://arademaker.github.com/blog/2013/01/17/GeTFun.html"/>
-   <updated>2013-01-17T00:00:00+00:00</updated>
+   <updated>2013-01-17T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2013/01/17/GeTFun</id>
    <content type="html">&lt;p&gt;January, 1 2013 marked the official beginning of the
 &lt;a href=&quot;http://sqig.math.ist.utl.pt/GeTFun/&quot;&gt;GeTFun&lt;/a&gt; project. I am very
@@ -1179,7 +1179,7 @@ Janeiro.&lt;/p&gt;
  <entry>
    <title>Pacote R dicionariosIBGE</title>
    <link href="http://arademaker.github.com/blog/2012/09/20/pacote-dicionariosIBGE.html"/>
-   <updated>2012-09-20T00:00:00+01:00</updated>
+   <updated>2012-09-20T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2012/09/20/pacote-dicionariosIBGE</id>
    <content type="html">&lt;p&gt;Disponibilizei hoje no github e submeti para o CRAN a versão 1.5 do
 pacote &lt;a href=&quot;https://github.com/arademaker/dicionariosIBGE/&quot;&gt;dicionariosIBGE&lt;/a&gt;.
@@ -1262,7 +1262,7 @@ IBGE.&lt;/p&gt;
  <entry>
    <title>O problema dos galões</title>
    <link href="http://arademaker.github.com/blog/2012/05/06/problema-dos-galoes.html"/>
-   <updated>2012-05-06T00:00:00+01:00</updated>
+   <updated>2012-05-06T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2012/05/06/problema-dos-galoes</id>
    <content type="html">&lt;p&gt;Na primeira prova do curso de &lt;a href=&quot;/CA-2012-1/&quot;&gt;estrutura de dados&lt;/a&gt; que
 dei este ano, coloquei a seguinte questão para os alunos.&lt;/p&gt;
@@ -1434,7 +1434,7 @@ litros.&lt;/p&gt;
  <entry>
    <title>Lattes to BibTeX</title>
    <link href="http://arademaker.github.com/blog/2012/02/15/lattes-to-bibtex.html"/>
-   <updated>2012-02-15T00:00:00+00:00</updated>
+   <updated>2012-02-15T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2012/02/15/lattes-to-bibtex</id>
    <content type="html">&lt;p&gt;Disponibilizei hoje online no github uma transformação do &lt;a href=&quot;http://lattes.cnpq.br/&quot;&gt;Lattes&lt;/a&gt; para
 &lt;a href=&quot;http://en.wikipedia.org/wiki/BibTeX&quot;&gt;BibTeX&lt;/a&gt;, vejam o repositório:&lt;/p&gt;
@@ -1519,7 +1519,7 @@ diretamente no &lt;a href=&quot;https://github.com/arademaker/SLattes/issues&quo
  <entry>
    <title>R Package SSOAP</title>
    <link href="http://arademaker.github.com/blog/2012/01/02/package-SSOAP.html"/>
-   <updated>2012-01-02T00:00:00+00:00</updated>
+   <updated>2012-01-02T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2012/01/02/package-SSOAP</id>
    <content type="html">&lt;p&gt;Last year, during a summer course that I gave at FGV, I taught the
 students how to use SOAP protocol do retrive data from
@@ -1597,7 +1597,7 @@ certificate used in BCB website is invalid! What a shame!&lt;/p&gt;
  <entry>
    <title>GitHub Pages and Jekyll plugins</title>
    <link href="http://arademaker.github.com/blog/2011/12/01/github-pages-jekyll-plugins.html"/>
-   <updated>2011-12-01T00:00:00+00:00</updated>
+   <updated>2011-12-01T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2011/12/01/github-pages-jekyll-plugins</id>
    <content type="html">&lt;p&gt;Everyone that use &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; and wants to host the site at GitHub should know that GitHub Pages does not allow custom plugins, right? Using Jekyll for a little more than a blog site, like &lt;a href=&quot;http://emap.fgv.br&quot;&gt;EMAp/FGV&lt;/a&gt; will require plugins. In my case, avoid the use of custom plugins is not an option.&lt;/p&gt;
 
@@ -1623,7 +1623,7 @@ git push -all origin
  <entry>
    <title>Comentários sobre ECLM 2011 e ISWC 2011 (1/2)</title>
    <link href="http://arademaker.github.com/blog/2011/11/27/ultimas-conferencias.html"/>
-   <updated>2011-11-27T00:00:00+00:00</updated>
+   <updated>2011-11-27T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2011/11/27/ultimas-conferencias</id>
    <content type="html">&lt;p&gt;Desde que voltei da minha última viagem para participar da
 &lt;a href=&quot;http://weitz.de/eclm2011/&quot;&gt;ECLM 2011&lt;/a&gt; e
@@ -1691,7 +1691,7 @@ trabalhos na seção.&lt;/p&gt;
  <entry>
    <title>Gráficos de séries temporais no R</title>
    <link href="http://arademaker.github.com/blog/2011/10/31/time-series-R.html"/>
-   <updated>2011-10-31T00:00:00+00:00</updated>
+   <updated>2011-10-31T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2011/10/31/time-series-R</id>
    <content type="html">&lt;p&gt;Pergunta de dois alunos: como postar duas séries temporáis usando o
 ggplot? Resolvi responder usando este post. Vou aproveitar então para
@@ -1804,7 +1804,7 @@ objetos &lt;code class=&quot;highlighter-rouge&quot;&gt;ts&lt;/code&gt;.&lt;/p&g
  <entry>
    <title>Verifying the ISSN's check digit in Common Lisp</title>
    <link href="http://arademaker.github.com/blog/2011/09/13/checking-issn-lisp.html"/>
-   <updated>2011-09-13T00:00:00+01:00</updated>
+   <updated>2011-09-13T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2011/09/13/checking-issn-lisp</id>
    <content type="html">&lt;p&gt;The code below is my first approach to create a lisp function that
 test the ISSN &lt;a href=&quot;http://en.wikipedia.org/wiki/Check_digit&quot;&gt;check
@@ -1823,7 +1823,7 @@ regexp library, which makes this not a real constraint.&lt;/p&gt;
  <entry>
    <title>Construindo tabelas verdade no R</title>
    <link href="http://arademaker.github.com/blog/2011/03/02/tabela-verdade-no-R.html"/>
-   <updated>2011-03-02T00:00:00+00:00</updated>
+   <updated>2011-03-02T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2011/03/02/tabela-verdade-no-R</id>
    <content type="html">&lt;p&gt;Durante a preparação de alguns exercícios de lógica, me deparei com a
 necessidade de construir tabelas verdade. Lembrando do pacote xtable
@@ -1890,7 +1890,7 @@ FALSE &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; FALSE &lt;span clas
  <entry>
    <title>Barras e Linhas no R</title>
    <link href="http://arademaker.github.com/blog/2010/11/18/barras-e-linhas.html"/>
-   <updated>2010-11-18T00:00:00+00:00</updated>
+   <updated>2010-11-18T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2010/11/18/barras-e-linhas</id>
    <content type="html">&lt;p&gt;Ontem um aluno me perguntou como produzir um gráfico de barras com
 linhas. Minha primeira idéia foi recorrer a pacotes como
@@ -1931,7 +1931,7 @@ relacionada a uma ano. Pode-se incluir os anos como rótulos do eixo
  <entry>
    <title>Datasets no Brasil</title>
    <link href="http://arademaker.github.com/blog/2010/01/30/datasets.html"/>
-   <updated>2010-01-30T00:00:00+00:00</updated>
+   <updated>2010-01-30T00:00:00-02:00</updated>
    <id>http://arademaker.github.com/blog/2010/01/30/datasets</id>
    <content type="html">&lt;p&gt;Estão começando a surgir no Brasil iniciativas para real
 transparência no acesso aos dados do governo. A
