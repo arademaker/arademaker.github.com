@@ -23,6 +23,10 @@ Please consider that this page is not updated.
 - PC of SLATE 2019
 - PC of Ontobras 2019
 - PC of PROPOR 2019
+- PC of JURIX 2019
+
+- PC AAAI 2020
+- PC LREC 2020
 
 ## Conferences
 
