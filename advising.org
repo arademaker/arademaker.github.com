@@ -9,30 +9,35 @@ title: Advising and Mentoring
 
 * {{ page.title }}
 
+* Current Students
+
+- Yuri Luis Faria (undergrad)
+- Fredson Silva (undergrad)
+- Cristiana Nogueira (undergrad)
+- Lucas Ribeiro (masters)
+- Alexandre Tessarolo (masters)
+
+* Past Students
+
 ** Alessandra Corrêa
 
 Alessandra is a dual degree student in Law and Applied Mathematics at
 FGV. While in Law School, she spent a semester at New York University
 (NYU) and received a research scholarship to study cognitive biases in
-the behavior of judges. Now, at EMAp, she is taking part in a research
-to develop a system that is able to pass the OAB Exam.
+the behavior of judges. At EMAp, she was part in the project to
+develop a system to pass the OAB Exam.
 
 ** Bruno Cuconato
 
-Bruno is a MSc student at EMAp/FGV. he likes programming languages and
-logic, and is currently working at a Portuguese computational grammar
-under the GF formalism.
-
-** Flávia Martins
-
-Flávia works at IBM and I am mentoring her in a project. Our goal is
-to annotate DHBB corpus in Watson Knowledge Studio.
+Bruno was a MSc student at EMAp/FGV. he likes programming languages
+and logic, and he worked in a Portuguese computational grammar under
+the GF formalism under this masters under supervision of Alexandre.
 
 ** Guilherme Passos
 
 Guilherme Paulino Passos is a Master's student in Computer Science at
 PESC/COPPE, under co-supervision of Alexandre Rademaker and
-supervision of Gerson Zaverucha. Guilherme is working in the formal
+supervision of Gerson Zaverucha. Guilherme worked in the formal
 representation of syntactical analyses of natural language, for
 improving the quality of linguistic datasets and detecting errors in
 data-driven parsing. In the past, he worked with Alexandre in projects
@@ -45,19 +50,14 @@ Reasoning.
 
 ** Henrique Muniz
 
-Henrique is an undergrad student at EMAp/FGV and intern at IBM
-Research. He had worked with many projects related to NLP: (a) a
-Common Lisp library for processing CoNLL-U files; (b) web interface
-for the DHBB data visualization; (c) wordnet expansion for Geo Science
-domain. Currently at IBM we will work on projects related with
-information extraction for specific domains.
+He had worked with many projects related to NLP: (a) a Common Lisp
+library for processing CoNLL-U files; (b) web interface for the DHBB
+data visualization; (c) wordnet expansion for Geo Science domain. At
+IBM he worked on projects related with information extraction for oil
+and gas domain.
 
 ** Pedro Delfino
 
-Pedro holds a Bachelor's Degree in Law, we are working on the
-developing of a system to pass in the OAB Exams.
+Pedro holds a Bachelor's Degree in Law. Pedro worked on the
+development of a system to pass in the OAB Exams.
 
-** Vitória Guardieiro
-
-Vitória is an undergrad student at EMAp/FGV, she is working with KR
-and reasoning.

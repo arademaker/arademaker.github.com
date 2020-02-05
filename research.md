@@ -7,6 +7,11 @@ title: Research
 
 Please consider that this page is not updated.
 
+## 2020
+
+- PC AAAI 2020
+- PC LREC 2020 and MWE-LEX 2020 Workshop
+
 ## 2019 
 
 - PC of NAACL HLT 2019
@@ -24,9 +29,6 @@ Please consider that this page is not updated.
 - PC of Ontobras 2019
 - PC of PROPOR 2019
 - PC of JURIX 2019
-
-- PC AAAI 2020
-- PC LREC 2020
 
 ## Conferences
 
