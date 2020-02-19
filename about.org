@@ -45,7 +45,7 @@ computational linguistics.
 
 Alexandre participate as member of many program committee of
 conferences like ACL, COLING, LREC etc. He is also a board member of
-the [[http://www.globalwordnet.org][Global WordNet Association]] and, coordinated the [[http://cepln.github.io][CE-PLN]] between
+the [[http://www.globalwordnet.org][Global WordNet Association]] and coordinated the [[http://cepln.github.io][CE-PLN]] between
 2017-219.
 
 You can find more information at:

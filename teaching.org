@@ -9,9 +9,15 @@ title: Teaching
 
 * {{ page.title }}
 
+** 2020
+
+- Introdução à Computação, graduação EMAp, FGV
+- Tópicos de Inteligência Artificial aplicada à Ciências Humanas, CPDOC
+
 ** 2019
 
-- Matemática Discreta, graduação EMAp, FGV.
+- Matemática Discreta, graduação EMAp, FGV
+- Proofs and Algorithms (Type Theory), mestrado EMAp, FGV
 
 ** 2018
 

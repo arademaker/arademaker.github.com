@@ -9,6 +9,7 @@ Please consider that this page is not updated.
 
 ## 2020
 
+- PC PROPOR 2020
 - PC AAAI 2020
 - PC LREC 2020 and MWE-LEX 2020 Workshop
 
