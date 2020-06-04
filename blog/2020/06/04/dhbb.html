@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ 
+   <title>DHBB -- nossos passos até agora</title>
+ 
+ <meta name="author" content="Alexandre Rademaker" />
+ <link href="http://feeds.feedburner.com/arademaker" rel="alternate"
+       title="Alexandre Rademaker" type="application/atom+xml" />
+ 
+ <!-- syntax highlighting CSS -->
+ <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+ <link rel="stylesheet" href="/css/table.css" type="text/css" />
+
+ <!-- <link href="/css/highlight.css" rel="stylesheet" type="text/css"> -->
+ <link href="/css/gists.css" rel="stylesheet" type="text/css"/>
+
+ <!-- CSS -->
+ <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+ <!-- Typekit 
+ <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+ <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+ -->
+
+ <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-97240-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+  <div id="outer">
+    <div id="top"></div>
+
+    <div id="left">
+      <img src="/images/eu-sf.jpg"/>
+    </div>  
+
+    <div class="site">
+      <div class="title">
+	<a href="/">Alexandre Rademaker</a>
+	<a class="extra" href="/about.html">about me</a>
+	<a class="extra" href="/publications.html">publications</a>
+	<a class="extra" href="/advising.html">advising</a>
+        <a class="extra" href="/research.html">research</a>
+	<a class="extra" href="/teaching.html">teaching</a>
+      </div>
+      
+      <div id="post">
+  <h1> DHBB -- nossos passos até agora </h1>
+
+  <p>Hoje recebi uma mensagem bem interessante perguntando sobre o que
+  tenho feito em relação ao processamento do <a href="http://cpdoc.fgv.br/acervo/dhbb">DHBB</a>. Resolvi aproveitar
+  para escrever este post.</p>
+<p>Na lista das minhas publicações,
+  http://arademaker.github.io/publications.html, interessados podem
+  consultar todos os artigos que escrevemos sobre trabalhos com o
+  DHBB. Ao longo dos anos, fizemos diferentes experimentos
+  ‘exploratórios’ no DHBB, alguns com objetivo, não de processar o DHBB,
+  mas de usa-lo para expandir recursos que precisávamos criar para o
+  processamento de textos em PT, além mesmo do DHBB.</p>
+<p>Recentemente, agora sim ja tendo recursos para tal, pudemos começar a
+  pensar no processamento do DHBB propriamente dito. Mas os recursos
+  necessários ainda estão longe de completos ou com tamanho adequado
+  para garantir boa qualidade, logo penso no processamento do DHBB como
+  um projeto de longo prazo que passará por refinamentos
+  sucessivos. Quando digo recursos, falo de coisas como:</p>
+<ol>
+  <li>Nossa WordNet do português (http://openwordnet-pt.org).</li>
+  <li>O corpus
+    http://github.com/universaldependencies/UD_Portuguese-Bosque e os
+    outros de PT que também mantemos como parte do projeto
+    http://universaldependencies.org. Estes dados usados para parser
+    das sentenças.</li>
+  <li>https://github.com/LFG-PTBR/MorphoBr dicionário morfológico.</li>
+  <li>https://github.com/System-T/UniversalPropositions/tree/master/UP_Portuguese-Bosque
+    para SRL.</li>
+</ol>
+<p>No <a href="http://arademaker.github.io/bibliography/propor-2020.html">artigo do último PROPOR</a>, mostramos que mesmo a segmentação de
+  sentenças não é trivial e que certamente vários erros de análise
+  sintática (usamos o UDPipe) existem dado o reduzido tamanho do corpus
+  Bosque e diferenças entre o estilo textual do corpus Bosque
+  (jornalístico) para o DHBB (enciclopédico). O que estamos fazendo é
+  criar um workflow que permita o trabalho de longo prazo onde revisões
+  humanas sejam integradas em ciclos de treino e avaliação dos
+  diferentes componentes que estamos usando. Eu poderia falar muito mais
+  sobre as dificuldades reais na segmentação de sentenças, mas vou
+  deixar isso para outros posts.</p>
+<p>Para a segmentação de sentenças, temos tido melhores resultados com o
+  <a href="https://opennlp.apache.org">OpenNLP</a>, que comparamos com outras ferramentas no paper mencionado
+  acima, dentre elas o <a href="https://github.com/TALP-UPC/FreeLing">Freeling</a>, que encontramos muitas limitações de
+  configuração (abreviações no final de sentenças são um problema sem
+  solução para o Freeling). Mas aprendemos que o modelo de segmentação
+  disponibilizado em http://opennlp.sourceforge.net/models-1.5/ também
+  erra várias sentenças do DHBB. Com isso, retreinamos o OpenNLP com um
+  subconjunto de sentenças do DHBB segmentadas manualmente. Ainda
+  estamos investigando alternativa ao OpenNLP, talvez o próprio UDPipe
+  ou NLTK, o issue https://github.com/cpdoc/dhbb-nlp/issues/39 trata
+  deste assunto. Não sou muito fã de Python, mas começamos a testar o
+  NLTK principalmente por causa do modulo de segmentação de sentenças
+  que implementa o algoritmo Punkt, especialmente util para lidar com
+  abreviações.</p>
+<p>Falando da análise sintática. Treinamos o <a href="http://lindat.mff.cuni.cz/services/udpipe/">UDPipe</a> com o corpus
+  <a href="https://github.com/universaldependencies/UD_Portuguese-Bosque">UD_Portuguese-Bosque</a>, que estamos ainda constantemente revisando,
+  expandido com as sentenças do DHBB analisadas que já revisamos. Com
+  este modelo, aplicamos no restante do DHBB e repetimos o ciclo. Nas
+  últimas semanas, focamos nas sentenças dos primeiros parágrafos dos
+  verbetes, temos atualmente umas 200-300 sentenças revisadas. Estas
+  sentenças, quando adicionadas ao Bosque, conseguiram ‘ensinar’ o
+  UDPipe a análise dos primeiros parágrafos dos verbetes (os parágrafos
+  que falam sobre relações familiares).</p>
+<p>Em paralelo ao nosso trabalho, Diana e Suemi incluiram o DHBB no
+  acervo da https://www.linguateca.pt, seguindo os métodos de
+  processamento dos textos que a Linguateca adota. Eu não estou mais
+  participando diretamente deste esforço embora tenha colaborado em um
+  <a href="http://arademaker.github.io/bibliography/dhn-2019.html">artigo do ano passado</a>. Para mim, a principal limitação da abordagem da
+  Linguateca são as ferramentas adotadas. Algumas proprietárias, como o
+  parser <a href="http://visl.sdu.dk/visl/pt/parsing/automatic/dependency.php">PALAVRAS</a> que produzem analises pouco ’standard’ e
+  consequentemente de difícil integração com outras ferramentas. Por
+  isso prefiro outras abordagens.</p>
+<p>Quanto a colaboração com interessados. Uma coisa que precisamos muito
+  é UI. Nosso ciclo de revisão e treino com human-in-the-loop precisa
+  evoluir para que os usuários possam fazer revisões em interfaces mais
+  visuais sem lidar com arquivos. Isto permitiria maior agilidade em
+  cada ciclo de revisão. Na parte mais de NLP, ter a análise sintática é
+  apenas uma etapa para extração de informações. Precisamos de muitas
+  outras ‘camadas’ de anotação como SRL, NER, expressões temporais
+  etc. E talvez continuar combinando técnicas. Por exemplo, para
+  reconhecimento de entidades nomeadas, temos um modelo treinado no
+  https://www.ibm.com/cloud/watson-knowledge-studio (WKS). Demo em
+  http://dhbb.mybluemix.net/dhbb/home que ainda está super básico e
+  também precisa evoluir. Mas o modelo treinado no WKS ainda precisa ser
+  melhorado e ainda precisamos pensar como integrar as anotações do WKS
+  com estes processamentos mais ‘linguisticos’ que estamos fazendo
+  agora. Enfim, muita coisa para fazer.</p>
+<p>Com sorte, o que está sendo feito pode ser útil para processamento de
+  outros textos no futuro, além do DHBB, como wikipedia.</p>
+
+
+ <hr/>
+
+ <div id="disqus_thread"></div>
+ <script type="text/javascript">
+   var disqus_shortname = 'arademaker'; 
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+      <div class="footer">
+	<div class="contact">
+	  <p>
+            Professor at <a href="http://emap.fgv.br/">EMAp/FGV</a>, Researcher at <a href="http://research.ibm.com">IBM</a><br/>
+            arademaker AT gmail DOT com
+	  </p>
+	  
+	  <p><a id="academia-button" href="https://ibm.academia.edu/AlexandreRademaker">Follow me on Academia.edu</a><script src="//a.academia-assets.com/javascripts/social.js"></script></p>
+
+	  <p>
+	    <a href="http://github.com/arademaker/">github.com/arademaker</a> - 
+            <a href="http://twitter.com/arademaker/">twitter.com/arademaker</a> - 
+            <a href="http://facebook.com/alexandre.rademaker">Facebook</a> -
+	    <a href="https://scholar.google.com.br/citations?user=SWz6BjIAAAAJ&hl=en">Google Scholar</a>
+	  </p>
+	  <p>The postings and pages on this site are my own and don't
+	    necessarily represent IBM's or FGV's positions, strategies
+	    or opinions.</p>
+	</div>	
+	<div class="rss">
+	  <p><a href="http://feeds.feedburner.com/arademaker"><img src="/images/rss.png" alt="Subscribe to RSS Feed" /></a></p>
+	</div>
+      </div>
+    </div>
+
+    <div id="right">
+    </div>
+  </div>
+</body>
+</html>
