@@ -1,5 +1,5 @@
 ---
-title: DHBB -- nossos passos até agora
+title: Processando o DHBB -- o que temos até agora?
 layout: post
 tags:
  - projects
@@ -13,13 +13,12 @@ Hoje recebi uma mensagem bem interessante perguntando sobre o que
 tenho feito em relação ao processamento do [[http://cpdoc.fgv.br/acervo/dhbb][DHBB]]. Resolvi aproveitar
 para escrever este post.
 
-Na lista das minhas publicações,
-http://arademaker.github.io/publications.html, interessados podem
-consultar todos os artigos que escrevemos sobre trabalhos com o
-DHBB. Ao longo dos anos, fizemos diferentes experimentos
-‘exploratórios’ no DHBB, alguns com objetivo, não de processar o DHBB,
-mas de usa-lo para expandir recursos que precisávamos criar para o
-processamento de textos em PT, além mesmo do DHBB.
+Na lista das minhas [[http://arademaker.github.io/publications.html][publicações]], interessados podem consultar todos os
+artigos que escrevemos sobre trabalhos com o DHBB. Ao longo dos anos,
+fizemos diferentes experimentos ‘exploratórios’ no DHBB, alguns com
+objetivo, não de processar o DHBB, mas de usa-lo para expandir
+recursos que precisávamos criar para o processamento de textos em PT,
+além mesmo do DHBB.
 
 Recentemente, agora sim ja tendo recursos para tal, pudemos começar a
 pensar no processamento do DHBB propriamente dito. Mas os recursos
@@ -28,15 +27,12 @@ para garantir boa qualidade, logo penso no processamento do DHBB como
 um projeto de longo prazo que passará por refinamentos
 sucessivos. Quando digo recursos, falo de coisas como:
 
-1. Nossa WordNet do português (http://openwordnet-pt.org).
-2. O corpus
-   http://github.com/universaldependencies/UD_Portuguese-Bosque e os
-   outros de PT que também mantemos como parte do projeto
-   http://universaldependencies.org. Estes dados usados para parser
-   das sentenças.
-3. https://github.com/LFG-PTBR/MorphoBr dicionário morfológico.
-4. https://github.com/System-T/UniversalPropositions/tree/master/UP_Portuguese-Bosque
-   para SRL.
+1. Nossa [[http://openwordnet-pt.org][WordNet do português]].
+2. O corpus [[http://github.com/universaldependencies/UD_Portuguese-Bosque][Bosque]] e os outros de PT que também mantemos como parte do
+   projeto [[http://universaldependencies.org][Universal Dependencies]]. Estes dados usados para parser das
+   sentenças.
+3. O [[https://github.com/LFG-PTBR/MorphoBr][dicionário morfológico]].
+4. O [[https://github.com/System-T/UniversalPropositions/tree/master/UP_Portuguese-Bosque][corpus com anotações de papéis semânticos]] para treino de SRL.
 
 No [[http://arademaker.github.io/bibliography/propor-2020.html][artigo do último PROPOR]], mostramos que mesmo a segmentação de
 sentenças não é trivial e que certamente vários erros de análise
@@ -54,14 +50,13 @@ Para a segmentação de sentenças, temos tido melhores resultados com o
 acima, dentre elas o [[https://github.com/TALP-UPC/FreeLing][Freeling]], que encontramos muitas limitações de
 configuração (abreviações no final de sentenças são um problema sem
 solução para o Freeling). Mas aprendemos que o modelo de segmentação
-disponibilizado em http://opennlp.sourceforge.net/models-1.5/ também
-erra várias sentenças do DHBB. Com isso, retreinamos o OpenNLP com um
-subconjunto de sentenças do DHBB segmentadas manualmente. Ainda
-estamos investigando alternativa ao OpenNLP, talvez o próprio UDPipe
-ou NLTK, o issue https://github.com/cpdoc/dhbb-nlp/issues/39 trata
-deste assunto. Não sou muito fã de Python, mas começamos a testar o
-NLTK principalmente por causa do modulo de segmentação de sentenças
-que implementa o algoritmo Punkt, especialmente util para lidar com
+[[http://opennlp.sourceforge.net/models-1.5/][disponibilizado]] em também erra várias sentenças do DHBB. Com isso,
+retreinamos o OpenNLP com um subconjunto de sentenças do DHBB
+segmentadas manualmente. Ainda estamos investigando alternativa ao
+OpenNLP, talvez o próprio UDPipe ou NLTK, este [[https://github.com/cpdoc/dhbb-nlp/issues/39][issue]] trata deste
+assunto. Não sou muito fã de Python, mas começamos a testar o NLTK
+principalmente por causa do modulo de segmentação de sentenças que
+implementa o algoritmo Punkt, especialmente util para lidar com
 abreviações.
 
 Falando da análise sintática. Treinamos o [[http://lindat.mff.cuni.cz/services/udpipe/][UDPipe]] com o corpus
@@ -75,14 +70,14 @@ UDPipe a análise dos primeiros parágrafos dos verbetes (os parágrafos
 que falam sobre relações familiares).
 
 Em paralelo ao nosso trabalho, Diana e Suemi incluiram o DHBB no
-acervo da https://www.linguateca.pt, seguindo os métodos de
-processamento dos textos que a Linguateca adota. Eu não estou mais
-participando diretamente deste esforço embora tenha colaborado em um
-[[http://arademaker.github.io/bibliography/dhn-2019.html][artigo do ano passado]]. Para mim, a principal limitação da abordagem da
-Linguateca são as ferramentas adotadas. Algumas proprietárias, como o
-parser [[http://visl.sdu.dk/visl/pt/parsing/automatic/dependency.php][PALAVRAS]] que produzem analises pouco ’standard’ e
-consequentemente de difícil integração com outras ferramentas. Por
-isso prefiro outras abordagens.
+acervo da [[https://www.linguateca.pt][Linguateca]], seguindo os métodos de processamento dos textos
+que a Linguateca adota. Eu não estou mais participando diretamente
+deste esforço embora tenha colaborado em um [[http://arademaker.github.io/bibliography/dhn-2019.html][artigo do ano
+passado]]. Para mim, a principal limitação da abordagem da Linguateca
+são as ferramentas adotadas. Algumas proprietárias, como o parser
+[[http://visl.sdu.dk/visl/pt/parsing/automatic/dependency.php][PALAVRAS]] que produzem analises pouco ’standard’ e consequentemente de
+difícil integração com outras ferramentas. Por isso prefiro outras
+abordagens.
 
 Quanto a colaboração com interessados. Uma coisa que precisamos muito
 é UI. Nosso ciclo de revisão e treino com human-in-the-loop precisa
@@ -92,9 +87,8 @@ cada ciclo de revisão. Na parte mais de NLP, ter a análise sintática é
 apenas uma etapa para extração de informações. Precisamos de muitas
 outras ‘camadas’ de anotação como SRL, NER, expressões temporais
 etc. E talvez continuar combinando técnicas. Por exemplo, para
-reconhecimento de entidades nomeadas, temos um modelo treinado no
-https://www.ibm.com/cloud/watson-knowledge-studio (WKS). Demo em
-http://dhbb.mybluemix.net/dhbb/home que ainda está super básico e
+reconhecimento de entidades nomeadas, temos um modelo treinado no [[https://www.ibm.com/cloud/watson-knowledge-studio][IBM
+Watson Knowledge Studio]] (WKS). Nosso [[http://dhbb.mybluemix.net/dhbb/home][demo]] ainda está super básico e
 também precisa evoluir. Mas o modelo treinado no WKS ainda precisa ser
 melhorado e ainda precisamos pensar como integrar as anotações do WKS
 com estes processamentos mais ‘linguisticos’ que estamos fazendo
@@ -103,3 +97,8 @@ agora. Enfim, muita coisa para fazer.
 Com sorte, o que está sendo feito pode ser útil para processamento de
 outros textos no futuro, além do DHBB, como wikipedia.
 
+São vários colaboradores participando deste projeto, em diferentes
+momentos e de diferentes formas. Em especial, não posso deixar de
+mencionar a Valeria de Paiva, amiga que me introduziu na área de
+linguistica computacional e me apresentou tantas pessoas ao longo
+destes anos.
