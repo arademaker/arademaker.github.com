@@ -4,7 +4,7 @@
 <head>
  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
  
-   <title>DHBB -- nossos passos até agora</title>
+   <title>Processando o DHBB -- o que temos até agora?</title>
  
  <meta name="author" content="Alexandre Rademaker" />
  <link href="http://feeds.feedburner.com/arademaker" rel="alternate"
@@ -63,18 +63,17 @@
       </div>
       
       <div id="post">
-  <h1> DHBB -- nossos passos até agora </h1>
+  <h1> Processando o DHBB -- o que temos até agora? </h1>
 
   <p>Hoje recebi uma mensagem bem interessante perguntando sobre o que
   tenho feito em relação ao processamento do <a href="http://cpdoc.fgv.br/acervo/dhbb">DHBB</a>. Resolvi aproveitar
   para escrever este post.</p>
-<p>Na lista das minhas publicações,
-  http://arademaker.github.io/publications.html, interessados podem
-  consultar todos os artigos que escrevemos sobre trabalhos com o
-  DHBB. Ao longo dos anos, fizemos diferentes experimentos
-  ‘exploratórios’ no DHBB, alguns com objetivo, não de processar o DHBB,
-  mas de usa-lo para expandir recursos que precisávamos criar para o
-  processamento de textos em PT, além mesmo do DHBB.</p>
+<p>Na lista das minhas <a href="http://arademaker.github.io/publications.html">publicações</a>, interessados podem consultar todos os
+  artigos que escrevemos sobre trabalhos com o DHBB. Ao longo dos anos,
+  fizemos diferentes experimentos ‘exploratórios’ no DHBB, alguns com
+  objetivo, não de processar o DHBB, mas de usa-lo para expandir
+  recursos que precisávamos criar para o processamento de textos em PT,
+  além mesmo do DHBB.</p>
 <p>Recentemente, agora sim ja tendo recursos para tal, pudemos começar a
   pensar no processamento do DHBB propriamente dito. Mas os recursos
   necessários ainda estão longe de completos ou com tamanho adequado
@@ -82,15 +81,12 @@
   um projeto de longo prazo que passará por refinamentos
   sucessivos. Quando digo recursos, falo de coisas como:</p>
 <ol>
-  <li>Nossa WordNet do português (http://openwordnet-pt.org).</li>
-  <li>O corpus
-    http://github.com/universaldependencies/UD_Portuguese-Bosque e os
-    outros de PT que também mantemos como parte do projeto
-    http://universaldependencies.org. Estes dados usados para parser
-    das sentenças.</li>
-  <li>https://github.com/LFG-PTBR/MorphoBr dicionário morfológico.</li>
-  <li>https://github.com/System-T/UniversalPropositions/tree/master/UP_Portuguese-Bosque
-    para SRL.</li>
+  <li>Nossa <a href="http://openwordnet-pt.org">WordNet do português</a>.</li>
+  <li>O corpus <a href="http://github.com/universaldependencies/UD_Portuguese-Bosque">Bosque</a> e os outros de PT que também mantemos como parte do
+    projeto <a href="http://universaldependencies.org">Universal Dependencies</a>. Estes dados usados para parser das
+    sentenças.</li>
+  <li>O <a href="https://github.com/LFG-PTBR/MorphoBr">dicionário morfológico</a>.</li>
+  <li>O <a href="https://github.com/System-T/UniversalPropositions/tree/master/UP_Portuguese-Bosque">corpus com anotações de papéis semânticos</a> para treino de SRL.</li>
 </ol>
 <p>No <a href="http://arademaker.github.io/bibliography/propor-2020.html">artigo do último PROPOR</a>, mostramos que mesmo a segmentação de
   sentenças não é trivial e que certamente vários erros de análise
@@ -107,14 +103,13 @@
   acima, dentre elas o <a href="https://github.com/TALP-UPC/FreeLing">Freeling</a>, que encontramos muitas limitações de
   configuração (abreviações no final de sentenças são um problema sem
   solução para o Freeling). Mas aprendemos que o modelo de segmentação
-  disponibilizado em http://opennlp.sourceforge.net/models-1.5/ também
-  erra várias sentenças do DHBB. Com isso, retreinamos o OpenNLP com um
-  subconjunto de sentenças do DHBB segmentadas manualmente. Ainda
-  estamos investigando alternativa ao OpenNLP, talvez o próprio UDPipe
-  ou NLTK, o issue https://github.com/cpdoc/dhbb-nlp/issues/39 trata
-  deste assunto. Não sou muito fã de Python, mas começamos a testar o
-  NLTK principalmente por causa do modulo de segmentação de sentenças
-  que implementa o algoritmo Punkt, especialmente util para lidar com
+  <a href="http://opennlp.sourceforge.net/models-1.5/">disponibilizado</a> em também erra várias sentenças do DHBB. Com isso,
+  retreinamos o OpenNLP com um subconjunto de sentenças do DHBB
+  segmentadas manualmente. Ainda estamos investigando alternativa ao
+  OpenNLP, talvez o próprio UDPipe ou NLTK, este <a href="https://github.com/cpdoc/dhbb-nlp/issues/39">issue</a> trata deste
+  assunto. Não sou muito fã de Python, mas começamos a testar o NLTK
+  principalmente por causa do modulo de segmentação de sentenças que
+  implementa o algoritmo Punkt, especialmente util para lidar com
   abreviações.</p>
 <p>Falando da análise sintática. Treinamos o <a href="http://lindat.mff.cuni.cz/services/udpipe/">UDPipe</a> com o corpus
   <a href="https://github.com/universaldependencies/UD_Portuguese-Bosque">UD_Portuguese-Bosque</a>, que estamos ainda constantemente revisando,
@@ -126,14 +121,14 @@
   UDPipe a análise dos primeiros parágrafos dos verbetes (os parágrafos
   que falam sobre relações familiares).</p>
 <p>Em paralelo ao nosso trabalho, Diana e Suemi incluiram o DHBB no
-  acervo da https://www.linguateca.pt, seguindo os métodos de
-  processamento dos textos que a Linguateca adota. Eu não estou mais
-  participando diretamente deste esforço embora tenha colaborado em um
-  <a href="http://arademaker.github.io/bibliography/dhn-2019.html">artigo do ano passado</a>. Para mim, a principal limitação da abordagem da
-  Linguateca são as ferramentas adotadas. Algumas proprietárias, como o
-  parser <a href="http://visl.sdu.dk/visl/pt/parsing/automatic/dependency.php">PALAVRAS</a> que produzem analises pouco ’standard’ e
-  consequentemente de difícil integração com outras ferramentas. Por
-  isso prefiro outras abordagens.</p>
+  acervo da <a href="https://www.linguateca.pt">Linguateca</a>, seguindo os métodos de processamento dos textos
+  que a Linguateca adota. Eu não estou mais participando diretamente
+  deste esforço embora tenha colaborado em um <a href="http://arademaker.github.io/bibliography/dhn-2019.html">artigo do ano
+  passado</a>. Para mim, a principal limitação da abordagem da Linguateca
+  são as ferramentas adotadas. Algumas proprietárias, como o parser
+  <a href="http://visl.sdu.dk/visl/pt/parsing/automatic/dependency.php">PALAVRAS</a> que produzem analises pouco ’standard’ e consequentemente de
+  difícil integração com outras ferramentas. Por isso prefiro outras
+  abordagens.</p>
 <p>Quanto a colaboração com interessados. Uma coisa que precisamos muito
   é UI. Nosso ciclo de revisão e treino com human-in-the-loop precisa
   evoluir para que os usuários possam fazer revisões em interfaces mais
@@ -142,15 +137,19 @@
   apenas uma etapa para extração de informações. Precisamos de muitas
   outras ‘camadas’ de anotação como SRL, NER, expressões temporais
   etc. E talvez continuar combinando técnicas. Por exemplo, para
-  reconhecimento de entidades nomeadas, temos um modelo treinado no
-  https://www.ibm.com/cloud/watson-knowledge-studio (WKS). Demo em
-  http://dhbb.mybluemix.net/dhbb/home que ainda está super básico e
+  reconhecimento de entidades nomeadas, temos um modelo treinado no <a href="https://www.ibm.com/cloud/watson-knowledge-studio">IBM
+  Watson Knowledge Studio</a> (WKS). Nosso <a href="http://dhbb.mybluemix.net/dhbb/home">demo</a> ainda está super básico e
   também precisa evoluir. Mas o modelo treinado no WKS ainda precisa ser
   melhorado e ainda precisamos pensar como integrar as anotações do WKS
   com estes processamentos mais ‘linguisticos’ que estamos fazendo
   agora. Enfim, muita coisa para fazer.</p>
 <p>Com sorte, o que está sendo feito pode ser útil para processamento de
   outros textos no futuro, além do DHBB, como wikipedia.</p>
+<p>São vários colaboradores participando deste projeto, em diferentes
+  momentos e de diferentes formas. Em especial, não posso deixar de
+  mencionar a Valeria de Paiva, amiga que me introduziu na área de
+  linguistica computacional e me apresentou tantas pessoas ao longo
+  destes anos.</p>
 
 
  <hr/>
