@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2020-06-06T18:35:14-03:00</updated>
+ <updated>2020-06-06T18:47:06-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -194,11 +194,11 @@
   descreve no &lt;a href=&quot;http://www.nltk.org/book/ch07.html&quot;&gt;capítulo 7&lt;/a&gt; algumas abordagens para extração de
   informações. Mas muito dos passos mencionados no texto assumem modelos
   já treinados, no inglês. E mesmo que existam modelos para Português,
-  muito possivelmente os modelos existentes produziram muitos erros em
-  cada etapa: segmentação de sentenças, pos tagging, identificação de
-  nomes etc. Por isso nosso projeto.&lt;/p&gt;
-&lt;p&gt;Para interessados no processamento de texto, sugiro a leitura de
-  &lt;a href=&quot;https://web.stanford.edu/~jurafsky/slp3/&quot;&gt;https://web.stanford.edu/~jurafsky/slp3/&lt;/a&gt;.&lt;/p&gt;
+  nossos experimentos mostram que no DHBB os resultados contém muitos
+  erros em todas as etapa: segmentação de sentenças, pos tagging,
+  identificação de nomes etc. Por isso nosso projeto.&lt;/p&gt;
+&lt;p&gt;Para interessados na área de processamento de texto, sugiro a leitura
+  do livro ainda em edição &lt;a href=&quot;https://web.stanford.edu/~jurafsky/slp3/&quot;&gt;https://web.stanford.edu/~jurafsky/slp3/&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>
  
