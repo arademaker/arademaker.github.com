@@ -201,9 +201,9 @@ facilmente. De fato, esta particular biblioteca é bem documentada e
 descreve no [[http://www.nltk.org/book/ch07.html][capítulo 7]] algumas abordagens para extração de
 informações. Mas muito dos passos mencionados no texto assumem modelos
 já treinados, no inglês. E mesmo que existam modelos para Português,
-muito possivelmente os modelos existentes produziram muitos erros em
-cada etapa: segmentação de sentenças, pos tagging, identificação de
-nomes etc. Por isso nosso projeto.
+nossos experimentos mostram que no DHBB os resultados contém muitos
+erros em todas as etapa: segmentação de sentenças, pos tagging,
+identificação de nomes etc. Por isso nosso projeto.
 
-Para interessados no processamento de texto, sugiro a leitura de
-[[https://web.stanford.edu/~jurafsky/slp3/]].
+Para interessados na área de processamento de texto, sugiro a leitura
+do livro ainda em edição [[https://web.stanford.edu/~jurafsky/slp3/]].
