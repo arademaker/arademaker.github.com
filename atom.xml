@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2020-06-06T18:21:35-03:00</updated>
+ <updated>2020-06-06T18:35:14-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -90,12 +90,11 @@
     links para Português, talvez Wikipedia precise de ajuda.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Uma busca no DHBB pelos termos mais &amp;#8216;óbvios&amp;#8217; que me ocorreram ajuda a
-  termos uma idéia do que devemos encontrar no DHBB:&lt;/p&gt;
-&lt;p&gt;https://gist.github.com/arademaker/e10d43992287008ef044630d5ab12e9c&lt;/p&gt;
-&lt;p&gt;Esta é uma busca preliminar, não está cobrindo o DHBB inteiro e
-  claramente o analisador sintático ainda comete errors e não faz
-  análises consistentes. Também podemos ter uma idéias da quantidade de
-  sentenças que mencionam estes termos:&lt;/p&gt;
+  termos uma idéia do que devemos encontrar no DHBB. Esta é uma &lt;a href=&quot;https://gist.github.com/arademaker/e10d43992287008ef044630d5ab12e9c&quot;&gt;busca
+  preliminar&lt;/a&gt;, não está cobrindo o DHBB inteiro e claramente o analisador
+  sintático ainda comete errors e não faz análises consistentes. Também
+  podemos ter uma idéias da quantidade de sentenças que mencionam estes
+  termos:&lt;/p&gt;
 &lt;pre class=&quot;src&quot; lang=&quot;bash&quot;&gt;
 % awk &amp;#39;$0 ~ /text =/ {sent = $0} $3 ~ /^(irmã|irmão|pai|mãe|tio|tia|bisavô|bisavó|primo|prima|avô|avó|sobrinho|sobrinha|cunhado|cunhada|parente)$/ {print sent}&amp;#39; *.conllu  | wc -l
     5812
@@ -199,7 +198,7 @@
   cada etapa: segmentação de sentenças, pos tagging, identificação de
   nomes etc. Por isso nosso projeto.&lt;/p&gt;
 &lt;p&gt;Para interessados no processamento de texto, sugiro a leitura de
-  https://web.stanford.edu/~jurafsky/slp3/.&lt;/p&gt;
+  &lt;a href=&quot;https://web.stanford.edu/~jurafsky/slp3/&quot;&gt;https://web.stanford.edu/~jurafsky/slp3/&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>
  

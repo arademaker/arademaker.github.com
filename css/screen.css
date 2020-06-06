@@ -202,6 +202,7 @@ div.footer div.rss img {
 
 #post pre {
     white-space: pre-wrap;
+    overflow-x: auto;
     border: 1px solid #ddd;
     background-color: #eef;
     margin-top: 1em;
