@@ -88,14 +88,11 @@ seria o ponto de partida e este assunto é bem interessante por si só:
    links para Português, talvez Wikipedia precise de ajuda.
 
 Uma busca no DHBB pelos termos mais 'óbvios' que me ocorreram ajuda a
-termos uma idéia do que devemos encontrar no DHBB:
-
-https://gist.github.com/arademaker/e10d43992287008ef044630d5ab12e9c
-
-Esta é uma busca preliminar, não está cobrindo o DHBB inteiro e
-claramente o analisador sintático ainda comete errors e não faz
-análises consistentes. Também podemos ter uma idéias da quantidade de
-sentenças que mencionam estes termos:
+termos uma idéia do que devemos encontrar no DHBB. Esta é uma [[https://gist.github.com/arademaker/e10d43992287008ef044630d5ab12e9c][busca
+preliminar]], não está cobrindo o DHBB inteiro e claramente o analisador
+sintático ainda comete errors e não faz análises consistentes. Também
+podemos ter uma idéias da quantidade de sentenças que mencionam estes
+termos:
 
 #+BEGIN_SRC bash
 % awk '$0 ~ /text =/ {sent = $0} $3 ~ /^(irmã|irmão|pai|mãe|tio|tia|bisavô|bisavó|primo|prima|avô|avó|sobrinho|sobrinha|cunhado|cunhada|parente)$/ {print sent}' *.conllu  | wc -l
@@ -209,4 +206,4 @@ cada etapa: segmentação de sentenças, pos tagging, identificação de
 nomes etc. Por isso nosso projeto.
 
 Para interessados no processamento de texto, sugiro a leitura de
-https://web.stanford.edu/~jurafsky/slp3/. 
+[[https://web.stanford.edu/~jurafsky/slp3/]].
