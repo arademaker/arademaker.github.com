@@ -4,13 +4,204 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2020-06-04T17:31:18-03:00</updated>
+ <updated>2020-06-06T18:21:35-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Extração de relações familiares do DHBB</title>
+   <link href="http://arademaker.github.com/blog/2020/06/06/dhbb.html"/>
+   <updated>2020-06-06T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2020/06/06/dhbb</id>
+   <content type="html">&lt;p&gt;Continuando o post anterior, como o leitor deve ter observado, nosso
+  objetivo não é fazer perguntas específicas, mas preparar o corpus e
+  desenvolver ferramentas para que várias diferentes perguntas possam
+  ser respondidas. Mas vamos à uma demanda por extração de informação
+  que nos parece óbvia: relações familiares. Imagine tentarmos responder
+  questões como o número de famílias que se perpetuam na política
+  brasileira nas últimas décadas.&lt;/p&gt;
+&lt;p&gt;O que então precisamos responder é o que esperamos de saída ao
+  executarmos ferramentas de NLP nos verbetes do DHBB. No que segue,
+  assumo que desejamos construir um grafo onde nós são pessoas e arestas
+  representem relações familiares entre as pessoas, rotuladas pelas
+  relações. A idéia seria construir este grafo a partir dos
+  verbetes. Diversas consultas sobre este grafo seriam possíveis e,
+  direta ou indiretamente, as respostas serviriam de dados para sua
+  reportagem. Alguém consegue pensar em algo mais específico ou mais
+  simples?&lt;/p&gt;
+&lt;p&gt;Construir o grafo que idealizei acima envolve: 1) identificação de
+  nomes próprios de pessoas; 2) identificação de substantivos ou
+  adjetivos relacionados à relações familiares; 3) identificação de
+  padrões sintáticos que identifiquem relações familiares explicitas ou
+  implícitas mencionadas nos verbetes.&lt;/p&gt;
+&lt;p&gt;Existem algumas tarefas que precisamos realizar: NER (named e entities
+  recognition), NEC (named entities classification: pessoa ou
+  instituição ou lugar etc) e desambiguação de nomes. Para identificar
+  as entidades nomeadas o problema parece simples mas sempre temos casos
+  mais complicados. Por exemplo, podemos marcar uma entidade ou duas na
+  sentença 1, levando as anotação de 2 ou 3:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Universidade Federal do Rio de Janeiro&lt;/li&gt;
+  &lt;li&gt;[Universidade Federal do Rio de Janeiro]&lt;/li&gt;
+  &lt;li&gt;[Universidade Federal] do [Rio de Janeiro]&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Note que identificar, classificar e disambiguar não necessariamente
+  são tarefas separadas. Tipicamente a desambiguação significa mapear
+  uma string no texto à uma entrada em uma base de dados. Obviamente a
+  existência de uma lista de nomes de políticos (obtida de sites do
+  governo), pode ajudar, mas em geral usamos recursos mais abrangentes
+  como DBPedia, Wkidata, Yago etc. Tomando a decisão por 2, uma ligação
+  possível seria com a &lt;a href=&quot;https://pt.wikipedia.org/wiki/Universidade_Federal_do_Rio_de_Janeiro&quot;&gt;página&lt;/a&gt;. A existência da entrada na Wikipedia para
+  `Universidade Federal do Rio de Janeiro&amp;#8217; é uma evidência de que a
+  anotação 2 seria mais adequada. E obviamente se desambiguamos uma
+  entrada X contra um DB que já nos diz o tipo de X também estamos
+  também fazendo a classificação, os problemas se misturam.&lt;/p&gt;
+&lt;p&gt;A identificação dos nomes pode ser feita diretamente, marcando no
+  texto de entrada segmentos que correspondem a nomes ou como uma camada
+  de anotação acima das árvores sintáticas. Penso que combinar as
+  abordagens sempre ajuda muito a identificarmos errors de
+  processamento. Usando o &lt;a href=&quot;https://www.ibm.com/watson/services/knowledge-studio/&quot;&gt;WKS&lt;/a&gt; já temos uma primeira versão de &lt;a href=&quot;https://github.com/cpdoc/dhbb-json&quot;&gt;anotações&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Uma das coisas que está na nossa &lt;a href=&quot;https://github.com/cpdoc/dhbb-nlp/issues/31&quot;&gt;lista de tarefas&lt;/a&gt; é verificar as
+  anotações sintáticas a partir de listas de nomes de
+  entidades. Sequencias de tokens partes de um nome deveriam estar todos
+  em uma subárvore da arvore sintática. Esta verificação nos ajudaria a
+  melhorar as &lt;a href=&quot;https://github.com/cpdoc/dhbb-nlp/tree/master/udp&quot;&gt;análises sintáticas&lt;/a&gt; que já temos. Como disse acima, listas
+  de nomes de pessoas, instituições ou lugares podem ser obtidas de
+  sites do governo, das bases que mencionei acima ou usar as anotações
+  que já temos.&lt;/p&gt;
+&lt;p&gt;Feita a identificação de nomes, podemos partir para os termos de
+  parentesco. Um bom ponto de partida seria a nossa &lt;a href=&quot;http://openwordnet-pt.org&quot;&gt;OpenWordnet-PT&lt;/a&gt;. Uma
+  revisão da cobertura dela para estes termos seria excelente. Descobrir o
+  que temos e o que está faltando. Assim poderíamos usar a estrutura da
+  WN para generalizar as buscas nos textos por termos relacionados à
+  relações familiares, ao invés de enumerar todos os termos, poderíamos
+  usar as relações semânticas da WN para perguntar por termos e seus
+  hipônimos, por exemplo. Entender a modelagem destes termos na OWN-PT
+  seria o ponto de partida e este assunto é bem interessante por si só:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Kinship_terminology&quot;&gt;https://en.wikipedia.org/wiki/Kinship_terminology&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Dyadic_kinship_term&quot;&gt;https://en.wikipedia.org/wiki/Dyadic_kinship_term&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Coefficient_of_relationship&quot;&gt;https://en.wikipedia.org/wiki/Coefficient_of_relationship&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Category:Kinship_terminology&quot;&gt;https://en.wikipedia.org/wiki/Category:Kinship_terminology&lt;/a&gt; não tem
+    links para Português, talvez Wikipedia precise de ajuda.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Uma busca no DHBB pelos termos mais &amp;#8216;óbvios&amp;#8217; que me ocorreram ajuda a
+  termos uma idéia do que devemos encontrar no DHBB:&lt;/p&gt;
+&lt;p&gt;https://gist.github.com/arademaker/e10d43992287008ef044630d5ab12e9c&lt;/p&gt;
+&lt;p&gt;Esta é uma busca preliminar, não está cobrindo o DHBB inteiro e
+  claramente o analisador sintático ainda comete errors e não faz
+  análises consistentes. Também podemos ter uma idéias da quantidade de
+  sentenças que mencionam estes termos:&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;bash&quot;&gt;
+% awk &amp;#39;$0 ~ /text =/ {sent = $0} $3 ~ /^(irmã|irmão|pai|mãe|tio|tia|bisavô|bisavó|primo|prima|avô|avó|sobrinho|sobrinha|cunhado|cunhada|parente)$/ {print sent}&amp;#39; *.conllu  | wc -l
+    5812
+&lt;/pre&gt;
+&lt;p&gt;Em seguida, temos a identificação das possíveis relações de parentesco
+  entre pessoas que possam ser identificadas nos textos. Obviamente,
+  muitas vezes os autores podem apenas mencionar a existência de um
+  parente mas não nomea-lo. Nos exemplos abaixo, note que o nome do
+  verbetado (pessoa que o verbete descreve) não aparece explicitamente
+  nas sentenças.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;bash&quot;&gt;
+% awk &amp;#39;$0 ~ /text =/ {sent = $0} $3 ~ /^(irmã|irmão|pai|mãe|tio|tia|bisavô|bisavó|primo|prima|avô|avó|sobrinho|sobrinha|cunhado|cunhada|parente)$/ {print sent}&amp;#39; *.conllu  | head
+&lt;/pre&gt;
+&lt;ol&gt;
+  &lt;li&gt;Em reportagem do dia 18 de março de 2000, do jornal «Folha de
+    S. Paulo», Armando Abílio foi acusado de ser, ao lado do deputado
+    Raimundo Santos (PFL-PA), o campeão do nepotismo na Câmara dos
+    Deputados, tendo contratado sete parentes para seu gabinete.&lt;/li&gt;
+  &lt;li&gt;Casou-se com Rosimere Bronzeado Vieira - sobrinha de Luís
+    Bronzeado, que foi deputado federal pela Paraíba de 1959 a 1967 -,
+    com quem teve cinco filhos.&lt;/li&gt;
+  &lt;li&gt;Ainda em 1998, foi nomeada para o cargo vitalício de conselheira do
+    Tribunal de Contas do Estado do Amapá (TCE-AP) por João Capiberibe,
+    seu irmão e então governador do estado.&lt;/li&gt;
+  &lt;li&gt;Como advogado, Pedro Aleixo participou de rumorosos julgamentos,
+    entre eles o das irmãs Poni (31/3/1964), que conseguiu inocentar da
+    acusação de assassinato, e o de Roberto Lobato (abril de 1973),
+    igualmente absolvido da mesma imputação, nesse caso contra o
+    posicionamento de Pedro Aleixo, que atuou como advogado de
+    acusação.&lt;/li&gt;
+  &lt;li&gt;Era casado com Maria Stuart Brandi Aleixo, com quem teve quatro
+    filhos, um dos quais, Maurício Brandi Aleixo, após a morte do pai,
+    empenhou-se em dar prosseguimento à organização do PDR.&lt;/li&gt;
+  &lt;li&gt;Seu avô, Miguel Arraes, de quem era considerado sucessor político,
+    foi por três vezes governador de Pernambuco (1963-1964, 1987-1990 e
+    1995-1998) e deputado federal durante dois mandatos (1983-1987 e
+    1991-1995).&lt;/li&gt;
+  &lt;li&gt;Sua mãe Ana Arraes exerceu mandato como deputada federal
+    (2007-2010) e desde 2011 é ministra do Tribunal de Contas da União
+    (TCU).&lt;/li&gt;
+  &lt;li&gt;Em 2005, foi eleito para o cargo de presidente do PSB, após a morte
+    de seu avô e então presidente do Partido, Miguel Arraes.&lt;/li&gt;
+  &lt;li&gt;Durante sua gestão destacam-se a criação de programas sociais como
+    o “Pacto pela Vida”, promovido pela Secretaria Estadual de
+    Segurança com vistas à redução dos índices de violência, que
+    alcançou queda de 39% no índice de homicídios; e o programa “Mãe
+    Coruja Pernambucana”, criado para diminuir a taxa de mortalidade
+    infantil, mais tarde condecorado pela Organização das Nações Unidas
+    (ONU) e posteriormente agraciado com o Prêmio Interamericano da
+    Inovação para a Gestão Pública Efetiva.&lt;/li&gt;
+  &lt;li&gt;Francisco Campos aprendeu as primeiras letras com sua mãe e depois
+    passou dois anos como interno no Instituto de Ciências e Letras de
+    São Paulo, regressando em seguida a Dores do Indaiá para estudar
+    português e francês.&lt;/li&gt;
+  &lt;li&gt;Há entretanto quem julgue, como Alexandre Barbosa Lima Sobrinho,
+    que suas realizações foram motivadas pelo afã de projetar
+    nacionalmente o próprio nome de Antônio Carlos, tendo em vista a
+    sucessão de Washington Luís, que assumira a presidência da
+    República em 15 de novembro de 1926.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Quando olhamos para os tokens que são termos de relações familiares e
+  sua relação com os demais tokens das sentenças, temos 299 casos de
+  &lt;a href=&quot;https://universaldependencies.org/u/dep/index.html&quot;&gt;ligações sintáticas&lt;/a&gt; diferentes, comprovando o que vemos nos exemplos
+  acima, uma possível grande diversidade de padrões sintáticos usados.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;bash&quot;&gt;
+% awk &amp;#39;$3 ~ /^(irmã|irmão|pai|mãe|tio|tia|bisavô|bisavó|primo|prima|avô|avó|sobrinho|sobrinha|cunhado|cunhada|parente)$/ {print $2,$4,$8}&amp;#39; *.conllu | sort | uniq -c | sort -nr | wc -l
+     299
+&lt;/pre&gt;
+&lt;p&gt;Os 10 casos mais frequentes são os abaixo. O simbolo &lt;code&gt;nsubj&lt;/code&gt; indica
+  sujeito da sentença, &lt;code&gt;nmod&lt;/code&gt; indica que a palavra ‘pai’ está
+  modificando outro substantivo, &lt;code&gt;flat:name&lt;/code&gt; indica que o termo é parte
+  de um nome etc.&lt;/p&gt;
+&lt;pre class=&quot;src&quot; lang=&quot;bash&quot;&gt;
+% awk &amp;#39;$3 ~ /^(irmã|irmão|pai|mãe|tio|tia|bisavô|bisavó|primo|prima|avô|avó|sobrinho|sobrinha|cunhado|cunhada|parente)$/ {print $2,$4,$8}&amp;#39; *.conllu | sort | uniq -c | sort -nr | head
+ 649 pai NOUN nsubj
+ 394 pai NOUN nmod
+ 370 irmão NOUN nsubj
+ 309 Sobrinho PROPN flat:name
+ 254 pai NOUN nsubj:pass
+ 211 irmão NOUN appos
+ 177 irmão NOUN nmod
+ 170 irmão NOUN nsubj:pass
+ 163 avô NOUN nsubj
+ 144 tio NOUN nsubj
+&lt;/pre&gt;
+&lt;p&gt;Isto indica que embora possamos escrever padrões para extração de
+  informações das árvores ou diretamente do texto das sentenças, o
+  trabalho poderá ser bem grande. Uma idéia é construir abstrações
+  nestas estruturas gerando representação mais semânticas para serem
+  analisadas. Outra idéia seria usar técnicas de aprendizado de máquina
+  tanto na identificação de termos para relações familiares quando na
+  extração de relações familiares. Existem vários artigos explorando
+  estas técnicas.&lt;/p&gt;
+&lt;p&gt;Iniciantes na área de PLN costumam encontrar bibliotecas como NLTK, e
+  acreditar que usando a biblioteca poderão processar textos
+  facilmente. De fato, esta particular biblioteca é bem documentada e
+  descreve no &lt;a href=&quot;http://www.nltk.org/book/ch07.html&quot;&gt;capítulo 7&lt;/a&gt; algumas abordagens para extração de
+  informações. Mas muito dos passos mencionados no texto assumem modelos
+  já treinados, no inglês. E mesmo que existam modelos para Português,
+  muito possivelmente os modelos existentes produziram muitos erros em
+  cada etapa: segmentação de sentenças, pos tagging, identificação de
+  nomes etc. Por isso nosso projeto.&lt;/p&gt;
+&lt;p&gt;Para interessados no processamento de texto, sugiro a leitura de
+  https://web.stanford.edu/~jurafsky/slp3/.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Processando o DHBB -- o que temos até agora?</title>
