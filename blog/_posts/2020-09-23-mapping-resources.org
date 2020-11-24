@@ -1,0 +1,53 @@
+---
+title: reading list 
+layout: post
+tags:
+ - projects
+---
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+OPTIONS: toc:nil
+#+PROPERTY: exports both
+
+https://www.aclweb.org/anthology/P08-2048.pdf 
+
+the authors suggest a basian network to map ERG predicates to propbank
+and verbnet predicates.
+
+http://www.mt-archive.info/MTS-2005-Flickinger.pdf
+
+The description of the LOGON transfer system for machine translation
+and the SEM-I (semantic interface) for a grammar.
+
+
+https://www.d.umn.edu/~tpederse/Pubs/AAAI04PedersenT.pdf
+
+WordNet::Similarity is a freely available software package that makes
+it possible to measure the semantic similarity or relatedness between
+a pair of concepts.
+
+https://www.aclweb.org/anthology/E09-1001.pdf
+
+Links for articles about RMRS and MRS. Description of the RMRS to DMRS
+conversion. Link to the article about EDS.
+
+1. Argument labelling is thus quite different from PropBank (Palmer et
+   al., 2005) role labelling despite the unfortunate similarity of the
+   PropBank naming scheme.
+
+2. In principle, at least, we could (and should) systematically link
+   the ERG to FrameNet, but this would be a form of semantic
+   enrichment mediated via the SEM-I (cf Roa et al. (2008)), and not
+   an alternative technique for argument indexation.
+
+http://www.lrec-conf.org/proceedings/lrec2006/pdf/364_pdf.pdf
+
+Reference to syntatic `discriminants` Carter 1997. The paper presents
+the MRS to EDS transformation and discussions about the
+discriminant-based treebanking.
+
+1. Handle constraints of the form hi =q hj (‘equal modulo quantifier
+   insertion’) in an MRS express that either the two are equal or that
+   hi outscopes hj , i.e. formally that the formula depicted by hj is
+   a subformula of the formula depicted by hi.
+

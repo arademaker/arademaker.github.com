@@ -9,13 +9,12 @@ title: about me
 
 * {{ page.title }}
 
-Alexandre is a Research Staff Member in the [[https://ibm.biz/brl-nrs][Natural Resources
-Solutions group]] at IBM Research since December 2012. Alexandre is also
-an adjunct professor at the [[http://emap.fgv.br][Applied Mathematics School of Getulio
-Vargas Foundation]] (EMAp/FGV) since 2010. Alexandre has taught many
-graduate and undergraduate courses: logic, data structures,
-programming, discrete mathematics, type theory, formal languages, and
-automata theory.
+Alexandre is a Research Scientist at IBM Research since
+December 2012. Alexandre is also an adjunct professor at the [[http://emap.fgv.br][Applied
+Mathematics School of Getulio Vargas Foundation]] (EMAp/FGV)
+since 2010. Alexandre has taught many graduate and undergraduate
+courses: logic, data structures, programming, discrete mathematics,
+type theory, formal languages, and automata theory.
 
 Alexandre holds a Ph.D. (2010) in Computer Science from Pontifical
 Catholic University of Rio de Janeiro (PUC-Rio) and M.Sc. (2005) in
@@ -23,25 +22,24 @@ Computer Science from Fluminense Federal University, and B.Sc. (2001)
 in Computer Science from Federal University of Rio de Janeiro.
 
 During his Ph.D., Alexandre was an international fellow at Microsoft
-Research and SRI International. At MSR, in 2008, he worked with the [[http://research.microsoft.com/en-us/um/redmond/projects/z3/people.html][Z3
+Research and SRI International. At MSR, in 2008, he worked with the [[https://en.wikipedia.org/wiki/Z3_Theorem_Prover][Z3
 SMT Solver]] team (Leonardo de Moura and Nikolaj Bjørner) developing a
 distributed environment for testing and optimizations of Z3. At [[http://www.sri.com/][SRI
 International]], in 2009, he worked under the supervision of Natarajan
-Shankar in different research projects including the preliminary
-formalization of ALC deduction systems in PVS. Alexandre participated
-in several research projects like MIST (using natural language
-processing and description logics for Knowledge modeling), ANUBIS
-(database consistency check) and Ontology and Context (investigating
-the problem of ontology alignment). In his thesis, we proposed new
-deduction systems for description logics under the supervision of
-Edward Hermann Haeusler, published by Springer with the title [[https://www.amazon.com/Theory-Description-SpringerBriefs-Computer-Science-ebook/dp/B00A9YGJR0][A proof
-theory for Description Logics]] in 2012 in the Springer Briefs series.
+Shankar. Alexandre participated in several research projects like MIST
+(using natural language processing and description logics for
+Knowledge modeling), ANUBIS (database consistency check) and Ontology
+and Context (investigating the problem of ontology alignment). In his
+thesis, we proposed new deduction systems for description logics under
+the supervision of Edward Hermann Haeusler, published by Springer with
+the title [[https://www.amazon.com/Theory-Description-SpringerBriefs-Computer-Science-ebook/dp/B00A9YGJR0][A proof theory for Description Logics]] in 2012 in the
+Springer Briefs series.
 
 Alexandre is the author/co-author of more than 90 papers published in
 peer-reviewed journals and international conferences. His areas of
 expertise and interesting are logic, proof theory, knowledge
-representation and reasoning, type theory, lexical resources and
-computational linguistics.
+representation and reasoning, lexical resources, computational
+linguistics and type theory.
 
 Alexandre participate as member of many program committee of
 conferences like ACL, COLING, LREC etc. He is also a board member of
@@ -60,7 +58,3 @@ You can find more information at:
  - [[http://facebook.com/alexandre.rademaker]]
  - [[http://twitter.com/arademaker]]
   
-
-
-  
- 
