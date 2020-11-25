@@ -91,14 +91,14 @@ programas xsltproc e xmllint.</p>
 
 <p>Para quem usa o MacPorts no MacOS:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo port -v install bibtool bibutils
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo port -v install bibtool bibutils
 </code></pre></div></div>
 
 <p>O xmllint e xsltproc já estão instalados no MacOS (acho que no XCode).</p>
 
 <p>Para quem usa Linux/Ubuntu:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install bibtool bibutils xsltproc libxml2-utils
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install bibtool bibutils xsltproc libxml2-utils
 </code></pre></div></div>
 
 <p>Para quem usa Windows, consultar o site destas ferramentas, não
@@ -111,18 +111,18 @@ trivial! Esquece o Windows e instala o Ubuntu! ;-)</p>
 no sistema e escolher a opção de exportar para XML. Será iniciado o
 download de um arquivo ZIP. Abra ZIP e extraia o arquivo XML dentro
 dele que tem mesmo nome, seu lattes ID. Imagine então que vc renomeou
-este arquivo XML para <code class="highlighter-rouge">LATTES.xml</code> e o moveu para o mesmo diretório
-onde está o arquivo com <code class="highlighter-rouge">lattes2mods.xsl</code> que você pegou do
+este arquivo XML para <code class="language-plaintext highlighter-rouge">LATTES.xml</code> e o moveu para o mesmo diretório
+onde está o arquivo com <code class="language-plaintext highlighter-rouge">lattes2mods.xsl</code> que você pegou do
 repositório no github.</p>
 
 <p>Agora basta rodar:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xsltproc lattes2mods.xsl LATTES.xml &gt; LATTES.mods
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xsltproc lattes2mods.xsl LATTES.xml &gt; LATTES.mods
 </code></pre></div></div>
 
 <p>E em seguida:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xml2bib -b -w LATTES.mods &gt; LATTES.bib
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xml2bib -b -w LATTES.mods &gt; LATTES.bib
 </code></pre></div></div>
 
 <p>Mas o interessante é antes de rodar o xml2bib, validar o arquivo mods
@@ -131,7 +131,7 @@ gerado contra o
 disponibilizado no site da Biblioteca do Congresso Americano, baixe a
 versão 3.4:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xmllint --schema mods.xsd LATTTES.mods
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xmllint --schema mods.xsd LATTTES.mods
 </code></pre></div></div>
 
 <p>Esta validação serve para verificar não apenas erros na estrutura do

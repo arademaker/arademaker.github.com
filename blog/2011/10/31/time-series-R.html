@@ -72,11 +72,11 @@ padrão do R.</p>
 
 <h2 id="criando-os-dados">Criando os dados</h2>
 
-<p>Para começar, criei um objeto série temporal conforme exemplo da função <code class="highlighter-rouge">ts</code>
+<p>Para começar, criei um objeto série temporal conforme exemplo da função <code class="language-plaintext highlighter-rouge">ts</code>
 do R. Este objeto na realidade é uma matriz, são três séries temporais
 ou uma série temporal multivariável.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; dados &lt;- ts(matrix(rnorm(300), 100, 3), start=c(1961, 1), 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; dados &lt;- ts(matrix(rnorm(300), 100, 3), start=c(1961, 1), 
               frequency=12)
 &gt; dados[1:4,]
        Series 1   Series 2   Series 3
@@ -91,7 +91,7 @@ ou uma série temporal multivariável.</p>
 <p>Se usarmos o comando padrão de plot do pacote basic do R, temos o
 seguinte plot.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; plot(ts)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; plot(ts)
 </code></pre></div></div>
 
 <p><img src="/images/2011-10-31-plot-basic.png" alt="plot-basic" title="plot basic" /></p>
@@ -106,18 +106,18 @@ legenda, rótulos, cores etc.</p>
 parâmetros para geração do gráfico. Explorei apenas a forma de gerar
 uma série por painel e todas as séries em um painel.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; xyplot(dados)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; xyplot(dados)
 </code></pre></div></div>
 
 <p><img src="/images/2011-10-31-plot-lattice-1.png" alt="plot-lattice-1" title="plot lattice" /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; xyplot(dados, superpose = TRUE) 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; xyplot(dados, superpose = TRUE) 
 </code></pre></div></div>
 
 <p><img src="/images/2011-10-31-plot-lattice-2.png" alt="plot-lattice-2" title="plot lattice" /></p>
 
-<p>A página de help da função <code class="highlighter-rouge">xyplot</code> contém muito mais informação sobre
-os demais parâmetros da função. A função <code class="highlighter-rouge">xyplot</code> também tem um método
+<p>A página de help da função <code class="language-plaintext highlighter-rouge">xyplot</code> contém muito mais informação sobre
+os demais parâmetros da função. A função <code class="language-plaintext highlighter-rouge">xyplot</code> também tem um método
 específico para lidar com objetos da classe Zoo do pacote
 <a href="http://cran.r-project.org/web/packages/zoo/index.html">zoo</a>.</p>
 
@@ -133,17 +133,17 @@ encontrei foram:</p>
   <li><a href="http://goo.gl/Kr5wP">Using ggplot, how to have the x-axis of time series plots set up automatically?</a></li>
 </ul>
 
-<p>O último link é a dica de como transformar um objeto <code class="highlighter-rouge">ts</code> em um
+<p>O último link é a dica de como transformar um objeto <code class="language-plaintext highlighter-rouge">ts</code> em um
 data.frame:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>datas &lt;- seq(as.Date(paste(c(start(dados),1), collapse="/")), 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>datas &lt;- seq(as.Date(paste(c(start(dados),1), collapse="/")), 
              by = "month", length.out = length(dados))
 dados.df &lt;- data.frame(date = datas, value = dados)
 </code></pre></div></div>
 
 <p>E finalmente consegui plotar uma série das três com:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; ggplot(data=dados.df) + geom_line(aes(date, value.Series.1))
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; ggplot(data=dados.df) + geom_line(aes(date, value.Series.1))
 </code></pre></div></div>
 
 <p><img src="/images/2011-10-31-plot-ggplot-single.png" alt="plot-ggplot" title="plot ggplot" /></p>
@@ -152,13 +152,13 @@ dados.df &lt;- data.frame(date = datas, value = dados)
 trabalho. Primeiro em transformar os dados em um data.frame que
 pudesse ser entendido pelo ggplot.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; tmp &lt;- stack(dados.df, select = -1)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; tmp &lt;- stack(dados.df, select = -1)
 &gt; tmp$date &lt;- dados.df[,1]
 </code></pre></div></div>
 
 <p>E finalmente, o novo plot:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; ggplot(data=dados.df) + geom_line(aes(date, value.Series.1))
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; ggplot(data=dados.df) + geom_line(aes(date, value.Series.1))
 </code></pre></div></div>
 
 <p><img src="/images/2011-10-31-plot-ggplot-multi.png" alt="plot-ggplot-multi" title="plot ggplot" /></p>
@@ -168,7 +168,7 @@ pudesse ser entendido pelo ggplot.</p>
 <p>Não existe pacote melhor ou pior, cada um é mais adequado para cada
 situação. No particular problema de plotar multiplas séries temporais,
 sem nenhuma dúvida, preferi a facilidade do lattice em lidar com
-objetos <code class="highlighter-rouge">ts</code>.</p>
+objetos <code class="language-plaintext highlighter-rouge">ts</code>.</p>
 
 
 

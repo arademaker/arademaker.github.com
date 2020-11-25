@@ -78,10 +78,10 @@ variáveis.</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dados</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span><span class="m">10</span><span class="p">))</span></code></pre></figure>
 
-<p>O que desejamos é representar no gráfico os valores da variável <code class="highlighter-rouge">a</code>
-como barras e os valores da variável <code class="highlighter-rouge">b</code> como pontos conectados por
+<p>O que desejamos é representar no gráfico os valores da variável <code class="language-plaintext highlighter-rouge">a</code>
+como barras e os valores da variável <code class="language-plaintext highlighter-rouge">b</code> como pontos conectados por
 linhas. O comando abaixo produz o gráfico de barras e retorna um
-vetor com as coordenadas <code class="highlighter-rouge">x</code> dos meios das barras produzidas.</p>
+vetor com as coordenadas <code class="language-plaintext highlighter-rouge">x</code> dos meios das barras produzidas.</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">a</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">barplot</span><span class="p">(</span><span class="n">dados</span><span class="o">$</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">))</span></code></pre></figure>
 

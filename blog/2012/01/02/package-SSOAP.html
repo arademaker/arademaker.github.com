@@ -82,16 +82,16 @@ package whish makes my
 package. Since I am running the last version of R, 2.14, the general
 procedure for install packages didn’t work.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&gt;</span> <span class="n">install</span><span class="p">.</span><span class="n">packages</span><span class="p">(</span><span class="s2">"SSOAP"</span><span class="p">)</span>
-<span class="n">Warning</span> <span class="n">message</span><span class="p">:</span>
-<span class="k">In</span> <span class="n">getDependencies</span><span class="p">(</span><span class="n">pkgs</span><span class="p">,</span> <span class="n">dependencies</span><span class="p">,</span> <span class="n">available</span><span class="p">,</span> <span class="n">lib</span><span class="p">)</span> <span class="p">:</span>
-  <span class="k">package</span> <span class="err">‘</span><span class="n">SSOAP</span><span class="err">’</span> <span class="n">is</span> <span class="k">not</span> <span class="n">available</span> <span class="p">(</span><span class="n">for</span> <span class="n">R</span> <span class="k">version</span> <span class="m">2.14.0</span><span class="p">)</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; install.packages("SSOAP")
+Warning message:
+In getDependencies(pkgs, dependencies, available, lib) :
+  package ‘SSOAP’ is not available (for R version 2.14.0)
 </code></pre></div></div>
 
 <p>I finnaly figured out how to install the last version from source
 using the Omegahat repository version with the command:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; install.packages("SSOAP", repos = "http://www.omegahat.org/R", 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; install.packages("SSOAP", repos = "http://www.omegahat.org/R", 
                    dependencies = TRUE, 
                    type = "source")
 trying URL 'http://www.omegahat.org/R/src/contrib/SSOAP_0.8-1.tar.gz'
@@ -124,13 +124,13 @@ code that I created during the
 <a href="https://github.com/arademaker/IR-2011/">course</a> (lesson 7 directory
 aula-07). But some changes in RCurl package requires a change in how
 we ask for not verify the ssl certificate. That is, I had to replace
-the <code class="highlighter-rouge">ssl.verifypeer = FALSE</code> argument by a list of options in the call
-of the function <code class="highlighter-rouge">ff@functions$getValoresSeriesXML</code>. The last version
+the <code class="language-plaintext highlighter-rouge">ssl.verifypeer = FALSE</code> argument by a list of options in the call
+of the function <code class="language-plaintext highlighter-rouge">ff@functions$getValoresSeriesXML</code>. The last version
 of this script is now available as a gist here:</p>
 
 <script src="https://gist.github.com/1550651.js"> </script>
 
-<p>Note that the <code class="highlighter-rouge">ssl.verifypeer</code> argument is necessary because the
+<p>Note that the <code class="language-plaintext highlighter-rouge">ssl.verifypeer</code> argument is necessary because the
 certificate used in BCB website is invalid! What a shame!</p>
 
 <p><img src="/images/2012-01-02-bcb-certificate.png" alt="BCB certificate" /></p>

@@ -67,7 +67,7 @@
 
   <p>Yesterday my friend
 <a href="http://researcher.ibm.com/researcher/view.php?person=br-mnerys">Marcelo Nery</a>
-and I found a bug in the <code class="highlighter-rouge">split</code> command of Mac OS. At first, I was
+and I found a bug in the <code class="language-plaintext highlighter-rouge">split</code> command of Mac OS. At first, I was
 surprised (we don’t expect to find bugs in core tools like grep, ls,
 split, wc…, right?) and almost expected to find the same bug in the
 Linux version of split. At least in the split of Ubuntu distribution,
@@ -76,7 +76,7 @@ version.</p>
 
 <h2 id="the-bug">The bug</h2>
 
-<p>Consider the file <code class="highlighter-rouge">zero.log</code> created with the following Common Lisp code
+<p>Consider the file <code class="language-plaintext highlighter-rouge">zero.log</code> created with the following Common Lisp code
 (actually for the rest of the post you don’t need to understand the
 code):</p>
 
@@ -97,7 +97,7 @@ code):</p>
 0000000d</code></pre></figure>
 
 <p>That is, the file has three 0 bytes in the first line right after the
-<code class="highlighter-rouge">B</code> letter and before the <code class="highlighter-rouge">C</code> letter. Now we want to split this file
+<code class="language-plaintext highlighter-rouge">B</code> letter and before the <code class="language-plaintext highlighter-rouge">C</code> letter. Now we want to split this file
 one line per file.</p>
 
 <p>The Linux version of split works as expected, it splits the file
@@ -115,15 +115,15 @@ F
 G
 <span class="nt">---End</span>: xac</code></pre></figure>
 
-<p>Moreover, the sum of bytes of the <code class="highlighter-rouge">x??</code> files is equal the number of
-bytes in the <code class="highlighter-rouge">zero.log</code> file, 13 bytes.</p>
+<p>Moreover, the sum of bytes of the <code class="language-plaintext highlighter-rouge">x??</code> files is equal the number of
+bytes in the <code class="language-plaintext highlighter-rouge">zero.log</code> file, 13 bytes.</p>
 
 <p>Nevertheless, the Mac OS version of split produces an unexpected
-output. The letter <code class="highlighter-rouge">F</code> is merged with the begining of the first line
-althouth it is in the second line of the <code class="highlighter-rouge">zero.log</code> file. Besides
+output. The letter <code class="language-plaintext highlighter-rouge">F</code> is merged with the begining of the first line
+althouth it is in the second line of the <code class="language-plaintext highlighter-rouge">zero.log</code> file. Besides
 that, the zero bytes causes the Mac OS split to ignore the rest of the
-first line of <code class="highlighter-rouge">zero.log</code> causing a lost of data. The sum of the bytes
-of the <code class="highlighter-rouge">x??</code> files in Mac OS is only 6 bytes.</p>
+first line of <code class="language-plaintext highlighter-rouge">zero.log</code> causing a lost of data. The sum of the bytes
+of the <code class="language-plaintext highlighter-rouge">x??</code> files in Mac OS is only 6 bytes.</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">split</span> <span class="nt">-1</span> zero.log
 <span class="nv">$ </span><span class="k">for </span>f <span class="k">in </span>x??<span class="p">;</span> <span class="k">do </span><span class="nb">echo</span> <span class="s2">"---Begin: </span><span class="nv">$f</span><span class="s2">"</span><span class="p">;</span> <span class="nb">cat</span> <span class="nv">$f</span><span class="p">;</span> <span class="nb">echo</span> <span class="s2">"---End: </span><span class="nv">$f</span><span class="s2">"</span><span class="p">;</span> <span class="k">done</span>

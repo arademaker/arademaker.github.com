@@ -105,7 +105,7 @@ linguagem e ao sistema ao mesmo tempo.</p>
 
 <p>A implementação em Maude é muito simples:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mod GAL is
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mod GAL is
   inc INT .
 
   sorts Galon System .
@@ -135,7 +135,7 @@ endm
 <p>Trata-se de uma especificação algébrica do estado do sistema como um
 multiset de galões onde cada galão é uma dupla de números inteiros:
 primeiro componente é a quantidade de líquido e segundo a
-capacidade. A operação <code class="highlighter-rouge">initial</code> serve apenas para criar uma constante
+capacidade. A operação <code class="language-plaintext highlighter-rouge">initial</code> serve apenas para criar uma constante
 que representa o estado inicial do sistema.</p>
 
 <p>As duas regras de reescrita fazem deste módulo um módulo de sistema
@@ -153,14 +153,14 @@ um sistema. Logicamente, as regras podem ser entendidas como regras de
 inferência de um sistema de reescrita.</p>
 
 <p>Na prática, podemos aplicar as reescritas de estado usando o comando
-<code class="highlighter-rouge">rew</code> e realizar uma busca por estados a partir de um estado inicial
-usando o comando <code class="highlighter-rouge">search</code>.</p>
+<code class="language-plaintext highlighter-rouge">rew</code> e realizar uma busca por estados a partir de um estado inicial
+usando o comando <code class="language-plaintext highlighter-rouge">search</code>.</p>
 
 <p>Para testarmos a implementação, podemos aplicar algumas regras a
 partir do estado initial. Por exemplo, para aplicarmos 4 regras de
 reescrita a partir do estado inicial usamos:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Maude&gt; rew [4] initial .
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Maude&gt; rew [4] initial .
 rewrite [4] in GAL : initial .
 rewrites: 33 in 0ms cpu (0ms real) (131474 rewrites/second)
 result System: &lt; 0,4 &gt; &lt; 4,10 &gt; &lt; 7,7 &gt;
@@ -169,7 +169,7 @@ result System: &lt; 0,4 &gt; &lt; 4,10 &gt; &lt; 7,7 &gt;
 <p>Note-se que não controlamos que regras são aplicadas (estratégia de
 aplicação). Para encontrarmos a solução, usamos:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>search initial =&gt;* &lt; 2 , X:Int &gt; S:System such that X:Int &lt; 10 .
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>search initial =&gt;* &lt; 2 , X:Int &gt; S:System such that X:Int &lt; 10 .
 </code></pre></div></div>
 
 <p>Este comando acima efetua uma busca (BFS, busca em largura), a partir
@@ -180,7 +180,7 @@ seja menor que 10.</p>
 
 <p>A resposta do sistema são 4 possíveis soluções:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Solution 1 (state 16)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Solution 1 (state 16)
 states: 17  rewrites: 501 in 3ms cpu (3ms real) (139244 rewrites/second)
 S:System --&gt; &lt; 2,10 &gt; &lt; 7,7 &gt;
 X:Int --&gt; 4
@@ -207,7 +207,7 @@ states: 21  rewrites: 721 in 6ms cpu (6ms real) (109824 rewrites/second)
 <p>Para examinarmos a primeira solução, pedimos para o sistema mostrar o
 caminho, isto é, as reescritas executadas.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Maude&gt; show path 16 .
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Maude&gt; show path 16 .
 state 0, System: &lt; 0,10 &gt; &lt; 4,4 &gt; &lt; 7,7 &gt;
 ===[ crl ... [label transfer-1] . ]===&gt;
 state 1, System: &lt; 0,4 &gt; &lt; 4,10 &gt; &lt; 7,7 &gt;

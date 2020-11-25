@@ -4,13 +4,53 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2020-08-25T16:58:59-03:00</updated>
+ <updated>2020-11-25T10:43:43-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>reading list</title>
+   <link href="http://arademaker.github.com/blog/2020/09/23/mapping-resources.html"/>
+   <updated>2020-09-23T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2020/09/23/mapping-resources</id>
+   <content type="html">&lt;p&gt;https://www.aclweb.org/anthology/P08-2048.pdf&lt;/p&gt;
+&lt;p&gt;the authors suggest a basian network to map ERG predicates to propbank
+  and verbnet predicates.&lt;/p&gt;
+&lt;p&gt;http://www.mt-archive.info/MTS-2005-Flickinger.pdf&lt;/p&gt;
+&lt;p&gt;The description of the LOGON transfer system for machine translation
+  and the SEM-I (semantic interface) for a grammar.&lt;/p&gt;
+&lt;p&gt;https://www.d.umn.edu/~tpederse/Pubs/AAAI04PedersenT.pdf&lt;/p&gt;
+&lt;p&gt;WordNet::Similarity is a freely available software package that makes
+  it possible to measure the semantic similarity or relatedness between
+  a pair of concepts.&lt;/p&gt;
+&lt;p&gt;https://www.aclweb.org/anthology/E09-1001.pdf&lt;/p&gt;
+&lt;p&gt;Links for articles about RMRS and MRS. Description of the RMRS to DMRS
+  conversion. Link to the article about EDS.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Argument labelling is thus quite different from PropBank (Palmer et
+    al., 2005) role labelling despite the unfortunate similarity of the
+    PropBank naming scheme.&lt;/li&gt;
+  &lt;li&gt;In principle, at least, we could (and should) systematically link
+    the ERG to FrameNet, but this would be a form of semantic
+    enrichment mediated via the SEM-I (cf Roa et al. (2008)), and not
+    an alternative technique for argument indexation.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;http://www.lrec-conf.org/proceedings/lrec2006/pdf/364_pdf.pdf&lt;/p&gt;
+&lt;p&gt;Reference to syntatic `discriminants` Carter 1997. The paper presents
+  the MRS to EDS transformation and discussions about the
+  discriminant-based treebanking.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Handle constraints of the form hi =q hj (‘equal modulo quantifier
+    insertion’) in an MRS express that either the two are equal or that
+    hi outscopes hj , i.e. formally that the formula depicted by hj is
+    a subformula of the formula depicted by hi.&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Extração de relações familiares do DHBB</title>
@@ -1369,7 +1409,7 @@ where
    <id>http://arademaker.github.com/blog/2013/07/18/we-found-a-bug-in-macos-split</id>
    <content type="html">&lt;p&gt;Yesterday my friend
 &lt;a href=&quot;http://researcher.ibm.com/researcher/view.php?person=br-mnerys&quot;&gt;Marcelo Nery&lt;/a&gt;
-and I found a bug in the &lt;code class=&quot;highlighter-rouge&quot;&gt;split&lt;/code&gt; command of Mac OS. At first, I was
+and I found a bug in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;split&lt;/code&gt; command of Mac OS. At first, I was
 surprised (we don’t expect to find bugs in core tools like grep, ls,
 split, wc…, right?) and almost expected to find the same bug in the
 Linux version of split. At least in the split of Ubuntu distribution,
@@ -1378,7 +1418,7 @@ version.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-bug&quot;&gt;The bug&lt;/h2&gt;
 
-&lt;p&gt;Consider the file &lt;code class=&quot;highlighter-rouge&quot;&gt;zero.log&lt;/code&gt; created with the following Common Lisp code
+&lt;p&gt;Consider the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zero.log&lt;/code&gt; created with the following Common Lisp code
 (actually for the rest of the post you don’t need to understand the
 code):&lt;/p&gt;
 
@@ -1399,7 +1439,7 @@ code):&lt;/p&gt;
 0000000d&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;That is, the file has three 0 bytes in the first line right after the
-&lt;code class=&quot;highlighter-rouge&quot;&gt;B&lt;/code&gt; letter and before the &lt;code class=&quot;highlighter-rouge&quot;&gt;C&lt;/code&gt; letter. Now we want to split this file
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;B&lt;/code&gt; letter and before the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C&lt;/code&gt; letter. Now we want to split this file
 one line per file.&lt;/p&gt;
 
 &lt;p&gt;The Linux version of split works as expected, it splits the file
@@ -1417,15 +1457,15 @@ F
 G
 &lt;span class=&quot;nt&quot;&gt;---End&lt;/span&gt;: xac&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Moreover, the sum of bytes of the &lt;code class=&quot;highlighter-rouge&quot;&gt;x??&lt;/code&gt; files is equal the number of
-bytes in the &lt;code class=&quot;highlighter-rouge&quot;&gt;zero.log&lt;/code&gt; file, 13 bytes.&lt;/p&gt;
+&lt;p&gt;Moreover, the sum of bytes of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x??&lt;/code&gt; files is equal the number of
+bytes in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zero.log&lt;/code&gt; file, 13 bytes.&lt;/p&gt;
 
 &lt;p&gt;Nevertheless, the Mac OS version of split produces an unexpected
-output. The letter &lt;code class=&quot;highlighter-rouge&quot;&gt;F&lt;/code&gt; is merged with the begining of the first line
-althouth it is in the second line of the &lt;code class=&quot;highlighter-rouge&quot;&gt;zero.log&lt;/code&gt; file. Besides
+output. The letter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;F&lt;/code&gt; is merged with the begining of the first line
+althouth it is in the second line of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zero.log&lt;/code&gt; file. Besides
 that, the zero bytes causes the Mac OS split to ignore the rest of the
-first line of &lt;code class=&quot;highlighter-rouge&quot;&gt;zero.log&lt;/code&gt; causing a lost of data. The sum of the bytes
-of the &lt;code class=&quot;highlighter-rouge&quot;&gt;x??&lt;/code&gt; files in Mac OS is only 6 bytes.&lt;/p&gt;
+first line of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zero.log&lt;/code&gt; causing a lost of data. The sum of the bytes
+of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x??&lt;/code&gt; files in Mac OS is only 6 bytes.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;split&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-1&lt;/span&gt; zero.log
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;f &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;x??&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;---Begin: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;---End: &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
@@ -1471,32 +1511,32 @@ Este pacote contém os dicionários das principais pesquisas do
 PME. Também incluimos nesta versão variáveis adicionais com rótulos
 para as variáveis categóricas de cada pesquisa.&lt;/p&gt;
 
-&lt;p&gt;Nesta nova versão, incorporamos a função &lt;code class=&quot;highlighter-rouge&quot;&gt;le.pesquisa&lt;/code&gt; original do
-pacote &lt;code class=&quot;highlighter-rouge&quot;&gt;IBGEPesq&lt;/code&gt; que foi desenvolvido no IBGE mas nunca submetido ao
-CRAN. O pacote &lt;code class=&quot;highlighter-rouge&quot;&gt;IBGEPesq&lt;/code&gt; é distribuído pelo IBGE nos CDs e DVDs
+&lt;p&gt;Nesta nova versão, incorporamos a função &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;le.pesquisa&lt;/code&gt; original do
+pacote &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IBGEPesq&lt;/code&gt; que foi desenvolvido no IBGE mas nunca submetido ao
+CRAN. O pacote &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IBGEPesq&lt;/code&gt; é distribuído pelo IBGE nos CDs e DVDs
 vendidos na &lt;a href=&quot;http://loja.ibge.gov.br&quot;&gt;loja virtual do IBGE&lt;/a&gt; e
 disponibilizo no site do IBGE. Vide link “Leitura em R” na
 &lt;a href=&quot;http://www.ibge.gov.br/home/estatistica/populacao/trabalhoerendimento/pnad2009/microdados.shtm&quot;&gt;página da última PNAD&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Fizemos várias otimizações na função &lt;code class=&quot;highlighter-rouge&quot;&gt;le.pesquisa&lt;/code&gt; original e
+&lt;p&gt;Fizemos várias otimizações na função &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;le.pesquisa&lt;/code&gt; original e
 incluímos ainda um argumento extra para leitura dos rótulos das
 variáveis categóricas. A partir desta versão do dicionariosIBGE, o
-pacote &lt;code class=&quot;highlighter-rouge&quot;&gt;IBGEPesq&lt;/code&gt; torna-se desnecessário para leitura dos microdados
+pacote &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IBGEPesq&lt;/code&gt; torna-se desnecessário para leitura dos microdados
 das pesquisas do IBGE contempladas pelo dicionariosIBGE.&lt;/p&gt;
 
 &lt;p&gt;Observo, no entanto, que a novidade de disponibilizarmos os rótulos
-para as variáveis categóricas e adaptarmos a função &lt;code class=&quot;highlighter-rouge&quot;&gt;le.pesquisa&lt;/code&gt; para
+para as variáveis categóricas e adaptarmos a função &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;le.pesquisa&lt;/code&gt; para
 usar os rótulos para construir factors ainda é
 experimental. Pessoalmente, questiono sua utilidade em geral. Existem
 variáveis categóricas cujos rótulos são realmente úteis. Por exemplo,
-variáveis como a &lt;code class=&quot;highlighter-rouge&quot;&gt;UF&lt;/code&gt; da tabela de PESSOA da PNAD de 2009. Certamente
+variáveis como a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UF&lt;/code&gt; da tabela de PESSOA da PNAD de 2009. Certamente
 trabalharmos com um factor com rótulo “Rio de Janeiro” ao invés de
 apenas o valor 33 torna o manuseio dos dados mais fácil. No entanto,
-existem variáveis categóricas como a &lt;code class=&quot;highlighter-rouge&quot;&gt;V2927&lt;/code&gt; cujos rótulos são tão
+existem variáveis categóricas como a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;V2927&lt;/code&gt; cujos rótulos são tão
 grandes e verbosos que provavelmente não facilitam em nada o trabalho
 com os dados. Vide:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; rotpes2009[rotpes2009$cod == &quot;V2927&quot;,]
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; rotpes2009[rotpes2009$cod == &quot;V2927&quot;,]
        cod valor                                  rotulo
 1070 V2927     1                     Custaria muito caro
 1071 V2927     2                         Era muito longe
@@ -1512,9 +1552,9 @@ com os dados. Vide:&lt;/p&gt;
 
 &lt;p&gt;De qualquer modo, ao invés de usar os rótulos que distribuímos no
 pacote, nada impede que os usuários do pacote de: (1) passarem para a
-função &lt;code class=&quot;highlighter-rouge&quot;&gt;le.pesquisa&lt;/code&gt; seus próprios data.frames com rótulos, bastando
+função &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;le.pesquisa&lt;/code&gt; seus próprios data.frames com rótulos, bastando
 fornecer um data.frame com os rótulos no formato esperado (três
-colunas: cod, valor, rotulo); ou (2) passar o valor &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt; para os
+colunas: cod, valor, rotulo); ou (2) passar o valor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NULL&lt;/code&gt; para os
 rótulos (default da função) retornando os dados como numéricos e/ou
 string e não factors.&lt;/p&gt;
 
@@ -1587,7 +1627,7 @@ linguagem e ao sistema ao mesmo tempo.&lt;/p&gt;
 
 &lt;p&gt;A implementação em Maude é muito simples:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mod GAL is
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mod GAL is
   inc INT .
 
   sorts Galon System .
@@ -1617,7 +1657,7 @@ endm
 &lt;p&gt;Trata-se de uma especificação algébrica do estado do sistema como um
 multiset de galões onde cada galão é uma dupla de números inteiros:
 primeiro componente é a quantidade de líquido e segundo a
-capacidade. A operação &lt;code class=&quot;highlighter-rouge&quot;&gt;initial&lt;/code&gt; serve apenas para criar uma constante
+capacidade. A operação &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;initial&lt;/code&gt; serve apenas para criar uma constante
 que representa o estado inicial do sistema.&lt;/p&gt;
 
 &lt;p&gt;As duas regras de reescrita fazem deste módulo um módulo de sistema
@@ -1635,14 +1675,14 @@ um sistema. Logicamente, as regras podem ser entendidas como regras de
 inferência de um sistema de reescrita.&lt;/p&gt;
 
 &lt;p&gt;Na prática, podemos aplicar as reescritas de estado usando o comando
-&lt;code class=&quot;highlighter-rouge&quot;&gt;rew&lt;/code&gt; e realizar uma busca por estados a partir de um estado inicial
-usando o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;search&lt;/code&gt;.&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rew&lt;/code&gt; e realizar uma busca por estados a partir de um estado inicial
+usando o comando &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;search&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Para testarmos a implementação, podemos aplicar algumas regras a
 partir do estado initial. Por exemplo, para aplicarmos 4 regras de
 reescrita a partir do estado inicial usamos:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Maude&amp;gt; rew [4] initial .
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Maude&amp;gt; rew [4] initial .
 rewrite [4] in GAL : initial .
 rewrites: 33 in 0ms cpu (0ms real) (131474 rewrites/second)
 result System: &amp;lt; 0,4 &amp;gt; &amp;lt; 4,10 &amp;gt; &amp;lt; 7,7 &amp;gt;
@@ -1651,7 +1691,7 @@ result System: &amp;lt; 0,4 &amp;gt; &amp;lt; 4,10 &amp;gt; &amp;lt; 7,7 &amp;gt
 &lt;p&gt;Note-se que não controlamos que regras são aplicadas (estratégia de
 aplicação). Para encontrarmos a solução, usamos:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;search initial =&amp;gt;* &amp;lt; 2 , X:Int &amp;gt; S:System such that X:Int &amp;lt; 10 .
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;search initial =&amp;gt;* &amp;lt; 2 , X:Int &amp;gt; S:System such that X:Int &amp;lt; 10 .
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Este comando acima efetua uma busca (BFS, busca em largura), a partir
@@ -1662,7 +1702,7 @@ seja menor que 10.&lt;/p&gt;
 
 &lt;p&gt;A resposta do sistema são 4 possíveis soluções:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Solution 1 (state 16)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Solution 1 (state 16)
 states: 17  rewrites: 501 in 3ms cpu (3ms real) (139244 rewrites/second)
 S:System --&amp;gt; &amp;lt; 2,10 &amp;gt; &amp;lt; 7,7 &amp;gt;
 X:Int --&amp;gt; 4
@@ -1689,7 +1729,7 @@ states: 21  rewrites: 721 in 6ms cpu (6ms real) (109824 rewrites/second)
 &lt;p&gt;Para examinarmos a primeira solução, pedimos para o sistema mostrar o
 caminho, isto é, as reescritas executadas.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Maude&amp;gt; show path 16 .
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Maude&amp;gt; show path 16 .
 state 0, System: &amp;lt; 0,10 &amp;gt; &amp;lt; 4,4 &amp;gt; &amp;lt; 7,7 &amp;gt;
 ===[ crl ... [label transfer-1] . ]===&amp;gt;
 state 1, System: &amp;lt; 0,4 &amp;gt; &amp;lt; 4,10 &amp;gt; &amp;lt; 7,7 &amp;gt;
@@ -1745,14 +1785,14 @@ programas xsltproc e xmllint.&lt;/p&gt;
 
 &lt;p&gt;Para quem usa o MacPorts no MacOS:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo port -v install bibtool bibutils
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo port -v install bibtool bibutils
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;O xmllint e xsltproc já estão instalados no MacOS (acho que no XCode).&lt;/p&gt;
 
 &lt;p&gt;Para quem usa Linux/Ubuntu:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install bibtool bibutils xsltproc libxml2-utils
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install bibtool bibutils xsltproc libxml2-utils
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Para quem usa Windows, consultar o site destas ferramentas, não
@@ -1765,18 +1805,18 @@ trivial! Esquece o Windows e instala o Ubuntu! ;-)&lt;/p&gt;
 no sistema e escolher a opção de exportar para XML. Será iniciado o
 download de um arquivo ZIP. Abra ZIP e extraia o arquivo XML dentro
 dele que tem mesmo nome, seu lattes ID. Imagine então que vc renomeou
-este arquivo XML para &lt;code class=&quot;highlighter-rouge&quot;&gt;LATTES.xml&lt;/code&gt; e o moveu para o mesmo diretório
-onde está o arquivo com &lt;code class=&quot;highlighter-rouge&quot;&gt;lattes2mods.xsl&lt;/code&gt; que você pegou do
+este arquivo XML para &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LATTES.xml&lt;/code&gt; e o moveu para o mesmo diretório
+onde está o arquivo com &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lattes2mods.xsl&lt;/code&gt; que você pegou do
 repositório no github.&lt;/p&gt;
 
 &lt;p&gt;Agora basta rodar:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xsltproc lattes2mods.xsl LATTES.xml &amp;gt; LATTES.mods
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xsltproc lattes2mods.xsl LATTES.xml &amp;gt; LATTES.mods
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;E em seguida:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xml2bib -b -w LATTES.mods &amp;gt; LATTES.bib
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xml2bib -b -w LATTES.mods &amp;gt; LATTES.bib
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Mas o interessante é antes de rodar o xml2bib, validar o arquivo mods
@@ -1785,7 +1825,7 @@ gerado contra o
 disponibilizado no site da Biblioteca do Congresso Americano, baixe a
 versão 3.4:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xmllint --schema mods.xsd LATTTES.mods
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xmllint --schema mods.xsd LATTTES.mods
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Esta validação serve para verificar não apenas erros na estrutura do
@@ -1821,16 +1861,16 @@ package whish makes my
 package. Since I am running the last version of R, 2.14, the general
 procedure for install packages didn’t work.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;packages&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SSOAP&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Warning&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getDependencies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pkgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;available&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;‘&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SSOAP&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;available&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;R&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2.14.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; install.packages(&quot;SSOAP&quot;)
+Warning message:
+In getDependencies(pkgs, dependencies, available, lib) :
+  package ‘SSOAP’ is not available (for R version 2.14.0)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;I finnaly figured out how to install the last version from source
 using the Omegahat repository version with the command:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; install.packages(&quot;SSOAP&quot;, repos = &quot;http://www.omegahat.org/R&quot;, 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; install.packages(&quot;SSOAP&quot;, repos = &quot;http://www.omegahat.org/R&quot;, 
                    dependencies = TRUE, 
                    type = &quot;source&quot;)
 trying URL 'http://www.omegahat.org/R/src/contrib/SSOAP_0.8-1.tar.gz'
@@ -1863,13 +1903,13 @@ code that I created during the
 &lt;a href=&quot;https://github.com/arademaker/IR-2011/&quot;&gt;course&lt;/a&gt; (lesson 7 directory
 aula-07). But some changes in RCurl package requires a change in how
 we ask for not verify the ssl certificate. That is, I had to replace
-the &lt;code class=&quot;highlighter-rouge&quot;&gt;ssl.verifypeer = FALSE&lt;/code&gt; argument by a list of options in the call
-of the function &lt;code class=&quot;highlighter-rouge&quot;&gt;ff@functions$getValoresSeriesXML&lt;/code&gt;. The last version
+the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssl.verifypeer = FALSE&lt;/code&gt; argument by a list of options in the call
+of the function &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ff@functions$getValoresSeriesXML&lt;/code&gt;. The last version
 of this script is now available as a gist here:&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/1550651.js&quot;&gt; &lt;/script&gt;
 
-&lt;p&gt;Note that the &lt;code class=&quot;highlighter-rouge&quot;&gt;ssl.verifypeer&lt;/code&gt; argument is necessary because the
+&lt;p&gt;Note that the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssl.verifypeer&lt;/code&gt; argument is necessary because the
 certificate used in BCB website is invalid! What a shame!&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2012-01-02-bcb-certificate.png&quot; alt=&quot;BCB certificate&quot; /&gt;&lt;/p&gt;
@@ -1888,9 +1928,9 @@ certificate used in BCB website is invalid! What a shame!&lt;/p&gt;
 
 &lt;p&gt;I read a couple of posts with possible solutions. The solution by &lt;a href=&quot;http://charliepark.org/jekyll-with-plugins/&quot;&gt;Charlie Park&lt;/a&gt; force us to have two distinct git repositories. I don’t like this approach because of that. Our website will be maintained by more than one person, having two distinct repositories since that I will not using all git features. The solution by &lt;a href=&quot;http://tech.hugr.fr/blog/2011/08/07/how-to-host-a-jekyll-app-on-github-pages-with-plugins/&quot;&gt;Jean Denis&lt;/a&gt; is a little bit better but keeps me thinking about why he need to keep the produced files under version control in the two branches, gh-pages and the master.&lt;/p&gt;
 
-&lt;p&gt;My final solution is to keep the directory produced by jekyll out of git control. This simple thing allows me to switch the branches, from source to master, and still have access to the produced files, directory &lt;code class=&quot;highlighter-rouge&quot;&gt;_site&lt;/code&gt;. Once in the master branch, I only have to move the files under &lt;code class=&quot;highlighter-rouge&quot;&gt;_site/&lt;/code&gt; to the root directory in the master branch and update the master branch before push it to GitHub.&lt;/p&gt;
+&lt;p&gt;My final solution is to keep the directory produced by jekyll out of git control. This simple thing allows me to switch the branches, from source to master, and still have access to the produced files, directory &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site&lt;/code&gt;. Once in the master branch, I only have to move the files under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site/&lt;/code&gt; to the root directory in the master branch and update the master branch before push it to GitHub.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout source
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout source
 // do whatever you need
 git status / git add / git commit
 jekyll
@@ -1983,11 +2023,11 @@ padrão do R.&lt;/p&gt;
 
 &lt;h2 id=&quot;criando-os-dados&quot;&gt;Criando os dados&lt;/h2&gt;
 
-&lt;p&gt;Para começar, criei um objeto série temporal conforme exemplo da função &lt;code class=&quot;highlighter-rouge&quot;&gt;ts&lt;/code&gt;
+&lt;p&gt;Para começar, criei um objeto série temporal conforme exemplo da função &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ts&lt;/code&gt;
 do R. Este objeto na realidade é uma matriz, são três séries temporais
 ou uma série temporal multivariável.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; dados &amp;lt;- ts(matrix(rnorm(300), 100, 3), start=c(1961, 1), 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; dados &amp;lt;- ts(matrix(rnorm(300), 100, 3), start=c(1961, 1), 
               frequency=12)
 &amp;gt; dados[1:4,]
        Series 1   Series 2   Series 3
@@ -2002,7 +2042,7 @@ ou uma série temporal multivariável.&lt;/p&gt;
 &lt;p&gt;Se usarmos o comando padrão de plot do pacote basic do R, temos o
 seguinte plot.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; plot(ts)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; plot(ts)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-basic.png&quot; alt=&quot;plot-basic&quot; title=&quot;plot basic&quot; /&gt;&lt;/p&gt;
@@ -2017,18 +2057,18 @@ legenda, rótulos, cores etc.&lt;/p&gt;
 parâmetros para geração do gráfico. Explorei apenas a forma de gerar
 uma série por painel e todas as séries em um painel.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; xyplot(dados)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; xyplot(dados)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-lattice-1.png&quot; alt=&quot;plot-lattice-1&quot; title=&quot;plot lattice&quot; /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; xyplot(dados, superpose = TRUE) 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; xyplot(dados, superpose = TRUE) 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-lattice-2.png&quot; alt=&quot;plot-lattice-2&quot; title=&quot;plot lattice&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;A página de help da função &lt;code class=&quot;highlighter-rouge&quot;&gt;xyplot&lt;/code&gt; contém muito mais informação sobre
-os demais parâmetros da função. A função &lt;code class=&quot;highlighter-rouge&quot;&gt;xyplot&lt;/code&gt; também tem um método
+&lt;p&gt;A página de help da função &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xyplot&lt;/code&gt; contém muito mais informação sobre
+os demais parâmetros da função. A função &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xyplot&lt;/code&gt; também tem um método
 específico para lidar com objetos da classe Zoo do pacote
 &lt;a href=&quot;http://cran.r-project.org/web/packages/zoo/index.html&quot;&gt;zoo&lt;/a&gt;.&lt;/p&gt;
 
@@ -2044,17 +2084,17 @@ encontrei foram:&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;http://goo.gl/Kr5wP&quot;&gt;Using ggplot, how to have the x-axis of time series plots set up automatically?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;O último link é a dica de como transformar um objeto &lt;code class=&quot;highlighter-rouge&quot;&gt;ts&lt;/code&gt; em um
+&lt;p&gt;O último link é a dica de como transformar um objeto &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ts&lt;/code&gt; em um
 data.frame:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;datas &amp;lt;- seq(as.Date(paste(c(start(dados),1), collapse=&quot;/&quot;)), 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;datas &amp;lt;- seq(as.Date(paste(c(start(dados),1), collapse=&quot;/&quot;)), 
              by = &quot;month&quot;, length.out = length(dados))
 dados.df &amp;lt;- data.frame(date = datas, value = dados)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;E finalmente consegui plotar uma série das três com:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; ggplot(data=dados.df) + geom_line(aes(date, value.Series.1))
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; ggplot(data=dados.df) + geom_line(aes(date, value.Series.1))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-ggplot-single.png&quot; alt=&quot;plot-ggplot&quot; title=&quot;plot ggplot&quot; /&gt;&lt;/p&gt;
@@ -2063,13 +2103,13 @@ dados.df &amp;lt;- data.frame(date = datas, value = dados)
 trabalho. Primeiro em transformar os dados em um data.frame que
 pudesse ser entendido pelo ggplot.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; tmp &amp;lt;- stack(dados.df, select = -1)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; tmp &amp;lt;- stack(dados.df, select = -1)
 &amp;gt; tmp$date &amp;lt;- dados.df[,1]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;E finalmente, o novo plot:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; ggplot(data=dados.df) + geom_line(aes(date, value.Series.1))
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; ggplot(data=dados.df) + geom_line(aes(date, value.Series.1))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/2011-10-31-plot-ggplot-multi.png&quot; alt=&quot;plot-ggplot-multi&quot; title=&quot;plot ggplot&quot; /&gt;&lt;/p&gt;
@@ -2079,7 +2119,7 @@ pudesse ser entendido pelo ggplot.&lt;/p&gt;
 &lt;p&gt;Não existe pacote melhor ou pior, cada um é mais adequado para cada
 situação. No particular problema de plotar multiplas séries temporais,
 sem nenhuma dúvida, preferi a facilidade do lattice em lidar com
-objetos &lt;code class=&quot;highlighter-rouge&quot;&gt;ts&lt;/code&gt;.&lt;/p&gt;
+objetos &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ts&lt;/code&gt;.&lt;/p&gt;
 
 </content>
  </entry>
@@ -2114,7 +2154,7 @@ do R, pensei como seria construir uma tabela verdade usando o R. Minha
 solução em R está no github, gist abaixo, com o exemplo de como seria
 a tabela da expressão&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\neg (a \lor b) \lor c&lt;/script&gt;
+\[\neg (a \lor b) \lor c\]
 
 &lt;script src=&quot;https://gist.github.com/852194.js&quot;&gt; &lt;/script&gt;
 
@@ -2188,10 +2228,10 @@ variáveis.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;dados&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data.frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;O que desejamos é representar no gráfico os valores da variável &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;
-como barras e os valores da variável &lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt; como pontos conectados por
+&lt;p&gt;O que desejamos é representar no gráfico os valores da variável &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;a&lt;/code&gt;
+como barras e os valores da variável &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;b&lt;/code&gt; como pontos conectados por
 linhas. O comando abaixo produz o gráfico de barras e retorna um
-vetor com as coordenadas &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; dos meios das barras produzidas.&lt;/p&gt;
+vetor com as coordenadas &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt; dos meios das barras produzidas.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;barplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dados&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylim&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
