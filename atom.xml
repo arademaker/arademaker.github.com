@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2021-04-05T14:08:12-03:00</updated>
+ <updated>2021-04-05T14:11:53-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -72,24 +72,24 @@
     Fundação Getúlio Vargas e Pesquisador do IBM Research&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Programação&lt;/h2&gt;
-&lt;dl&gt;
-  &lt;dt&gt;12.04.2021 15:00 – 16:30 (L. F. de Alencar)&lt;/dt&gt;&lt;dd&gt;Conceitos
-    linguísticos fundamentais: estrutura de constituintes, teoria
-    X-barra, gramática universal, relações gramaticais, categorias
-    morfossintáticas, controle, raising etc. Noções elementares de HPSG:
-    estrutura de traços tipada, hierarquia de tipos, unificação
-    etc. Minigramática English 1.&lt;/dd&gt;
-  &lt;dt&gt;19.04.2021 15:00 – 16:30 (L. F. de Alencar)&lt;/dt&gt;&lt;dd&gt;Minigramática
-    English 2. Minigramática Latin 1.&lt;/dd&gt;
-  &lt;dt&gt;26.04.2021 15:00 – 16:30 (L. F. de Alencar)&lt;/dt&gt;&lt;dd&gt;Minigramática
-    English 3. Minigramática Latin 2.&lt;/dd&gt;
-  &lt;dt&gt;03.05.2021 15:00 – 16:30 (L. F. de Alencar)&lt;/dt&gt;&lt;dd&gt;Minigramática
+&lt;ul&gt;
+  &lt;li&gt;12.04.2021 15:00 – 16:30 (L. F. de Alencar): Conceitos linguísticos
+    fundamentais: estrutura de constituintes, teoria X-barra, gramática
+    universal, relações gramaticais, categorias morfossintáticas,
+    controle, raising etc. Noções elementares de HPSG: estrutura de
+    traços tipada, hierarquia de tipos, unificação etc. Minigramática
+    English 1.&lt;/li&gt;
+  &lt;li&gt;19.04.2021 15:00 – 16:30 (L. F. de Alencar): Minigramática
+    English 2. Minigramática Latin 1.&lt;/li&gt;
+  &lt;li&gt;26.04.2021 15:00 – 16:30 (L. F. de Alencar): Minigramática
+    English 3. Minigramática Latin 2.&lt;/li&gt;
+  &lt;li&gt;03.05.2021 15:00 – 16:30 (L. F. de Alencar): Minigramática
     English 4. Minigramática Latin 3. Limitações da Grammar Matrix e
     como contorná-las. Exemplos concretos de modificações manuais do
-    código TDL.&lt;/dd&gt;
-  &lt;dt&gt;10.05.2021 15:00 – 16:30 (A. Rademaker)&lt;/dt&gt;&lt;dd&gt;English Resource Grammar:
-    aplicações e ferramentas de utilização.&lt;/dd&gt;
-&lt;/dl&gt;
+    código TDL.&lt;/li&gt;
+  &lt;li&gt;10.05.2021 15:00 – 16:30 (A. Rademaker): English Resource Grammar,
+    aplicações e ferramentas de utilização.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;Referências&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;BENDER, Emily; FLICKINGER, Dan M.; OEPEN, Stephan. The Grammar
