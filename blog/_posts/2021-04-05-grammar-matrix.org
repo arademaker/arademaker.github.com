@@ -1,5 +1,5 @@
 ---
-title: Gramáticas computacionais no formalismo HPSG utilizando a Grammar Matrix
+title: Tutorial sobre gramáticas computacionais no formalismo HPSG utilizando a Grammar Matrix
 layout: post
 tags:
  - tutorial
@@ -9,6 +9,11 @@ tags:
 #+PROPERTY: results output
 #+OPTIONS: toc:nil
 #+PROPERTY: exports both
+
+** Inscrição
+
+Os interessados devem se inscrever no formulário:
+https://forms.gle/8EGJNa8oWjbLjqe47
 
 ** Resumo
 
