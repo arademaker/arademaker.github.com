@@ -4,13 +4,111 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2020-11-25T10:43:43-03:00</updated>
+ <updated>2021-04-05T14:05:17-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Gramáticas computacionais no formalismo HPSG utilizando a Grammar Matrix</title>
+   <link href="http://arademaker.github.com/blog/2021/04/05/grammar-matrix.html"/>
+   <updated>2021-04-05T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2021/04/05/grammar-matrix</id>
+   <content type="html">&lt;h2&gt;Resumo&lt;/h2&gt;
+&lt;p&gt;Gramáticas computacionais elaboradas manualmente com base em
+  princípios linguísticos têm tido a sua eficácia comprovada em diversas
+  aplicações de nível industrial que exigem compreensão textual, em
+  tarefas como tradução automática, resolução de perguntas e extração de
+  informações. Esse tipo de gramática é um complemento às abordagens
+  estatísticas baseadas em corpora sintaticamente anotados, os chamados
+  treebanks. A anotação de um corpus por meio de um gramática
+  computacional assegura a profundidade e a consistência das análises,
+  permitindo que o conhecimento de especialistas seja automaticamente
+  aplicado na anotação de um grande volume de sentenças. Uma das teorias
+  gramaticais formais mais utilizadas para a elaboração de gramáticas
+  desse tipo é a HPSG. As principais gramáticas de ampla cobertura
+  implementadas nesse formalismo são a English Resource Grammar (ERG), a
+  JACY do japonês e a gramática alemã do DFKI (Centro de Pesquisa Alemão
+  de Inteligência Artificial), resultado de um esforço de mais de uma
+  década de indivíduos ou pequenos grupos. A modelagem computacional dos
+  fenômenos gramaticais de uma língua nesse formalismo pressupõe o
+  domínio da linguagem de descrição TDL (Type Description Language),
+  constituindo uma tarefa de programação complexa, objeto da engenharia
+  da gramática. A Grammar Matrix, que vem sendo desenvolvida desde os
+  anos 2000 na University of Washington por Emily M. Bender e colegas,
+  possibilita a reutilização de soluções de implementação das gramáticas
+  referidas para a construção de novas gramáticas, dispensando
+  conhecimento da linguagem TDL. O sistema possui uma interface sob a
+  forma de um questionário baseado em extensa pesquisa tipológica, que
+  cobre alguns dos principais fenômenos gramaticais das línguas do
+  mundo. Para construção de uma gramática computacional de uma
+  determinada língua, o usuário só precisa especificar as
+  particularidades da língua em relação a uma série de parâmetros
+  gramaticais, como ordem de palavras, tipos de categorias
+  morfossintáticas etc. bem como descrever as propriedades dos itens
+  lexicais. Essa gramática inicial pode ser ampliada depois
+  manualmente. Neste tutorial, apresentamos os conceitos linguísticos
+  fundamentais necessários à compreensão e utilização do questionário
+  bem como noções mínimas da teoria da HPSG. As noções serão
+  exemplificadas por meio da construção de minigramáticas do inglês e do
+  latim, línguas que diferem estruturalmente de modo bastante
+  significativo. O tutorial será concluído com a apresentação de
+  aplicações e ferramentas para utilização da ERG. Para acompanhamento
+  do tutorial, recomendamos a prévia instalação do parser LKB-Fos
+  integrado ao editor Emacs e aquisição de uma familiaridade mínima com
+  os dois sistemas, embora isso não seja estritamente necessário.&lt;/p&gt;
+&lt;h2&gt;Instrutores&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Leonel Figueiredo de Alencar — Professor Titular da Universidade
+    Federal do Ceará e Professor Visitante da Escola de Matemática
+    Aplicada da Fundação Getúlio Vargas&lt;/li&gt;
+  &lt;li&gt;Alexandre Rademaker — Professor da Escola de Matemática Aplicada da
+    Fundação Getúlio Vargas e Pesquisador do IBM Research&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Programação&lt;/h2&gt;
+&lt;dl&gt;
+  &lt;dt&gt;12.04.2021 15:00 – 16:30 (L. F. de Alencar)&lt;/dt&gt;&lt;dd&gt;Conceitos
+    linguísticos fundamentais: estrutura de constituintes, teoria
+    X-barra, gramática universal, relações gramaticais, categorias
+    morfossintáticas, controle, raising etc. Noções elementares de HPSG:
+    estrutura de traços tipada, hierarquia de tipos, unificação
+    etc. Minigramática English 1.&lt;/dd&gt;
+  &lt;dt&gt;19.04.2021 15:00 – 16:30 (L. F. de Alencar)&lt;/dt&gt;&lt;dd&gt;Minigramática
+    English 2. Minigramática Latin 1.&lt;/dd&gt;
+  &lt;dt&gt;26.04.2021 15:00 – 16:30 (L. F. de Alencar)&lt;/dt&gt;&lt;dd&gt;Minigramática
+    English 3. Minigramática Latin 2.&lt;/dd&gt;
+  &lt;dt&gt;03.05.2021 15:00 – 16:30 (L. F. de Alencar)&lt;/dt&gt;&lt;dd&gt;Minigramática
+    English 4. Minigramática Latin 3. Limitações da Grammar Matrix e
+    como contorná-las. Exemplos concretos de modificações manuais do
+    código TDL.&lt;/dd&gt;
+  &lt;dt&gt;10.05.2021 15:00 – 16:30 (A. Rademaker)&lt;/dt&gt;&lt;dd&gt;English Resource Grammar:
+    aplicações e ferramentas de utilização.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;BENDER, Emily; FLICKINGER, Dan M.; OEPEN, Stephan. The Grammar
+    Matrix: An Open-Source Starter-Kit for the Rapid Development of
+    Cross-Linguistically Consistent Broad-Coverage Precision
+    Grammars. CARROLL, John; OOSTDIJK, Nelleke; SUTCLIFFE, Richard
+    (Org.). Proceedings of the Workshop on Grammar Engineering and
+    Evaluation at the 19th International Conference on Computational
+    Linguistics. Taipei, Taiwan, 2002. p. 8-14.&lt;/li&gt;
+  &lt;li&gt;BENDER, Emily M.; DRELLISHAK, Scott; FOKKENS, Antske; POULSON,
+    Laurie; SALEEM, Safiyyah. Grammar Customization. Research on
+    Language and Computation, vol. 8, n. 1, p. 23-72. 2010.&lt;/li&gt;
+  &lt;li&gt;COPESTAKE, Ann. Implementing Typed Feature Structure
+    Grammars. Stanford: CSLI, 2002.&lt;/li&gt;
+  &lt;li&gt;COPESTAKE, Ann. &lt;a href=&quot;https://web.stanford.edu/group/cslipublications/cslipublications/pdf/1575862603usersmanual.pdf&quot;&gt;LKB User Manual&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;LinGO Grammar Matrix. https://matrix.ling.washington.edu/&lt;/li&gt;
+  &lt;li&gt;LKB-FOS. http://moin.delph-in.net/wiki/LkbFos&lt;/li&gt;
+  &lt;li&gt;SAG, Ivan A.; WASOW, Thomas; BENDER, Emily. Syntactic theory: a
+    formal introduction. 2. ed. Stanford: CSLI Publications, 2003.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>reading list</title>
