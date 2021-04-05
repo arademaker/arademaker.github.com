@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2021-04-05T14:05:17-03:00</updated>
+ <updated>2021-04-05T14:08:12-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -13,11 +13,14 @@
 
  
  <entry>
-   <title>Gramáticas computacionais no formalismo HPSG utilizando a Grammar Matrix</title>
+   <title>Tutorial sobre gramáticas computacionais no formalismo HPSG utilizando a Grammar Matrix</title>
    <link href="http://arademaker.github.com/blog/2021/04/05/grammar-matrix.html"/>
    <updated>2021-04-05T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2021/04/05/grammar-matrix</id>
-   <content type="html">&lt;h2&gt;Resumo&lt;/h2&gt;
+   <content type="html">&lt;h2&gt;Inscrição&lt;/h2&gt;
+&lt;p&gt;Os interessados devem se inscrever no formulário:
+  https://forms.gle/8EGJNa8oWjbLjqe47&lt;/p&gt;
+&lt;h2&gt;Resumo&lt;/h2&gt;
 &lt;p&gt;Gramáticas computacionais elaboradas manualmente com base em
   princípios linguísticos têm tido a sua eficácia comprovada em diversas
   aplicações de nível industrial que exigem compreensão textual, em
