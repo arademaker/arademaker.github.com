@@ -72,25 +72,25 @@ os dois sistemas, embora isso não seja estritamente necessário.
 
 ** Programação
 
-- 12.04.2021 15:00 – 16:30 (L. F. de Alencar) :: Conceitos
-  linguísticos fundamentais: estrutura de constituintes, teoria
-  X-barra, gramática universal, relações gramaticais, categorias
-  morfossintáticas, controle, raising etc. Noções elementares de HPSG:
-  estrutura de traços tipada, hierarquia de tipos, unificação
-  etc. Minigramática English 1.
+- 12.04.2021 15:00 – 16:30 (L. F. de Alencar): Conceitos linguísticos
+  fundamentais: estrutura de constituintes, teoria X-barra, gramática
+  universal, relações gramaticais, categorias morfossintáticas,
+  controle, raising etc. Noções elementares de HPSG: estrutura de
+  traços tipada, hierarquia de tipos, unificação etc. Minigramática
+  English 1.
 
-- 19.04.2021 15:00 – 16:30 (L. F. de Alencar) :: Minigramática
+- 19.04.2021 15:00 – 16:30 (L. F. de Alencar): Minigramática
   English 2. Minigramática Latin 1.
 
-- 26.04.2021 15:00 – 16:30 (L. F. de Alencar) :: Minigramática
+- 26.04.2021 15:00 – 16:30 (L. F. de Alencar): Minigramática
   English 3. Minigramática Latin 2.
 
-- 03.05.2021 15:00 – 16:30 (L. F. de Alencar) :: Minigramática
+- 03.05.2021 15:00 – 16:30 (L. F. de Alencar): Minigramática
   English 4. Minigramática Latin 3. Limitações da Grammar Matrix e
   como contorná-las. Exemplos concretos de modificações manuais do
   código TDL.
 
-- 10.05.2021 15:00 – 16:30 (A. Rademaker) :: English Resource Grammar:
+- 10.05.2021 15:00 – 16:30 (A. Rademaker): English Resource Grammar,
   aplicações e ferramentas de utilização.
 
 ** Referências
