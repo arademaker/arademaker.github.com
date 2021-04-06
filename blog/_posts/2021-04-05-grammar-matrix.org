@@ -12,8 +12,9 @@ tags:
 
 ** Inscrição
 
-Os interessados devem se inscrever no formulário:
-https://forms.gle/8EGJNa8oWjbLjqe47
+Os interessados devem se inscrever no formulário
+
+[[https://forms.gle/8EGJNa8oWjbLjqe47]]
 
 ** Resumo
 
@@ -72,25 +73,25 @@ os dois sistemas, embora isso não seja estritamente necessário.
 
 ** Programação
 
-- 12.04.2021 15:00 – 16:30 (L. F. de Alencar): Conceitos linguísticos
+- *12.04.2021 15:00 – 16:30* (L. F. de Alencar): Conceitos linguísticos
   fundamentais: estrutura de constituintes, teoria X-barra, gramática
   universal, relações gramaticais, categorias morfossintáticas,
   controle, raising etc. Noções elementares de HPSG: estrutura de
   traços tipada, hierarquia de tipos, unificação etc. Minigramática
   English 1.
 
-- 19.04.2021 15:00 – 16:30 (L. F. de Alencar): Minigramática
+- *19.04.2021 15:00 – 16:30* (L. F. de Alencar): Minigramática
   English 2. Minigramática Latin 1.
 
-- 26.04.2021 15:00 – 16:30 (L. F. de Alencar): Minigramática
+- *26.04.2021 15:00 – 16:30* (L. F. de Alencar): Minigramática
   English 3. Minigramática Latin 2.
 
-- 03.05.2021 15:00 – 16:30 (L. F. de Alencar): Minigramática
+- *03.05.2021 15:00 – 16:30* (L. F. de Alencar): Minigramática
   English 4. Minigramática Latin 3. Limitações da Grammar Matrix e
   como contorná-las. Exemplos concretos de modificações manuais do
   código TDL.
 
-- 10.05.2021 15:00 – 16:30 (A. Rademaker): English Resource Grammar,
+- *10.05.2021 15:00 – 16:30* (A. Rademaker): English Resource Grammar,
   aplicações e ferramentas de utilização.
 
 ** Referências
@@ -112,11 +113,10 @@ os dois sistemas, embora isso não seja estritamente necessário.
 
 - COPESTAKE, Ann. [[https://web.stanford.edu/group/cslipublications/cslipublications/pdf/1575862603usersmanual.pdf][LKB User Manual]]
 
-- LinGO Grammar Matrix. https://matrix.ling.washington.edu/
+- LinGO Grammar Matrix. [[https://matrix.ling.washington.edu]]
 
-- LKB-FOS. http://moin.delph-in.net/wiki/LkbFos
+- LKB-FOS. [[http://moin.delph-in.net/wiki/LkbFos]]
 
 - SAG, Ivan A.; WASOW, Thomas; BENDER, Emily. Syntactic theory: a
   formal introduction. 2. ed. Stanford: CSLI Publications, 2003.
-
 
