@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2021-04-05T21:41:28-03:00</updated>
+ <updated>2021-04-05T22:12:06-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -18,8 +18,8 @@
    <updated>2021-04-05T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2021/04/05/grammar-matrix</id>
    <content type="html">&lt;h2&gt;Inscrição&lt;/h2&gt;
-&lt;p&gt;Os interessados devem se inscrever no formulário:
-  https://forms.gle/8EGJNa8oWjbLjqe47&lt;/p&gt;
+&lt;p&gt;Os interessados devem se inscrever no formulário&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://forms.gle/8EGJNa8oWjbLjqe47&quot;&gt;https://forms.gle/8EGJNa8oWjbLjqe47&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;Resumo&lt;/h2&gt;
 &lt;p&gt;Gramáticas computacionais elaboradas manualmente com base em
   princípios linguísticos têm tido a sua eficácia comprovada em diversas
@@ -73,21 +73,21 @@
 &lt;/ul&gt;
 &lt;h2&gt;Programação&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;12.04.2021 15:00 – 16:30 (L. F. de Alencar): Conceitos linguísticos
+  &lt;li&gt;&lt;b&gt;12.04.2021 15:00 – 16:30&lt;/b&gt; (L. F. de Alencar): Conceitos linguísticos
     fundamentais: estrutura de constituintes, teoria X-barra, gramática
     universal, relações gramaticais, categorias morfossintáticas,
     controle, raising etc. Noções elementares de HPSG: estrutura de
     traços tipada, hierarquia de tipos, unificação etc. Minigramática
     English 1.&lt;/li&gt;
-  &lt;li&gt;19.04.2021 15:00 – 16:30 (L. F. de Alencar): Minigramática
+  &lt;li&gt;&lt;b&gt;19.04.2021 15:00 – 16:30&lt;/b&gt; (L. F. de Alencar): Minigramática
     English 2. Minigramática Latin 1.&lt;/li&gt;
-  &lt;li&gt;26.04.2021 15:00 – 16:30 (L. F. de Alencar): Minigramática
+  &lt;li&gt;&lt;b&gt;26.04.2021 15:00 – 16:30&lt;/b&gt; (L. F. de Alencar): Minigramática
     English 3. Minigramática Latin 2.&lt;/li&gt;
-  &lt;li&gt;03.05.2021 15:00 – 16:30 (L. F. de Alencar): Minigramática
+  &lt;li&gt;&lt;b&gt;03.05.2021 15:00 – 16:30&lt;/b&gt; (L. F. de Alencar): Minigramática
     English 4. Minigramática Latin 3. Limitações da Grammar Matrix e
     como contorná-las. Exemplos concretos de modificações manuais do
     código TDL.&lt;/li&gt;
-  &lt;li&gt;10.05.2021 15:00 – 16:30 (A. Rademaker): English Resource Grammar,
+  &lt;li&gt;&lt;b&gt;10.05.2021 15:00 – 16:30&lt;/b&gt; (A. Rademaker): English Resource Grammar,
     aplicações e ferramentas de utilização.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Referências&lt;/h2&gt;
@@ -105,8 +105,8 @@
   &lt;li&gt;COPESTAKE, Ann. Implementing Typed Feature Structure
     Grammars. Stanford: CSLI, 2002.&lt;/li&gt;
   &lt;li&gt;COPESTAKE, Ann. &lt;a href=&quot;https://web.stanford.edu/group/cslipublications/cslipublications/pdf/1575862603usersmanual.pdf&quot;&gt;LKB User Manual&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;LinGO Grammar Matrix. https://matrix.ling.washington.edu/&lt;/li&gt;
-  &lt;li&gt;LKB-FOS. http://moin.delph-in.net/wiki/LkbFos&lt;/li&gt;
+  &lt;li&gt;LinGO Grammar Matrix. &lt;a href=&quot;https://matrix.ling.washington.edu&quot;&gt;https://matrix.ling.washington.edu&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;LKB-FOS. &lt;a href=&quot;http://moin.delph-in.net/wiki/LkbFos&quot;&gt;http://moin.delph-in.net/wiki/LkbFos&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;SAG, Ivan A.; WASOW, Thomas; BENDER, Emily. Syntactic theory: a
     formal introduction. 2. ed. Stanford: CSLI Publications, 2003.&lt;/li&gt;
 &lt;/ul&gt;
