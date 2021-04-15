@@ -130,3 +130,7 @@ os dois sistemas, embora isso não seja estritamente necessário.
 - SAG, Ivan A.; WASOW, Thomas; BENDER, Emily. Syntactic theory: a
   formal introduction. 2. ed. Stanford: CSLI Publications, 2003.
 
+** Material
+
+arquivos disponibilizados em [[https://github.com/LR-POR/tutorial][tutorial]].   
+
