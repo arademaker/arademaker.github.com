@@ -1,0 +1,99 @@
+---
+title: Idéias de projetos 
+layout: post
+tags:
+ - projects
+ - todo
+---
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+OPTIONS: toc:nil
+#+PROPERTY: exports both
+
+Segue uma relação atualizada de idéias de projetos para alunos.
+
+** implicação textual
+   
+O problema de detecção de implicação textual (text entailment, TE) é
+identificar quando duas sentenças (ou fragmentos de texto) estão
+relacionados de tal forma que a verdade de um fragmento de texto segue
+da verdade do outro. Dizemos que existe uma consequência lógica entre
+h e t, se de um texto denominado h podemos concluir um texto
+t. Determinar se essa relação se mantém é uma tarefa relacionada à
+semântica formal de sentenças; adicionalmente, a implicação textual
+inclui a semântica lexical. Muitas aplicações de processamento de
+linguagem natural, como resposta a perguntas e extração de informações
+de textos, podem se beneficiar de algorítmos de conhecimento de
+implicação textual. O objetivo do projeto é investigar as técnicas de
+conhecimento de implicação textual existentes.
+
+** A OpenWordnet-PT
+
+A [[http://wnpt.brlcloud.com/wn/][OpenWordnet-PT]], ou simplesmente OWN-PT) é a WordNet de acesso aberto
+para o português. A OpenWN-PT está disponível em RDF/OWL e vem sendo
+expandida, melhorada e utilizada em projetos de processamento de
+linguagem nos últimos 10 anos.
+
+Este projeto visa ajudar nossa equipe na melhoria do [[https://github.com/own-pt/cl-wnbrowser][web interface]]
+para nosso openWordnet-PT.
+
+Em particular, precisamos: (1) simplificar a arquitetura; (2) melhorar
+a interface para votos e sugestões; (3) melhorar a navegação e
+Visualização de dados.   
+
+** CoNLL-U Library
+
+A biblioteca [[https://hackage.haskell.org/package/hs-conllu][hs-conllu]] desenvolvida pelo Bruno Cuconato foi proposta
+como uma evolução da biblioteca Common Lisp [[https://github.com/own-pt/cl-conllu][cl-conllu]] desenvolvida
+inicialmente por mim em colaboração com vários alunos. A biblitoeca
+haskell ainda é bastante básica e faltam recursos diversos presentes
+em outras ferramentas para manipulação deste formato de arquivo usado
+pelo projeto [[https://universaldependencies.org/format.html][Universal Dependencies]]. O projeto seria implementar as
+diversas funcionalidades presentes na biblioteca Lisp ainda não
+portadas para haskell, implementar novas funcionalidade como, por
+exemplo, a leitura do formato conllup que será cada vez mais usado
+pela comunidade.
+
+** Delph-In suporte em Haskell
+
+O Consórcio DELPH-IN é uma colaboração entre lingüistas computacionais
+de locais de pesquisa em todo o mundo que trabalham no processamento
+lingüístico "profundo" da linguagem humana. O objetivo é a combinação
+de métodos linguísticos e estatísticos de processamento para chegar ao
+significado de textos e enunciados. Os parceiros adotaram o
+Head-Driven Phrase Structure Grammar (HPSG) e a Minimal Recursion
+Semantics (MRS), dois modelos avançados de análise linguística
+formal. Eles também se comprometeram com um formato compartilhado para
+a representação gramatical e com um esquema rígido de avaliação, bem
+como com o uso geral do licenciamento de código aberto e da
+transparência. Neste contexto, queremos contribuir com ferramentas
+para este consórcio, em particular:
+
+1. uma implementação haskell alternativa a atual
+   [[https://pydelphin.readthedocs.io/]].
+
+2. Implementação da linguagem de query e interface para buscas em
+   representações semânticas.
+
+3. Outras aplicações para HPSG e MRS.
+
+** SUO-KIF translator to TPTP
+
+Em projetos anteriores, escrevemos uma [[https://github.com/own-pt/cl-krr][tradução]] do formato [[http://www.adampease.org/OP/][SUO-KIF]]
+para o formato [[http://www.cs.miami.edu/~tptp/][TPTP]]. Esta tradução permite usarmos a ontologia [[http://www.ontologyportal.org][SUMO]] em
+provadores automáticos de teoremas. Neste projeto, gostariamos de
+expandir esta transformação resolvendo bugs presentes na transformação
+atual e expandindo seu suporte para o formato TF0/TPTP. Como etapa
+seguinte, gostaríamos de usar SUMO em projetos de processamento de
+linguagem e contribuir com SUMO. A transformação inicial foi escrita
+em Lisp, mas esperasse a migração do código para Haskell. Outra
+direção possível de pesquisa é o reuso e possível reescrita do
+provador [[http://www.ai.sri.com/~stickel/snark.html][SNARK]] e seu suporte a procedural Attachments.
+
+** Formalizing ALC SC/ND em Lean
+
+Neste projeto, gostariamos de concluir a formalização dos sistemas
+dedutivos desenvolvidos para algumas lógicas de descrição em [[http://arademaker.github.io/bibliography/phdthesis-4.html][tese]] e
+provar as propriedades básicas destes sistemas. Código atual em
+[[https://github.com/arademaker/alc-lean]].
+
