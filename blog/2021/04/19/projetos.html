@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ 
+   <title>Idéias de projetos</title>
+ 
+ <meta name="author" content="Alexandre Rademaker" />
+ <link href="http://feeds.feedburner.com/arademaker" rel="alternate"
+       title="Alexandre Rademaker" type="application/atom+xml" />
+ 
+ <!-- syntax highlighting CSS -->
+ <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+ <link rel="stylesheet" href="/css/table.css" type="text/css" />
+
+ <!-- <link href="/css/highlight.css" rel="stylesheet" type="text/css"> -->
+ <link href="/css/gists.css" rel="stylesheet" type="text/css"/>
+
+ <!-- CSS -->
+ <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+ <!-- Typekit 
+ <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+ <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+ -->
+
+ <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-97240-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+  <div id="outer">
+    <div id="top"></div>
+
+    <div id="left">
+      <img src="/images/eu-sf.jpg"/>
+    </div>  
+
+    <div class="site">
+      <div class="title">
+	<a href="/">Alexandre Rademaker</a>
+	<a class="extra" href="/about.html">about me</a>
+	<a class="extra" href="/publications.html">publications</a>
+	<a class="extra" href="/advising.html">advising</a>
+        <a class="extra" href="/research.html">research</a>
+	<a class="extra" href="/teaching.html">teaching</a>
+      </div>
+      
+      <div id="post">
+  <h1> Idéias de projetos </h1>
+
+  <p>Segue uma relação atualizada de idéias de projetos para alunos.</p>
+<h2>implicação textual</h2>
+<p>O problema de detecção de implicação textual (text entailment, TE) é
+  identificar quando duas sentenças (ou fragmentos de texto) estão
+  relacionados de tal forma que a verdade de um fragmento de texto segue
+  da verdade do outro. Dizemos que existe uma consequência lógica entre
+  h e t, se de um texto denominado h podemos concluir um texto
+  t. Determinar se essa relação se mantém é uma tarefa relacionada à
+  semântica formal de sentenças; adicionalmente, a implicação textual
+  inclui a semântica lexical. Muitas aplicações de processamento de
+  linguagem natural, como resposta a perguntas e extração de informações
+  de textos, podem se beneficiar de algorítmos de conhecimento de
+  implicação textual. O objetivo do projeto é investigar as técnicas de
+  conhecimento de implicação textual existentes.</p>
+<h2>A OpenWordnet-PT</h2>
+<p>A <a href="http://wnpt.brlcloud.com/wn/">OpenWordnet-PT</a>, ou simplesmente OWN-PT) é a WordNet de acesso aberto
+  para o português. A OpenWN-PT está disponível em RDF/OWL e vem sendo
+  expandida, melhorada e utilizada em projetos de processamento de
+  linguagem nos últimos 10 anos.</p>
+<p>Este projeto visa ajudar nossa equipe na melhoria do <a href="https://github.com/own-pt/cl-wnbrowser">web interface</a>
+  para nosso openWordnet-PT.</p>
+<p>Em particular, precisamos: (1) simplificar a arquitetura; (2) melhorar
+  a interface para votos e sugestões; (3) melhorar a navegação e
+  Visualização de dados.</p>
+<h2>CoNLL-U Library</h2>
+<p>A biblioteca <a href="https://hackage.haskell.org/package/hs-conllu">hs-conllu</a> desenvolvida pelo Bruno Cuconato foi proposta
+  como uma evolução da biblioteca Common Lisp <a href="https://github.com/own-pt/cl-conllu">cl-conllu</a> desenvolvida
+  inicialmente por mim em colaboração com vários alunos. A biblitoeca
+  haskell ainda é bastante básica e faltam recursos diversos presentes
+  em outras ferramentas para manipulação deste formato de arquivo usado
+  pelo projeto <a href="https://universaldependencies.org/format.html">Universal Dependencies</a>. O projeto seria implementar as
+  diversas funcionalidades presentes na biblioteca Lisp ainda não
+  portadas para haskell, implementar novas funcionalidade como, por
+  exemplo, a leitura do formato conllup que será cada vez mais usado
+  pela comunidade.</p>
+<h2>Delph-In suporte em Haskell</h2>
+<p>O Consórcio DELPH-IN é uma colaboração entre lingüistas computacionais
+  de locais de pesquisa em todo o mundo que trabalham no processamento
+  lingüístico &#8220;profundo&#8221; da linguagem humana. O objetivo é a combinação
+  de métodos linguísticos e estatísticos de processamento para chegar ao
+  significado de textos e enunciados. Os parceiros adotaram o
+  Head-Driven Phrase Structure Grammar (HPSG) e a Minimal Recursion
+  Semantics (MRS), dois modelos avançados de análise linguística
+  formal. Eles também se comprometeram com um formato compartilhado para
+  a representação gramatical e com um esquema rígido de avaliação, bem
+  como com o uso geral do licenciamento de código aberto e da
+  transparência. Neste contexto, queremos contribuir com ferramentas
+  para este consórcio, em particular:</p>
+<ol>
+  <li>uma implementação haskell alternativa a atual
+    <a href="https://pydelphin.readthedocs.io/">https://pydelphin.readthedocs.io/</a>.</li>
+  <li>Implementação da linguagem de query e interface para buscas em
+    representações semânticas.</li>
+  <li>Outras aplicações para HPSG e MRS.</li>
+</ol>
+<h2>SUO-KIF translator to TPTP</h2>
+<p>Em projetos anteriores, escrevemos uma <a href="https://github.com/own-pt/cl-krr">tradução</a> do formato <a href="http://www.adampease.org/OP/">SUO-KIF</a>
+  para o formato <a href="http://www.cs.miami.edu/~tptp/">TPTP</a>. Esta tradução permite usarmos a ontologia <a href="http://www.ontologyportal.org">SUMO</a> em
+  provadores automáticos de teoremas. Neste projeto, gostariamos de
+  expandir esta transformação resolvendo bugs presentes na transformação
+  atual e expandindo seu suporte para o formato TF0/TPTP. Como etapa
+  seguinte, gostaríamos de usar SUMO em projetos de processamento de
+  linguagem e contribuir com SUMO. A transformação inicial foi escrita
+  em Lisp, mas esperasse a migração do código para Haskell. Outra
+  direção possível de pesquisa é o reuso e possível reescrita do
+  provador <a href="http://www.ai.sri.com/~stickel/snark.html">SNARK</a> e seu suporte a procedural Attachments.</p>
+<h2>Formalizing ALC SC/ND em Lean</h2>
+<p>Neste projeto, gostariamos de concluir a formalização dos sistemas
+  dedutivos desenvolvidos para algumas lógicas de descrição em <a href="http://arademaker.github.io/bibliography/phdthesis-4.html">tese</a> e
+  provar as propriedades básicas destes sistemas. Código atual em
+  <a href="https://github.com/arademaker/alc-lean">https://github.com/arademaker/alc-lean</a>.</p>
+
+
+ <hr/>
+
+ <div id="disqus_thread"></div>
+ <script type="text/javascript">
+   var disqus_shortname = 'arademaker'; 
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+      <div class="footer">
+	<div class="contact">
+	  <p>
+            Professor at <a href="http://emap.fgv.br/">EMAp/FGV</a>, Researcher at <a href="http://research.ibm.com">IBM</a><br/>
+            arademaker AT gmail DOT com
+	  </p>
+	  
+	  <p><a id="academia-button" href="https://ibm.academia.edu/AlexandreRademaker">Follow me on Academia.edu</a><script src="//a.academia-assets.com/javascripts/social.js"></script></p>
+
+	  <p>
+	    <a href="http://github.com/arademaker/">github.com/arademaker</a> - 
+            <a href="http://twitter.com/arademaker/">twitter.com/arademaker</a> - 
+            <a href="http://facebook.com/alexandre.rademaker">Facebook</a> -
+	    <a href="https://scholar.google.com.br/citations?user=SWz6BjIAAAAJ&hl=en">Google Scholar</a>
+	  </p>
+	  <p>The postings and pages on this site are my own and don't
+	    necessarily represent IBM's or FGV's positions, strategies
+	    or opinions.</p>
+	</div>	
+	<div class="rss">
+	  <p><a href="http://feeds.feedburner.com/arademaker"><img src="/images/rss.png" alt="Subscribe to RSS Feed" /></a></p>
+	</div>
+      </div>
+    </div>
+
+    <div id="right">
+    </div>
+  </div>
+</body>
+</html>
