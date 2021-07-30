@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2021-04-19T15:22:48-03:00</updated>
+ <updated>2021-07-30T19:11:17-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -1610,7 +1610,7 @@ version.&lt;/p&gt;
 (actually for the rest of the post you don’t need to understand the
 code):&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-common-lisp&quot; data-lang=&quot;common-lisp&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;with-open-file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;zero.log&quot;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:element-type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned-byte&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-common-lisp&quot; data-lang=&quot;common-lisp&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;with-open-file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;zero.log&quot;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:element-type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;unsigned-byte&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 			      &lt;span class=&quot;ss&quot;&gt;:direction&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:output&lt;/span&gt;
 			      &lt;span class=&quot;ss&quot;&gt;:if-exists&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:supersede&lt;/span&gt;
 			      &lt;span class=&quot;ss&quot;&gt;:external-format&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:utf-8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -2061,8 +2061,8 @@ using the Omegahat repository version with the command:&lt;/p&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; install.packages(&quot;SSOAP&quot;, repos = &quot;http://www.omegahat.org/R&quot;, 
                    dependencies = TRUE, 
                    type = &quot;source&quot;)
-trying URL 'http://www.omegahat.org/R/src/contrib/SSOAP_0.8-1.tar.gz'
-Content type 'application/x-gzip' length 195424 bytes (190 Kb)
+trying URL &apos;http://www.omegahat.org/R/src/contrib/SSOAP_0.8-1.tar.gz&apos;
+Content type &apos;application/x-gzip&apos; length 195424 bytes (190 Kb)
 opened URL
 ==================================================
 downloaded 190 Kb
@@ -2074,7 +2074,7 @@ downloaded 190 Kb
 Creating a new generic function for ‘help’ in package ‘SSOAP’
 Warning in .NonstandardGenericTest(body(fdef), name, stdGenericBody) :
   the supplied generic function definition for toSOAP does not
-  seem to call 'standardGeneric'; no methods will be dispatched!
+  seem to call &apos;standardGeneric&apos;; no methods will be dispatched!
 ** help
 *** installing help indices
 ** building package indices ...
