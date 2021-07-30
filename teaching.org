@@ -9,10 +9,17 @@ title: Teaching
 
 * {{ page.title }}
 
+** 2021
+
+- Análise de Algoritmos (Tópicos em Programação Funcional), Graduação EMAp, FGV
+- Introdução ao Processamento de Linguagem Natural, Graduação EMAp, FGV   
+
 ** 2020
 
-- Introdução à Computação, graduação EMAp, FGV
-- Tópicos de Inteligência Artificial aplicada à Ciências Humanas, CPDOC
+- Introdução à Computação, graduação EMAp 2020.1, FGV
+- Tópicos de Inteligência Artificial aplicada à Ciências Humanas, CPDOC 2020.1, FGV
+- Matemática Discreta, graduação EMAp 2020.2, FGV
+- Algorítmos e Estruturas de Dados, Mestrado EMAp 2020.2, FGV
 
 ** 2019
 
