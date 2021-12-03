@@ -9,17 +9,20 @@ title: about me
 
 * {{ page.title }}
 
-Alexandre is a Research Scientist at IBM Research since
-December 2012. Alexandre is also an adjunct professor at the [[http://emap.fgv.br][Applied
-Mathematics School of Getulio Vargas Foundation]] (EMAp/FGV)
-since 2010. Alexandre has taught many graduate and undergraduate
-courses: logic, data structures, programming, discrete mathematics,
-type theory, formal languages, and automata theory.
-
-Alexandre holds a Ph.D. (2010) in Computer Science from Pontifical
-Catholic University of Rio de Janeiro (PUC-Rio) and M.Sc. (2005) in
-Computer Science from Fluminense Federal University, and B.Sc. (2001)
-in Computer Science from Federal University of Rio de Janeiro.
+Alexandre has a doctorate in Computer Science from [[http://www.inf.puc-rio.br][PUC-Rio]] (2010). He
+is a research scientist in [[http://researcher.ibm.com/person/br-alexrad ][IBM Research]] (Brazil Lab) and adjunct
+professor at the [[http://emap.fgv.br][Applied Mathematics Department]] from Getulio Vargas
+Foundation (Rio de Janeiro, Brazil).  He has written more than 90
+papers published in peer-reviewed journals and international
+conferences in his areas of expertise: logic, proof theory, knowledge
+representation and reasoning, language resources, computational
+linguistics, and type theory. He participates as a member of many
+program committees of regular conferences like ACL, COLING, LREC, and
+others. He is also a board member of the Global WordNet Association
+and coordinated the [[http://cepln.github.io][CE-PLN]] between 2017-219. Alexandre collaborates
+on maintaining many language resources and developing applications
+using these resources for 'deep' linguistic processing of human
+languages.
 
 During his Ph.D., Alexandre was an international fellow at Microsoft
 Research and SRI International. At MSR, in 2008, he worked with the [[https://en.wikipedia.org/wiki/Z3_Theorem_Prover][Z3
@@ -35,17 +38,6 @@ the supervision of Edward Hermann Haeusler, published by Springer with
 the title [[https://www.amazon.com/Theory-Description-SpringerBriefs-Computer-Science-ebook/dp/B00A9YGJR0][A proof theory for Description Logics]] in 2012 in the
 Springer Briefs series.
 
-Alexandre is the author/co-author of more than 90 papers published in
-peer-reviewed journals and international conferences. His areas of
-expertise and interesting are logic, proof theory, knowledge
-representation and reasoning, lexical resources, computational
-linguistics and type theory.
-
-Alexandre participate as member of many program committee of
-conferences like ACL, COLING, LREC etc. He is also a board member of
-the [[http://www.globalwordnet.org][Global WordNet Association]] and coordinated the [[http://cepln.github.io][CE-PLN]] between
-2017-219.
-
 You can find more information at:
 
  - [[http://researcher.ibm.com/person/br-alexrad]]
@@ -55,6 +47,5 @@ You can find more information at:
  - [[http://www.researchgate.net/profile/Alexandre_Rademaker/]]
  - [[http://fgv.academia.edu/AlexandreRademaker]]
  - [[http://lattes.cnpq.br/0675365413696898][Curriculum Lattes (Portuguese)]]
- - [[http://facebook.com/alexandre.rademaker]]
  - [[http://twitter.com/arademaker]]
   
