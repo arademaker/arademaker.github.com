@@ -1,0 +1,112 @@
+---
+title: Idéias de projetos 2022
+layout: post
+tags:
+ - projects
+ - todo
+---
+#+PROPERTY: cache yes
+#+PROPERTY: results output
+#+OPTIONS: toc:nil
+#+PROPERTY: exports both
+
+Segue uma relação atualizada de idéias de projetos para alunos.
+
+** processamento de linguagem natural
+
+   Existem vários projetos interessantes para aplicações de técnicas
+   de processamento de linguagem natural para problemas como:
+
+   1. O problema de detecção de implicação textual (text entailment,
+      TE) é identificar quando duas sentenças (ou fragmentos de texto)
+      estão relacionados de tal forma que a verdade de um fragmento de
+      texto segue da verdade do outro.
+      
+   2. Resposta automática à perguntas
+
+   3. Extração de Informações de textos
+
+   As 3 aplicações acima tem aplicações diretas na indústria e como
+   tal, são de meu interesse imediato. Todas pode ser pensadas em
+   contextos/domínios específicos ou gerais. Estas aplicações já foram
+   parcialmente investigadas por alunos da EMAp orientados por mim e,
+   desta forma, um continuidade natural de pesquisa pode ser
+   conveniente.
+
+** recursos léxicos para o Português
+
+   Relacionado ao tema anterior, quase todos os métodos de PLN
+   demandam recursos lingúisticos, dados sobre a lingua natural a ser
+   processada: informações sobre morfologia, gramática etc. Junto com
+   colaboradores, mantenho alguns recursos para o Português de forma
+   aberta.
+
+   A [[http://wnpt.brlcloud.com/wn/][OpenWordnet-PT]], ou simplesmente OWN-PT, é a WordNet de acesso
+   aberto para o português. A OpenWN-PT está disponível em RDF/OWL e
+   vem sendo expandida, melhorada e utilizada em projetos de
+   processamento de linguagem nos últimos 10 anos.
+
+   O dicionário morfológico para o Português chamado [[https://github.com/LR-POR/MorphoBr][MorphoBr]] é outro
+   importante recurso para processamento de textos.
+
+   Os corpora UD para o Português, em especial o [[https://github.com/UniversalDependencies/UD_Portuguese-GSD][GSD]] e o [[https://github.com/UniversalDependencies/UD_Portuguese-Bosque][Bosque]].
+
+   A gramática do Português chamada [[https://github.com/LR-POR/PorGram/][PorGram]].
+
+   Em comum, todos estes projetos demandam constante manutenção, vide
+   issues abertos nos respectivos repositórios. Sejam bibliotecas de
+   software, sejam interfaces de visualização ou consulta etc.
+
+   Exemplos de bibliotecas e ferramentas já desenvolvidas por alunos
+   da EMAp e que ainda demandam expansão e revisão! Aos interessados
+   em projetos aplicados e de programação:
+
+   - https://hackage.haskell.org/package/hs-conllu
+   - http://github.com/LR-POR/cl-conllu
+   - https://github.com/own-pt/wsi
+
+** projetos de programação
+
+   Todas as propostas acima demandam algum interesse de
+   programação. Dentre os paradigmas de programação mais influentes
+   atualmetne, programação funcional detaca-se como uma forte
+   tendência. Entre outros aspectos, a programação funcional tem um
+   apelo especial para os alunos da EMAp, é o paradigma que talvez
+   mais aproxime computação da matemática.
+
+   O desenvolvimento e/ou reimplementação de bibliotecas existentes em
+   uma abordagem funcional é um excelente exercício para
+   desenvolvimento de competência em programação funcional. Em todos
+   os projetos acima citados, incentivo fortemente o uso de linguagens
+   funcionais.
+
+   Além dos projetos já citados, algumas bibliotecas muito
+   interessantes poderiam ser portadas para linguagens funcionais como
+   Haskell ou Lean:
+
+   - [[https://pydelphin.readthedocs.io/]]
+   - http://wn.readthedocs.io
+
+** SUO-KIF translator to TPTP
+
+   Em projetos anteriores, começamos uma [[https://github.com/own-pt/cl-krr][tradução]] do formato [[http://www.adampease.org/OP/][SUO-KIF]]
+   para o formato [[http://www.cs.miami.edu/~tptp/][TPTP]]. Esta tradução permite usarmos a ontologia [[http://www.ontologyportal.org][SUMO]]
+   em provadores automáticos de teoremas. Neste projeto, gostariamos
+   de expandir esta transformação resolvendo bugs presentes na
+   transformação atual e expandindo seu suporte para o formato
+   TF0/TPTP. Como etapa seguinte, gostaríamos de usar SUMO em projetos
+   de processamento de linguagem e contribuir com SUMO. A
+   transformação inicial foi escrita em Lisp, mas esperasse a migração
+   do código para Haskell. Outra direção possível de pesquisa é o
+   reuso e possível reescrita do provador [[http://www.ai.sri.com/~stickel/snark.html][SNARK]] e seu suporte a
+   procedural Attachments. Reimplementar um sistema como SNARK, embora
+   pareça um projeto ambicioso, é uma excelenete oportunidade para
+   desenvolver vários skills em programação.
+
+** Formalizing ALC SC/ND em Lean
+
+   Neste projeto, gostariamos de concluir a formalização dos sistemas
+   dedutivos desenvolvidos para algumas lógicas de descrição em [[http://arademaker.github.io/bibliography/phdthesis-4.html][tese]] e
+   provar as propriedades básicas destes sistemas. Código atual em
+   [[https://github.com/arademaker/alc-lean]].
+
