@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ 
+   <title>Idéias de projetos 2022</title>
+ 
+ <meta name="author" content="Alexandre Rademaker" />
+ <link href="http://feeds.feedburner.com/arademaker" rel="alternate"
+       title="Alexandre Rademaker" type="application/atom+xml" />
+ 
+ <!-- syntax highlighting CSS -->
+ <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+ <link rel="stylesheet" href="/css/table.css" type="text/css" />
+
+ <!-- <link href="/css/highlight.css" rel="stylesheet" type="text/css"> -->
+ <link href="/css/gists.css" rel="stylesheet" type="text/css"/>
+
+ <!-- CSS -->
+ <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+ <!-- Typekit 
+ <script type="text/javascript" src="http://use.typekit.com/jpd0pfm.js"></script>
+ <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+ -->
+
+ <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-97240-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+  <div id="outer">
+    <div id="top"></div>
+
+    <div id="left">
+      <img src="/images/eu-sf.jpg"/>
+    </div>  
+
+    <div class="site">
+      <div class="title">
+	<a href="/">Alexandre Rademaker</a>
+	<a class="extra" href="/about.html">about me</a>
+	<a class="extra" href="/publications.html">publications</a>
+	<a class="extra" href="/advising.html">advising</a>
+        <a class="extra" href="/research.html">research</a>
+	<a class="extra" href="/teaching.html">teaching</a>
+      </div>
+      
+      <div id="post">
+  <h1> Idéias de projetos 2022 </h1>
+
+  <p>Segue uma relação atualizada de idéias de projetos para alunos.</p>
+<h2>processamento de linguagem natural</h2>
+<p>Existem vários projetos interessantes para aplicações de técnicas
+  de processamento de linguagem natural para problemas como:</p>
+<ol>
+  <li>O problema de detecção de implicação textual (text entailment,
+    TE) é identificar quando duas sentenças (ou fragmentos de texto)
+    estão relacionados de tal forma que a verdade de um fragmento de
+    texto segue da verdade do outro.</li>
+  <li>Resposta automática à perguntas</li>
+  <li>Extração de Informações de textos</li>
+</ol>
+<p>As 3 aplicações acima tem aplicações diretas na indústria e como
+  tal, são de meu interesse imediato. Todas pode ser pensadas em
+  contextos/domínios específicos ou gerais. Estas aplicações já foram
+  parcialmente investigadas por alunos da EMAp orientados por mim e,
+  desta forma, um continuidade natural de pesquisa pode ser
+  conveniente.</p>
+<h2>recursos léxicos para o Português</h2>
+<p>Relacionado ao tema anterior, quase todos os métodos de PLN
+  demandam recursos lingúisticos, dados sobre a lingua natural a ser
+  processada: informações sobre morfologia, gramática etc. Junto com
+  colaboradores, mantenho alguns recursos para o Português de forma
+  aberta.</p>
+<p>A <a href="http://wnpt.brlcloud.com/wn/">OpenWordnet-PT</a>, ou simplesmente OWN-PT, é a WordNet de acesso
+  aberto para o português. A OpenWN-PT está disponível em RDF/OWL e
+  vem sendo expandida, melhorada e utilizada em projetos de
+  processamento de linguagem nos últimos 10 anos.</p>
+<p>O dicionário morfológico para o Português chamado <a href="https://github.com/LR-POR/MorphoBr">MorphoBr</a> é outro
+  importante recurso para processamento de textos.</p>
+<p>Os corpora UD para o Português, em especial o <a href="https://github.com/UniversalDependencies/UD_Portuguese-GSD">GSD</a> e o <a href="https://github.com/UniversalDependencies/UD_Portuguese-Bosque">Bosque</a>.</p>
+<p>A gramática do Português chamada <a href="https://github.com/LR-POR/PorGram/">PorGram</a>.</p>
+<p>Em comum, todos estes projetos demandam constante manutenção, vide
+  issues abertos nos respectivos repositórios. Sejam bibliotecas de
+  software, sejam interfaces de visualização ou consulta etc.</p>
+<p>Exemplos de bibliotecas e ferramentas já desenvolvidas por alunos
+  da EMAp e que ainda demandam expansão e revisão! Aos interessados
+  em projetos aplicados e de programação:</p>
+<ul>
+  <li>https://hackage.haskell.org/package/hs-conllu</li>
+  <li>http://github.com/LR-POR/cl-conllu</li>
+  <li>https://github.com/own-pt/wsi</li>
+</ul>
+<h2>projetos de programação</h2>
+<p>Todas as propostas acima demandam algum interesse de
+  programação. Dentre os paradigmas de programação mais influentes
+  atualmetne, programação funcional detaca-se como uma forte
+  tendência. Entre outros aspectos, a programação funcional tem um
+  apelo especial para os alunos da EMAp, é o paradigma que talvez
+  mais aproxime computação da matemática.</p>
+<p>O desenvolvimento e/ou reimplementação de bibliotecas existentes em
+  uma abordagem funcional é um excelente exercício para
+  desenvolvimento de competência em programação funcional. Em todos
+  os projetos acima citados, incentivo fortemente o uso de linguagens
+  funcionais.</p>
+<p>Além dos projetos já citados, algumas bibliotecas muito
+  interessantes poderiam ser portadas para linguagens funcionais como
+  Haskell ou Lean:</p>
+<ul>
+  <li><a href="https://pydelphin.readthedocs.io/">https://pydelphin.readthedocs.io/</a></li>
+  <li>http://wn.readthedocs.io</li>
+</ul>
+<h2>SUO-KIF translator to TPTP</h2>
+<p>Em projetos anteriores, começamos uma <a href="https://github.com/own-pt/cl-krr">tradução</a> do formato <a href="http://www.adampease.org/OP/">SUO-KIF</a>
+  para o formato <a href="http://www.cs.miami.edu/~tptp/">TPTP</a>. Esta tradução permite usarmos a ontologia <a href="http://www.ontologyportal.org">SUMO</a>
+  em provadores automáticos de teoremas. Neste projeto, gostariamos
+  de expandir esta transformação resolvendo bugs presentes na
+  transformação atual e expandindo seu suporte para o formato
+  TF0/TPTP. Como etapa seguinte, gostaríamos de usar SUMO em projetos
+  de processamento de linguagem e contribuir com SUMO. A
+  transformação inicial foi escrita em Lisp, mas esperasse a migração
+  do código para Haskell. Outra direção possível de pesquisa é o
+  reuso e possível reescrita do provador <a href="http://www.ai.sri.com/~stickel/snark.html">SNARK</a> e seu suporte a
+  procedural Attachments. Reimplementar um sistema como SNARK, embora
+  pareça um projeto ambicioso, é uma excelenete oportunidade para
+  desenvolver vários skills em programação.</p>
+<h2>Formalizing ALC SC/ND em Lean</h2>
+<p>Neste projeto, gostariamos de concluir a formalização dos sistemas
+  dedutivos desenvolvidos para algumas lógicas de descrição em <a href="http://arademaker.github.io/bibliography/phdthesis-4.html">tese</a> e
+  provar as propriedades básicas destes sistemas. Código atual em
+  <a href="https://github.com/arademaker/alc-lean">https://github.com/arademaker/alc-lean</a>.</p>
+
+
+ <hr/>
+
+ <div id="disqus_thread"></div>
+ <script type="text/javascript">
+   var disqus_shortname = 'arademaker'; 
+   (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+      <div class="footer">
+	<div class="contact">
+	  <p>
+            Professor at <a href="http://emap.fgv.br/">EMAp/FGV</a>, Researcher at <a href="http://research.ibm.com">IBM</a><br/>
+            arademaker AT gmail DOT com
+	  </p>
+	  
+	  <p><a id="academia-button" href="https://ibm.academia.edu/AlexandreRademaker">Follow me on Academia.edu</a><script src="//a.academia-assets.com/javascripts/social.js"></script></p>
+
+	  <p>
+	    <a href="http://github.com/arademaker/">github.com/arademaker</a> - 
+            <a href="http://twitter.com/arademaker/">twitter.com/arademaker</a> - 
+            <a href="http://facebook.com/alexandre.rademaker">Facebook</a> -
+	    <a href="https://scholar.google.com.br/citations?user=SWz6BjIAAAAJ&hl=en">Google Scholar</a>
+	  </p>
+	  <p>The postings and pages on this site are my own and don't
+	    necessarily represent IBM's or FGV's positions, strategies
+	    or opinions.</p>
+	</div>	
+	<div class="rss">
+	  <p><a href="http://feeds.feedburner.com/arademaker"><img src="/images/rss.png" alt="Subscribe to RSS Feed" /></a></p>
+	</div>
+      </div>
+    </div>
+
+    <div id="right">
+    </div>
+  </div>
+</body>
+</html>
