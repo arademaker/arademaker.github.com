@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2023-08-12T19:13:00-03:00</updated>
+ <updated>2023-08-12T19:32:42-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -18,12 +18,9 @@
    <updated>2023-08-12T00:00:00-03:00</updated>
    <id>http://arademaker.github.com/blog/2023/08/12/chatgpt</id>
    <content type="html">&lt;p&gt;A &lt;a href=&quot;https://opennlp.apache.org/&quot;&gt;OpenNLP&lt;/a&gt; é uma biblioteca Java para processamento de textos, em sua
-  lista de discussão, ontem apareceu a pergunta (aqui traduzo a pergunta
-  e minha resposta em seguida).&lt;/p&gt;
-&lt;pre class=&quot;example&quot;&gt;
-A biblioteca OpenNLP é usada pelo ChatGPT?
-&lt;/pre&gt;
-&lt;p&gt;Resposta curta: não&lt;/p&gt;
+  lista de discussão, ontem apareceu a pergunta acima. Aqui traduzo
+  minha resposta que também pode ser lida em inglês &lt;a href=&quot;https://lists.apache.org/list.html?users@opennlp.apache.org&quot;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Resposta curta: não.&lt;/p&gt;
 &lt;p&gt;Uma resposta mais detalhada&amp;#8230;&lt;/p&gt;
 &lt;p&gt;Você pode aprender sobre a tecnologia por trás do chatGPT com o
   professor Stephen Wolfram neste longo, mas informativo, &lt;a href=&quot;https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/&quot;&gt;texto&lt;/a&gt;.&lt;/p&gt;
