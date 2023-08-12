@@ -40,7 +40,7 @@ Springer Briefs series.
 
 You can find more information at:
 
- - [[http://researcher.ibm.com/person/br-alexrad]]
+ - https://research.ibm.com/people/alexandre-rademaker
  - [[http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/r/Rademaker:Alexandre.html][Publications at DBLP]]
  - [[http://scholar.google.com/citations?user=SWz6BjIAAAAJ]]
  - [[http://academic.research.microsoft.com/Author/2751793]]
