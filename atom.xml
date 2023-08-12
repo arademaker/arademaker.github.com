@@ -4,13 +4,127 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2022-12-19T16:28:46-03:00</updated>
+ <updated>2023-08-12T19:13:00-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
    <email>arademaker@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>A biblioteca OpenNLP é usada pelo ChatGPT?</title>
+   <link href="http://arademaker.github.com/blog/2023/08/12/chatgpt.html"/>
+   <updated>2023-08-12T00:00:00-03:00</updated>
+   <id>http://arademaker.github.com/blog/2023/08/12/chatgpt</id>
+   <content type="html">&lt;p&gt;A &lt;a href=&quot;https://opennlp.apache.org/&quot;&gt;OpenNLP&lt;/a&gt; é uma biblioteca Java para processamento de textos, em sua
+  lista de discussão, ontem apareceu a pergunta (aqui traduzo a pergunta
+  e minha resposta em seguida).&lt;/p&gt;
+&lt;pre class=&quot;example&quot;&gt;
+A biblioteca OpenNLP é usada pelo ChatGPT?
+&lt;/pre&gt;
+&lt;p&gt;Resposta curta: não&lt;/p&gt;
+&lt;p&gt;Uma resposta mais detalhada&amp;#8230;&lt;/p&gt;
+&lt;p&gt;Você pode aprender sobre a tecnologia por trás do chatGPT com o
+  professor Stephen Wolfram neste longo, mas informativo, &lt;a href=&quot;https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/&quot;&gt;texto&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Você aprenderá que o chatGPT é baseado em um princípio simples. Um
+  modelo de linguagem colossal foi treinado para fazer previsões de
+  palavras. Qual é a palavra mais provável que deve vir a seguir de uma
+  sequência de palavras inicial? (Veja também texto do &lt;a href=&quot;https://c-taurion.medium.com/chatgpt-vai-tirar-seu-emprego-será-vamos-fazer-alguns-questionamentos-d6ea73c7293d&quot;&gt;Cezar
+  Taurion&lt;/a&gt;). Portanto, dado um texto de entrada, uma pergunta ou um
+  trecho de texto seguido de uma pergunta, o sistema tenta completar a
+  entrada, geralmente, produzindo como saída a resposta à sua
+  pergunta. Não vou entrar em detalhes, mas um princípio fundamental do
+  método é a semântica distributiva que diz podemos aprender o
+  significado das palavras a partir de seus usos e representá-lo como
+  vetores de N dimensões.&lt;/p&gt;
+&lt;p&gt;Tradicionalmente, o processamento de enunciados em linguagem natural
+  era geralmente feito de forma modular. Espelhando as áreas da
+  linguística: morfologia, sintática, semântica, pragmática etc. Os
+  cientistas da computação aprovam a ideia, visto que a modularidade
+  está no coração de todo programador. Dividimos tarefas e estruturas
+  complexas em simples que podem ser desenvolvidas de forma independente
+  e combinadas na solução final. Isso também é apoiado pela linguística
+  computacional, que usa sistemas e métodos computacionais para estudar
+  línguas, testando suas hipóteses.&lt;/p&gt;
+&lt;p&gt;Aprendemos a começar a partir de uma string, quebrá-la em tokens,
+  depois agrupar sequências de tokens (frases) e continuar adicionando
+  mais metadados a essas estruturas de dados ou combiná-las em outras
+  mais elaboradas. Geralmente consideramos tarefas como tokenização,
+  etiquetagem morfossintática, lematização, análise sintática/semântica,
+  reconhecimento de entidades nomeadas, desambiguação de sentido de
+  palavra etc. Temos várias bibliotecas que experimentam diferentes
+  formas de combinar estas tarefas. Bibliotecas como OpenNLP ou &lt;a href=&quot;https://nlp.lsi.upc.edu/freeling/&quot;&gt;Freeling&lt;/a&gt;
+  adotaram essa abordagem de sequência de tarefas. Sistemas mais
+  sofisticados entendem que os humanos não decidem necessariamente se
+  uma determinada palavra é um substantivo ou um verbo antes de
+  compreender sua contribuição para a frase, então, em vez de um
+  passo-a-passo sequencial de etapas independentes, usam uma abordagem
+  mais integrada. No entanto, a ideia é a mesma, a partir de uma string,
+  construir estruturas de dados (ou representações simbólicas) para
+  serem posteriormente enriquecidas ou usadas diretamente para
+  aplicações finais. As aplicações são respostas a perguntas, extração
+  de fatos de textos, análise de sentimentos, tradução etc.&lt;/p&gt;
+&lt;p&gt;Nos últimos anos, cada vez mais as tarefas descritas no último
+  parágrafo tendem a ignorar o conhecimento linguístico explícito
+  codificado como regras (por exemplo, regras morfossintáticas) ou
+  enumerados em recursos manualmente e cuidadosamente construídos como
+  dicionários léxico-semânticos (vejam https://wordnet.princeton.edu/ ou
+  https://nlp.cs.nyu.edu/nomlex/). Passamos a ver textos sendo anotados
+  para que os sistemas aprendam a reproduzir a mesma análise quando
+  processarem textos semelhantes. Vejam
+  https://universaldependencies.org/, uma vasta coleção de sentenças em
+  vários idiomas anotadas com análise sintática para treinar
+  analisadores sintáticos. Essa abordagem de aprender a partir de dados
+  anotados (exemplos) tornou-se popular e começou a dar às pessoas a
+  impressão errada de que o conhecimento linguístico profundo é
+  irrelevante.&lt;/p&gt;
+&lt;p&gt;Uma vez que muitos dados anotados se tornaram disponíveis
+  gratuitamente, as pessoas esqueceram o custo de construção desses
+  dados e o valor de seus anotadores e mantenedores, geralmente com
+  necessário treinamento linguístico. Além disso, engenheiros de
+  gramática, por exemplo, trabalhando em sólidos formalismos como HPSG e
+  LFG, na formalização cuidadosa das hipóteses linguísticas muitas vezes
+  descritas de forma imprecisa nas gramáticas tradicionais, tornaram-se
+  dinossauros, como programadores COBOL. (ou &lt;a href=&quot;https://en.wikipedia.org/wiki/Jedi&quot;&gt;Jedi&lt;/a&gt; se preferir)&lt;/p&gt;
+&lt;p&gt;Mas não parou ai. Mais tarde, os desenvolvedores de aplicativos de
+  NLP, encorajados pelo sucesso do aprendizado de máquina (em particular
+  aprendizado profundo e outros métodos não supervisionados) em muitas
+  tarefas, começaram a experimentar o aprendizado de ponta a ponta sem
+  considerar as tarefas intermediárias. Por que não tentar responder a
+  uma pergunta em linguagem natural diretamente a partir do texto de
+  entrada sem o custo de construir e manipular representações
+  intermediárias? Bem, não diretamente, mas adotando o mínimo possível
+  de representações que possam ser manipuladas universalmente. Isto é,
+  vetores. Uma vez que o texto de entrada é transformado em vetores ou
+  matrizes de números, precisamos apenas de uma biblioteca de álgebra
+  linear eficiente para manipulá-los. Sistemas mais simples podem ser
+  implantados mais rapidamente.&lt;/p&gt;
+&lt;p&gt;Portanto, esta é a tendência na área agora; dada a enorme quantidade
+  de texto que temos na internet, aprendemos a transformar palavras e
+  frases em vetores; transformamos nossos problemas em tarefas de
+  otimização e manipulamos os vetores para obter os parâmetros que
+  maximizam o desempenho do sistema dado um conjunto de dados de
+  referência. Os parâmetros definem a função que podemos usar em outros
+  textos para resolver o mesmo problema.&lt;/p&gt;
+&lt;p&gt;Os novos métodos e os novos modelos de linguagem são incrivelmente
+  eficientes para algumas tarefas, e o chatGPT impressiona muita
+  gente. Mas a eficiência em alguns casos práticos de uso nada tem a ver
+  com outros objetivos relacionados aos estudos das línguas
+  naturais. Como funcionam as línguas? Quais são suas partes
+  fundamentais? Como os humanos compreendem e produzem linguagem? Como
+  desenvolvemos um sistema tão competente quanto o ser humano no uso de
+  linguagem? Qual relação das línguas com nosso conhecimento etc. Veja
+  esta entrevista com &lt;a href=&quot;https://youtu.be/wPonuHqbNds&quot;&gt;Noam Chomsky&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para fazer uma analogia. Como o estudo do corpo humano, suas partes e
+  como elas funcionam juntas contribuiu para a medicina? No passado, a
+  medicina era uma coleção de práticas generalizadas a partir de
+  exemplos e, infelizmente, &lt;a href=&quot;https://en.wikipedia.org/wiki/Bloodletting&quot;&gt;falsas correlações&lt;/a&gt; foram tomadas como
+  relações de causa-efeito.&lt;/p&gt;
+&lt;p&gt;Desculpem a longa resposta; de qualquer forma, fiz muitas
+  simplificações para manter uma mensagem de tamanho razoável! ;-)&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Idéias de projetos 2022</title>
