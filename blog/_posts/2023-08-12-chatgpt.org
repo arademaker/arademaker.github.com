@@ -11,12 +11,10 @@ tags:
 #+PROPERTY: exports both
 
 A [[https://opennlp.apache.org/][OpenNLP]] é uma biblioteca Java para processamento de textos, em sua
-lista de discussão, ontem apareceu a pergunta (aqui traduzo a pergunta
-e minha resposta em seguida).
+lista de discussão, ontem apareceu a pergunta acima. Aqui traduzo
+minha resposta que também pode ser lida em inglês [[https://lists.apache.org/list.html?users@opennlp.apache.org][aqui]].
 
-: A biblioteca OpenNLP é usada pelo ChatGPT?
-
-Resposta curta: não
+Resposta curta: não.
 
 Uma resposta mais detalhada...
 
