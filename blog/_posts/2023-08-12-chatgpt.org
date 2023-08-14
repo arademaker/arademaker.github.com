@@ -24,7 +24,7 @@ professor Stephen Wolfram neste longo, mas informativo, [[https://writings.steph
 Você aprenderá que o chatGPT é baseado em um princípio simples. Um
 modelo de linguagem colossal foi treinado para fazer previsões de
 palavras. Qual é a palavra mais provável que deve vir a seguir de uma
-sequência de palavras inicial? (Veja também texto do [[https://c-taurion.medium.com/chatgpt-vai-tirar-seu-emprego-será-vamos-fazer-alguns-questionamentos-d6ea73c7293d][Cezar
+sequência inicial de palavras? (Veja também texto do [[https://c-taurion.medium.com/chatgpt-vai-tirar-seu-emprego-será-vamos-fazer-alguns-questionamentos-d6ea73c7293d][Cezar
 Taurion]]). Portanto, dado um texto de entrada, uma pergunta ou um
 trecho de texto seguido de uma pergunta, o sistema tenta completar a
 entrada, geralmente, produzindo como saída a resposta à sua
