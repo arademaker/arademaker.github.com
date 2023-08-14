@@ -4,7 +4,7 @@
  <title>Alexandre Rademaker</title>
  <link href="http://arademaker.github.com/atom.xml" rel="self"/>
  <link href="http://arademaker.github.com/"/>
- <updated>2023-08-12T20:10:25-03:00</updated>
+ <updated>2023-08-14T11:49:38-03:00</updated>
  <id>http://arademaker.github.com/</id>
  <author>
    <name>Alexandre Rademaker</name>
@@ -27,7 +27,7 @@
 &lt;p&gt;Você aprenderá que o chatGPT é baseado em um princípio simples. Um
   modelo de linguagem colossal foi treinado para fazer previsões de
   palavras. Qual é a palavra mais provável que deve vir a seguir de uma
-  sequência de palavras inicial? (Veja também texto do &lt;a href=&quot;https://c-taurion.medium.com/chatgpt-vai-tirar-seu-emprego-será-vamos-fazer-alguns-questionamentos-d6ea73c7293d&quot;&gt;Cezar
+  sequência inicial de palavras? (Veja também texto do &lt;a href=&quot;https://c-taurion.medium.com/chatgpt-vai-tirar-seu-emprego-será-vamos-fazer-alguns-questionamentos-d6ea73c7293d&quot;&gt;Cezar
   Taurion&lt;/a&gt;). Portanto, dado um texto de entrada, uma pergunta ou um
   trecho de texto seguido de uma pergunta, o sistema tenta completar a
   entrada, geralmente, produzindo como saída a resposta à sua
