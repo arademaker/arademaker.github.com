@@ -9,6 +9,12 @@ title: Teaching
 
 * {{ page.title }}
 
+** 2023
+
+- Introdução à Computação, graduação EMAp/FGV
+- Recuperação de dados e Introdução ao Processamento de Linguagem
+  Natural, graduação EMAp/FGV
+
 ** 2021
 
 - Análise de Algoritmos (Tópicos em Programação Funcional), Graduação EMAp, FGV
