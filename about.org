@@ -9,38 +9,34 @@ title: about me
 
 * {{ page.title }}
 
-Alexandre has a doctorate in Computer Science from [[http://www.inf.puc-rio.br][PUC-Rio]] (2010). He
-is a research scientist in [[http://researcher.ibm.com/person/br-alexrad ][IBM Research]] (Brazil Lab) and adjunct
+I finished my doctorate in Computer Science at [[http://www.inf.puc-rio.br][PUC-Rio]] (2010). I am a
+senior research scientist at [[http://researcher.ibm.com/person/br-alexrad ][IBM Research]] (Brazil Lab) and adjunct
 professor at the [[http://emap.fgv.br][Applied Mathematics Department]] from Getulio Vargas
-Foundation (Rio de Janeiro, Brazil).  He has written more than 90
-papers published in peer-reviewed journals and international
-conferences in his areas of expertise: logic, proof theory, knowledge
-representation and reasoning, language resources, computational
-linguistics, and type theory. He participates as a member of many
-program committees of regular conferences like ACL, COLING, LREC, and
-others. He is also a board member of the Global WordNet Association
-and coordinated the [[http://cepln.github.io][CE-PLN]] between 2017-219. Alexandre collaborates
-on maintaining many language resources and developing applications
-using these resources for 'deep' linguistic processing of human
-languages.
+Foundation (Rio de Janeiro, Brazil).
 
-During his Ph.D., Alexandre was an international fellow at Microsoft
+I wrote over 100 papers published in peer-reviewed journals and
+international conferences in: logic, proof theory, knowledge
+representation and reasoning, language resources, computational
+linguistics, and type theory. I participate as a member of many
+program committees of regular conferences like ACL, COLING, LREC, and
+others. I am also a board member of the Global WordNet Association and
+coordinated the [[http://cepln.github.io][CE-PLN]] between 2017-219. I collaborate on maintaining
+many language resources and developing applications using these
+resources for 'deep' linguistic processing of human languages.
+
+During my Ph.D., I made two international fellowships at Microsoft
 Research and SRI International. At MSR, in 2008, he worked with the [[https://en.wikipedia.org/wiki/Z3_Theorem_Prover][Z3
 SMT Solver]] team (Leonardo de Moura and Nikolaj Bjørner) developing a
 distributed environment for testing and optimizations of Z3. At [[http://www.sri.com/][SRI
 International]], in 2009, he worked under the supervision of Natarajan
-Shankar. Alexandre participated in several research projects like MIST
-(using natural language processing and description logics for
-Knowledge modeling), ANUBIS (database consistency check) and Ontology
-and Context (investigating the problem of ontology alignment). In his
-thesis, we proposed new deduction systems for description logics under
-the supervision of Edward Hermann Haeusler, published by Springer with
-the title [[https://www.amazon.com/Theory-Description-SpringerBriefs-Computer-Science-ebook/dp/B00A9YGJR0][A proof theory for Description Logics]] in 2012 in the
-Springer Briefs series.
+Shankar. In my thesis, I proposed new deduction systems for
+description logics under the supervision of Edward Hermann Haeusler,
+published by Springer with the title [[https://www.amazon.com/Theory-Description-SpringerBriefs-Computer-Science-ebook/dp/B00A9YGJR0][A proof theory for Description
+Logics]] in the Springer Briefs series.
 
 You can find more information at:
 
- - https://research.ibm.com/people/alexandre-rademaker
+ - [[https://research.ibm.com/people/alexandre-rademaker]]
  - [[http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/r/Rademaker:Alexandre.html][Publications at DBLP]]
  - [[http://scholar.google.com/citations?user=SWz6BjIAAAAJ]]
  - [[http://academic.research.microsoft.com/Author/2751793]]
