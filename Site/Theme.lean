@@ -53,15 +53,16 @@ def theme : Theme := { Theme.default with
                 <div class="contact">
                   <p>
                     "Alexandre Rademaker" <br/>
+                    "Director of " <a href="https://www.cslib.io">"CSLib"</a> <br/>
                     "Adjunct Professor at " <a href="https://emap.fgv.br">"EMAp/FGV"</a> <br/>
                     "arademaker AT gmail DOT com"
                   </p>
                 </div>
                 <div class="contact">
                   <p>
-                    <a href="https://github.com/arademaker">"GitHub"</a> <br/>
-                    <a href="https://scholar.google.com/citations?user=SWz6BjIAAAAJ">"Google Scholar"</a> <br/>
-                    <a href="http://lattes.cnpq.br/0675365413696898">"Lattes"</a> <br/>
+                    <a href="https://github.com/arademaker">"GitHub"</a> |
+                    <a href="https://scholar.google.com/citations?user=SWz6BjIAAAAJ">"Google Scholar"</a> |
+                    <a href="http://lattes.cnpq.br/0675365413696898">"Lattes"</a> |
                     <a href="https://twitter.com/arademaker">"Twitter/X"</a>
                   </p>
                 </div>
