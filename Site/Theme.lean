@@ -60,9 +60,9 @@ def theme : Theme := { Theme.default with
                 </div>
                 <div class="contact">
                   <p>
-                    <a href="https://github.com/arademaker">"GitHub"</a> "|"
-                    <a href="https://scholar.google.com/citations?user=SWz6BjIAAAAJ">"Google Scholar"</a> "|"
-                    <a href="http://lattes.cnpq.br/0675365413696898">"Lattes"</a> "|"
+                    <a href="https://github.com/arademaker">"GitHub"</a> " | "
+                    <a href="https://scholar.google.com/citations?user=SWz6BjIAAAAJ">"Google Scholar"</a> " | "
+                    <a href="http://lattes.cnpq.br/0675365413696898">"Lattes"</a> " | "
                     <a href="https://twitter.com/arademaker">"Twitter/X"</a>
                   </p>
                 </div>
