@@ -1,6 +1,5 @@
-_drafts/
-_site/
 *~
 .DS_Store
-DEPLOY
-
+_site/
+.lake/build/
+.lake/packages/

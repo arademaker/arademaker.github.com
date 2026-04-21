@@ -1,0 +1,20 @@
+name = "arademaker-site"
+version = "0.1.0"
+defaultTargets = ["Site", "generate-site"]
+
+[[require]]
+name = "verso"
+git = "https://github.com/leanprover/verso.git"
+rev = "v4.30.0-rc2"
+
+[[require]]
+name = "versowebcomponents"
+git = "https://github.com/leanprover/verso-web-components.git"
+rev = "main"
+
+[[lean_lib]]
+name = "Site"
+
+[[lean_exe]]
+name = "generate-site"
+root = "Main"

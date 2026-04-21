@@ -1,0 +1,128 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  background-color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Typography */
+h1 { font-size: 1.4em; margin-top: 1.8em; margin-bottom: 0.5em; color: #222; }
+h2, h3, h4, h5, h6 { font-size: 1.15em; margin-top: 1.4em; margin-bottom: 0.4em; color: #222; }
+p { margin: 0.7em 0; }
+a { color: #00a; text-decoration: none; }
+a:hover { color: black; text-decoration: underline; }
+a:visited { color: #a0a; }
+code, pre { font-family: 'Inconsolata', 'SF Mono', 'Menlo', 'Consolas', monospace; }
+
+/* Layout */
+div#outer { float: left; width: 100%; }
+div#top { height: 12px; float: left; width: 100%; background-color: #fff; }
+div#left {
+  width: 22%; margin: 2.5em auto 2em auto; float: left; text-align: center;
+}
+div#left img {
+  max-width: 180px; border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+div#right { width: 8%; float: left; }
+
+.site {
+  font-size: 1em; text-align: left; width: 65%;
+  float: left; margin: 2em auto 2em auto; line-height: 1.65;
+}
+
+/* Nav */
+.title {
+  font-weight: bold; margin-bottom: 2em;
+  padding-bottom: 1em; border-bottom: 1px solid #bbb;
+}
+.title a.name {
+  color: #a00; text-decoration: none; font-size: 1.25em;
+  letter-spacing: -0.01em;
+}
+.title a.name:hover { color: black; }
+.title a.nav {
+  color: #777; text-decoration: none; margin-left: 1.4em;
+  font-size: 0.85em; font-weight: normal;
+  transition: color 0.15s ease;
+}
+.title a.nav:hover { color: #a00; }
+
+/* Hide page title on front page */
+article > h1:first-child { display: block; }
+#frontpage > h1:first-child { display: none; }
+
+/* Lists */
+ul, ol { margin-left: 1.35em; }
+li { margin-bottom: 0.15em; }
+li p { margin: 0.2em 0; }
+
+/* Post lists */
+ul.posts { list-style-type: none; margin-bottom: 2em; }
+ul.posts li { line-height: 1.75em; }
+ul.posts span { color: #999; font-family: 'Inconsolata', 'SF Mono', monospace; font-size: 0.85em; }
+
+/* Post meta */
+.post-meta { color: #888; font-size: 0.88em; margin-bottom: 1.5em; }
+
+/* Code blocks */
+pre {
+  white-space: pre-wrap; border: 1px solid #ddd; background-color: #eef;
+  padding: 0 0.4em; border-radius: 4px; overflow-x: auto;
+  margin: 1em 0; font-size: 0.9em; line-height: 1.5;
+}
+code {
+  border: 1px solid #ddd; background-color: #eef;
+  font-size: 0.85em; padding: 0 0.2em; border-radius: 3px;
+}
+pre code { border: none; padding: 0; background: none; font-size: inherit; }
+
+/* Blockquote */
+blockquote {
+  background: #f9f9f9; border-left: 10px solid #ccc;
+  margin: 1.5em 10px; padding: 0.5em 10px;
+}
+blockquote p { display: inline; }
+
+/* Footer */
+.footer {
+  font-size: 0.85em; color: #666; border-top: 4px solid #eee;
+  margin-top: 3.5em; padding-top: 1.8em; width: 100%; overflow: hidden;
+}
+.footer .contact { float: left; width: 80%; }
+.footer .contact a { color: #8085C1; }
+.footer .contact p { line-height: 1.8; }
+
+/* Hamburger menu */
+.nav-toggle { display: none; }
+.nav-burger { display: none; cursor: pointer; }
+.nav-burger .bar {
+  display: block; width: 20px; height: 2px;
+  background-color: #666; margin: 4px 0;
+}
+
+/* Tooltips */
+.tippy-box { margin: initial; padding: initial; text-align: left; }
+.tippy-content { margin: initial; padding: 5px 9px; text-align: left; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  div#outer { float: none; }
+  div#left { width: 100%; float: none; text-align: center; margin: 1.5em 0; }
+  div#left img { max-width: 140px; }
+  .site { width: 90%; float: none; margin: 1em auto; }
+  .title { text-align: center; position: relative; }
+  div#right { display: none; }
+  div#top { height: 10px; }
+  .footer .contact { float: none; margin-bottom: 1em; }
+
+  .nav-burger { display: inline-block; vertical-align: middle; margin-left: 1em; }
+  .nav-links { display: none; width: 100%; padding: 0.5em 0; }
+  .nav-links a.nav { display: block; margin: 0.4em 0; margin-left: 0; font-size: 0.95em; }
+  .nav-toggle:checked ~ .nav-links { display: block; }
+}
