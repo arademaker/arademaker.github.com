@@ -8,7 +8,7 @@ showInNav := false
 htmlId := some "frontpage"
 %%%
 
-I am Director of [CSLib](https://www.cslib.io) (Computer Science Library in Lean) at [Renaissance Philanthropy](https://www.renaissancephilanthropy.org), a global open-source initiative funded by Amazon and Google building a formal library of computer science in Lean. I am also a participant in DARPA's ExpMath programme on AI-assisted mathematical formalization.
+I am an adjunct professor at [EMAp/FGV](https://emap.fgv.br/professores/alexandre-rademaker) (Applied Mathematics School, Getulio Vargas Foundation, Rio de Janeiro). I am also serving as Director of [CSLib](https://www.cslib.io) (Computer Science Library in Lean) at [Renaissance Philanthropy](https://www.renaissancephilanthropy.org), a global open-source initiative funded by Amazon and Google, and a participant in DARPA's ExpMath programme on AI-assisted mathematical formalization.
 
 # Current Work
 
