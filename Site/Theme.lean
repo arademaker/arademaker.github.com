@@ -53,8 +53,8 @@ def theme : Theme := { Theme.default with
                 <div class="contact">
                   <p>
                     "Alexandre Rademaker" <br/>
-                    "Director of " <a href="https://www.cslib.io">"CSLib"</a> <br/>
                     "Adjunct Professor at " <a href="https://emap.fgv.br">"EMAp/FGV"</a> <br/>
+                    "Director of " <a href="https://www.cslib.io">"CSLib"</a> <br/>
                     "arademaker AT gmail DOT com"
                   </p>
                 </div>
