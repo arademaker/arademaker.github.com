@@ -28,7 +28,7 @@ def theme : Theme := { Theme.default with
           <div id="outer">
             <div id="top"></div>
             <div id="left">
-              <img src="/static/images/arademaker.jpeg" alt="Alexandre Rademaker"/>
+              <img src="/static/images/arademaker.png" alt="Alexandre Rademaker"/>
             </div>
             <div class="site">
               <div class="title">
