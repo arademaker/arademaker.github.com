@@ -15,6 +15,8 @@ At SRI, in 2009, I worked under the supervision of Natarajan Shankar.
 
 My work in computational linguistics has produced several language resources for Portuguese processing. The two main ones are the Portuguese Wordnet, available at [openWordnet-PT](https://own-pt.github.io/openWordnet-PT/), and Portuguese treebanks at [Universal Dependencies](https://universaldependencies.org). Other resources can be found at [LR-POR](https://github.com/LR-POR) and [own-pt](https://github.com/own-pt/).
 
+From April to December 2025, I led the [Specification IDE](https://atlascomputing.org/projects) project at [Atlas Computing](https://atlascomputing.org), part of the [Formal Verification of Software](https://www.schmidtsciences.org/trustworthy-ai/#modal-formal-verification-of-software) initiative funded by [Schmidt Sciences](https://www.schmidtsciences.org) under their Science of Trustworthy AI programme. The project prototyped a tool to help users with no formal methods background understand formal specifications, by mapping subsections of a spec to natural language descriptions and annotating the comparison. This work contributed to a broader collaboration with CSLib and the Lean community, grounding specifications in mathematical foundations to provide strong guarantees for AI-produced software.
+
 # Links
 
 - [LinkedIn](https://www.linkedin.com/in/alexandrerademaker/)

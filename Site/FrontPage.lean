@@ -13,5 +13,5 @@ I am an adjunct professor at [EMAp/FGV](https://emap.fgv.br/professores/alexandr
 # Current Work
 
 - [CSLib](https://www.cslib.io)
-- [A port of Amazon's s2n-bignum formal verification to Lean 4](https://github.com/atlas-computing-org/bignum)
+- [A port of Amazon's s2n-bignum formal verification to Lean 4](https://github.com/arademaker/bignum)
 - [expMath: Exponentiating Mathematics](https://www.darpa.mil/research/programs/expmath-exponential-mathematics)
