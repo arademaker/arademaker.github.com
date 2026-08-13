@@ -8,6 +8,7 @@ open Verso Genre Blog
 - [Programming with Proofs (ua-PwP-2026)](https://github.com/ua-PwP-2026)
 - [Introdução à Computação (emap-20261-ic)](https://github.com/emap-20261-ic/)
 - [Técnicas e Análise de Algoritmos (emap-20261-taa)](https://github.com/emap-20261-taa)
+- [Processamento de Linguagem Natural (Computational Semantics)](https://github.com/emap-nlp) — [Graduação em Ciência de Dados e Inteligência Artificial](https://emap.fgv.br/)
 
 # EMAp/FGV
 
