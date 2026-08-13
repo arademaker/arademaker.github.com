@@ -22,6 +22,8 @@ static_files/
   images/                  # Photos and images
 files/                     # PDFs (papers, slides)
 _bibliography/             # BibTeX source (rademaker.bib)
+scripts/
+  check_links.sh           # Checks that hyperlinks in Site/ resolve
 ```
 
 ## Building
@@ -51,6 +53,19 @@ Then open http://localhost:8080.
 3. Add `import Site.Blog.MyPostTitle` to both `Site.lean` and `Main.lean`
 4. Add `Site.Blog.MyPostTitle` to the `"blog" Site.Blog with` block in `Main.lean`
 5. Run `lake build` to verify it compiles
+
+## Checking links
+
+To verify that every hyperlink referenced in `Site/**/*.lean` still resolves:
+
+```bash
+scripts/check_links.sh
+```
+
+It exits non-zero and lists any URL that returned an HTTP error or failed to
+connect. Some sites (e.g. ResearchGate, LinkedIn) block automated requests
+and may show up as false positives — check manually in a browser before
+assuming a flagged link is actually dead.
 
 ## Deployment
 

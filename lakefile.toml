@@ -5,7 +5,7 @@ defaultTargets = ["Site", "generate-site"]
 [[require]]
 name = "verso"
 git = "https://github.com/leanprover/verso.git"
-rev = "v4.30.0-rc2"
+rev = "v4.33.0"
 
 [[require]]
 name = "versowebcomponents"
