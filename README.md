@@ -14,6 +14,7 @@ Site/
   About.lean               # About page
   Publications.lean        # Publications (links to Google Scholar, DBLP, ORCID)
   Teaching.lean            # Teaching history
+  Presentations.lean       # Talks and slides, grouped by year
   Blog.lean                # Blog section
   Blog/
     Placeholder.lean       # Example post (template for new posts)
@@ -34,6 +35,41 @@ Install [elan](https://github.com/leanprover/elan) (the Lean version manager), t
 lake update     # download dependencies (first time only)
 lake build      # compile the site
 ```
+
+## Lean and Verso versions
+
+The site pins three things that must agree:
+
+- `lean-toolchain` — the Lean toolchain (currently `leanprover/lean4:v4.34.0`)
+- `lakefile.toml` — `verso` and `versowebcomponents`, both at the matching tag (`rev = "v4.34.0"`)
+- `lake-manifest.json` — the exact commits resolved by `lake update`
+
+Both Verso repositories publish a tag for every Lean release (`v4.34.0`,
+`v4.35.0-rc1`, …), so always use the **same tag** for both and set
+`lean-toolchain` to the corresponding Lean version. Never track `main`:
+`lake update` copies the toolchain of the dependencies into
+`lean-toolchain`, so a dependency on `main` can silently move the site to
+a release candidate that Verso does not yet build against.
+
+Prefer stable releases over release candidates. For example, the `lake`
+binary shipped with `v4.34.0-rc1` crashes (exit code 133, SIGTRAP) on
+recent macOS, even for `lake --version`, while stable releases work.
+
+### Upgrading
+
+1. Find a tag present in both
+   [verso](https://github.com/leanprover/verso/tags) and
+   [verso-web-components](https://github.com/leanprover/verso-web-components/tags):
+   ```bash
+   git ls-remote --tags https://github.com/leanprover/verso | grep v4.
+   git ls-remote --tags https://github.com/leanprover/verso-web-components | grep v4.
+   ```
+2. Set both `rev` entries in `lakefile.toml` to that tag.
+3. Run `lake update`, then check that `lean-toolchain` contains the
+   matching `leanprover/lean4:<tag>` (fix it by hand if not).
+4. Run `lake build` and `.lake/build/bin/generate-site`, and inspect the
+   site locally before committing `lakefile.toml`, `lake-manifest.json`
+   and `lean-toolchain` together.
 
 ## Running locally
 
