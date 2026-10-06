@@ -3,6 +3,7 @@ import Site.FrontPage
 import Site.About
 import Site.Publications
 import Site.Teaching
+import Site.Presentations
 
 import Site.Categories
 import Site.Blog

@@ -4,6 +4,7 @@ import Site.FrontPage
 import Site.About
 import Site.Publications
 import Site.Teaching
+import Site.Presentations
 
 import Site.Categories
 import Site.Blog
@@ -17,6 +18,7 @@ def mySite : Site := site Site.FrontPage /
   "about" Site.About
   "publications" Site.Publications
   "teaching" Site.Teaching
+  "presentations" Site.Presentations
   "blog" Site.Blog with
     Site.Blog.Placeholder
 
